@@ -50,6 +50,7 @@ _**"Nice-to-haves"**_
 #### Structure Plane
 
 #### Skeleton Plane
+![Open Bionics - Home page wireframe](media/readme/wireframes-home.png)
 
 #### Surface Plane
 
