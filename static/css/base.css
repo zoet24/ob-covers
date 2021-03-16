@@ -11,6 +11,11 @@ body {
 	font-size: 16px;
 }
 
+.row, .col, .container-fluid, .container-compress, h1, h2, h3, h4, h5, h6 {
+	padding: 0;
+	margin: 0 auto;
+}
+
 /* STYLES */
 .text-centre {
 	text-align: center;
@@ -30,6 +35,15 @@ body {
 }
 
 /* HEADINGS */
+h1 {
+	font-size: 2em;
+	font-family: 'Poppins', sans-serif;
+	text-transform: uppercase;
+}
+
+h4 {
+    font-size: 1em;
+}
 
 /* NAV AND FOOTER */
 nav, footer {
@@ -89,7 +103,7 @@ footer {
 	border: none;
 	outline: none;
 	height: 35px;
-	width: 75%;
+	width: 82.5%;
 	margin-left: 15px;
 }
 
