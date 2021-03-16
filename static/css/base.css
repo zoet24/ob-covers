@@ -25,15 +25,6 @@ body {
 	border: solid 2px black;
 }
 
-.link {
-	color: #1c86c8;
-}
-
-.link:hover {
-	color: #1c86c8;
-	text-decoration: underline;
-}
-
 /* HEADINGS */
 h1 {
 	font-size: 2em;
@@ -43,6 +34,38 @@ h1 {
 
 h4 {
     font-size: 1em;
+}
+
+/* COMPONENTS */
+.icon {
+	color: white;
+	background-color: #1c86c8;
+	font-size: 22px;
+
+	height: 40px;
+	width: 40px;
+	border-radius: 50%;
+	border: white solid 2px;
+
+	text-decoration: none;
+
+	transition: all 0.25s ease-in-out;
+}
+
+.icon:hover {
+	color: #1c86c8;
+	background-color: white;
+
+	text-decoration: none;
+}
+
+a {
+	color: #1c86c8;
+}
+
+a:hover {
+	color: #1c86c8;
+	text-decoration: underline;
 }
 
 /* NAV AND FOOTER */
@@ -88,7 +111,7 @@ footer {
 .navbar-search {
 	height: 40px;
 	border-radius: 20px;
-	border: white solid 2px;
+    border: white solid 2px;
 }
 
 .navbar-search-sidebar {
@@ -108,11 +131,11 @@ footer {
 }
 
 .navbar-icon-search {
-	color: white;
-	background-color: #1c86c8;
+    color: white;
+    background-color: #1c86c8;
 	font-size: 18px;
-	border: none;
-	border-radius: 50%;
+    border: none;
+    border-radius: 50%;
 	height: 35px;
 	margin-right: 0px;
 }
@@ -123,30 +146,8 @@ footer {
   opacity: 1; /* Firefox */
 }
 
-.navbar-icon {
-	color: white;
-	background-color: #1c86c8;
-	font-size: 22px;
-
-	height: 40px;
-	width: 40px;
-	border-radius: 50%;
-	border: white solid 2px;
-
-	text-decoration: none;
-
-	transition: all 0.25s ease-in-out;
-}
-
 .footer-icon {
 	padding-top: 6px;
-}
-
-.navbar-icon:hover {
-	color: #1c86c8;
-	background-color: white;
-
-	text-decoration: none;
 }
 
 .navbar-nav {
@@ -241,21 +242,21 @@ footer {
 }
 
 @media (min-width: 768px) {
-	.navbar-search input {
-		width: 250px;
-	}
-
-	.navbar-icon {
+    .icon {
 		margin: 0px 3px;
+    }
+    
+    .navbar-search input {
+		width: 250px;
 	}
 }
 
-@media (min-width: 992px) {
-	.navbar-search input {
-		width: 350px;
-	}
-
-	.navbar-icon {
+@media (min-width: 992px) {    
+    .icon {
 		margin: 0px 6px;
+    }
+    
+    .navbar-search input {
+		width: 350px;
 	}
 }
