@@ -54,8 +54,8 @@
                 <img class="d-none d-sm-block" id="logo-nav" src="/media/logos/logo-white.png" alt="OB logo" />
                 <img class="d-sm-none" id="logo-nav-circle" src="/media/logos/logo-blue-circle.png" alt="OB logo" />
             </a>
-            <form class="navbar-search d-none d-sm-block">
-                <input type="text" placeholder="Search" aria-label="Search">
+            <form class="navbar-search d-none d-sm-block" method="GET" action="">
+                <input type="text" name="q" placeholder="Search" aria-label="Search">
                 <button class="navbar-icon-search" type="submit">
                     <span><i class="fas fa-search"></i></span>
                 </button>
@@ -75,38 +75,9 @@
                     <span><i class="fas fa-bars"></i></span>
                 </button>
             </div>
-            <!-- Navigation sidebar -->
-            <div class="sidebar" id="sidebar-nav">
-                <button class="icon sidebar-close" onclick="closeSidebar()">
-                    <span><i class="fas fa-times"></i></span>
-                </button>
-                <!-- Nav links in sidebar -->
-                <ul class="navbar-nav-sidebar">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">All Covers</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Classic</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Stylish</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Premium</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Disney</a>
-                    </li>
-                </ul>
-                <!-- Search bar in sidebar -->
-                <form class="navbar-search navbar-search-sidebar d-sm-none">
-                    <input type="text" placeholder="Search" aria-label="Search">
-                    <button class="navbar-icon-search" type="submit">
-                        <span><i class="fas fa-search"></i></span>
-                    </button>
-                </form>
-            </div>
         </div>
+        <!-- Mobile navigation sidebar -->
+        {% include 'includes/sidebar-mobilenav.html' %}
         <!-- Second row of navbar -->
         <div class="navbar navbar-bottom d-none d-sm-block">
             <!-- Nav links in navbar -->
@@ -131,19 +102,8 @@
     </nav>
 
     <!-- Sidebars -->
-    <div class="sidebar" id="sidebar-fav">
-        <button class="icon sidebar-close" onclick="closeSidebar()">
-            <span><i class="fas fa-times"></i></span>
-        </button>
-        <h1>Favourites <i class="fas fa-heart"></i></h1>
-    </div>
-
-    <div class="sidebar" id="sidebar-basket">
-        <button class="icon sidebar-close" onclick="closeSidebar()">
-            <span><i class="fas fa-times"></i></span>
-        </button>
-        <h1>Shopping Basket <i class="fas fa-shopping-basket"></i></h1>
-    </div>
+    {% include 'includes/sidebar-favourites.html' %}
+    {% include 'includes/sidebar-shoppingbasket.html' %}
 
     <!-- Top - Filler -->
     <div class="filler-top"></div>
