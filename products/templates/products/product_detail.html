@@ -13,6 +13,9 @@
                 </a>
                 <h4>{{ product.name }}</h4>
                 <h4>{{ product.price }}</h4>
+                <a href="{% url 'products' %}?category={{ product.category.name }}">
+                    <i class="fas fa-tag"></i>{{ product.category.friendly_name }}
+                </a>
                 <h4>{{ product.description }}</h4>
             </div>
         </div>
