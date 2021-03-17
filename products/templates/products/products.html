@@ -9,7 +9,9 @@
         <div class="row">
             {% for product in products %}
                 <div class="col">
-                    <img src="{{ product.image_url }}" alt="{{ product.name }}">
+                    <a href="{% url 'product_detail' product.id %}">
+                        <img src="{{ product.image_url }}" alt="{{ product.name }}">
+                    </a>
                     <h4>{{ product.name }}</h4>
                     <h4>{{ product.price }}</h4>
                 </div>
