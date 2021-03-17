@@ -9,16 +9,16 @@
             <a class="nav-link" href="{% url 'products' %}">All Covers</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Classic</a>
+            <a class="nav-link" href="{% url 'products' %}?category=classic">Classic</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Stylish</a>
+            <a class="nav-link" href="{% url 'products' %}?category=stylish">Stylish</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Premium</a>
+            <a class="nav-link" href="{% url 'products' %}?category=premium">Premium</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Disney</a>
+            <a class="nav-link" href="{% url 'products' %}?category=disney">Disney</a>
         </li>
     </ul>
     <!-- Search bar in sidebar -->
