@@ -16,6 +16,7 @@
 Click **[here](readme.md)** to return to the main document.
 
 ## Testing During Development
+- Bug with +/- buttons when product detail page and shopping basket open at same time
 
 ## Code Validation
 

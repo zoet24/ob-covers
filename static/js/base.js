@@ -23,10 +23,10 @@ function openSidebarBasket() {
         document.getElementById("sidebar-basket").style.width = "50%";
     }
     else if (window.innerWidth <= 992) {
-        document.getElementById("sidebar-basket").style.width = "33%";
+        document.getElementById("sidebar-basket").style.width = "50%";
     }
     else {
-    	document.getElementById("sidebar-basket").style.width = "25%";
+    	document.getElementById("sidebar-basket").style.width = "50%";
     }
 }
 
