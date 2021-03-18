@@ -25,4 +25,6 @@ urlpatterns = [
     path('', include('home.urls')),
     path('products/', include('products.urls')),
     path('add/<item_id>/', views.add_to_bag, name='add_to_bag'),
+    path('adjust/<item_id>/', views.adjust_bag, name='adjust_bag'),
+    path('remove/<item_id>/', views.remove_from_bag, name='remove_from_bag'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
