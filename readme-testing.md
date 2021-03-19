@@ -16,7 +16,8 @@
 Click **[here](readme.md)** to return to the main document.
 
 ## Testing During Development
-- Bug with +/- buttons when product detail page and shopping basket open at same time
+- Bug - update link in shopping basket redirects to blank page (adjust/x), needed to add hidden redirect url into bottom of form
+- Bug - +/- buttons when product detail page and shopping basket open at same time
 
 ## Code Validation
 

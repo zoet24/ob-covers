@@ -7,6 +7,7 @@ def add_to_bag(request, item_id):
 
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
+    print("This is the redirect:" + redirect_url)
     bag = request.session.get('bag', {})
 
     if item_id in list(bag.keys()):
@@ -19,22 +20,19 @@ def add_to_bag(request, item_id):
 
 
 def adjust_bag(request, item_id):
-    """Adjust the quantity of the specified product to the specified amount"""
+    """Remove the item from the shopping bag"""
+    quantity = int(request.POST.get('quantity'))
+    bag = request.session.get('bag', {})
+    redirect_url = request.POST.get('redirect_url')
+    print("This is the redirect:" + redirect_url)
 
-    try:
-        quantity = int(request.POST.get('quantity'))
-        bag = request.session.get('bag', {})
+    if quantity > 0:
+        bag[item_id] = quantity
+    else:
+        bag.pop(item_id)
 
-        if quantity > 0:
-            bag[item_id] = quantity
-        else:
-            bag.pop(item_id)
-
-        request.session['bag'] = bag
-        return HttpResponse(status=200)
-
-    except Exception as e:
-        return HttpResponse(status=500)
+    request.session['bag'] = bag
+    return redirect(redirect_url)
 
 
 def remove_from_bag(request, item_id):
