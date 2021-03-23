@@ -28,4 +28,5 @@ urlpatterns = [
     path('adjust/<item_id>/', views.adjust_bag, name='adjust_bag'),
     path('remove/<item_id>/', views.remove_from_bag, name='remove_from_bag'),
     path('checkout/', include('checkout.urls')),
+    path('profile/', include('profiles.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
