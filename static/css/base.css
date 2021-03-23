@@ -58,6 +58,7 @@ h4 {
 	border-radius: 50%;
 	border: white solid 2px;
 
+    text-align: center;
 	text-decoration: none;
 
 	transition: all 0.25s ease-in-out;
