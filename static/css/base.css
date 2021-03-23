@@ -58,7 +58,9 @@ h4 {
 	border-radius: 50%;
 	border: white solid 2px;
 
-    text-align: center;
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
 	text-decoration: none;
 
 	transition: all 0.25s ease-in-out;
@@ -78,6 +80,10 @@ a {
 a:hover {
 	color: #1c86c8;
 	text-decoration: underline;
+}
+
+.footer-icons a:hover {
+    text-decoration: none;
 }
 
 .btt-button {
@@ -168,10 +174,6 @@ footer {
   color: white;
   text-transform: uppercase;
   opacity: 1; /* Firefox */
-}
-
-.footer-icon {
-	padding-top: 6px;
 }
 
 .navbar-nav {
