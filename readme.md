@@ -41,12 +41,12 @@ Click **[here](https://github.com/zoet24/ob-covers)** to view the Github reposit
 
 I started the design process for _OB Covers_ by considering the goals of the developer (me), the site owner (the sales team at Open Bionics) and the site users (our current customer base and prospective future customers) and categorised them into groups of functionality.
 
-_**General**_
+_General_
 
 1. As the developer, I want to create a full-stack e-commerce platform where site users can browse and purchase products and where site owners can add, edit and delete products to complete the fourth Code Institute Milestone Project.
 2. As the developer, I want the website to function well to demonstrate my ability to code in JavaScript, Python and Django and to create a positive UX experience for the site users.
 
-_**Aesthetic, Branding and UX**_
+_Aesthetic, Branding and UX_
 
 3. As the developer, I want the website to be aesthetically pleasing and easy to use to demonstrate my ability to code in HTML and CSS and to create a positive UX experience for the site users.
 4. As the site owner, I want the aesthetic of the website to match our existing brand to adhere to our established brand identity.
@@ -55,7 +55,7 @@ _**Aesthetic, Branding and UX**_
 7. As the site owner, I want to promote our main product to increase the likelihood of making a Hero Arm sale.
 8. As a site user, I want feedback when I successfully/unsuccessfully complete an action on the website.
 
-_**Registration and User Accounts**_
+_Registration and User Accounts_
 
 9. As a site user, I want to be able to easily register for an account.
 10. As a site user, I want to be able to easily log in and log out of my account.
@@ -64,7 +64,7 @@ _**Registration and User Accounts**_
 13. As a site user, I want to be able to easily report an issue with my product if it arrives damaged or if it breaks while I’m using it.
 14. As a site user, I want to receive a confirmation email when I create a new account to confirm my details.
 
-_**Viewing and Navigation**_
+_Viewing and Navigation_
 
 15. As the site owner, I want it to be easy for a site user to navigate to our main website in case they have come to OB Covers by mistake.
 16. As a site user, I want to be able to view a list of products to select some to purchase.
@@ -75,13 +75,13 @@ _**Viewing and Navigation**_
 21. As a site user, I want to be able to easily identify "newly added" products in case I am interested in purchasing them.
 22. As a site user, I want to be able to view my selection of products and see how much they will cost to avoid spending too much.
 
-_**Sorting and Searching**_
+_Sorting and Searching_
 
 23. As a site user, I want to be able to customise my product to match my specific style.
 24. As a site user, I want to be able sort products based on name, price, type, colour and brand.
 25. As a site user, I want to be able to search for products based on name and description.
 
-_**Purchasing and Checkout**_
+_Purchasing and Checkout_
 
 26. As a site user, I want to be able to easily adjust the quantity of products from my shopping cart to reflect what I actually want to buy.
 27. As a site user, I want to be able to save products that I might buy in the future but don’t want to buy immediately.
@@ -90,7 +90,7 @@ _**Purchasing and Checkout**_
 30. As a site user, I want to see an order confirmation after I pay to ensure I haven’t made any mistakes.
 31. As a site user, I want to receive a confirmation email when I place an order to confirm my details.
 
-_**Admin**_
+_Admin_
 
 32. As a site owner, I want to be able to add products when we add new designs to our product range.
 33. As a site owner, I want to be able to edit products when our product range changes.
@@ -102,9 +102,52 @@ _**Admin**_
 
 #### Scope Plane
 
+I used my user stories to create a list of "must-have" features which I organised using the same categories as above. I also made a "nice-to-have" list of features that I could include after completing the MVP if I had time.
+
 _**"Must-haves"**_
 
+_Aesthetic, Branding and UX_
+
+1. The site must be aesthetically pleasing across all platforms and create a positive UX experience for all users.
+2. The aesthetic of the site must match the current branding of Open Bionics.
+3. The site must have spaces to advertise new products, deals and promotions for the Hero Arm.
+4. The site must provide the user with positive/negative feedback whenever they complete an action on the site (eg. add a product to their basket, sign up for a new account).
+
+_Registration and User Accounts_
+
+5. The site must allow users to create an account that they can log in and out of.
+6. The site must confirm the details of the user's account in an email after they have registered, and allow them to recover their log in details in an email if they have forgotten them.
+7. The user’s account must be personalised with their delivery details and order history.
+
+_Viewing and Navigation_
+
+8. The site must have clear navigation to the main Open Bionics page.
+9. The site must have a variety of clearly displayed products for the user to look through, with additional details that are easily accessible.
+10. It must be clear if these products are "low stock", "out of stock", "newly added" or in some sort of promotion.
+11. The sum of the products in the user's shopping cart must be easily accessible.
+
+_Sorting and Searching_
+
+12. The site must allow users to sort products based on name, price, type, colour and brand.
+13. The site must allow users to search for products based on name and description.
+
+_Purchasing and Checkout_
+
+14. The site must allow users to easily adjust and remove items from their shopping cart.
+15. The site must allow users to save items for purchase at a later date.
+16. The site must allow users to input their delivery and payment information easily and not create unnecessary hassle at the checkout.
+17. The site must present the user with a confirmation of their order after they pay and send them details of their order in a confirmation email.
+
+_Admin_
+
+18. The site must allow admin users to add, edit and delete products and mark them as "newly added" or "unavailable".
+19. The site must automatically mark products as "low stock" or "out of stock" depending on inventory availability.
+
 _**"Nice-to-haves"**_
+
+1. The user's account could be personalised with additional details (photos of them wearing the products that could be used to generate social media content, link to the Open Bionics App etc).
+2. The site could allow users to report issues about their orders and Hero Arm.
+3. The site could allow users to customise the colours of their covers (ie. instead of buying a full set of one colour, they could mix and match multiple colours).
 
 #### Structure Plane
 
