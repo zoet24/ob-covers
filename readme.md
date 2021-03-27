@@ -98,7 +98,6 @@ _Admin_
 35. As a site owner, I want products to automatically update to "out of stock" if we don’t have any in our inventory to prevent customers from placing orders we can’t fulfill.
 36. As a site owner, I want to be able to temporarily mark products as "new" when new products are added to our range.
 37. As a site owner, I want to be able to temporarily mark products as "unavailable" if there is an issue with supply.
-38. As a site owner, I only want Hero Arm users to be able to buy covers - customers who don’t currently have a Hero Arm should **not be able** to make a purchase.
 
 #### Scope Plane
 
@@ -148,8 +147,22 @@ _**"Nice-to-haves"**_
 1. The user's account could be personalised with additional details (photos of them wearing the products that could be used to generate social media content, link to the Open Bionics App etc).
 2. The site could allow users to report issues about their orders and Hero Arm.
 3. The site could allow users to customise the colours of their covers (ie. instead of buying a full set of one colour, they could mix and match multiple colours).
+4. The site could have a more advanced search filter for the products instead of the basic template shown on the Boutique Ado mini project.
 
 #### Structure Plane
+
+Based on the features outlined in my scope and the pages included in the Boutique Ado mini project, I decided I wanted to include the following pages on my website:
+
+- The Home page welcomes the user to the site, presents the user with calls to action to explore the product range and has space for advertising deals, new products and the Hero Arm.
+- There are five Products pages - “All Covers”, “Classic”, “Stylish”, “Premium” and “Disney” - which show tiles of the products with name and price. Hovering over the product image allows you to add the product to your favourites or your shopping cart, and clicking on the product image takes you to the individual product page.
+- Individual Product Detail pages show product image, name, price, colour options, delivery information and description with buttons to increase/decrease desired quantity of covers, add them to the shopping cart or save them as a favourite. The warranty information is also available on this page.
+- The Log In and Sign Up pages allow the user to log in to/create their profile so they can access their personalised information.
+- The Profile page has the user’s saved delivery information and order history.
+- The Favourites and Shopping Cart pages are available across the site as a sidebar that expands when you click on the corresponding icon in the navbar. The Favourites sidebar has the user’s saved products with the option to add them to the basket, and a link to the main Open Bionics website. The Shopping Cart sidebar has the user’s selected items with the option to increase/decrease the quantity, a drop down selection for delivery information, a total sum of the order cost, and a link to the main Open Bionics website.
+- The Checkout page has a form for the user to enter their delivery information and a summary of their order on the right. When the user submits their order they are taken to an order confirmation page which shows them their order details and a link back to the main site.
+- The Product Management page has a form that allows the admin user to add new products to the product range. The admin user can edit and remove products from the Product and Product Details pages.
+- The navbar contains the Open Bionics logo which links to the Home page, a search bar which allows the user to search for products based on name and description, icons for the Profile page, Favourites sidebar and Shopping Cart sidebar and links to all of the Products pages.
+- The site provides the user with feedback on their actions in the form of a message bubble at the top left of the screen - the message bubble will be formatted differently depending on the content of the message.
 
 #### Skeleton Plane
 ![Open Bionics - Home page wireframe](media/readme/wireframes-home.png)
