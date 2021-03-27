@@ -62,19 +62,19 @@
             </form>
             <!-- Profile, favourite, basket, nav icons -->
             <div class="justify-content-end">
-                <a class="icon" type="button" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <button class="icon" type="button" onclick="openProfileDropdown()">
                     <span><i class="fas fa-user"></i></span>
-                </a>
-                <div class="dropdown-menu border-0" aria-labelledby="user-options">
+                </button>
+                <div class="nav-profile-dropdown-menu" id="nav-profile-dropdown-menu">
                     {% if request.user.is_authenticated %}
                         {% if request.user.is_superuser %}
-                            <a href="{% url 'add_product' %}" class="dropdown-item">Product Management</a>
+                            <a href="{% url 'add_product' %}" class="nav-profile-dropdown-item">Product Management</a>
                         {% endif %}
-                        <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
-                        <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+                        <a href="{% url 'profile' %}" class="nav-profile-dropdown-item">My Profile</a>
+                        <a href="{% url 'account_logout' %}" class="nav-profile-dropdown-item">Logout</a>
                     {% else %}
-                        <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
-                        <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+                        <a href="{% url 'account_signup' %}" class="nav-profile-dropdown-item">Register</a>
+                        <a href="{% url 'account_login' %}" class="nav-profile-dropdown-item">Login</a>
                     {% endif %}
                 </div>
                 <button class="icon" type="button" onclick="openSidebarFav()">

@@ -1,3 +1,7 @@
+function openProfileDropdown() {
+  document.getElementById("nav-profile-dropdown-menu").classList.toggle("show");
+}
+
 function openSidebarFav() {
 	document.getElementById("sidebar-fav").style.borderWidth = "4px"
 	if (window.innerWidth <= 576) {
@@ -43,3 +47,5 @@ function closeSidebar() {
   document.getElementById("sidebar-basket").style.borderWidth = "0px";
   document.getElementById("sidebar-nav").style.borderWidth = "0px";
 }
+
+// Add function for clicking out of sidebars and menus to close (https://www.w3schools.com/howto/howto_js_dropdown.asp)

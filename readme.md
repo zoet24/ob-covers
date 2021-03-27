@@ -83,7 +83,7 @@ _Sorting and Searching_
 
 _Purchasing and Checkout_
 
-26. As a site user, I want to be able to easily adjust the quantity of products from my shopping cart to reflect what I actually want to buy.
+26. As a site user, I want to be able to easily adjust the quantity of products from my shopping basket to reflect what I actually want to buy.
 27. As a site user, I want to be able to save products that I might buy in the future but don’t want to buy immediately.
 28. As a site user, I want to be able to easily enter my payment and delivery details so I can check out quickly with no hassle.
 29. As a site user, I want to be confident that my payment information is safe and secure.
@@ -123,7 +123,7 @@ _Viewing and Navigation_
 8. The site must have clear navigation to the main Open Bionics page.
 9. The site must have a variety of clearly displayed products for the user to look through, with additional details that are easily accessible.
 10. It must be clear if these products are "low stock", "out of stock", "newly added" or in some sort of promotion.
-11. The sum of the products in the user's shopping cart must be easily accessible.
+11. The sum of the products in the user's shopping basket must be easily accessible.
 
 _Sorting and Searching_
 
@@ -132,7 +132,7 @@ _Sorting and Searching_
 
 _Purchasing and Checkout_
 
-14. The site must allow users to easily adjust and remove items from their shopping cart.
+14. The site must allow users to easily adjust and remove items from their shopping basket.
 15. The site must allow users to save items for purchase at a later date.
 16. The site must allow users to input their delivery and payment information easily and not create unnecessary hassle at the checkout.
 17. The site must present the user with a confirmation of their order after they pay and send them details of their order in a confirmation email.
@@ -154,15 +154,17 @@ _**"Nice-to-haves"**_
 Based on the features outlined in my scope and the pages included in the Boutique Ado mini project, I decided I wanted to include the following pages on my website:
 
 - The Home page welcomes the user to the site, presents the user with calls to action to explore the product range and has space for advertising deals, new products and the Hero Arm.
-- There are five Products pages - “All Covers”, “Classic”, “Stylish”, “Premium” and “Disney” - which show tiles of the products with name and price. Hovering over the product image allows you to add the product to your favourites or your shopping cart, and clicking on the product image takes you to the individual product page.
-- Individual Product Detail pages show product image, name, price, colour options, delivery information and description with buttons to increase/decrease desired quantity of covers, add them to the shopping cart or save them as a favourite. The warranty information is also available on this page.
+- There are five Products pages - "All Covers", "Classic", "Stylish", "Premium" and "Disney" - which show tiles of the products with name and price. Hovering over the product image allows you to add the product to your favourites or your shopping basket, and clicking on the product image takes you to the individual product page.
+- Individual Product Detail pages show product image, name, price, colour options, delivery information and description with buttons to increase/decrease desired quantity of covers, add them to the shopping basket or save them as a favourite. The warranty information is also available on this page.
 - The Log In and Sign Up pages allow the user to log in to/create their profile so they can access their personalised information.
 - The Profile page has the user’s saved delivery information and order history.
-- The Favourites and Shopping Cart pages are available across the site as a sidebar that expands when you click on the corresponding icon in the navbar. The Favourites sidebar has the user’s saved products with the option to add them to the basket, and a link to the main Open Bionics website. The Shopping Cart sidebar has the user’s selected items with the option to increase/decrease the quantity, a drop down selection for delivery information, a total sum of the order cost, and a link to the main Open Bionics website.
+- The Favourites and Shopping Basket pages are available across the site as a sidebar that expands when you click on the corresponding icon in the navbar. The Favourites sidebar has the user’s saved products with the option to add them to the basket, and a link to the main Open Bionics website. The Shopping basket sidebar has the user’s selected items with the option to increase/decrease the quantity, a drop down selection for delivery information, a total sum of the order cost, and a link to the main Open Bionics website.
 - The Checkout page has a form for the user to enter their delivery information and a summary of their order on the right. When the user submits their order they are taken to an order confirmation page which shows them their order details and a link back to the main site.
 - The Product Management page has a form that allows the admin user to add new products to the product range. The admin user can edit and remove products from the Product and Product Details pages.
-- The navbar contains the Open Bionics logo which links to the Home page, a search bar which allows the user to search for products based on name and description, icons for the Profile page, Favourites sidebar and Shopping Cart sidebar and links to all of the Products pages.
+- The navbar contains the Open Bionics logo which links to the Home page, a search bar which allows the user to search for products based on name and description, icons for the Profile page, Favourites sidebar and Shopping Basket sidebar and links to all of the Products pages.
 - The site provides the user with feedback on their actions in the form of a message bubble at the top left of the screen - the message bubble will be formatted differently depending on the content of the message.
+
+At this stage I added a "Customiser" page to my "nice-to-have" list - this would be a page where users can mix and match different colours of Classic covers. It was an unnecessary addition to include in the initial MVP, but I decided to be optimistic and include it in my wireframe mock-ups.
 
 #### Skeleton Plane
 ![Open Bionics - Home page wireframe](media/readme/wireframes-home.png)
