@@ -130,7 +130,7 @@
 
     <!-- Notifications -->
     {% if messages %}
-        <div class="message-container">
+        <div class="toast-container" id="toast-container">
             {% for message in messages %}
                 {% with message.level as level %}
                     {% if level == 40 %}

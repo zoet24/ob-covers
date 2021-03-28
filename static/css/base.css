@@ -33,19 +33,19 @@ body {
 
 /* HEADINGS */
 h1 {
-	font-size: 2.25em;
+	font-size: 2.25rem;
 	font-family: 'Poppins', sans-serif;
 	text-transform: uppercase;
 }
 
 h2 {
-	font-size: 1.75em;
+	font-size: 1.75rem;
 	font-family: 'Poppins', sans-serif;
 	text-transform: uppercase;
 }
 
 h4 {
-    font-size: 1em;
+    font-size: 1rem;
 }
 
 /* COMPONENTS */
@@ -99,7 +99,7 @@ a:hover {
     cursor: pointer;
 }
 
-/* NAV AND FOOTER */
+/* NAV, FOOTER, MESSAGES */
 nav, footer {
 	font-family: 'Poppins', sans-serif;
 	color: #fff;
@@ -197,7 +197,7 @@ footer {
 }
 
 .nav-item .nav-link {
-	font-size: 20px;
+	font-size: 1.25rem;
 	color: white;
 	text-transform: uppercase;
 }
@@ -210,7 +210,7 @@ footer {
     display: block;
 }
 
-.nav-profile-dropdown-menu, .message-container {
+.nav-profile-dropdown-menu, .toast-container {
     position: fixed;
     top: 72px;
     right: 15px;
@@ -228,34 +228,66 @@ footer {
 
     background-color: #fff;
     border: 3px solid #1c86c8;
+    box-shadow: 2px 2px #319cd2;
 }
 
-.message-container {
+.toast-container {
     display: block;
     left: 15px;
+    max-width: 350px;
+    padding: 0;
+    margin: 0;
+}
+
+.toast {
+    margin: 0;
+    border: none;
+    padding: .5rem;
+}
+
+.toast.hide, .toast-container.hide {
+    display: none;
 }
 
 .custom-toast {
     overflow: visible;
+    margin: 0;
 }
 
-.toast-capper {
-    height: 2px;
+.toast-header {
+    color: #1c86c8;
+    border: none;
+    width: 100%;
+    text-transform: uppercase;
+    font-size: 1.25rem;
+    font-family: 'Poppins', sans-serif;
+    padding: 0 0.25rem 0.25rem 0.75rem;
 }
 
-/* .message-container {
-    position: fixed;
-    top: 72px;
-    left: 15px;
-    z-index: 100;
-} */
+.toast-body {
+    font-size: 1rem;
+    text-align: left;
+    color: #1c86c8;
+    padding: 0.25rem 0.75rem 0 0.75rem;
+    border-top: solid 1px #319cd2;
+}
+
+button.close {
+    color: #1c86c8;
+    opacity: 0.75;
+}
+
+.close:not(:disabled):not(.disabled):hover {
+    color: #1c86c8;
+    opacity: 1;
+}
 
 .nav-profile-dropdown-item {
     display: block;
     width: 100%;
     padding: .25rem 1.5rem;
     text-transform: uppercase;
-    font-size: 20px;
+    font-size: 1.25rem;
 }
 
 .fixed-top {

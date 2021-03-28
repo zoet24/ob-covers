@@ -48,4 +48,8 @@ function closeSidebar() {
   document.getElementById("sidebar-nav").style.borderWidth = "0px";
 }
 
+function closeToast() {
+    document.getElementById("toast-container").classList.toggle("hide")
+}
+
 // Add function for clicking out of sidebars and menus to close (https://www.w3schools.com/howto/howto_js_dropdown.asp)
