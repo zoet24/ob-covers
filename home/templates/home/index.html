@@ -2,9 +2,38 @@
 {% load static %}
 
 {% block content %}
-    <section class="container-fluid">
-        <h1>Welcome!</h1>
+    <section class="container-fluid container-hero">
+        <div id="home-hero-image">
+            <span class="sr-only"></span>
+        </div>
+        <div class="hero-image-overlay">
+            <div class="hero-image-overlay-text">
+                <div class="row" style="display: none" id="home-heading-logo">
+                    <div class="col">
+                        <img id="logo-home" src="../media/logos/logo-white.png"
+                        alt="White Open Bionics logo" />
+                    </div>
+                </div>
+                <div class="row" style="display: none" id="home-heading-1">
+                    <div class="col-11 mx-auto">
+                        <h1>Your limb difference is your superpower</h1>
+                    </div>
+                </div>
+                <div class="row" style="display: none" id="home-heading-2">
+                    <div class="col-10 mx-auto">
+                        <h1>Who will you be?</h1>
+                    </div>
+                </div>
+                <div class="row" style="display: none" id="home-heading-buttons">
+                    <div class="col p-0">
+                        <a class="btn btn-image mx-2" href="#" role="button">Sign Up</a>
+                        <a class="btn btn-image mx-2" href="#" role="button">Shop</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
+
     <section class="container-compress">
         <h2>Links to covers</h2>
     </section>
@@ -17,4 +46,41 @@
     <section class="container-fluid">
         <h2>Looking for the Hero Arm?</h2>
     </section>
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+<script type="text/javascript">
+    onload = function () {
+        if (window.innerWidth < 992) {
+            $("#home-heading-1").fadeIn(1000).css("display","inline-block");
+            setTimeout(function () {
+                $("#home-heading-1").fadeOut(1000);
+            }, 2500);
+            setTimeout(function () {
+                $("#home-heading-2").fadeIn(1000).css("display","inline-block");
+            }, 3500);
+            setTimeout(function () {
+                $("#home-heading-2").fadeOut(1000);
+            }, 6000);
+            setTimeout(function () {
+                $("#home-heading-logo").fadeIn(1000).css("display","inline-block");
+                $("#home-heading-buttons").fadeIn(1000).css("display","inline-block");
+            }, 7000);
+        }
+        else {
+            $("#home-heading-2").css({"opacity": "0", "display": "inline-block"});
+            $("#home-heading-logo").css({"opacity": "0", "display": "inline-block"});
+            $("#home-heading-buttons").css({"opacity": "0", "display": "inline-block"});
+            $("#home-heading-1").fadeIn(1000).css("display","inline-block");
+            setTimeout(function () {
+                $("#home-heading-2").fadeTo(1000, 1);
+            }, 2500);
+            setTimeout(function () {
+                $("#home-heading-logo").fadeTo(1000, 1);
+                $("#home-heading-buttons").fadeTo(1000, 1);
+            }, 5000);
+        }
+    };
+</script>
 {% endblock %}

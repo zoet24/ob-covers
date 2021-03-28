@@ -9,12 +9,17 @@
 body {
     font-family: 'Roboto', sans-serif;
     color: #151635;
-	font-size: 16px;
+    font-size: 16px;
 }
 
 .row, .col, .container-fluid, .container-compress, h1, h2, h3, h4, h5, h6 {
 	padding: 0;
-	margin: 0 auto;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.row {
+    padding: 0.5rem 0;
 }
 
 .container-fluid, .container-compress {
@@ -31,17 +36,37 @@ body {
 	border: solid 2px black;
 }
 
+.show {
+    display: block;
+}
+
+.hide {
+    display: none;
+}
+
 /* HEADINGS */
 h1 {
-	font-size: 2.25rem;
-	font-family: 'Poppins', sans-serif;
-	text-transform: uppercase;
+	font-size: 2.5rem;
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 200;
 }
 
 h2 {
-	font-size: 1.75rem;
+	font-size: 2rem;
 	font-family: 'Poppins', sans-serif;
-	text-transform: uppercase;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 100;
+}
+
+h3, .btn {
+    font-size: 1.5rem;
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 100;
 }
 
 h4 {
@@ -87,7 +112,33 @@ a:hover {
     text-decoration: none;
 }
 
-.btt-button {
+.btn {
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    background-color: transparent;
+    border: 3px solid transparent;
+    padding: 0.25rem 0;
+    border-radius: 25px;
+    height: 50px;
+    width: 130px;
+    transition: color .25s ease-in-out,background-color .25s ease-in-out,border-color .25s ease-in-out,box-shadow .25s ease-in-out;
+}
+
+.btn-image {
+    color: #fff;
+    border-color: #fff;
+}
+
+.btn-image:hover, .btn-image:focus {
+    color: none;
+    background-color: #fff;
+    box-shadow: none;
+}
+
+
+/* BOUTIQUE ADO CSS */
+/* .btt-button {
     height: 42px;
     width: 42px;
     position: fixed;
@@ -97,7 +148,7 @@ a:hover {
 
 .btt-link, .update-link, .remove-item {
     cursor: pointer;
-}
+} */
 
 /* NAV, FOOTER, MESSAGES */
 nav, footer {
@@ -135,7 +186,7 @@ footer {
 }
 
 #logo-footer {
-	width: 300px;
+	width: 250px;
 	margin: 10px;
 }
 
@@ -157,7 +208,7 @@ footer {
 	border: none;
 	outline: none;
 	height: 35px;
-	width: 82.5%;
+	width: 75%;
 	margin-left: 15px;
 }
 
@@ -208,13 +259,13 @@ footer {
 
 .nav-profile-dropdown-menu.show {
     display: block;
+    z-index: 100;
 }
 
 .nav-profile-dropdown-menu, .toast-container {
     position: fixed;
     top: 72px;
     right: 15px;
-    z-index: 100;
     display: none;
     float: right;
     min-width: 10rem;
@@ -228,15 +279,14 @@ footer {
 
     background-color: #fff;
     border: 3px solid #1c86c8;
-    box-shadow: 2px 2px #319cd2;
 }
 
 .toast-container {
     display: block;
     left: 15px;
-    max-width: 350px;
     padding: 0;
-    margin: 0;
+    max-width: 350px;
+    z-index: 10;
 }
 
 .toast {
@@ -305,7 +355,7 @@ button.close {
 .banner-messages {
 	background-color: #f0f3f4;
 	color: #151635;
-	padding: 10px 25px;
+	padding: 10px 15px;
 	text-align: center;
 }
 
@@ -332,6 +382,46 @@ button.close {
   right: 8px;
 }
 
+/* HERO IMAGES */
+.container-hero {
+	height: 80vh;
+	padding: 0;
+	overflow: hidden;
+	position: relative;
+}
+
+.hero-image-overlay {
+	height: 100%;
+	width: 100%;
+	background-color: rgba(50, 50, 50, 0.35);
+	bottom: 0px;
+	right: 0px;
+	position: absolute;
+}
+
+.hero-image-overlay-text {
+    position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+    width: 100%;
+    color: #fff;
+    text-align: center;
+}
+
+#home-hero-image {
+    height: 100%;
+	width: 100%;
+    background: url("/media/home-hero-image.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 85% 0%;
+}
+
+#logo-home {
+    width: 275px;
+}
+
 /* MEDIA QUERIES */
 @media (min-width: 576px) {
 	.navbar-search input {
@@ -345,7 +435,19 @@ button.close {
 
 	.filler-top {
 		height: 118px;
-	}
+    }
+    
+    .nav-profile-dropdown-menu {
+        box-shadow: 2px -2px #319cd2;
+    }
+
+    .toast-container {
+        box-shadow: -2px -2px #319cd2;
+    }
+
+    #logo-footer {
+        width: 300px;
+    }    
 }
 
 @media (min-width: 768px) {
@@ -359,7 +461,11 @@ button.close {
     
     .navbar-search input {
 		width: 250px;
-	}
+    }
+
+    .banner-messages {
+        padding: 10px 25px;
+    }
 }
 
 @media (min-width: 992px) {    
@@ -373,5 +479,20 @@ button.close {
     
     .navbar-search input {
 		width: 350px;
-	}
+    }
+    
+    #home-hero-image {
+        background-position: 90% 20%;
+    }
+
+    .hero-image-overlay-text {
+        width: 50%;
+		top: 50%;
+		left: 7.5%;
+        transform: translate(-7.5%, -50%);
+    }
+
+    #logo-home {
+        width: 350px;
+    }
 }

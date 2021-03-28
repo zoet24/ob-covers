@@ -11,10 +11,10 @@ function openSidebarFav() {
         document.getElementById("sidebar-fav").style.width = "50%";
     }
     else if (window.innerWidth <= 992) {
-        document.getElementById("sidebar-fav").style.width = "33%";
+        document.getElementById("sidebar-fav").style.width = "50%";
     }
     else {
-    	document.getElementById("sidebar-fav").style.width = "25%";
+    	document.getElementById("sidebar-fav").style.width = "50%";
     }
 }
 
