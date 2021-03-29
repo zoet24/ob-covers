@@ -1,3 +1,5 @@
+/* Stylesheet with declarations for body, general styles, nav, footer, sidebars and toasts */
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap');
 
@@ -24,7 +26,6 @@ body {
 
 .container-fluid, .container-compress {
     width: 100%;
-    border: black solid 2px;
 }
 
 /* STYLES */
@@ -44,113 +45,7 @@ body {
     display: none;
 }
 
-/* HEADINGS */
-h1 {
-	font-size: 2.5rem;
-    font-family: 'Poppins', sans-serif;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-weight: 200;
-}
-
-h2 {
-	font-size: 2rem;
-	font-family: 'Poppins', sans-serif;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-weight: 100;
-}
-
-h3, .btn {
-    font-size: 1.5rem;
-    font-family: 'Poppins', sans-serif;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-weight: 100;
-}
-
-h4 {
-    font-size: 1rem;
-}
-
-/* COMPONENTS */
-.icon {
-	color: white;
-	background-color: #1c86c8;
-	font-size: 22px;
-
-	height: 40px;
-	width: 40px;
-	border-radius: 50%;
-	border: white solid 2px;
-
-    align-items: center;
-    display: inline-flex;
-    justify-content: center;
-	text-decoration: none;
-
-	transition: all 0.25s ease-in-out;
-}
-
-.icon:hover {
-	color: #1c86c8;
-	background-color: white;
-
-	text-decoration: none;
-}
-
-a {
-	color: #1c86c8;
-}
-
-a:hover {
-	color: #1c86c8;
-	text-decoration: underline;
-}
-
-.footer-icons a:hover {
-    text-decoration: none;
-}
-
-.btn {
-    display: inline-block;
-    text-align: center;
-    vertical-align: middle;
-    background-color: transparent;
-    border: 3px solid transparent;
-    padding: 0.25rem 0;
-    border-radius: 25px;
-    height: 50px;
-    width: 130px;
-    transition: color .25s ease-in-out,background-color .25s ease-in-out,border-color .25s ease-in-out,box-shadow .25s ease-in-out;
-}
-
-.btn-image {
-    color: #fff;
-    border-color: #fff;
-}
-
-.btn-image:hover, .btn-image:focus {
-    color: none;
-    background-color: #fff;
-    box-shadow: none;
-}
-
-
-/* BOUTIQUE ADO CSS */
-/* .btt-button {
-    height: 42px;
-    width: 42px;
-    position: fixed;
-    bottom: 10px;
-    right: 10px;
-}
-
-.btt-link, .update-link, .remove-item {
-    cursor: pointer;
-} */
-
-/* NAV, FOOTER, MESSAGES */
+/* NAV, FOOTER, TOASTS, BANNER MESSAGE */
 nav, footer {
 	font-family: 'Poppins', sans-serif;
 	color: #fff;
@@ -382,46 +277,6 @@ button.close {
   right: 8px;
 }
 
-/* HERO IMAGES */
-.container-hero {
-	height: 80vh;
-	padding: 0;
-	overflow: hidden;
-	position: relative;
-}
-
-.hero-image-overlay {
-	height: 100%;
-	width: 100%;
-	background-color: rgba(50, 50, 50, 0.35);
-	bottom: 0px;
-	right: 0px;
-	position: absolute;
-}
-
-.hero-image-overlay-text {
-    position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-    width: 100%;
-    color: #fff;
-    text-align: center;
-}
-
-#home-hero-image {
-    height: 100%;
-	width: 100%;
-    background: url("/media/home-hero-image.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: 85% 0%;
-}
-
-#logo-home {
-    width: 275px;
-}
-
 /* MEDIA QUERIES */
 @media (min-width: 576px) {
 	.navbar-search input {
@@ -473,26 +328,7 @@ button.close {
         width: 70%;
     }
     
-    .icon {
-		margin: 0px 6px;
-    }
-    
     .navbar-search input {
 		width: 350px;
-    }
-    
-    #home-hero-image {
-        background-position: 90% 20%;
-    }
-
-    .hero-image-overlay-text {
-        width: 50%;
-		top: 50%;
-		left: 7.5%;
-        transform: translate(-7.5%, -50%);
-    }
-
-    #logo-home {
-        width: 350px;
     }
 }

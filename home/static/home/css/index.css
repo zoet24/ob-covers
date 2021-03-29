@@ -1,0 +1,25 @@
+/* Stylesheet for elements specific to the home page */
+
+#home-hero-image {
+    height: 100%;
+	width: 100%;
+    background: url("/media/home-hero-image.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 85% 0%;
+}
+
+#logo-home {
+    width: 275px;
+}
+
+/* MEDIA QUERIES */
+@media (min-width: 992px) {
+    #home-hero-image {
+        background-position: 90% 20%;
+    }
+
+    #logo-home {
+        width: 350px;
+    }
+}

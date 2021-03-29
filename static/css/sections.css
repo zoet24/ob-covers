@@ -1,0 +1,38 @@
+/* Stylesheet with declarations for commonly used layouts throughout site */
+
+/* HERO IMAGES */
+.container-hero {
+	height: 80vh;
+	padding: 0;
+	overflow: hidden;
+	position: relative;
+}
+
+.hero-image-overlay {
+	height: 100%;
+	width: 100%;
+	background-color: rgba(50, 50, 50, 0.35);
+	bottom: 0px;
+	right: 0px;
+	position: absolute;
+}
+
+.hero-image-overlay-text {
+    position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+    width: 100%;
+    color: #fff;
+    text-align: center;
+}
+
+/* MEDIA QUERIES */
+@media (min-width: 992px) {
+    .hero-image-overlay-text {
+        width: 50%;
+		top: 50%;
+		left: 7.5%;
+        transform: translate(-7.5%, -50%);
+    }
+}

@@ -1,5 +1,10 @@
 {% extends "base.html" %}
 {% load static %}
+{% load bag_tools %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'home/css/index.css' %}">
+{% endblock %}
 
 {% block content %}
     <section class="container-fluid container-hero">
@@ -34,53 +39,21 @@
         </div>
     </section>
 
-    <section class="container-compress">
+    <section class="container-compress black-border">
         <h2>Links to covers</h2>
     </section>
-    <section class="container-fluid">
+    <section class="container-fluid black-border">
         <h2>How do we make our covers?</h2>
     </section>
-    <section class="container-compress">
+    <section class="container-compress black-border">
         <h2>Cover customiser</h2>
     </section>
-    <section class="container-fluid">
+    <section class="container-fluid black-border">
         <h2>Looking for the Hero Arm?</h2>
     </section>
 {% endblock %}
 
 {% block postloadjs %}
 {{ block.super }}
-<script type="text/javascript">
-    onload = function () {
-        if (window.innerWidth < 992) {
-            $("#home-heading-1").fadeIn(1000).css("display","inline-block");
-            setTimeout(function () {
-                $("#home-heading-1").fadeOut(1000);
-            }, 2500);
-            setTimeout(function () {
-                $("#home-heading-2").fadeIn(1000).css("display","inline-block");
-            }, 3500);
-            setTimeout(function () {
-                $("#home-heading-2").fadeOut(1000);
-            }, 6000);
-            setTimeout(function () {
-                $("#home-heading-logo").fadeIn(1000).css("display","inline-block");
-                $("#home-heading-buttons").fadeIn(1000).css("display","inline-block");
-            }, 7000);
-        }
-        else {
-            $("#home-heading-2").css({"opacity": "0", "display": "inline-block"});
-            $("#home-heading-logo").css({"opacity": "0", "display": "inline-block"});
-            $("#home-heading-buttons").css({"opacity": "0", "display": "inline-block"});
-            $("#home-heading-1").fadeIn(1000).css("display","inline-block");
-            setTimeout(function () {
-                $("#home-heading-2").fadeTo(1000, 1);
-            }, 2500);
-            setTimeout(function () {
-                $("#home-heading-logo").fadeTo(1000, 1);
-                $("#home-heading-buttons").fadeTo(1000, 1);
-            }, 5000);
-        }
-    };
-</script>
+{% include 'home/includes/onload_animation.html' %}
 {% endblock %}
