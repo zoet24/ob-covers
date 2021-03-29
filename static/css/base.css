@@ -1,4 +1,4 @@
-/* Stylesheet with declarations for body, general styles, nav, footer, sidebars and toasts */
+/* Stylesheet with declarations for body, nav, footer, sidebars and toasts */
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap');
@@ -26,23 +26,6 @@ body {
 
 .container-fluid, .container-compress {
     width: 100%;
-}
-
-/* STYLES */
-.text-centre {
-	text-align: center;
-}
-
-.black-border {
-	border: solid 2px black;
-}
-
-.show {
-    display: block;
-}
-
-.hide {
-    display: none;
 }
 
 /* NAV, FOOTER, TOASTS, BANNER MESSAGE */

@@ -1,6 +1,6 @@
 /* Stylesheet with declarations for common elements and components used throughout site */
 
-/* HEADINGS */
+/* HEADINGS AND TEXT */
 h1 {
 	font-size: 2.5rem;
     font-family: 'Poppins', sans-serif;
@@ -10,7 +10,7 @@ h1 {
 }
 
 h2 {
-	font-size: 2rem;
+	font-size: 2.25rem;
 	font-family: 'Poppins', sans-serif;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -27,6 +27,11 @@ h3, .btn {
 
 h4 {
     font-size: 1rem;
+}
+
+.text-skinny {
+    font-size: 1.5rem;
+    font-weight: 300;
 }
 
 /* COMPONENTS */
@@ -81,12 +86,28 @@ a:hover {
     transition: color .25s ease-in-out,background-color .25s ease-in-out,border-color .25s ease-in-out,box-shadow .25s ease-in-out;
 }
 
+.btn-long {
+    width: 200px;
+}
+
 .btn-image {
     color: #fff;
     border-color: #fff;
 }
 
+.btn-dark {
+    color: #151635;
+    border-color: #151635;
+    border-width: 2px;
+}
+
 .btn-image:hover, .btn-image:focus {
+    color: #151635;
+    background-color: #fff;
+    box-shadow: none;
+}
+
+.btn-dark:hover, .btn-dark:focus {
     color: #151635;
     background-color: #fff;
     box-shadow: none;
@@ -123,5 +144,9 @@ a:hover {
         height: 60px;
         width: 160px;
         font-size: 1.75rem;
+    }
+
+    .btn-long {
+        width: 250px;
     }
 }

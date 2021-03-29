@@ -1,9 +1,9 @@
 /* Stylesheet for elements specific to the home page */
 
-#home-hero-image {
+#home-hero-image-1 {
     height: 100%;
 	width: 100%;
-    background: url("/media/home-hero-image.jpg");
+    background: url("/media/home-hero-image-zak.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 85% 0%;
@@ -13,13 +13,26 @@
     width: 275px;
 }
 
+#home-hero-image-2 {
+    height: 100%;
+	width: 100%;
+    background: url("/media/home-hero-image-tilly.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 20% 0%;
+}
+
 /* MEDIA QUERIES */
 @media (min-width: 992px) {
-    #home-hero-image {
+    #home-hero-image-1 {
         background-position: 90% 20%;
     }
 
     #logo-home {
         width: 350px;
+    }
+
+    #home-hero-image-2 {
+        background-position: 100% 0%;
     }
 }

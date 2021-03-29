@@ -2,7 +2,7 @@
 
 /* HERO IMAGES */
 .container-hero {
-	height: 80vh;
+	height: 82.5vh;
 	padding: 0;
 	overflow: hidden;
 	position: relative;
@@ -17,7 +17,7 @@
 	position: absolute;
 }
 
-.hero-image-overlay-text {
+.hero-image-overlay-text, .hero-image-overlay-text-left, .hero-image-overlay-text-right {
     position: absolute;
 	top: 50%;
 	left: 50%;
@@ -29,10 +29,17 @@
 
 /* MEDIA QUERIES */
 @media (min-width: 992px) {
-    .hero-image-overlay-text {
+    .hero-image-overlay-text-left {
         width: 50%;
 		top: 50%;
-		left: 7.5%;
-        transform: translate(-7.5%, -50%);
+		left: 5%;
+        transform: translate(-5%, -50%);
+    }
+
+    .hero-image-overlay-text-right {
+        width: 50%;
+		top: 50%;
+		right: 5%;
+        transform: translate(-5%, -50%);
     }
 }

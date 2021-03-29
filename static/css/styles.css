@@ -1,0 +1,24 @@
+/* Stylesheet with declarations for general styles used throughout site */
+
+/* STYLES */
+.centre {
+	text-align: center;
+}
+
+.black-border {
+	border: solid 2px black;
+}
+
+.show {
+    display: block;
+}
+
+.hide {
+    display: none;
+}
+
+/* BACKGROUNDS */
+.bg-grey {
+    background-color: #f0f3f4;
+	color: #151635;
+}
