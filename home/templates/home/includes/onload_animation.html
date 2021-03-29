@@ -33,17 +33,20 @@
         }
 
         else {
+            $("#home-heading-1").css({"opacity": "0", "display": "inline-block"});
             $("#home-heading-2").css({"opacity": "0", "display": "inline-block"});
             $("#home-heading-logo").css({"opacity": "0", "display": "inline-block"});
             $("#home-heading-buttons").css({"opacity": "0", "display": "inline-block"});
-            $("#home-heading-1").fadeIn(1000).css("display","inline-block");
+            setTimeout(function () {
+                $("#home-heading-1").fadeTo(1000, 1);
+            }, 500);
             setTimeout(function () {
                 $("#home-heading-2").fadeTo(1000, 1);
-            }, 2500);
+            }, 3000);
             setTimeout(function () {
                 $("#home-heading-logo").fadeTo(1000, 1);
                 $("#home-heading-buttons").fadeTo(1000, 1);
-            }, 5000);
+            }, 5500);
         }
     };
 </script>
