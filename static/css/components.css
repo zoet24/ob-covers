@@ -126,6 +126,18 @@ a:hover {
     cursor: pointer;
 } */
 
+/* PRODUCTS */
+.cover-tile {
+    height: 400px;
+    width: 100%;
+    padding: 10px;
+    position: relative;
+}
+
+.cover-tile-image {
+    height: 100%;
+}
+
 /* MEDIA QUERIES */
 @media (min-width: 768px) {    
     .icon {
