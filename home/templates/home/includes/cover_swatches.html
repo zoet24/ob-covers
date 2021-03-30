@@ -1,0 +1,12 @@
+<script type="text/javascript">
+    $(document).ready(function() {
+        $(".cover-swatch").click(function() {
+            $(".cover-swatch").removeClass("cover-swatch-active");
+            var coverColour = this.id.split('-')[3];
+            var coverType = this.id.split('-')[2];
+            var imageSrc = `../media/covers/${coverType}-${coverColour}.png`;
+            $(this).addClass("cover-swatch-active");
+            $(`#cover-tile-image-home-${coverType}`).attr("src", imageSrc);
+        });
+    });
+</script>

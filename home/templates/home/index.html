@@ -7,6 +7,7 @@
 {% endblock %}
 
 {% block content %}
+    <!-- Hero image, welcome message, links to sign up and shop -->
     <section class="container-fluid container-hero">
         <div id="home-hero-image-1">
             <span class="sr-only"></span>
@@ -38,33 +39,35 @@
             </div>
         </div>
     </section>
-
-    <!-- Add cool animation if time! -->
+    <!-- Links to different types of covers (add cool animation if time at end of dev) -->
     <section class="container-compress black-border">
-        <div class="row p-0 m-0">
-            <div class="col-6 cover-tile black-border">
-                <img class="cover-tile-image" src="../media/covers/classic-green.png" alt="">
+        <div class="row p-0 m-0 bg-grey">
+            <!-- Classic covers -->
+            <div class="cover-tile col-4 black-border">
+                <img class="cover-tile-image" id="cover-tile-image-home-classic" src="../media/covers/classic-black.png" alt="">
             </div>
-            <div class="col-6 cover-tile black-border">
-                <h2>Classic covers!</h2>
-            </div>
-            <div class="col-6 cover-tile black-border">
-                <h2>Stylish covers!</h2>
-            </div>
-            <div class="col-6 cover-tile black-border">
-                <img class="cover-tile-image" src="../media/covers/classic-green.png" alt="">
-            </div>
-            <div class="col-6 cover-tile black-border">
-                <img class="cover-tile-image" src="../media/covers/classic-green.png" alt="">
-            </div>
-            <div class="col-6 cover-tile black-border">
-                <h2>Premium covers!</h2>
-            </div>
-            <div class="col-6 cover-tile black-border">
-                <h2>Disney covers!</h2>
-            </div>
-            <div class="col-6 cover-tile black-border">
-                <img class="cover-tile-image" src="../media/covers/classic-green.png" alt="">
+            <div class="cover-tile col-8 black-border">
+                <div class="cover-tile-info">
+                    <h2 class="my-2">Classic</h2>
+                    <!-- Interactive cover swatch -->
+                    <div>
+                        <div class="cover-swatch cover-swatch-black cover-swatch-active" id="cover-swatch-classic-black"></div>
+                        <div class="cover-swatch cover-swatch-white" id="cover-swatch-classic-white"></div>
+                        <div class="cover-swatch cover-swatch-red" id="cover-swatch-classic-red"></div>
+                        <div class="cover-swatch cover-swatch-orange" id="cover-swatch-classic-orange"></div>
+                        <div class="cover-swatch cover-swatch-silver" id="cover-swatch-classic-silver"></div>
+                        <div class="cover-swatch cover-swatch-blue" id="cover-swatch-classic-blue"></div>
+                        <div class="cover-swatch cover-swatch-green" id="cover-swatch-classic-green"></div>
+                        <div class="cover-swatch cover-swatch-pink" id="cover-swatch-classic-pink"></div>
+                        <div class="cover-swatch cover-swatch-yellow" id="cover-swatch-classic-yellow"></div>
+                        <div class="cover-swatch cover-swatch-bluegrey" id="cover-swatch-classic-bluegrey"></div>
+                        <div class="cover-swatch cover-swatch-purple" id="cover-swatch-classic-purple"></div>
+                        <div class="cover-swatch cover-swatch-pinkbright" id="cover-swatch-classic-pinkbright"></div>
+                    </div>
+                    <h3>From £129</h3>
+                    <a class="btn btn-dark my-2 d-sm-none" href="#" role="button">Shop</a>
+                    <a class="btn btn-dark my-2 d-none d-sm-inline-block" href="#" role="button">Shop classic</a>
+                </div>
             </div>
         </div>
     </section>
@@ -151,7 +154,8 @@
     </section>
 {% endblock %}
 
-<!-- { block postloadjs %}
+{% block postloadjs %}
 {{ block.super }}
-{ include 'home/includes/onload_animation.html' %}
-{ endblock %} -->
+{% include 'home/includes/onload_animation.html' %}
+{% include 'home/includes/cover_swatches.html' %}
+{% endblock %}
