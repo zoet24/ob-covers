@@ -7,6 +7,20 @@
             $(window).scrollTop(0);
         });
 
+        // 'Click' different cover swatches to trigger background
+        setTimeout(function() {
+            $("#cover-swatch-classic-blue").trigger('click');
+        }, 100);
+        setTimeout(function() {
+            $("#cover-swatch-stylish-orange").trigger('click');
+        }, 200);
+        setTimeout(function() {
+            $("#cover-swatch-premium-green").trigger('click');
+        }, 300);
+        setTimeout(function() {
+            $("#cover-swatch-disney-purple").trigger('click');
+        }, 400);
+
         // Scroll past banner mesages
         let bannerD = $('.banner-messages').outerHeight();
         window.scroll({

@@ -105,13 +105,13 @@ a:hover {
     border-width: 2px;
 }
 
-.btn-image:hover, .btn-image:focus {
+.btn-image:hover, .btn-image:focus, .btn-image:active {
     color: #151635;
     background-color: #fff;
     box-shadow: none;
 }
 
-.btn-dark:hover, .btn-dark:focus {
+.btn-dark:hover, .btn-dark:focus, .btn-dark:active {
     color: #151635;
     background-color: rgba(255, 255, 255, 0.25);
     box-shadow: none;
@@ -161,7 +161,7 @@ a:hover {
     transition: all .25s ease-in-out;
 }
 
-.cover-swatch-active, .cover-swatch:hover {
+.cover-swatch-classic-active, .cover-swatch-stylish-active, .cover-swatch-premium-active, .cover-swatch-disney-active, .cover-swatch:hover {
     transform: scale(1.25);
 }
 
