@@ -3,10 +3,26 @@
         $(".cover-swatch").click(function() {
             $(".cover-swatch").removeClass("cover-swatch-active");
             var coverColour = this.id.split('-')[3];
+            var coverRGB = $(this).css("backgroundColor").match(/\d+/g);;
             var coverType = this.id.split('-')[2];
             var imageSrc = `../media/covers/${coverType}-${coverColour}.png`;
+            // Add active class to clicked element
             $(this).addClass("cover-swatch-active");
+            // Set image source to correct colour and style
             $(`#cover-tile-image-home-${coverType}`).attr("src", imageSrc);
+            // Calculate tinted colour and set new background colour if the colour is light enough
+            var r = Math.min((75 + parseInt(coverRGB[0])), 255);
+                g = Math.min((75 + parseInt(coverRGB[1])), 255);
+                b = Math.min((75 + parseInt(coverRGB[2])), 255);
+            setTimeout(function() {
+                if (r + g + b > 300) {
+                    $(`.cover-tile-bg-home-${coverType}`).css("backgroundColor", `rgb(${r},${g},${b})`);
+                }
+                else {
+                    $(`.cover-tile-bg-home-${coverType}`).css("backgroundColor", "#f0f3f4");
+                };
+            }, 50);
+            
         });
     });
 </script>
