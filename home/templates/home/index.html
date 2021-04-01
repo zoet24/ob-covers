@@ -32,22 +32,23 @@
                 </div>
                 <div class="row" style="display: none" id="home-heading-buttons">
                     <div class="col p-0">
-                        <a class="btn btn-image mx-2" href="#" role="button">Sign Up</a>
-                        <a class="btn btn-image mx-2" href="#" role="button">Shop</a>
+                        <a class="btn btn-image mx-2" href="{% url 'account_signup' %}" role="button">Sign Up</a>
+                        <a class="btn btn-image mx-2" href="{% url 'products' %}" role="button">Shop</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- Links to different types of covers (add cool animation if time at end of dev) -->
-    <section class="container-compress">
+    <!-- Links to different types of covers -->
+    <section class="container-fluid">
         <div class="row p-0 m-0">
             <!-- Classic covers -->
-            <div class="cover-tile cover-tile-bg-home-classic col-5">
-                <img class="cover-tile-image" id="cover-tile-image-home-classic" src="../media/covers/classic-black.png" alt="">
+            <div class="cover-tile-bg-home-classic d-none d-sm-block col-sm-1 d-md-none d-xl-block col-xl-1 order-xl-1"></div>
+            <div class="cover-tile cover-tile-bg-home-classic col-5 text-right col-sm-4 col-md-2 order-md-2 text-md-left order-xl-3">
+                <img class="img-mirror-md cover-tile-image" id="cover-tile-image-home-classic" src="../media/covers/classic-black.png" alt="">
             </div>
-            <div class="cover-tile cover-tile-bg-home-classic col-7">
-                <div class="cover-tile-info">
+            <div class="cover-tile cover-tile-bg-home-classic col-7 col-sm-6 col-md-4 order-md-1 col-xl-3 order-xl-2">
+                <div class="cover-tile-info text-sm-left text-md-right">
                     <h2 class="my-2">Classic</h2>
                     <!-- Interactive cover swatch -->
                     <div>
@@ -65,13 +66,15 @@
                         <div class="cover-swatch cover-swatch-pinkbright" id="cover-swatch-classic-pinkbright"></div>
                     </div>
                     <h3>From £129</h3>
-                    <a class="btn btn-dark my-2 d-sm-none" href="#" role="button">Shop</a>
-                    <a class="btn btn-dark my-2 d-none d-sm-inline-block" href="#" role="button">Shop classic</a>
+                    <a class="btn btn-dark my-2 d-sm-none" href="{% url 'products' %}?category=classic" role="button">Shop</a>
+                    <a class="btn btn-dark my-2 d-none d-sm-inline-block" href="{% url 'products' %}?category=classic" role="button">Shop classic</a>
                 </div>
             </div>
+            <div class="cover-tile-bg-home-classic d-none d-sm-block col-sm-1 d-md-none"></div>
             <!-- Stylish covers -->
-            <div class="cover-tile cover-tile-bg-home-stylish col-7">
-                <div class="cover-tile-info">
+            <div class="bg-lightgrey cover-tile-bg-home-stylish d-none d-sm-block col-sm-1 d-md-none"></div>
+            <div class="bg-lightgrey cover-tile cover-tile-bg-home-stylish col-7 col-sm-6 col-md-4 order-md-4 col-xl-3 order-xl-5">
+                <div class="cover-tile-info text-sm-right text-md-left">
                     <h2 class="my-2">Stylish</h2>
                     <!-- Interactive cover swatch -->
                     <div>
@@ -89,13 +92,14 @@
                         <div class="cover-swatch cover-swatch-pinkbright" id="cover-swatch-stylish-pinkbright"></div>
                     </div>
                     <h3>From £179</h3>
-                    <a class="btn btn-dark my-2 d-sm-none" href="#" role="button">Shop</a>
-                    <a class="btn btn-dark my-2 d-none d-sm-inline-block" href="#" role="button">Shop stylish</a>
+                    <a class="btn btn-dark my-2 d-sm-none" href="{% url 'products' %}?category=stylish" role="button">Shop</a>
+                    <a class="btn btn-dark my-2 d-none d-sm-inline-block" href="{% url 'products' %}?category=stylish" role="button">Shop stylish</a>
                 </div>
             </div>
-            <div class="cover-tile cover-tile-bg-home-stylish col-5">
+            <div class="bg-lightgrey cover-tile cover-tile-bg-home-stylish col-5 text-left col-sm-4 col-md-2 order-md-3 text-md-right order-xl-4">
                 <img class="cover-tile-image" id="cover-tile-image-home-stylish" src="../media/covers/stylish-black.png" alt="">
             </div>
+            <div class="bg-lightgrey cover-tile-bg-home-stylish d-none d-sm-block col-sm-1 d-md-none d-xl-block col-xl-1 order-xl-6"></div>
         </div>
     </section>
 
@@ -118,17 +122,17 @@
                     </div>
                     <div class="row d-none d-lg-block">
                         <div class="col p-0">
-                            <a class="btn btn-long btn-image" href="#" role="button">Shop covers</a>
+                            <a class="btn btn-long btn-image" href="{% url 'products' %}" role="button">Shop covers</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="row d-lg-none">
-            <div class="col-10 col-sm-9 col-md-8 mx-auto centre">
+        <div class="row d-lg-none py-3">
+            <div class="col-10 col-sm-9 col-md-8 mx-auto text-center">
                 <span class="text-skinny">The Hero Arm is whatever you want it to be. With swappable covers, you can switch up your style to match your mood.</span>
                 <br>
-                <a class="btn btn-long btn-dark my-3" href="#" role="button">Shop covers</a>
+                <a class="btn btn-long btn-dark my-2" href="{% url 'products' %}" role="button">Shop covers</a>
             </div>
         </div>
     </section>
@@ -137,10 +141,10 @@
     <section class="container-compress">
         <div class="row p-0 m-0">
             <!-- Premium covers -->
-            <div class="cover-tile cover-tile-bg-home-premium col-5">
+            <div class="bg-lightgrey cover-tile cover-tile-bg-home-premium col-5">
                 <img class="cover-tile-image" id="cover-tile-image-home-premium" src="../media/covers/premium-white.png" alt="">
             </div>
-            <div class="cover-tile cover-tile-bg-home-premium col-7">
+            <div class="bg-lightgrey cover-tile cover-tile-bg-home-premium col-7">
                 <div class="cover-tile-info">
                     <h2 class="my-2">Premium</h2>
                     <!-- Interactive cover swatch -->
@@ -153,8 +157,8 @@
                         <div class="cover-swatch cover-swatch-green" id="cover-swatch-premium-green"></div>
                     </div>
                     <h3>From £229</h3>
-                    <a class="btn btn-dark my-2 d-sm-none" href="#" role="button">Shop</a>
-                    <a class="btn btn-dark my-2 d-none d-sm-inline-block" href="#" role="button">Shop premium</a>
+                    <a class="btn btn-dark my-2 d-sm-none" href="{% url 'products' %}?category=premium" role="button">Shop</a>
+                    <a class="btn btn-dark my-2 d-none d-sm-inline-block" href="{% url 'products' %}?category=premium" role="button">Shop premium</a>
                 </div>
             </div>
             <!-- Disney covers -->
@@ -170,8 +174,8 @@
                         <div class="cover-swatch cover-swatch-pinkbright cover-swatch-active" id="cover-swatch-disney-pinkbright"></div>
                     </div>
                     <h3>From £279</h3>
-                    <a class="btn btn-dark my-2 d-sm-none" href="#" role="button">Shop</a>
-                    <a class="btn btn-dark my-2 d-none d-sm-inline-block" href="#" role="button">Shop Disney</a>
+                    <a class="btn btn-dark my-2 d-sm-none" href="{% url 'products' %}?category=disney" role="button">Shop</a>
+                    <a class="btn btn-dark my-2 d-none d-sm-inline-block" href="{% url 'products' %}?category=disney" role="button">Shop Disney</a>
                 </div>
             </div>
             <div class="cover-tile cover-tile-bg-home-disney col-5">
@@ -184,21 +188,21 @@
         <h2>Cover customiser</h2>
     </section> -->
 
-    <section class="container-fluid">
-        <div class="row d-lg-none">
-            <div class="col-11 col-sm-12 mx-auto centre">
+    <section class="container-fluid bg-lightgrey">
+        <div class="row d-lg-none pt-3">
+            <div class="col-11 col-sm-12 mx-auto text-center">
                 <h2>Looking for the Hero Arm?</h2>
             </div>
         </div>
-        <div class="row d-lg-none">
-            <div class="col-10 col-sm-9 col-md-8 mx-auto centre">
+        <div class="row d-lg-none pt-0">
+            <div class="col-10 col-sm-9 col-md-8 mx-auto text-center">
                 <span class="text-skinny">Before buying a bionic arm, we first need to pair you with a prosthetic clinic. Star Wars BB-8, Marvel Iron Man and Frozen Covers are now available with every Hero Arm.</span>
             </div>
         </div>
         <div class="row d-lg-none">
             <div class="col mx-auto centre">
-                <a class="btn btn-long btn-dark mb-3 d-sm-none" href="#" role="button">Shop Hero Arm</a>
-                <a class="btn btn-long btn-dark d-none d-sm-inline-block" href="#" role="button">Start your journey today</a>
+                <a class="btn btn-long btn-dark mb-3 d-sm-none" target="_blank" href="https://openbionics.com/sign-up/" role="button">Shop Hero Arm</a>
+                <a class="btn btn-long btn-dark d-none d-sm-inline-block" target="_blank" href="https://openbionics.com/sign-up/" role="button">Start your journey today</a>
             </div>
         </div>
         <div class="container-hero">
@@ -219,7 +223,7 @@
                     </div>
                     <div class="row d-none d-lg-block">
                         <div class="col p-0">
-                            <a class="btn btn-long btn-image" href="#" role="button">Start your journey today</a>
+                            <a class="btn btn-long btn-image" target="_blank" href="https://openbionics.com/sign-up/" role="button">Start your journey today</a>
                         </div>
                     </div>
                 </div>

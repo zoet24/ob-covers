@@ -1,10 +1,6 @@
 /* Stylesheet with declarations for general styles used throughout site */
 
 /* STYLES */
-.centre {
-	text-align: center;
-}
-
 .black-border {
 	border: solid 2px black;
 }
@@ -18,6 +14,14 @@
 }
 
 /* BACKGROUNDS */
-.bg-white {
-    background-color: #fff;
+.bg-lightgrey {
+    background-color: #f8f9fa;
+}
+
+
+/* MEDIA QUERIES */
+@media (min-width: 768px) {
+    .img-mirror-md {
+        transform: scaleX(-1);
+    }
 }

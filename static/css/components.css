@@ -83,11 +83,15 @@ a:hover {
     border-radius: 25px;
     height: 50px;
     min-width: 130px;
-    transition: color .25s ease-in-out,background-color .25s ease-in-out,border-color .25s ease-in-out,box-shadow .25s ease-in-out;
+    transition: color .25s ease-in-out,background-color .25s ease-in-out,border-color .25s ease-in-out,transform .25s ease-in-out;
 }
 
 .btn-long {
     min-width: 200px;
+}
+
+.btn:hover, .btn:focus, .btn-long:hover, .btn-long:focus {
+    transform: scale(1.1);
 }
 
 .btn-image {
@@ -109,7 +113,7 @@ a:hover {
 
 .btn-dark:hover, .btn-dark:focus {
     color: #151635;
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.25);
     box-shadow: none;
 }
 
@@ -243,5 +247,14 @@ a:hover {
 
     .btn-long {
         min-width: 250px;
+    }
+
+    .cover-tile-image {
+        height: 450px;
+    }
+
+    .cover-swatch {
+        height: 30px;
+        width: 30px;
     }
 }
