@@ -1,0 +1,1 @@
+[{"pk":1,"model":"products.range","fields":{"name":"classic","friendly_name":"Classic"}},{"pk":2,"model":"products.range","fields":{"name":"stylish","friendly_name":"Stylish"}},{"pk":3,"model":"products.range","fields":{"name":"premium","friendly_name":"Premium"}},{"pk":4,"model":"products.range","fields":{"name":"disney","friendly_name":"Disney"}}]
