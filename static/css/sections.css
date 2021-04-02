@@ -27,6 +27,17 @@
     text-align: center;
 }
 
+/* PRODUCTS */
+.product-detail-links {
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 0.5rem;
+}
+
+.product-detail-links a {
+    color: #151635;
+}
+
 /* MEDIA QUERIES */
 @media (min-width: 992px) {
     .hero-image-overlay-text-left {

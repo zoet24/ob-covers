@@ -142,6 +142,10 @@ a:hover {
     height: 325px;
 }
 
+.cover-tile-image-detail {
+    height: 500px;
+}
+
 .cover-tile-info {
     position: absolute;
     top: 50%;

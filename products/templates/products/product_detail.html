@@ -1,67 +1,82 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'products/css/products.css' %}">
+{% endblock %}
+
 {% block content %}
-    <section class="container-fluid">
-        <h1>Product detail!</h1>
-    </section>
     <section class="container-compress">
         <div class="row">
-            <div class="col">
-                <a href="{{ product.image }}" target="_blank">
-                    <img src="{{ product.image }}" alt="{{ product.name }}">
-                </a>
-                <h4>{{ product.name }}</h4>
-                <h4>{{ product.price }}</h4>
-                <a href="{% url 'products' %}?range={{ product.range.name }}">
-                    <i class="fas fa-tag"></i>{{ product.range.friendly_name }}
-                </a>
-                <h4>{{ product.description }}</h4>
+            <div class="bg-white product-detail-links col-12">
+                <h3>
+                    <a href="{% url 'home' %}">Home</a>
+                     /
+                    <a href="{% url 'products' %}">All covers</a>
+                     /
+                    <a href="{% url 'products' %}?range={{ product.range.name }}">{{ product.range.friendly_name }}</a>
+                </h3>
             </div>
-            {% if request.user.is_superuser %}
-                <small class="ml-3">
-                    <a href="{% url 'edit_product' product.id %}">Edit</a> | 
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <h1>{{ product.name }}</h1>
+            </div>
+        </div>
+        {% if request.user.is_superuser %}
+        <div class="row">
+            <div class="col-12">
+                <h3>
+                    <a class="text-success" href="{% url 'edit_product' product.id %}">Edit</a> | 
                     <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
-                </small>
-            {% endif %}
+                </h3>
+            </div>
+        </div>
+        {% endif %}
+        <div class="row">
+            <div class="bg-white col-12 cover-tile">
+                <a href="{{ product.image }}" target="_blank">
+                    <img class="cover-tile-image-detail" src="{{ product.image }}" alt="{{ product.name }}">
+                </a>
+            </div>
+            <div class="col-12 pt-2"> 
+                <h2>{{ product.price }}</h2>
+                <h3>Colours</h3>
+                <hr>
+                <h4>{{ product.description }}</h4>
+                <hr>
+            </div>
         </div>
         <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST">
             {% csrf_token %}
             <div class="form-row">
                 <div class="col-12">
-                    <p>Quantity:</p>
                     <div class="input-group">
-                        <div class="input-group-prepend">
-                            <button class="decrement-qty btn btn-black rounded-0" 
+                        <h3>Quantity:</h3>
+                        <!-- <div class="input-group-prepend"> -->
+                            <button class="decrement-qty" 
                                 data-item_id="{{ product.id }}" id="decrement-qty_{{ product.id }}">
                                 <span class="icon">
                                     <i class="fas fa-minus"></i>
                                 </span>
                             </button>
-                        </div>
+                        <!-- </div> -->
                         <input class="form-control qty_input" type="number"
                             name="quantity" value="1" min="1" max="99"
                             data-item_id="{{ product.id }}"
                             id="id_qty_{{ product.id }}">
-                        <div class="input-group-append">
-                            <button class="increment-qty btn btn-black rounded-0"
+                        <!-- <div class="input-group-append"> -->
+                            <button class="increment-qty"
                                 data-item_id="{{ product.id }}" id="increment-qty_{{ product.id }}">
                                 <span class="icon">
                                     <i class="fas fa-plus"></i>
                                 </span>
                             </button>
-                        </div>
+                        <!-- </div> -->
                     </div>
                 </div>
-
-                <div class="col-12">
-                    <a href="{% url 'products' %}">
-                        <span class="icon">
-                            <i class="fas fa-chevron-left"></i>
-                        </span>
-                        <span class="text-uppercase">Keep Shopping</span>
-                    </a>
-                    <input type="submit" value="Add to Bag">
+                <div class="col-12 my-2">
+                    <input class="btn btn-long btn-dark" type="submit" value="Add to Bag">
                 </div>
                 <input type="hidden" name="redirect_url" value="{{ request.path }}">
             </div>
