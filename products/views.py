@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.db.models.functions import Lower
 
-from .models import Product, Range, Style, Colour
+from .models import Product, Range
 from .forms import ProductForm
 
 # Create your views here.
@@ -14,7 +14,7 @@ def all_products(request):
     # A view to show all products, including sorting and search queries
     products = Product.objects.all()
     query = None
-    categories = None
+    ranges = None
     sort = None
     direction = None
 
@@ -25,18 +25,18 @@ def all_products(request):
             if sortkey == 'name':
                 sortkey = 'lower_name'
                 products = products.annotate(lower_name=Lower('name'))
-            if sortkey == 'category':
-                sortkey = 'category__name'
+            if sortkey == 'range':
+                sortkey = 'range__name'
             if 'direction' in request.GET:
                 direction = request.GET['direction']
                 if direction == 'desc':
                     sortkey = f'-{sortkey}'
             products = products.order_by(sortkey)
 
-        if 'category' in request.GET:
-            categories = request.GET['category'].split(',')
-            products = products.filter(category__name__in=categories)
-            categories = Category.objects.filter(name__in=categories)
+        if 'range' in request.GET:
+            ranges = request.GET['range'].split(',')
+            products = products.filter(range__name__in=ranges)
+            ranges = Range.objects.filter(name__in=ranges)
 
         if 'q' in request.GET:
             query = request.GET['q']
@@ -52,7 +52,7 @@ def all_products(request):
     context = {
         'products': products,
         'search_term': query,
-        'current_categories': categories,
+        'current_ranges': ranges,
         'current_sorting': current_sorting,
     }
 
@@ -88,7 +88,7 @@ def add_product(request):
             messages.error(request, 'Failed to add product. Please ensure the form is valid.')
     else:
         form = ProductForm()
-        
+
     template = 'products/add_product.html'
     context = {
         'form': form,
@@ -132,7 +132,7 @@ def delete_product(request, product_id):
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
-    
+
     product = get_object_or_404(Product, pk=product_id)
     product.delete()
     messages.success(request, 'Product deleted!')
