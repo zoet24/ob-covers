@@ -28,7 +28,7 @@ SECRET_KEY = '-1&#)_d*@7*hmcby+^125lzv8s5b)f#zy6^a_lvr+u#c#cw4c)'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['ob-covers.herokuapp.com', 'localhost']
 
 
 # Application definition
@@ -120,12 +120,17 @@ WSGI_APPLICATION = 'ob_covers.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+if 'DATABASE_URL' in os.environ:
+    DATABASES = {
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
 
 # DATABASES = {
 #     'default': dj_database_url.parse('postgres://kfrrtqimrbbzss:40ef9dfc9ee43eabb6868da5a1e9f0ec241fd4d1fc187a36b685cc649865faee@ec2-54-220-35-19.eu-west-1.compute.amazonaws.com:5432/dc67oj2u0iccb8')
