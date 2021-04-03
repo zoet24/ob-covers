@@ -1,1 +1,1 @@
-web: gunicorn ob-covers.wsgi:application
+web: gunicorn ob_covers.wsgi:application
