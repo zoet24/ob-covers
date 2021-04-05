@@ -36,7 +36,7 @@
         <div class="row">
             <div class="bg-white col-12 cover-tile">
                 <a href="{% get_media_prefix %}{{ product.image }}" target="_blank">
-                    <img id="product-image" class="cover-tile-image-detail" src="{% get_media_prefix %}{{ product.image }}" alt="{{ product.name }}">
+                    <img id="product-image" class="cover-tile-image-detail" src="{{ MEDIA_URL }}{{ product.image }}" alt="{{ product.name }}">
                 </a>
             </div>
             <div class="col-12 pt-2"> 
