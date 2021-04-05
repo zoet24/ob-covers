@@ -18,10 +18,6 @@ def all_products(request):
     sort = None
     direction = None
 
-    for product in products:
-        image = product.image
-        print(image)
-
     if request.GET:
         if 'sort' in request.GET:
             sortkey = request.GET['sort']
