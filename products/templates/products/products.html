@@ -33,7 +33,7 @@
             {% for product in products %}
                 <div class="col">
                     <a href="{% url 'product_detail' product.id %}">
-                        <img src="{% get_media_prefix %}{{ product.image }}" alt="{{ product.name }}">
+                        <img id="product-image" src="{% get_media_prefix %}{{ product.image }}" alt="{{ product.name }}">
                     </a>
                     <h4>{{ product.name }}</h4>
                     <h4>{{ product.price }}</h4>
