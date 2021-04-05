@@ -5,7 +5,7 @@
             var coverStyle = this.id.split('-')[3];
             var coverColour = this.id.split('-')[4];
             var coverRGB = $(this).css("backgroundColor").match(/\d+/g);;
-            var imageSrc = `../media/${coverRange}-${coverStyle}-${coverColour}.png`;
+            var imageSrc = `{{ MEDIA_URL }}${coverRange}-${coverStyle}-${coverColour}.png`;
             // Remove 'active' class from swatch
             $(".cover-swatch").removeClass(`cover-swatch-${coverRange}-active`);
             // Add active class to clicked element

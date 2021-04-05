@@ -35,8 +35,8 @@
         {% endif %}
         <div class="row">
             <div class="bg-white col-12 cover-tile">
-                <a href="{{ product.image }}" target="_blank">
-                    <img class="cover-tile-image-detail" src="{{ product.image }}" alt="{{ product.name }}">
+                <a href="{{ MEDIA_URL }}{{ product.image }}" target="_blank">
+                    <img class="cover-tile-image-detail" src="{{ MEDIA_URL }}{{ product.image }}" alt="{{ product.name }}">
                 </a>
             </div>
             <div class="col-12 pt-2"> 
