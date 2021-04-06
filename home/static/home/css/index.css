@@ -7,7 +7,6 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 85% 0%;
-    overflow: hidden;
 }
 
 #logo-home {
@@ -21,7 +20,6 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 20% 0%;
-    overflow: hidden;
 }
 
 #home-hero-image-3 {
@@ -31,7 +29,6 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 92.5% 0%;
-    overflow: hidden;
 }
 
 /* MEDIA QUERIES */
