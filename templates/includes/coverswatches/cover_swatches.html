@@ -4,26 +4,26 @@
             var coverRange = this.id.split('-')[2];
             var coverStyle = this.id.split('-')[3];
             var coverColour = this.id.split('-')[4];
-            var coverRGB = $(this).css("backgroundColor").match(/\d+/g);;
+            var coverRGB = $(this).css("backgroundColor").match(/\d+/g);
             var imageSrc = `{{ MEDIA_URL }}${coverRange}-${coverStyle}-${coverColour}.png`;
             // Remove 'active' class from swatch
             $(".cover-swatch").removeClass(`cover-swatch-${coverRange}-active`);
             // Add active class to clicked element
             $(this).addClass(`cover-swatch-${coverRange}-active`);
             // Set image source to correct colour and style
-            $(`#cover-tile-image-home-${coverRange}`).attr("src", imageSrc);
+            $(`#cover-tile-image-${coverRange}`).attr("src", imageSrc);
             // Calculate tinted colour and set new background colour if the colour is light enough
             var r = Math.min((75 + parseInt(coverRGB[0])), 255);
                 g = Math.min((75 + parseInt(coverRGB[1])), 255);
                 b = Math.min((75 + parseInt(coverRGB[2])), 255);
             setTimeout(function() {
                 if (r + g + b > 300) {
-                    $(`.cover-tile-bg-home-${coverRange}`).css("backgroundColor", `rgb(${r},${g},${b})`);
+                    $(`.cover-tile-bg-${coverRange}`).css("backgroundColor", `rgb(${r},${g},${b})`);
                 }
                 else {
-                    $(`.cover-tile-bg-home-${coverRange}`).css("backgroundColor", "#f0f3f4");
+                    $(`.cover-tile-bg-${coverRange}`).css("backgroundColor", "#f0f3f4");
                 };
-            }, 75);
+            }, 100);
             
         });
     });

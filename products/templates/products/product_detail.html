@@ -27,23 +27,22 @@
         <div class="row">
             <div class="col-12">
                 <h3>
-                    <a class="text-success" href="{% url 'edit_product' product.id %}">Edit!</a> | 
-                    <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete!</a>
+                    <a class="text-success" href="{% url 'edit_product' product.id %}">Edit</a> | 
+                    <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
                 </h3>
             </div>
         </div>
         {% endif %}
         <div class="row">
-            <div class="bg-white col-12 cover-tile">
-                <a href="{% get_media_prefix %}{{ product.image }}" target="_blank">
-                    <img id="product-image" class="cover-tile-image-detail" src="{{ MEDIA_URL}}{{ product.image }}" alt="{{ product.name }}">
+            <div class="col-12 cover-tile cover-tile-bg-{{ product.range }}">
+                <a href="{{ MEDIA_URL }}{{ product.image }}" target="_blank">
+                    <img id="cover-tile-image-{{ product.range }}" class="cover-tile-image-detail" src="{{ MEDIA_URL }}{{ product.image }}" alt="{{ product.name }}">
                 </a>
             </div>
             <div class="col-12 pt-2">
-                <h1>{{ MEDIA_URL }}</h1>
-                <h1>{{ product.image }}</h1>
-                <h2>{{ product.price }}</h2>
+                <h2>£{{ product.price }}</h2>
                 <h3>Colours</h3>
+                {% include 'includes/coverswatches/coverswatch_classic.html' %}
                 <hr>
                 <h4>{{ product.description }}</h4>
                 <hr>
@@ -88,6 +87,7 @@
 
 {% block postloadjs %}
 {{ block.super }}
+{% include 'includes/coverswatches/cover_swatches.html' %}
+{% include 'products/includes/cover_swatches_productdetail.html' %}
 {% include 'products/includes/quantity_input_script.html' %}
-{% include 'products/includes/jscheck.html' %}
 {% endblock %}

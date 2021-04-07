@@ -1,0 +1,14 @@
+<div>
+    <span id="productdetail-range">{{ product.range }}</span>
+    <span id="productdetail-style">{{ product.style }}</span>
+    <span id="productdetail-colour">{{ product.colour }}</span>
+</div>
+
+<script>
+    onload = function() {
+        var coverRange = $("#productdetail-range").html();
+        var coverStyle = $("#productdetail-style").html();
+        var coverColour = $("#productdetail-colour").html();
+        $(`#cover-swatch-${coverRange}-${coverStyle}-${coverColour}`).trigger('click');
+    }
+</script>
