@@ -53,6 +53,19 @@ h4 {
 	transition: all 0.25s ease-in-out;
 }
 
+.icon-sm {
+    font-size: 10px;
+
+	height: 25px;
+	width: 25px;
+}
+
+.icon-black {
+    color: #151635;
+    border-color: #151635;
+	background-color: inherit;
+}
+
 .icon:hover {
 	color: #1c86c8;
 	background-color: white;
@@ -129,6 +142,21 @@ a:hover {
 .btt-link, .update-link, .remove-item {
     cursor: pointer;
 } */
+
+/* QUANTITY BUTTON */
+.form-control {
+    width: auto;
+    border-radius: 35px;
+    text-align: center;
+}
+
+.input-group-prepend, .input-group-append, .form-control {
+    display: inline-block;
+}
+
+.increment-qty, .decrement-qty {
+    border: none;
+}
 
 /* PRODUCTS */
 .cover-tile {
@@ -227,6 +255,12 @@ a:hover {
 .cover-swatch-pinkbright {
     border-color: rgb(223, 5, 135);
     background-color: rgb(223, 5, 135);
+}
+
+.product-description {
+    background-color: white;
+    border-radius: 25px;
+    padding: 5px;
 }
 
 /* MEDIA QUERIES */

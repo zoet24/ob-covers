@@ -15,7 +15,7 @@ body {
     font-size: 16px;
 }
 
-.row, .col, .container-fluid, .container-compress, h1, h2, h3, h4, h5, h6 {
+.row, .col, .container-fluid, .container-compress, .form, .form-row, h1, h2, h3, h4, h5, h6 {
 	padding: 0;
     margin: 0 auto;
     width: 100%;
