@@ -44,7 +44,9 @@
         <div class="row">
             {% for product in products %}
                 <div class="col-10 cover-tile cover-tile-products mx-auto my-3">
-                    <h3 class="product-tag product-unavailable text-thick">Best seller</h3>
+                    {% if product.available == False %}
+                        <h3 class="product-tag product-unavailable text-thick">Unavailable</h3>
+                    {% endif %}
                     <a href="{% url 'product_detail' product.id %}">
                         <img class="cover-tile-image" src="{{ MEDIA_URL }}{{ product.image }}" alt="{{ product.name }}">
                     </a>

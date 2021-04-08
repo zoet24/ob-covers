@@ -154,12 +154,12 @@ a:hover {
     padding: 10px;
     position: relative;
     background-color: white;
+    overflow: hidden;
 }
 
 .cover-tile-products {
     box-shadow: 1px 1px #1c86c8;
     border-radius: 25px;
-    overflow: hidden;
 }
 
 .cover-tile-image {
