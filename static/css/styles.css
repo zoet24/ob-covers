@@ -13,6 +13,15 @@
     display: none;
 }
 
+.text-skinny {
+    font-size: 1.5rem;
+    font-weight: 300;
+}
+
+.text-thick {
+    font-weight: 500!important;
+}
+
 /* BACKGROUNDS */
 .bg-lightgrey {
     background-color: #f8f9fa;

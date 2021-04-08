@@ -3,7 +3,7 @@
 
 {% block content %}
     <section class="container-fluid">
-        <div class="row">
+        <div class="row mb-0">
             <div class="bg-white product-detail-links col-12">
                 <h3>
                     <a href="{% url 'home' %}">Home</a>
@@ -16,12 +16,7 @@
                 </h3>
             </div>
         </div>
-        <h1>
-            
-        </h1>
-    </section>
-    <section class="container-compress">
-        <div class="row">
+        <!-- <div class="row">
             <div class="col-4">
                 <div class="sort-select-wrapper">
                     <select id="sort-selector" class="custom-select custom-select-sm rounded-0 border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
@@ -43,29 +38,28 @@
                     {{ products|length }} Products{% if search_term %} found for <strong>"{{ search_term }}"</strong>{% endif %}
                 </p>
             </div>
-        </div>
+        </div> -->
+    </section>
+    <section class="container-compress">
         <div class="row">
             {% for product in products %}
-                <div class="col">
+                <div class="col-10 mx-auto my-3 bg-white">
                     <a href="{% url 'product_detail' product.id %}">
-                        <img src="{{ MEDIA_URL }}{{ product.image }}" alt="{{ product.name }}">
+                        <img class="cover-tile-image" src="{{ MEDIA_URL }}{{ product.image }}" alt="{{ product.name }}">
                     </a>
-                    <h4>{{ product.name }}</h4>
-                    <h4>{{ product.price }}</h4>
-                    <a href="{% url 'products' %}?range={{ product.range.name }}">
-                        <i class="fas fa-tag"></i>{{ product.range.friendly_name }}
-                    </a>
+                    <h3 class="text-thick">{{ product.name }}</h3>
+                    <h3>£{{ product.price }}</h3>
+                    {% if request.user.is_superuser %}
+                        <h3 class="my-2">
+                            <a class="text-success" href="{% url 'edit_product' product.id %}">Edit</a> | 
+                            <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
+                        </h3>
+                    {% endif %}
                 </div>
-                 {% if request.user.is_superuser %}
-                    <small class="ml-3">
-                        <a href="{% url 'edit_product' product.id %}">Edit</a> | 
-                        <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
-                    </small>
-                {% endif %}
             {% endfor %}
         </div>
-        <div class="btt-button shadow-sm rounded-0 border border-black">
-            <a class="btt-link">
+        <div class="icon icon-black btn-up">
+            <a class="btn-up-link">
                 <i class="fas fa-arrow-up"></i>
             </a>	
         </div>
@@ -75,7 +69,7 @@
 {% block postloadjs %}
     {{ block.super }}
     <script type="text/javascript">
-		$('.btt-link').click(function(e) {
+		$('.btn-up-link').click(function(e) {
 			window.scrollTo(0,0)
 		})
 	</script>

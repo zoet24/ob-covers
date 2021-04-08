@@ -1,6 +1,6 @@
 /* Stylesheet with declarations for common elements and components used throughout site */
 
-/* HEADINGS AND TEXT */
+/* HEADINGS */
 h1 {
 	font-size: 2.5rem;
     font-family: 'Poppins', sans-serif;
@@ -27,11 +27,6 @@ h3, .btn {
 
 h4 {
     font-size: 1rem;
-}
-
-.text-skinny {
-    font-size: 1.5rem;
-    font-weight: 300;
 }
 
 /* COMPONENTS */
@@ -130,18 +125,12 @@ a:hover {
     box-shadow: none;
 }
 
-/* BOUTIQUE ADO CSS */
-/* .btt-button {
-    height: 42px;
-    width: 42px;
+.btn-up {
     position: fixed;
     bottom: 10px;
     right: 10px;
-}
-
-.btt-link, .update-link, .remove-item {
     cursor: pointer;
-} */
+}
 
 /* QUANTITY BUTTON */
 .form-control {
