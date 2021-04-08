@@ -14,6 +14,7 @@ def all_products(request):
     # A view to show all products, including sorting and search queries
     products = Product.objects.all()
     query = None
+    range = None
     ranges = None
     sort = None
     direction = None
@@ -37,6 +38,9 @@ def all_products(request):
             ranges = request.GET['range'].split(',')
             products = products.filter(range__name__in=ranges)
             ranges = Range.objects.filter(name__in=ranges)
+            print("RANGE:", ranges)
+            if ranges:
+                range = ranges[0]
 
         if 'q' in request.GET:
             query = request.GET['q']
@@ -52,9 +56,12 @@ def all_products(request):
     context = {
         'products': products,
         'search_term': query,
+        'current_range': range,
         'current_ranges': ranges,
         'current_sorting': current_sorting,
     }
+
+    print(context)
 
     return render(request, 'products/products.html', context)
 

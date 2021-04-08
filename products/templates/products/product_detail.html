@@ -15,6 +15,7 @@
                     <a href="{% url 'products' %}">All covers</a>
                      /
                     <a href="{% url 'products' %}?range={{ product.range.name }}">{{ product.range.friendly_name }}</a>
+                    /
                 </h3>
             </div>
         </div>
@@ -42,6 +43,9 @@
             <div class="col-12 pt-2">
                 <hr class="m-3">
                 <div class="row pb-0">
+                    <div class="col-12 pb-2">
+                        <h2>£{{ product.price }}</h2>
+                    </div>
                     {% if product.range %}
                         <div class="col-6 p-0 align-self-center">
                             <h3>Colours</h3>
@@ -58,9 +62,6 @@
                             {% endif %}
                         </div>
                     {% endif %}
-                    <div class="col-12 p-0">
-                        <h2>£{{ product.price }}</h2>
-                    </div>
                 </div>
                 <hr class="m-3">
                 <h4 class="product-description">{{ product.description }}</h4>

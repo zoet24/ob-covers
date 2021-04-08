@@ -260,7 +260,7 @@ a:hover {
 .product-description {
     background-color: white;
     border-radius: 25px;
-    padding: 5px;
+    padding: 0.75rem;
 }
 
 /* MEDIA QUERIES */
