@@ -153,6 +153,13 @@ a:hover {
     text-align: center;
     padding: 10px;
     position: relative;
+    background-color: white;
+}
+
+.cover-tile-products {
+    box-shadow: 1px 1px #1c86c8;
+    border-radius: 25px;
+    overflow: hidden;
 }
 
 .cover-tile-image {
@@ -250,6 +257,25 @@ a:hover {
     background-color: white;
     border-radius: 25px;
     padding: 0.75rem;
+}
+
+.product-tag {
+    width: 125%;
+    transform: rotate(-45deg) translate(-30%, -75%);
+    line-height: 50px;
+}
+
+.product-popular {
+    background-color: #1c86c8;
+    color: white;
+    border: #1c86c8 solid 2px;
+}
+
+.product-unavailable {
+    background-color: white;
+    color: #151635;
+    border: #151635 solid 2px;
+    
 }
 
 /* MEDIA QUERIES */
