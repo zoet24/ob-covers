@@ -51,8 +51,8 @@ h4 {
 .icon-sm {
     font-size: 10px;
 
-	height: 25px;
-	width: 25px;
+	height: 30px;
+	width: 30px;
 }
 
 .icon-black {
@@ -132,15 +132,30 @@ a:hover {
     cursor: pointer;
 }
 
-/* QUANTITY BUTTON */
-.form-control {
-    width: auto;
-    border-radius: 35px;
-    text-align: center;
+/* SORT AND QUANTITY INPUTS */
+.input-sort {
+    width: 100%;
+    outline: none;
+    padding: 5px;
+    font-size: 1.25rem;
+    font-weight: 200;
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
 }
 
-.input-group-prepend, .input-group-append, .form-control {
-    display: inline-block;
+.input-quantity {
+    width: auto;
+    height: 35px;
+    margin: 0;
+}
+
+.input-sort, .input-quantity {
+    border-radius: 35px;
+    text-align: center;    
+}
+
+.input-group-prepend, .input-group-append, .input-quantity {
+    display: inline-flex;
 }
 
 .increment-qty, .decrement-qty {
