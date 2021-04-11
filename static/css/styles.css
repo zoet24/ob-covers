@@ -34,4 +34,14 @@
     .img-mirror-md {
         transform: scaleX(-1);
     }
+
+    .text-thick {
+        font-size: 1.35rem;
+    }
+}
+
+@media (min-width: 992px) {
+    .text-thick {
+        font-size: 1.65rem;
+    }
 }

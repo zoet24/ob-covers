@@ -2,98 +2,103 @@
 {% load static %}
 
 {% block content %}
-    <section class="container-fluid">
-        <div class="row mb-0">
-            <div class="bg-white product-detail-links col-12">
-                <h3>
-                    <a href="{% url 'home' %}">Home</a>
-                     /
-                    <a href="{% url 'products' %}">All covers</a>
-                    {% if current_range != None %}
-                        /
-                        <a href="#">{{ current_range }}</a>
-                    {% endif %}
-                </h3>
+<section class="container-fluid">
+    <div class="row mb-0">
+        <div class="bg-white product-detail-links col-12">
+            <h3>
+                <a href="{% url 'home' %}">Home</a>
+                /
+                <a href="{% url 'products' %}">All covers</a>
+                {% if current_range != None %}
+                /
+                <a href="#">{{ current_range }}</a>
+                {% endif %}
+            </h3>
+        </div>
+    </div>
+    <div class="row pb-0">
+        <div class="col-12 col-sm-8 col-lg-4 mx-auto">
+            <div class="sort-select-wrapper">
+                <select id="sort-selector" class="input-sort">
+                    <option value="reset">Sort by...</option>
+                    <option value="price_asc">Price (low to high)</option>
+                    <option value="price_desc">Price (high to low)</option>
+                    <option value="name_asc">Name (A-Z)</option>
+                    <option value="name_desc">Name (Z-A)</option>
+                    <option value="category_asc">Category (A-Z)</option>
+                    <option value="category_desc">Category (Z-A)</option>
+                </select>
             </div>
         </div>
-        <div class="row pb-0">
-            <div class="col-12">
-                <div class="sort-select-wrapper">
-                    <select id="sort-selector" class="input-sort">
-                        <option value="reset">Sort by...</option>
-                        <option value="price_asc">Price (low to high)</option>
-                        <option value="price_desc">Price (high to low)</option>
-                        <option value="name_asc">Name (A-Z)</option>
-                        <option value="name_desc">Name (Z-A)</option>
-                        <option value="category_asc">Category (A-Z)</option>
-                        <option value="category_desc">Category (Z-A)</option>
-                    </select>
-                </div>
+        <div class="col-12">
+            <h3 class="pt-2">
+                {{ products|length }} Products{% if search_term %} found for
+                <strong>"{{ search_term }}"</strong>{% endif %}
+            </h3>
+        </div>
+    </div>
+</section>
+<section class="container-compress">
+    <div class="row pt-0 mb-0 justify-content-center">
+        {% for product in products %}
+        <div class="col-10 col-sm-5 col-md-3 cover-tile cover-tile-products my-3 mx-sm-3">
+            {% if product.available == False %}
+            <h3 class="product-tag product-unavailable text-thick">Unavailable</h3>
+            {% endif %}
+            <a href="{% url 'product_detail' product.id %}">
+                <img class="cover-tile-image" src="{{ MEDIA_URL }}{{ product.image }}" alt="{{ product.name }}">
+            </a>
+            <div class="cover-tile-name">
+                <h3 class="text-thick align-self-center">{{ product.name }}</h3>
             </div>
-            <div class="col-12">
-                <h3 class="pt-2">
-                    {{ products|length }} Products{% if search_term %} found for <strong>"{{ search_term }}"</strong>{% endif %}
-                </h3>
-            </div>
+            <h3>£{{ product.price }}</h3>
+            {% if request.user.is_superuser %}
+            <h3 class="my-2">
+                <a class="text-success" href="{% url 'edit_product' product.id %}">Edit</a> |
+                <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
+            </h3>
+            {% endif %}
         </div>
-    </section>
-    <section class="container-compress">
-        <div class="row pt-0 mb-0">
-            {% for product in products %}
-                <div class="col-10 cover-tile cover-tile-products mx-auto my-3">
-                    {% if product.available == False %}
-                        <h3 class="product-tag product-unavailable text-thick">Unavailable</h3>
-                    {% endif %}
-                    <a href="{% url 'product_detail' product.id %}">
-                        <img class="cover-tile-image" src="{{ MEDIA_URL }}{{ product.image }}" alt="{{ product.name }}">
-                    </a>
-                    <h3 class="text-thick">{{ product.name }}</h3>
-                    <h3>£{{ product.price }}</h3>
-                    {% if request.user.is_superuser %}
-                        <h3 class="my-2">
-                            <a class="text-success" href="{% url 'edit_product' product.id %}">Edit</a> | 
-                            <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
-                        </h3>
-                    {% endif %}
-                </div>
-            {% endfor %}
-        </div>
-        <div class="icon icon-black btn-up">
-            <a class="btn-up-link">
-                <i class="fas fa-arrow-up"></i>
-            </a>	
-        </div>
-    </section>
+        {% endfor %}
+    </div>
+    <div class="icon icon-black btn-up">
+        <a class="btn-up-link">
+            <i class="fas fa-arrow-up"></i>
+        </a>
+    </div>
+</section>
 {% endblock %}
 
 {% block postloadjs %}
-    {{ block.super }}
-    <script type="text/javascript">
-		$('.btn-up-link').click(function(e) {
-			window.scrollTo(0,0)
-		})
-	</script>
-    
-    <script type="text/javascript">
-        $('#sort-selector').change(function() {
-            var selector = $(this);
-            var currentUrl = new URL(window.location);
+{{ block.super }}
+<script type="text/javascript">
+    $('.btn-up-link').click(function (e) {
+        window.scrollTo(0, 0)
+    })
+</script>
 
-            var selectedVal = selector.val();
-            if(selectedVal != "reset"){
-                var sort = selectedVal.split("_")[0];
-                var direction = selectedVal.split("_")[1];
+<script type="text/javascript">
+    $('#sort-selector').change(function () {
+        var selector = $(this);
+        var currentUrl = new URL(window.location);
 
-                currentUrl.searchParams.set("sort", sort);
-                currentUrl.searchParams.set("direction", direction);
+        var selectedVal = selector.val();
+        if (selectedVal != "reset") {
+            var sort = selectedVal.split("_")[0];
+            var direction = selectedVal.split("_")[1];
 
-                window.location.replace(currentUrl);
-            } else {
-                currentUrl.searchParams.delete("sort");
-                currentUrl.searchParams.delete("direction");
+            currentUrl.searchParams.set("sort", sort);
+            currentUrl.searchParams.set("direction", direction);
 
-                window.location.replace(currentUrl);
-            }
-        })
-    </script>
+            window.location.replace(currentUrl);
+
+
+        } else {
+            currentUrl.searchParams.delete("sort");
+            currentUrl.searchParams.delete("direction");
+
+            window.location.replace(currentUrl);
+        }
+    })
+</script>
 {% endblock %}

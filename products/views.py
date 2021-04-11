@@ -38,7 +38,6 @@ def all_products(request):
             ranges = request.GET['range'].split(',')
             products = products.filter(range__name__in=ranges)
             ranges = Range.objects.filter(name__in=ranges)
-            print("RANGE:", ranges)
             if ranges:
                 range = ranges[0]
 
@@ -60,8 +59,6 @@ def all_products(request):
         'current_ranges': ranges,
         'current_sorting': current_sorting,
     }
-
-    print(context)
 
     return render(request, 'products/products.html', context)
 

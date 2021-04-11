@@ -58,7 +58,7 @@ h4 {
 .icon-black {
     color: #151635;
     border-color: #151635;
-	background-color: inherit;
+	background-color: #fff;
 }
 
 .icon:hover {
@@ -151,7 +151,9 @@ a:hover {
 
 .input-sort, .input-quantity {
     border-radius: 35px;
-    text-align: center;    
+    text-align: center;
+    border: solid 1px #151635;
+    background-color: #fff;    
 }
 
 .input-sort:focus, .input-quantity:focus {
@@ -164,6 +166,7 @@ a:hover {
 
 .increment-qty, .decrement-qty {
     border: none;
+    background-color: none;
 }
 
 input::-webkit-outer-spin-button,
@@ -198,6 +201,11 @@ input[type=number] {
 .cover-tile-image-detail {
     height: 500px;
 }
+
+/* .cover-tile-name {
+    height: 100px;
+    display: flex;
+} */
 
 .cover-tile-info {
     position: absolute;
@@ -292,6 +300,7 @@ input[type=number] {
     width: 125%;
     transform: rotate(-45deg) translate(-30%, -75%);
     line-height: 50px;
+    position: absolute;
 }
 
 .product-popular {
@@ -308,6 +317,13 @@ input[type=number] {
 }
 
 /* MEDIA QUERIES */
+@media (min-width: 576px) {
+    .cover-tile-name {
+        height: 100px;
+        display: flex;
+    }
+}
+
 @media (min-width: 768px) {    
     .icon {
 		margin: 0px 3px;
