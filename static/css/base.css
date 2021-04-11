@@ -309,11 +309,17 @@ button.close {
 }
 
 @media (min-width: 992px) {    
-    .container-compress {
+    /* .container-compress {
         width: 70%;
-    }
+    } */
     
     .navbar-search input {
 		width: 350px;
+    }
+}
+
+@media (min-width: 1200px) {    
+    .container-compress {
+        width: 70%;
     }
 }

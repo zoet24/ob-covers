@@ -2,113 +2,117 @@
 {% load static %}
 
 {% block extra_css %}
-    <link rel="stylesheet" href="{% static 'products/css/products.css' %}">
+<link rel="stylesheet" href="{% static 'products/css/products.css' %}">
 {% endblock %}
 
 {% block content %}
-    <section class="container-compress">
-        <div class="row">
-            <div class="bg-white product-detail-links col-12">
-                <h3>
-                    <a href="{% url 'home' %}">Home</a>
-                     /
-                    <a href="{% url 'products' %}">All covers</a>
-                     /
-                    <a href="{% url 'products' %}?range={{ product.range.name }}">{{ product.range.friendly_name }}</a>
-                    /
-                </h3>
-            </div>
+<div class="container-fluid">
+    <div class="row p-0">
+        <div class="bg-white product-detail-links col-12">
+            <h3>
+                <a href="{% url 'home' %}">Home</a>
+                /
+                <a href="{% url 'products' %}">All covers</a>
+                /
+                <a href="{% url 'products' %}?range={{ product.range.name }}">{{ product.range.friendly_name }}</a>
+                /
+            </h3>
         </div>
-        <div class="row">
-            <div class="col-12">
-                <h1>{{ product.name }}</h1>
-            </div>
+    </div>
+</div>
+<section class="container-compress">
+    <div class="row pt-md-3">
+        <div class="d-none d-md-block col-md-5 align-self-center cover-tile cover-tile-bg-{{ product.range }}">
+            {% if product.available == False %}
+            <h3 class="product-tag product-unavailable text-thick">Unavailable</h3>
+            {% endif %}
+            <a href="{{ MEDIA_URL }}{{ product.image }}" target="_blank">
+                <img id="cover-tile-image-{{ product.range }}" class="cover-tile-image-detail"
+                    src="{{ MEDIA_URL }}{{ product.image }}" alt="{{ product.name }}">
+            </a>
         </div>
-        {% if request.user.is_superuser %}
-        <div class="row">
-            <div class="col-12">
-                <h3>
-                    <a class="text-success" href="{% url 'edit_product' product.id %}">Edit</a> | 
-                    <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
-                </h3>
-            </div>
-        </div>
-        {% endif %}
-        <div class="row">
-            <div class="col-12 cover-tile cover-tile-bg-{{ product.range }}">
-                {% if product.available == False %}
-                    <h3 class="product-tag product-unavailable text-thick">Unavailable</h3>
+        <div class="col-12 col-md-7 p-0 align-self-center">
+            <div class="row pt-0">
+                <div class="col-12 pb-2 pb-md-0">
+                    <h1>{{ product.name }}</h1>
+                </div>
+                {% if request.user.is_superuser %}
+                <div class="col-12">
+                    <h3>
+                        <a class="text-success" href="{% url 'edit_product' product.id %}">Edit</a> |
+                        <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
+                    </h3>
+                </div>
                 {% endif %}
-                <a href="{{ MEDIA_URL }}{{ product.image }}" target="_blank">
-                    <img id="cover-tile-image-{{ product.range }}" class="cover-tile-image-detail" src="{{ MEDIA_URL }}{{ product.image }}" alt="{{ product.name }}">
-                </a>
-            </div>
-            <div class="col-12">
-                <div class="row">
-                    <div class="col-12">
-                        <h2>£{{ product.price }}</h2>
-                    </div>
-                    {% if product.range %}
-                        <div class="col-6 align-self-center">
-                            <h3>Colours</h3>
-                        </div>
-                        <div class="col-6 pt-2 px-0">
-                            {% if product.range|lower == "classic" %}
-                                {% include 'includes/coverswatches/coverswatch_classic.html' %}
-                            {% elif product.range|lower == "stylish" %}
-                                {% include 'includes/coverswatches/coverswatch_stylish.html' %}
-                            {% elif product.range|lower == "premium" %}
-                                {% include 'includes/coverswatches/coverswatch_premium.html' %}
-                            {% elif product.range|lower == "disney" %}
-                                {% include 'includes/coverswatches/coverswatch_disney.html' %}
-                            {% endif %}
-                        </div>
+                <div class="col-12 d-md-none cover-tile cover-tile-bg-{{ product.range }}">
+                    {% if product.available == False %}
+                    <h3 class="product-tag product-unavailable text-thick">Unavailable</h3>
+                    {% endif %}
+                    <a href="{{ MEDIA_URL }}{{ product.image }}" target="_blank">
+                        <img id="cover-tile-image-{{ product.range }}" class="cover-tile-image-detail"
+                            src="{{ MEDIA_URL }}{{ product.image }}" alt="{{ product.name }}">
+                    </a>
+                </div>
+                <div class="col-12 pt-2">
+                    <h2>£{{ product.price }}</h2>
+                </div>
+                {% if product.range %}
+                <div class="col-12 align-self-center pt-1">
+                    <h3>Colours</h3>
+                </div>
+                <div class="col-12 d-inline-flex align-items-center justify-content-center">
+                    {% if product.range|lower == "classic" %}
+                    {% include 'includes/coverswatches/coverswatch_classic.html' %}
+                    {% elif product.range|lower == "stylish" %}
+                    {% include 'includes/coverswatches/coverswatch_stylish.html' %}
+                    {% elif product.range|lower == "premium" %}
+                    {% include 'includes/coverswatches/coverswatch_premium.html' %}
+                    {% elif product.range|lower == "disney" %}
+                    {% include 'includes/coverswatches/coverswatch_disney.html' %}
                     {% endif %}
                 </div>
+                {% endif %}
+            </div>
+            <div class="col-12">
                 <h4 class="product-description">{{ product.description }}</h4>
             </div>
-        </div>
-        <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST">
-            {% csrf_token %}
-            <div class="form-row">
-                <div class="col-12">
-                    <div class="input-group">
-                        <div class="row">
-                            <div class="col-6 align-self-center">
-                                <h3>Quantity</h3>
+            <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST">
+                {% csrf_token %}
+                <div class="input-group">
+                    <div class="row">
+                        <div class="col-12 align-self-center">
+                            <h3>Quantity</h3>
+                        </div>
+                        <div class="col-12 d-inline-flex align-items-center justify-content-center">
+                            <div class="input-group-append">
+                                <button class="increment-qty" data-item_id="{{ product.id }}"
+                                    id="increment-qty_{{ product.id }}">
+                                    <span class="icon icon-sm icon-black">
+                                        <i class="fas fa-plus"></i>
+                                    </span>
+                                </button>
                             </div>
-                            <div class="col-6 px-0">
-                                <div class="input-group-append">
-                                    <button class="increment-qty"
-                                        data-item_id="{{ product.id }}" id="increment-qty_{{ product.id }}">
-                                        <span class="icon icon-sm icon-black">
-                                            <i class="fas fa-plus"></i>
-                                        </span>
-                                    </button>
-                                </div>
-                                <input class="input-quantity qty_input" type="number"
-                                    name="quantity" value="1" min="1" max="99"
-                                    data-item_id="{{ product.id }}"
-                                    id="id_qty_{{ product.id }}">
-                                <div class="input-group-prepend">
-                                    <button class="decrement-qty" 
-                                        data-item_id="{{ product.id }}" id="decrement-qty_{{ product.id }}">
-                                        <span class="icon icon-sm icon-black">
-                                            <i class="fas fa-minus"></i>
-                                        </span>
-                                    </button>
-                                </div>
+                            <input class="input-quantity qty_input" type="number" name="quantity" value="1" min="1"
+                                max="99" data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
+                            <div class="input-group-prepend">
+                                <button class="decrement-qty" data-item_id="{{ product.id }}"
+                                    id="decrement-qty_{{ product.id }}">
+                                    <span class="icon icon-sm icon-black">
+                                        <i class="fas fa-minus"></i>
+                                    </span>
+                                </button>
                             </div>
                         </div>
                     </div>
+                    <div class="col-12 pt-2 pb-3 pb-md-0">
+                        <input class="btn btn-long btn-dark" type="submit" value="Add to Bag">
+                    </div>
+                    <input type="hidden" name="redirect_url" value="{{ request.path }}">
                 </div>
-                <div class="col-12 pt-2 pb-3">
-                    <input class="btn btn-long btn-dark" type="submit" value="Add to Bag">
-                </div>
-                <input type="hidden" name="redirect_url" value="{{ request.path }}">
-            </div>
-        </form>
-    </section>
+            </form>
+        </div>
+    </div>
+</section>
 {% endblock %}
 
 {% block postloadjs %}

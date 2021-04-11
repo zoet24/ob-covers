@@ -154,12 +154,26 @@ a:hover {
     text-align: center;    
 }
 
+.input-sort:focus, .input-quantity:focus {
+    outline: none;
+}
+
 .input-group-prepend, .input-group-append, .input-quantity {
     display: inline-flex;
 }
 
 .increment-qty, .decrement-qty {
     border: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
 }
 
 /* PRODUCTS */
