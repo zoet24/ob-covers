@@ -55,6 +55,15 @@ h4 {
 	width: 30px;
 }
 
+.icon-xsm {
+    font-size: 7px;
+
+	height: 25px;
+    width: 25px;
+    
+    border-width: 1px;
+}
+
 .icon-black {
     color: #151635;
     border-color: #151635;
@@ -110,6 +119,7 @@ a:hover {
 .btn-dark {
     color: #151635;
     border-color: #151635;
+    background-color: #fff;
     border-width: 2px;
 }
 
@@ -121,8 +131,14 @@ a:hover {
 
 .btn-dark:hover, .btn-dark:focus, .btn-dark:active {
     color: #151635;
-    background-color: rgba(255, 255, 255, 0.25);
+    background-color: #fff;
     box-shadow: none;
+}
+
+.btn-sm {
+    font-size: 1.25rem;
+    border-width: 1px;
+    height: 40px;
 }
 
 .btn-up {
@@ -141,18 +157,26 @@ a:hover {
     font-weight: 200;
     font-family: 'Poppins', sans-serif;
     text-transform: uppercase;
+    border: solid 1px #151635;
 }
 
 .input-quantity {
     width: auto;
     height: 35px;
     margin: 0;
+    border: solid 2px #151635;
+}
+
+.input-quantity-sm {
+    height: 30px;
+    border-radius: 10px;
+    border: solid 1px #151635;
+    font-size: 0.75rem;
 }
 
 .input-sort, .input-quantity {
     border-radius: 35px;
     text-align: center;
-    border: solid 1px #151635;
     background-color: #fff;    
 }
 
@@ -166,7 +190,8 @@ a:hover {
 
 .increment-qty, .decrement-qty {
     border: none;
-    background-color: none;
+    background-color: rgba(0,0,0,0);
+    display: block;
 }
 
 input::-webkit-outer-spin-button,
@@ -189,7 +214,7 @@ input[type=number] {
     overflow: hidden;
 }
 
-.cover-tile-products {
+.cover-tile-products, .sidebar-table {
     box-shadow: 1px 1px #1c86c8;
     border-radius: 25px;
 }
@@ -200,6 +225,10 @@ input[type=number] {
 
 .cover-tile-image-detail {
     height: 500px;
+}
+
+.cover-tile-image-sm {
+    height: 200px;
 }
 
 /* .cover-tile-name {
@@ -313,7 +342,13 @@ input[type=number] {
     background-color: white;
     color: #151635;
     border: #151635 solid 2px;
-    
+}
+
+/* TABLES */
+.sidebar-table {
+  background-color: #fff;
+  color: #151635;
+  border-radius: 25px;
 }
 
 /* MEDIA QUERIES */

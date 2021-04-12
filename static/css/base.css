@@ -249,17 +249,39 @@ button.close {
   right: 0;
   overflow-x: hidden;
 
-  color: white;
-  background-color: #1c86c8;
-  border: 0px white solid;
+  color: #151635;
+  background-color: #f0f3f4;
+  border: 0px #fff solid;
   
   transition: 0.5s;
+}
+
+.sidebar-nav {
+    color: #fff;
+    background-color: #1c86c8;
+    border: 0px #fff solid;
 }
 
 .sidebar .sidebar-close {
   position: absolute;
   top: 8px;
   right: 8px;
+}
+
+.sidebar-product-text {
+    text-align: left;
+    font-size: 1.15rem;
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 100;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar-product-title {
+    font-weight: 500;
+    font-size: 1.3rem;
 }
 
 /* MEDIA QUERIES */

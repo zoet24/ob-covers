@@ -3,12 +3,12 @@ function openProfileDropdown() {
 }
 
 function openSidebarFav() {
-	document.getElementById("sidebar-fav").style.borderWidth = "4px"
+	document.getElementById("sidebar-fav").style.borderLeftWidth = "4px"
 	if (window.innerWidth <= 576) {
-        document.getElementById("sidebar-fav").style.width = "75%";
+        document.getElementById("sidebar-fav").style.width = "85%";
     }
     else if (window.innerWidth <= 768) {
-        document.getElementById("sidebar-fav").style.width = "50%";
+        document.getElementById("sidebar-fav").style.width = "85%";
     }
     else if (window.innerWidth <= 992) {
         document.getElementById("sidebar-fav").style.width = "50%";
@@ -19,12 +19,13 @@ function openSidebarFav() {
 }
 
 function openSidebarBasket() {
-	document.getElementById("sidebar-basket").style.borderWidth = "4px"
+	document.getElementById("sidebar-basket").style.borderLeftWidth = "4px"
   	if (window.innerWidth <= 576) {
-        document.getElementById("sidebar-basket").style.width = "75%";
+        document.getElementById("sidebar-basket").style.borderLeftWidth = "0px"
+        document.getElementById("sidebar-basket").style.width = "100%";
     }
     else if (window.innerWidth <= 768) {
-        document.getElementById("sidebar-basket").style.width = "50%";
+        document.getElementById("sidebar-basket").style.width = "85%";
     }
     else if (window.innerWidth <= 992) {
         document.getElementById("sidebar-basket").style.width = "50%";
