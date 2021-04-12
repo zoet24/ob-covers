@@ -28,6 +28,9 @@
     background-color: #f8f9fa;
 }
 
+.bg-lightblue {
+    background-color: #e3ecf2;
+}
 
 /* MEDIA QUERIES */
 @media (min-width: 768px) {

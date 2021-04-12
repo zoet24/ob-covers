@@ -67,7 +67,8 @@ h4 {
 .icon-black {
     color: #151635;
     border-color: #151635;
-	background-color: #fff;
+    background-color: #fff;
+    /* background-color: rgba(0,0,0,0); */
 }
 
 .icon:hover {
@@ -119,6 +120,12 @@ a:hover {
 .btn-dark {
     color: #151635;
     border-color: #151635;
+    border-width: 2px;
+}
+
+.btn-white {
+    color: #151635;
+    border-color: #151635;
     background-color: #fff;
     border-width: 2px;
 }
@@ -129,7 +136,13 @@ a:hover {
     box-shadow: none;
 }
 
-.btn-dark:hover, .btn-dark:focus, .btn-dark:active {
+.btn-dark:hover, .btn-dark:focus, .btn-dark:active, .btn-white:hover, .btn-white:focus, .btn-white:active {
+    color: #151635;
+    background-color: rgba(255, 255, 255, 0.25);
+    box-shadow: none;
+}
+
+.btn-white:hover, .btn-white:focus, .btn-white:active {
     color: #151635;
     background-color: #fff;
     box-shadow: none;
@@ -202,6 +215,10 @@ input::-webkit-inner-spin-button {
 
 input[type=number] {
   -moz-appearance: textfield;
+}
+
+.update-link, .remove-item {
+    cursor: pointer;
 }
 
 /* PRODUCTS */
@@ -376,6 +393,12 @@ input[type=number] {
         height: 60px;
         min-width: 160px;
         font-size: 1.75rem;
+    }
+
+    .btn-sm {
+        font-size: 1.25rem;
+        border-width: 1px;
+        height: 40px;
     }
 
     .btn-long {

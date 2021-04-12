@@ -2,8 +2,8 @@
 {% load static %}
 
 {% block content %}
-<section class="container-fluid">
-    <div class="row mb-0">
+<section class="container-fluid bg-lightblue">
+    <div class="row mb-0 pt-0">
         <div class="bg-white product-detail-links col-12">
             <h3>
                 <a href="{% url 'home' %}">Home</a>
@@ -38,10 +38,10 @@
         </div>
     </div>
 </section>
-<section class="container-compress">
+<section class="container-fluid bg-lightblue">
     <div class="row pt-0 mb-0 justify-content-center">
         {% for product in products %}
-        <div class="col-10 col-sm-5 col-md-3 cover-tile cover-tile-products my-3 mx-sm-3">
+        <div class="col-10 col-sm-5 col-md-3 col-xl-2 cover-tile cover-tile-products my-3 mx-sm-3">
             {% if product.available == False %}
             <h3 class="product-tag product-unavailable text-thick">Unavailable</h3>
             {% endif %}

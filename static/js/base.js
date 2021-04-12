@@ -20,18 +20,18 @@ function openSidebarFav() {
 
 function openSidebarBasket() {
 	document.getElementById("sidebar-basket").style.borderLeftWidth = "4px"
-  	if (window.innerWidth <= 576) {
+  	if (window.innerWidth <= 400) {
         document.getElementById("sidebar-basket").style.borderLeftWidth = "0px"
         document.getElementById("sidebar-basket").style.width = "100%";
     }
-    else if (window.innerWidth <= 768) {
-        document.getElementById("sidebar-basket").style.width = "85%";
-    }
-    else if (window.innerWidth <= 992) {
-        document.getElementById("sidebar-basket").style.width = "50%";
-    }
+    // else if (window.innerWidth <= 768) {
+    //     document.getElementById("sidebar-basket").style.width = "80%";
+    // }
+    // else if (window.innerWidth <= 992) {
+    //     document.getElementById("sidebar-basket").style.width = "50%";
+    // }
     else {
-    	document.getElementById("sidebar-basket").style.width = "50%";
+    	document.getElementById("sidebar-basket").style.width = "450px";
     }
 }
 
