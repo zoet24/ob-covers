@@ -72,7 +72,7 @@ def fav_contents(request):
     context = {
         'fav_items': fav_items,
         # 'total': total,
-        # 'product_count': product_count,
+        'product_count': product_count,
         # 'delivery': delivery,
         # 'free_delivery_delta': free_delivery_delta,
         # 'free_delivery_threshold': settings.FREE_DELIVERY_THRESHOLD,

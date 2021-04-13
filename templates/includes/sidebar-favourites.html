@@ -4,9 +4,77 @@
         <span><i class="fas fa-times"></i></span>
     </button>
     <h2 class="p-2">Favourites <i class="fas fa-heart"></i></h2>
+    <h3 class="mb-0 p-2">{{ product_count }} items</h3>
     {% if fav_items %}
-    {% for item in fav_items %}
-        {{ item.product.name }}
-    {% endfor %}
+    <div class="row pt-0">
+        <div class="col">
+            {% for item in fav_items %}
+            <div class="sidebar-table m-2">
+                <table>
+                    <tr>
+                        <th rowspan="6">
+                            {% if item.product.image %}
+                            <img class="cover-tile-image-sm pr-2" src="{{ item.product.image_url }}"
+                                alt="{{ item.product.name }}">
+                            {% else %}
+                            <img class="cover-tile-image-sm pr-2" src="{{ MEDIA_URL }}noimage.png"
+                                alt="{{ item.product.name }}">
+                            {% endif %}
+                        </th>
+                    </tr>
+                    <tr>
+                        <td class="sidebar-product-text sidebar-product-title pt-2">
+                            <span>{{ item.product.name }}</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="sidebar-product-text">
+                            <span>£{{ item.product.price }}</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="sidebar-product-text">
+                            <span>
+                                <a class="remove-item text-danger" id="remove_{{ item.item_id }}">Remove</a>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="sidebar-product-text pb-2">
+                            <a class="btn btn-dark btn-sm my-2" href="#" role="button">Add to basket</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            {% endfor %}
+            <a class="btn btn-dark my-2" href="{% url 'products' %}" role="button">Keep shopping <i
+                    class="fas fa-shopping-basket"></i></a>
+        </div>
+    </div>
+    {% else %}
+    <div class="row pt-0">
+        <div class="col">
+            <h3 class="mb-0 p-2">Your favourites are empty</h3>
+            <a class="btn btn-dark my-2" href="{% url 'products' %}" role="button">Keep shopping <i
+                    class="fas fa-shopping-basket"></i></a>
+        </div>
+    </div>
     {% endif %}
 </div>
+
+{% block postloadjs %}
+<script type="text/javascript">
+    // Remove item and reload on click
+    $('.remove-item').click(function (e) {
+        var csrfToken = "{{ csrf_token }}";
+        var itemId = $(this).attr('id').split('remove_')[1];
+        var url = `/removefav/${itemId}/`;
+        var data = { 'csrfmiddlewaretoken': csrfToken };
+
+        $.post(url, data)
+            .done(function () {
+                location.reload();
+            });
+    })
+</script>
+{% endblock %}

@@ -75,3 +75,20 @@ def add_to_fav(request, item_id):
 
     request.session['fav'] = fav
     return redirect(redirect_url)
+
+
+def remove_from_fav(request, item_id):
+    """Remove the item from the favourites"""
+
+    try:
+        product = get_object_or_404(Product, pk=item_id)
+        fav = request.session.get('fav', {})
+        fav.pop(item_id)
+        messages.success(request, f'Removed {product.name} from your favourites')
+
+        request.session['fav'] = fav
+        return HttpResponse(status=200)
+
+    except Exception as e:
+        messages.error(request, f'Error removing item: {e}')
+        return HttpResponse(status=500)
