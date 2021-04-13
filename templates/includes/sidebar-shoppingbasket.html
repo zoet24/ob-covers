@@ -137,8 +137,6 @@
         var url = `/bagtofav/${itemId}/`;
         var data = { 'csrfmiddlewaretoken': csrfToken };
 
-        console.log("Click!!")
-
         $.post(url, data)
             .done(function () {
                 location.reload();

@@ -111,3 +111,23 @@ def remove_from_fav(request, item_id):
     except Exception as e:
         messages.error(request, f'Error removing item: {e}')
         return HttpResponse(status=500)
+
+
+def fav_to_bag(request, item_id):
+    """Remove the item from the shopping bag"""
+
+    try:
+        product = get_object_or_404(Product, pk=item_id)
+        bag = request.session.get('bag', {})
+        fav = request.session.get('fav', {})
+        fav.pop(item_id)
+        bag[item_id] = 1
+        messages.success(request, f'Added {product.name} to your basket')
+
+        request.session['bag'] = bag
+        request.session['fav'] = fav
+        return HttpResponse(status=200)
+
+    except Exception as e:
+        messages.error(request, f'Error removing item: {e}')
+        return HttpResponse(status=500)

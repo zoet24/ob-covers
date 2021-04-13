@@ -41,7 +41,7 @@
                     </tr>
                     <tr>
                         <td class="sidebar-product-text pb-2">
-                            <a class="btn btn-dark btn-sm my-2" href="#" role="button">Add to basket</a>
+                            <a class="favtobag-item btn btn-dark btn-sm my-2" id="favtobag_{{ item.item_id }}" role="button">Add to basket</a>
                         </td>
                     </tr>
                 </table>
@@ -69,6 +69,19 @@
         var csrfToken = "{{ csrf_token }}";
         var itemId = $(this).attr('id').split('remove_')[1];
         var url = `/removefav/${itemId}/`;
+        var data = { 'csrfmiddlewaretoken': csrfToken };
+
+        $.post(url, data)
+            .done(function () {
+                location.reload();
+            });
+    })
+
+    // Remove item from favourites, add to bag and reload on click
+    $('.favtobag-item').click(function (e) {
+        var csrfToken = "{{ csrf_token }}";
+        var itemId = $(this).attr('id').split('favtobag_')[1];
+        var url = `/favtobag/${itemId}/`;
         var data = { 'csrfmiddlewaretoken': csrfToken };
 
         $.post(url, data)

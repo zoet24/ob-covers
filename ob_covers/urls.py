@@ -30,6 +30,7 @@ urlpatterns = [
     path('bagtofav/<item_id>/', views.bag_to_fav, name='bag_to_fav'),
     path('addfav/<item_id>/', views.add_to_fav, name='add_to_fav'),
     path('removefav/<item_id>/', views.remove_from_fav, name='remove_from_fav'),
+    path('favtobag/<item_id>/', views.fav_to_bag, name='fav_to_bag'),
     path('checkout/', include('checkout.urls')),
     path('profile/', include('profiles.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
