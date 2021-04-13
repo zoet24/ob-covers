@@ -27,6 +27,7 @@ urlpatterns = [
     path('add/<item_id>/', views.add_to_bag, name='add_to_bag'),
     path('adjust/<item_id>/', views.adjust_bag, name='adjust_bag'),
     path('remove/<item_id>/', views.remove_from_bag, name='remove_from_bag'),
+    path('bagtofav/<item_id>/', views.bag_to_fav, name='bag_to_fav'),
     path('addfav/<item_id>/', views.add_to_fav, name='add_to_fav'),
     path('removefav/<item_id>/', views.remove_from_fav, name='remove_from_fav'),
     path('checkout/', include('checkout.urls')),
