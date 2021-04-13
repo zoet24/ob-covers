@@ -201,7 +201,7 @@ a:hover {
     display: inline-flex;
 }
 
-.increment-qty, .decrement-qty {
+.increment-qty, .decrement-qty, .increment-qty_sb, .decrement-qty_sb {
     border: none;
     background-color: rgba(0,0,0,0);
     display: block;

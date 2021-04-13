@@ -45,21 +45,21 @@
                             <form class="form update-form" id="form_{{ item.item_id }}" method="POST"
                                 action="{% url 'adjust_bag' item.item_id %}">
                                 {% csrf_token %}
-                                <div class="input-group sidebar-product-text">
+                                <div class="input-group_sb sidebar-product-text">
                                     <div class="input-group-append">
-                                        <button class="increment-qty mb-1" data-item_id="{{ item.item_id }}"
-                                            id="increment-qty_{{ item.item_id }}">
+                                        <button class="increment-qty_sb mb-1" data-item_id="{{ item.item_id }}"
+                                            id="increment-qty_sb_{{ item.item_id }}">
                                             <span class="icon icon-black icon-xsm">
                                                 <i class="fas fa-plus"></i>
                                             </span>
                                         </button>
                                     </div>
-                                    <input class="input-quantity input-quantity-sm qty_input" type="number"
+                                    <input class="input-quantity input-quantity-sm qty_input_sb" type="number"
                                         name="quantity" value="{{ item.quantity }}" min="1" max="99"
-                                        data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }}">
+                                        data-item_id="{{ item.item_id }}" id="id_qty_sb_{{ item.item_id }}">
                                     <div class="input-group-prepend">
-                                        <button class="decrement-qty mb-1" data-item_id="{{ item.item_id }}"
-                                            id="decrement-qty_{{ item.item_id }}">
+                                        <button class="decrement-qty_sb mb-1" data-item_id="{{ item.item_id }}"
+                                            id="decrement-qty_sb_{{ item.item_id }}">
                                             <span class="icon icon-black icon-xsm">
                                                 <i class="fas fa-minus"></i>
                                             </span>
@@ -107,7 +107,7 @@
 </div>
 
 {% block postloadjs %}
-{% include 'products/includes/quantity_input_script.html' %}
+{% include 'products/includes/quantity_input_script_basket.html' %}
 
 <script type="text/javascript">
     // Update quantity on click
