@@ -5,132 +5,105 @@
     <button class="icon icon-black sidebar-close" onclick="closeSidebar()">
         <span><i class="fas fa-times"></i></span>
     </button>
-    <h2 class="bg-lightblue p-2">Basket <i class="fas fa-shopping-basket"></i></h2>
-    <h3 class="bg-white mb-0 p-2">{{ product_count }} items | £{{ grand_total|floatformat:2 }}</h3>
+    <h2 class="p-2">Basket <i class="fas fa-shopping-basket"></i></h2>
+    <h3 class="mb-0 p-2">{{ product_count }} items | £{{ grand_total|floatformat:2 }}</h3>
     {% if bag_items %}
     {% if free_delivery_delta > 0 %}
     <h4 class="p-3">
         Spend <strong>£{{ free_delivery_delta }}</strong> more to get free delivery!
     </h4>
     {% endif %}
-    <div class="row bg-lightblue pt-0">
+    <div class="row pt-0">
         <div class="col">
-            <div>
-                {% for item in bag_items %}
-                <div class="sidebar-table m-2">
-                    <table>
-                        <tr>
-                            <th rowspan="6">
-                                {% if item.product.image %}
-                                <img class="cover-tile-image-sm pr-2" src="{{ item.product.image_url }}"
-                                    alt="{{ item.product.name }}">
-                                {% else %}
-                                <img class="cover-tile-image-sm pr-2" src="{{ MEDIA_URL }}noimage.png"
-                                    alt="{{ item.product.name }}">
-                                {% endif %}
-                            </th>
-                        </tr>
-                        <tr>
-                            <td class="sidebar-product-text sidebar-product-title pt-2">
-                                <span>{{ item.product.name }}</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="sidebar-product-text">
-                                <span>£{{ item.product.price | calc_subtotal:item.quantity }}</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="sidebar-product-text">
-                                <span class="sidebar-product-text">Quantity</span>
-                                <form class="form update-form" id="form_{{ item.item_id }}" method="POST"
-                                    action="{% url 'adjust_bag' item.item_id %}">
-                                    {% csrf_token %}
-                                    <div class="input-group sidebar-product-text">
-                                        <div class="input-group-append">
-                                            <button class="increment-qty mb-1" data-item_id="{{ item.item_id }}"
-                                                id="increment-qty_{{ item.item_id }}">
-                                                <span class="icon icon-black icon-xsm">
-                                                    <i class="fas fa-plus"></i>
-                                                </span>
-                                            </button>
-                                        </div>
-                                        <input class="input-quantity input-quantity-sm qty_input" type="number"
-                                            name="quantity" value="{{ item.quantity }}" min="1" max="99"
-                                            data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }}">
-                                        <div class="input-group-prepend">
-                                            <button class="decrement-qty mb-1" data-item_id="{{ item.item_id }}"
-                                                id="decrement-qty_{{ item.item_id }}">
-                                                <span class="icon icon-black icon-xsm">
-                                                    <i class="fas fa-minus"></i>
-                                                </span>
-                                            </button>
-                                        </div>
-                                    </div>
-                                    <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                                </form>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="sidebar-product-text">
-                                <span>
-                                    <a class="update-link text-success" id="adjust_{{ item.item_id }}">Update</a> |
-                                    <a class="remove-item text-danger" id="remove_{{ item.item_id }}">Remove</a>
-                                </span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="sidebar-product-text pb-2">
-                                <a class="btn btn-dark btn-sm my-2" href="#" role="button">Save for later</a>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-                {% endfor %}
-
+            {% for item in bag_items %}
+            <div class="sidebar-table m-2">
                 <table>
                     <tr>
-                        <td colspan="5" class="pt-5 text-right">
-                            <h6><strong>Bag Total: ${{ total|floatformat:2 }}</strong></h6>
-                            <h6>Delivery: ${{ delivery|floatformat:2 }}</h6>
-                            <h4 class="mt-4"><strong>Grand Total: ${{ grand_total|floatformat:2 }}</strong></h4>
-                            {% if free_delivery_delta > 0 %}
-                            <p class="mb-1 text-danger">
-                                You could get free delivery by spending just <strong>${{ free_delivery_delta }}</strong>
-                                more!
-                            </p>
+                        <th rowspan="6">
+                            {% if item.product.image %}
+                            <img class="cover-tile-image-sm pr-2" src="{{ item.product.image_url }}"
+                                alt="{{ item.product.name }}">
+                            {% else %}
+                            <img class="cover-tile-image-sm pr-2" src="{{ MEDIA_URL }}noimage.png"
+                                alt="{{ item.product.name }}">
                             {% endif %}
+                        </th>
+                    </tr>
+                    <tr>
+                        <td class="sidebar-product-text sidebar-product-title pt-2">
+                            <span>{{ item.product.name }}</span>
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="5" class="text-right">
-                            <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg">
-                                <span class="icon">
-                                    <i class="fas fa-chevron-left"></i>
-                                </span>
-                                <span class="text-uppercase">Keep Shopping</span>
-                            </a>
-                            <a href="{% url 'checkout' %}" class="btn btn-black rounded-0 btn-lg">
-                                <span class="text-uppercase">Secure Checkout</span>
-                                <span class="icon">
-                                    <i class="fas fa-lock"></i>
-                                </span>
-                            </a>
+                        <td class="sidebar-product-text">
+                            <span>£{{ item.product.price | calc_subtotal:item.quantity }}</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="sidebar-product-text">
+                            <span class="sidebar-product-text">Quantity</span>
+                            <form class="form update-form" id="form_{{ item.item_id }}" method="POST"
+                                action="{% url 'adjust_bag' item.item_id %}">
+                                {% csrf_token %}
+                                <div class="input-group sidebar-product-text">
+                                    <div class="input-group-append">
+                                        <button class="increment-qty mb-1" data-item_id="{{ item.item_id }}"
+                                            id="increment-qty_{{ item.item_id }}">
+                                            <span class="icon icon-black icon-xsm">
+                                                <i class="fas fa-plus"></i>
+                                            </span>
+                                        </button>
+                                    </div>
+                                    <input class="input-quantity input-quantity-sm qty_input" type="number"
+                                        name="quantity" value="{{ item.quantity }}" min="1" max="99"
+                                        data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }}">
+                                    <div class="input-group-prepend">
+                                        <button class="decrement-qty mb-1" data-item_id="{{ item.item_id }}"
+                                            id="decrement-qty_{{ item.item_id }}">
+                                            <span class="icon icon-black icon-xsm">
+                                                <i class="fas fa-minus"></i>
+                                            </span>
+                                        </button>
+                                    </div>
+                                </div>
+                                <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="sidebar-product-text">
+                            <span>
+                                <a class="update-link text-success" id="adjust_{{ item.item_id }}">Update</a> |
+                                <a class="remove-item text-danger" id="remove_{{ item.item_id }}">Remove</a>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="sidebar-product-text pb-2">
+                            <a class="btn btn-dark btn-sm my-2" href="#" role="button">Save for later</a>
                         </td>
                     </tr>
                 </table>
             </div>
-            {% else %}
-            <p class="lead mb-5">Your bag is empty.</p>
-            <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg">
-                <span class="icon">
-                    <i class="fas fa-chevron-left"></i>
-                </span>
-                <span class="text-uppercase">Keep Shopping</span>
-            </a>
-            {% endif %}
+            {% endfor %}
+            <h3 class="mb-0 p-2">Bag total | £{{ total|floatformat:2 }}</h3>
+            <h3 class="mb-0 p-2">Delivery | £{{ delivery|floatformat:2 }}</h3>
+            <h3 class="mb-0 p-2">Order total | £{{ grand_total|floatformat:2 }}</h3>
+            <a class="btn btn-dark my-2" href="{% url 'products' %}" role="button">Keep shopping <i
+                    class="fas fa-shopping-basket"></i></a>
+            <a class="btn btn-dark my-2" href="{% url 'checkout' %}" role="button">Secure checkout <i
+                    class="fas fa-lock"></i></a>
         </div>
     </div>
+    {% else %}
+    <div class="row pt-0">
+        <div class="col">
+            <h3 class="mb-0 p-2">Your bag is empty</h3>
+            <a class="btn btn-dark my-2" href="{% url 'products' %}" role="button">Keep shopping <i
+                    class="fas fa-shopping-basket"></i></a>
+        </div>
+    </div>
+    {% endif %}
 </div>
 
 {% block postloadjs %}
