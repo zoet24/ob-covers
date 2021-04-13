@@ -4,6 +4,7 @@
             var coverRange = this.id.split('-')[2];
             var coverStyle = this.id.split('-')[3];
             var coverColour = this.id.split('-')[4];
+            var coverHex = $(this).css("backgroundColor");
             var coverRGB = $(this).css("backgroundColor").match(/\d+/g);
             var imageSrc = `{{ MEDIA_URL }}${coverRange}-${coverStyle}-${coverColour}.png`;
             // Remove 'active' class from swatch
@@ -16,15 +17,17 @@
             var r = Math.min((75 + parseInt(coverRGB[0])), 255);
                 g = Math.min((75 + parseInt(coverRGB[1])), 255);
                 b = Math.min((75 + parseInt(coverRGB[2])), 255);
+            console.log("Covers:" + coverHex);
             setTimeout(function() {
                 if (r + g + b > 300) {
                     $(`.cover-tile-bg-${coverRange}`).css("backgroundColor", `rgb(${r},${g},${b})`);
+                    console.log("Background:" + r,g,b);
                 }
                 else {
                     $(`.cover-tile-bg-${coverRange}`).css("backgroundColor", "#fff");
+                    console.log("Background: #ffffff");
                 };
             }, 100);
-            
         });
     });
 </script>

@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.db.models.functions import Lower
 
-from .models import Product, Range
+from .models import Product, Range, Colour
 from .forms import ProductForm
 
 # Create your views here.
@@ -13,6 +13,7 @@ from .forms import ProductForm
 def all_products(request):
     # A view to show all products, including sorting and search queries
     products = Product.objects.all()
+    colours = Colour.objects.all()
     query = None
     range = None
     ranges = None
@@ -54,6 +55,7 @@ def all_products(request):
 
     context = {
         'products': products,
+        'colours': colours,
         'search_term': query,
         'current_range': range,
         'current_ranges': ranges,

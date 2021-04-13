@@ -36,6 +36,9 @@ class ColourAdmin(admin.ModelAdmin):
     list_display = (
         'friendly_name',
         'name',
+        'rgb_colour',
+        'rgb_background',
+        'rgb_border',
     )
 
 
