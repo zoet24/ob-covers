@@ -57,3 +57,21 @@ def remove_from_bag(request, item_id):
     except Exception as e:
         messages.error(request, f'Error removing item: {e}')
         return HttpResponse(status=500)
+
+
+def add_to_fav(request, item_id):
+    """ Add 1 of the specified product to the favourites list """
+
+    product = get_object_or_404(Product, pk=item_id)
+    quantity = 1
+    redirect_url = request.POST.get('redirect_url')
+    fav = request.session.get('fav', {})
+
+    if item_id in list(fav.keys()):
+        messages.success(request, f'{product.name} is already in your favourites!')
+    else:
+        fav[item_id] = quantity
+        messages.success(request, f'Added {product.name} to your favourties')
+
+    request.session['fav'] = fav
+    return redirect(redirect_url)

@@ -1,7 +1,12 @@
 <!-- Favourites sidebar -->
 <div class="sidebar" id="sidebar-fav">
-    <button class="icon sidebar-close" onclick="closeSidebar()">
+    <button class="icon icon-black sidebar-close" onclick="closeSidebar()">
         <span><i class="fas fa-times"></i></span>
     </button>
-    <h1>Favourites <i class="fas fa-heart"></i></h1>
+    <h2 class="p-2">Favourites <i class="fas fa-heart"></i></h2>
+    {% if fav_items %}
+    {% for item in fav_items %}
+        {{ item.product.name }}
+    {% endfor %}
+    {% endif %}
 </div>

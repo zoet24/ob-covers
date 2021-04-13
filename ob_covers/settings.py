@@ -84,6 +84,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.media',
                 'ob_covers.contexts.bag_contents',
+                'ob_covers.contexts.fav_contents',
             ],
             'builtins': [
                 'crispy_forms.templatetags.crispy_forms_tags',
