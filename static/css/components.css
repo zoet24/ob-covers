@@ -276,66 +276,6 @@ input[type=number] {
     transform: scale(1.25);
 }
 
-.cover-swatch-black {
-    border-color: rgb(0,0,0);
-    background-color: rgb(0,0,0);
-}
-
-.cover-swatch-white {
-    border-color: rgb(0,0,0);
-    background-color: rgb(255,255,255);
-}
-
-.cover-swatch-red {
-    border-color: rgb(237, 28, 36);
-    background-color: rgb(237, 28, 36);
-}
-
-.cover-swatch-orange {
-    border-color: rgb(246, 140, 29);
-    background-color: rgb(246, 140, 29);
-}
-
-.cover-swatch-silver {
-    border-color: rgb(194, 194, 196);
-    background-color: rgb(194, 194, 196);
-}
-
-.cover-swatch-blue {
-    border-color: rgb(57, 94, 171);
-    background-color: rgb(57, 94, 171);
-}
-
-.cover-swatch-green {
-    border-color: rgb(0, 131, 127);
-    background-color: rgb(0, 131, 127);
-}
-
-.cover-swatch-pink {
-    border-color: rgb(236, 140, 130);
-    background-color: rgb(236, 140, 130);
-}
-
-.cover-swatch-yellow {
-    border-color: rgb(249, 214, 5);
-    background-color: rgb(249, 214, 5);
-}
-
-.cover-swatch-bluegrey {
-    border-color: rgb(74, 100, 123);
-    background-color: rgb(74, 100, 123);
-}
-
-.cover-swatch-purple {
-    border-color: rgb(124, 115, 181);
-    background-color: rgb(124, 115, 181);
-}
-
-.cover-swatch-pinkbright {
-    border-color: rgb(223, 5, 135);
-    background-color: rgb(223, 5, 135);
-}
-
 .product-description {
     background-color: white;
     border-radius: 25px;

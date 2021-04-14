@@ -1,15 +1,9 @@
 <!-- Stylish range cover swatch -->
 <div>
-    <div class="cover-swatch cover-swatch-black" id="cover-swatch-stylish-azdeco-black"></div>
-    <div class="cover-swatch cover-swatch-white" id="cover-swatch-stylish-vortex-white"></div>
-    <div class="cover-swatch cover-swatch-red" id="cover-swatch-stylish-harlequin-red"></div>
-    <div class="cover-swatch cover-swatch-orange" id="cover-swatch-stylish-azdeco-orange"></div>
-    <div class="cover-swatch cover-swatch-silver" id="cover-swatch-stylish-vortex-silver"></div>
-    <div class="cover-swatch cover-swatch-blue" id="cover-swatch-stylish-harlequin-blue"></div>
-    <div class="cover-swatch cover-swatch-green" id="cover-swatch-stylish-azdeco-green"></div>
-    <div class="cover-swatch cover-swatch-pink" id="cover-swatch-stylish-vortex-pink"></div>
-    <div class="cover-swatch cover-swatch-yellow" id="cover-swatch-stylish-harlequin-yellow"></div>
-    <div class="cover-swatch cover-swatch-bluegrey" id="cover-swatch-stylish-azdeco-bluegrey"></div>
-    <div class="cover-swatch cover-swatch-purple" id="cover-swatch-stylish-vortex-purple"></div>
-    <div class="cover-swatch cover-swatch-pinkbright" id="cover-swatch-stylish-harlequin-pinkbright"></div>
+{% for product in products %}
+    {% if product.range.name == "stylish" %}
+        <div class="cover-swatch" id="cover-swatch-{{product.range.name}}-{{product.style.name}}-{{product.colour.name}}" style="background-color: {{product.colour.hex_colour}};border: {{product.colour.hex_border}} 1px solid;"></div>
+        <div class="d-none" id="cover-swatch-{{product.range.name}}-{{product.style.name}}-{{product.colour.name}}-background">{{product.colour.hex_background}}</div>
+    {% endif %}
+{% endfor %}
 </div>

@@ -2,13 +2,6 @@
 {% load static %}
 
 {% block content %}
-<section>
-    {% for colour in colours %}
-        {{ colour.friendly_name }}
-        {{ colour.hex_code }}
-        <div class="cover-swatch" style="background-color: {{colour.hex_colour}};border: 2px solid {{colour.hex_border}};"></div>
-    {% endfor %}
-</section>
 <section class="container-fluid bg-lightblue">
     <div class="row mb-0 pt-0">
         <div class="bg-white product-detail-links col-12">

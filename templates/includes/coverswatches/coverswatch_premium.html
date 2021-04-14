@@ -1,6 +1,9 @@
 <!-- Premium range cover swatch -->
 <div>
-    <div class="cover-swatch cover-swatch-black" id="cover-swatch-premium-deusex-black"></div>
-    <div class="cover-swatch cover-swatch-purple" id="cover-swatch-premium-handala-purple"></div>
-    <div class="cover-swatch cover-swatch-red" id="cover-swatch-premium-metalgearsolid-black"></div>
+{% for product in products %}
+    {% if product.range.name == "premium" %}
+        <div class="cover-swatch" id="cover-swatch-{{product.range.name}}-{{product.style.name}}-{{product.colour.name}}" style="background-color: {{product.colour.hex_colour}};border: {{product.colour.hex_border}} 1px solid;"></div>
+        <div class="d-none" id="cover-swatch-{{product.range.name}}-{{product.style.name}}-{{product.colour.name}}-background">{{product.colour.hex_background}}</div>
+    {% endif %}
+{% endfor %}
 </div>
