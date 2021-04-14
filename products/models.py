@@ -1,5 +1,5 @@
 from django.db import models
-from colorful.fields import RGBColorField
+from colorfield.fields import ColorField
 
 
 # Create your models here.
@@ -31,9 +31,9 @@ class Colour(models.Model):
 
     name = models.CharField(max_length=254)
     friendly_name = models.CharField(max_length=254, null=True, blank=True)
-    rgb_colour = RGBColorField(default='0,0,0')
-    rgb_background = RGBColorField(default='0,0,0')
-    rgb_border = RGBColorField(default='0,0,0')
+    hex_colour = ColorField(default='#FFFFFF')
+    hex_background = ColorField(default='#FFFFFF')
+    hex_border = ColorField(default='#FFFFFF')
 
     def __str__(self):
         return self.name

@@ -6,7 +6,7 @@
     {% for colour in colours %}
         {{ colour.friendly_name }}
         {{ colour.hex_code }}
-        <div class="cover-swatch" style="background-color: {{colour.hex_code}};"></div>
+        <div class="cover-swatch" style="background-color: {{colour.hex_colour}};border: 2px solid {{colour.hex_border}};"></div>
     {% endfor %}
 </section>
 <section class="container-fluid bg-lightblue">
