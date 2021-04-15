@@ -9,12 +9,13 @@
 
             // Remove 'active' class from swatch
             $(".cover-swatch").removeClass(`cover-swatch-${coverRange}-active`);
+            console.log(`cover-swatch-${coverRange}-active`);
             // Add active class to clicked element
             $(this).addClass(`cover-swatch-${coverRange}-active`);
             // Set image source to correct colour and style
-            $(`#cover-tile-image-${coverRange}`).attr("src", imageSrc);
+            $(`.cover-tile-image-${coverRange}`).attr("src", imageSrc);
             // Set background colour to correct colour after image has loaded
-            $(`#cover-tile-image-${coverRange}`).on("load", function() {
+            $(`.cover-tile-image-${coverRange}`).on("load", function() {
                 $(`.cover-tile-bg-${coverRange}`).css("backgroundColor", coverColourBg);
             });
         });

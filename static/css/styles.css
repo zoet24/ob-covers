@@ -23,7 +23,7 @@
 }
 
 .text-md {
-    font-size: 1rem;
+    font-size: 1.25rem;
 }
 
 .text-lg {
@@ -32,6 +32,10 @@
 
 .text-xl {
     font-size: 3.5rem;
+}
+
+.text-dark {
+    color: #151635;
 }
 
 /* BACKGROUNDS */

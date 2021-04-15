@@ -1,14 +1,12 @@
 <div class="d-none">
     <span id="productdetail-range">{{ product.range }}</span>
-    <span id="productdetail-style">{{ product.style }}</span>
-    <span id="productdetail-colour">{{ product.colour }}</span>
+    <span id="productdetail-bgcolour">{{ product.colour.hex_background }}</span>
 </div>
 
 <script>
-    onload = function() {
-        var coverRange = $("#productdetail-range").html();
-        var coverStyle = $("#productdetail-style").html();
-        var coverColour = $("#productdetail-colour").html();
-        $(`#cover-swatch-${coverRange}-${coverStyle}-${coverColour}`).trigger('click');
-    }
+    var coverRange = $("#productdetail-range").html();
+    var coverBgColour = $("#productdetail-bgcolour").html();
+    $(`.cover-tile-image-${coverRange}`).on("load", function() {
+        $(`.cover-tile-bg-${coverRange}`).css("backgroundColor", coverBgColour);
+    });
 </script>

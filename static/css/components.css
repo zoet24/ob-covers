@@ -37,11 +37,16 @@ a {
 
 a:hover {
 	color: #1c86c8;
-	text-decoration: underline;
+	text-decoration: none;
 }
 
 .footer-icons a:hover {
     text-decoration: none;
+}
+
+a.text-link:hover {
+    color: #1c86c8;
+    text-decoration: underline;
 }
 
 a.text-success:hover, a.text-success:focus {
@@ -179,10 +184,11 @@ a.text-danger:hover, a.text-danger:focus {
     outline: none;
     padding: 5px;
     font-size: 1.25rem;
-    font-weight: 200;
+    font-weight: 300;
     font-family: 'Poppins', sans-serif;
     text-transform: uppercase;
     border: solid 1px #151635;
+    background-color: #fff;
 }
 
 .input-quantity {
@@ -190,6 +196,7 @@ a.text-danger:hover, a.text-danger:focus {
     height: 35px;
     margin: 0;
     border: solid 2px #151635;
+    background-color: transparent;
 }
 
 .input-quantity-sm {
@@ -201,8 +208,7 @@ a.text-danger:hover, a.text-danger:focus {
 
 .input-sort, .input-quantity {
     border-radius: 35px;
-    text-align: center;
-    background-color: #fff;    
+    text-align: center;    
 }
 
 .input-sort:focus, .input-quantity:focus {
@@ -239,13 +245,26 @@ input[type=number] {
     text-align: center;
     padding: 10px;
     position: relative;
-    background-color: white;
+    background-color: #fff;
     overflow: hidden;
+}
+
+.cover-tile-detail {
+    border-radius: 25px;
 }
 
 .cover-tile-products, .sidebar-table {
     box-shadow: 1px 1px #1c86c8;
     border-radius: 25px;
+}
+
+.cover-tile-products {
+    transition: transform .25s ease-in-out;
+}
+
+.cover-tile-products:hover {
+    transform: scale(1.025);
+    text-transform: none;
 }
 
 .cover-tile-image {
@@ -284,7 +303,7 @@ input[type=number] {
 }
 
 .product-description {
-    background-color: white;
+    background-color: #fff;
     border-radius: 25px;
     padding: 0.75rem;
 }
@@ -318,7 +337,7 @@ input[type=number] {
 /* MEDIA QUERIES */
 @media (min-width: 576px) {
     .cover-tile-name {
-        height: 100px;
+        height: 75px;
         display: flex;
     }
 }
@@ -359,5 +378,11 @@ input[type=number] {
     .cover-swatch {
         height: 30px;
         width: 30px;
+    }
+}
+
+@media (min-width: 1200px) {    
+    .cover-tile-name {
+        height: 100px;
     }
 }

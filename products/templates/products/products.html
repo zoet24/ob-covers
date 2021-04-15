@@ -3,7 +3,7 @@
 
 {% block content %}
 <section class="container-fluid bg-white" id="products-nav-links">
-    <div class="row mb-0 pt-0">
+    <div class="row mb-0 p-0">
         <div class="product-detail-links col-12">
             <h3>
                 <a href="{% url 'home' %}">Home</a>
@@ -43,24 +43,24 @@
 <section class="container-fluid bg-lightblue">
     <div class="row pt-0 mb-0 justify-content-center">
         {% for product in products %}
-        <div class="col-10 col-sm-5 col-md-3 col-xl-2 cover-tile cover-tile-products my-3 mx-sm-3">
-            {% if product.available == False %}
-            <h3 class="product-tag product-unavailable text-thick">Unavailable</h3>
-            {% endif %}
-            <a href="{% url 'product_detail' product.id %}">
-                <img class="cover-tile-image" src="{{ MEDIA_URL }}{{ product.image }}" alt="{{ product.name }}">
-            </a>
-            <div class="cover-tile-name">
-                <h3 class="text-skinny text-lg align-self-center">{{ product.name }}</h3>
-            </div>
-            <h3 class="text-thick mt-1 mt-sm-0">£{{ product.price }}</h3>
-            {% if request.user.is_superuser %}
-            <h3 class="my-2">
-                <a class="text-success" href="{% url 'edit_product' product.id %}">Edit</a> |
-                <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
-            </h3>
-            {% endif %}
-        </div>
+            <a href="{% url 'product_detail' product.id %}" class="col-10 col-sm-5 col-md-3 col-xl-2 cover-tile cover-tile-products my-3 mx-sm-3">
+                {% if product.available == False %}
+                <h3 class="product-tag product-unavailable text-thick">Unavailable</h3>
+                {% endif %}
+                <div>
+                    <img class="cover-tile-image" src="{{ MEDIA_URL }}{{ product.image }}" alt="{{ product.name }}">
+                </div>
+                <div class="cover-tile-name text-dark">
+                    <h3 class="text-skinny text-lg align-self-center">{{ product.name }}</h3>
+                </div>
+                <h3 class="text-thick mt-1 mt-sm-0 text-dark">£{{ product.price }}</h3>
+                {% if request.user.is_superuser %}
+                <h3 class="my-2">
+                    <a class="text-success" href="{% url 'edit_product' product.id %}">Edit</a> |
+                    <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
+                </h3>
+                {% endif %}
+        </a>
         {% endfor %}
     </div>
     <div class="icon icon-black btn-up hide">

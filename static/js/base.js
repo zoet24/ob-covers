@@ -8,7 +8,7 @@ function openSidebarFav() {
         document.getElementById("sidebar-fav").style.width = "100%";
     }
     else {
-        document.getElementById("sidebar-fav").style.borderLeftWidth = "4px"
+        document.getElementById("sidebar-fav").style.borderLeftWidth = "0px"
         document.getElementById("sidebar-fav").style.width = "450px";
     }
 }
@@ -19,13 +19,13 @@ function openSidebarBasket() {
         document.getElementById("sidebar-basket").style.width = "100%";
     }
     else {
-        document.getElementById("sidebar-basket").style.borderLeftWidth = "4px"
+        document.getElementById("sidebar-basket").style.borderLeftWidth = "0px"
     	document.getElementById("sidebar-basket").style.width = "450px";
     }
 }
 
 function openSidebarNav() {
-	document.getElementById("sidebar-nav").style.borderWidth = "4px"
+	document.getElementById("sidebar-nav").style.borderLeftWidth = "2px"
   	document.getElementById("sidebar-nav").style.width = "75%";
 }
 
