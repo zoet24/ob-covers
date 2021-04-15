@@ -1,7 +1,7 @@
 /* Stylesheet with declarations for body, nav, footer, sidebars and toasts */
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;600;700&display=swap');
 
 /* Dark OB blue #151635 */
 /* Light OB blue #319cd2 */
@@ -36,13 +36,7 @@ nav, footer {
 	color: #fff;
 }
 
-footer {
-	text-align: center;
-	background-color: #1c86c8;
-	padding: 10px;
-}
-
-.navbar-top {
+.navbar-top, footer {
 	background-color: #1c86c8;
 	padding: 10px;
 }
@@ -204,11 +198,10 @@ footer {
 
 button.close {
     color: #1c86c8;
-    opacity: 0.75;
-}
-
-.close:not(:disabled):not(.disabled):hover {
-    color: #1c86c8;
+    border-radius: 50%;
+    border: 2px solid #1c86c8;
+    height: 28px;
+    width: 28px;
     opacity: 1;
 }
 

@@ -6,7 +6,7 @@ h1 {
     font-family: 'Poppins', sans-serif;
     text-transform: uppercase;
     letter-spacing: 2px;
-    font-weight: 200;
+    font-weight: 300;
 }
 
 h2 {
@@ -14,7 +14,7 @@ h2 {
 	font-family: 'Poppins', sans-serif;
     text-transform: uppercase;
     letter-spacing: 2px;
-    font-weight: 100;
+    font-weight: 300;
 }
 
 h3, .btn {
@@ -22,7 +22,7 @@ h3, .btn {
     font-family: 'Poppins', sans-serif;
     text-transform: uppercase;
     letter-spacing: 1px;
-    font-weight: 100;
+    font-weight: 300;
 }
 
 h4 {
@@ -30,6 +30,7 @@ h4 {
 }
 
 /* COMPONENTS */
+/* Icons */
 .icon {
 	color: white;
 	background-color: #1c86c8;
@@ -101,20 +102,27 @@ a:hover {
     border-radius: 25px;
     height: 50px;
     min-width: 130px;
-    transition: color .25s ease-in-out,background-color .25s ease-in-out,border-color .25s ease-in-out,transform .25s ease-in-out;
+    transition: transform .25s ease-in-out;
+}
+
+.btn:hover, .btn:focus, .btn-long:hover, .btn-long:focus {
+    transform: scale(1.05);
 }
 
 .btn-long {
     min-width: 200px;
-}
-
-.btn:hover, .btn:focus, .btn-long:hover, .btn-long:focus {
-    transform: scale(1.1);
+    padding: 0.25rem 0.75rem;
 }
 
 .btn-image {
     color: #fff;
     border-color: #fff;
+}
+
+.btn-image:hover, .btn-image:focus, .btn-image:active {
+    color: #fff;
+    background-color: transparent;
+    box-shadow: none;
 }
 
 .btn-dark {
@@ -123,28 +131,9 @@ a:hover {
     border-width: 2px;
 }
 
-.btn-white {
-    color: #151635;
-    border-color: #151635;
-    background-color: #fff;
-    border-width: 2px;
-}
-
-.btn-image:hover, .btn-image:focus, .btn-image:active {
-    color: #151635;
-    background-color: #fff;
-    box-shadow: none;
-}
-
 .btn-dark:hover, .btn-dark:focus, .btn-dark:active, .btn-white:hover, .btn-white:focus, .btn-white:active {
     color: #151635;
-    background-color: rgba(255, 255, 255, 0.25);
-    box-shadow: none;
-}
-
-.btn-white:hover, .btn-white:focus, .btn-white:active {
-    color: #151635;
-    background-color: #fff;
+    background-color: transparent;
     box-shadow: none;
 }
 
