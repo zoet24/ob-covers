@@ -47,13 +47,13 @@ def fav_contents(request):
 
     fav_items = []
     # total = 0
-    product_count = 0
+    product_count_fav = 0
     fav = request.session.get('fav', {})
 
     for item_id, quantity in fav.items():
         product = get_object_or_404(Product, pk=item_id)
         # total += quantity * product.price
-        product_count += quantity
+        product_count_fav += quantity
         fav_items.append({
             'item_id': item_id,
             'quantity': quantity,
@@ -72,7 +72,7 @@ def fav_contents(request):
     context = {
         'fav_items': fav_items,
         # 'total': total,
-        'product_count': product_count,
+        'product_count_fav': product_count_fav,
         # 'delivery': delivery,
         # 'free_delivery_delta': free_delivery_delta,
         # 'free_delivery_threshold': settings.FREE_DELIVERY_THRESHOLD,

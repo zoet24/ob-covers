@@ -4,7 +4,9 @@
         <span><i class="fas fa-times"></i></span>
     </button>
     <h2 class="p-2">Favourites <i class="fas fa-heart"></i></h2>
-    <h3 class="mb-0 p-2">{{ product_count }} items</h3>
+    <hr>
+    <h3 class="mb-0 p-2">{{ product_count_fav }} items</h3>
+    <hr>
     {% if fav_items %}
     <div class="row pt-0">
         <div class="col">
@@ -34,7 +36,31 @@
                     </tr>
                     <tr>
                         <td class="sidebar-product-text">
+                            <span>Also available in:
+                                {% if item.product.range|lower == "classic" %}
+                                {% include 'includes/coverswatches/coverswatch_classic.html' %}
+                                {% elif item.product.range|lower == "stylish" %}
+                                {% include 'includes/coverswatches/coverswatch_stylish.html' %}
+                                {% elif item.product.range|lower == "premium" %}
+                                {% include 'includes/coverswatches/coverswatch_premium.html' %}
+                                {% elif item.product.range|lower == "disney" %}
+                                {% include 'includes/coverswatches/coverswatch_disney.html' %}
+                                {% endif %}
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="sidebar-product-text">
                             <span>
+                                {% if item.product.range|lower == "classic" %}
+                                <a class="text-success" href="{% url 'products' %}?range=classic">Browse</a> |
+                                {% elif item.product.range|lower == "stylish" %}
+                                <a class="text-success" href="{% url 'products' %}?range=stylish">Browse</a> |
+                                {% elif item.product.range|lower == "premium" %}
+                                <a class="text-success" href="{% url 'products' %}?range=premium">Browse</a> |
+                                {% elif item.product.range|lower == "disney" %}
+                                <a class="text-success" href="{% url 'products' %}?range=disney">Browse</a> |
+                                {% endif %}
                                 <a class="remove-item text-danger" id="remove_{{ item.item_id }}">Remove</a>
                             </span>
                         </td>

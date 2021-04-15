@@ -205,6 +205,11 @@ button.close {
     opacity: 1;
 }
 
+.close:hover {
+    color: #1c86c8;
+    text-decoration: none;
+}
+
 .nav-profile-dropdown-item {
     display: block;
     width: 100%;
@@ -263,18 +268,17 @@ button.close {
 
 .sidebar-product-text {
     text-align: left;
-    font-size: 1.15rem;
+    font-size: 1.1rem;
     font-family: 'Poppins', sans-serif;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    font-weight: 100;
+    font-weight: 300;
     display: flex;
     align-items: center;
 }
 
 .sidebar-product-title {
-    font-weight: 500;
-    font-size: 1.3rem;
+    font-weight: 400;
+    font-size: 1.2rem;
 }
 
 /* MEDIA QUERIES */
