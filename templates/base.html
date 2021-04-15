@@ -65,7 +65,7 @@
             </form>
             <!-- Profile, favourite, basket, nav icons -->
             <div class="justify-content-end">
-                <button class="icon" type="button" onclick="openProfileDropdown()">
+                <button class="icon icon-nav" type="button" onclick="openProfileDropdown()">
                     <span><i class="fas fa-user"></i></span>
                 </button>
                 <div class="nav-profile-dropdown-menu" id="nav-profile-dropdown-menu">
@@ -80,13 +80,13 @@
                         <a href="{% url 'account_login' %}" class="nav-profile-dropdown-item">Login</a>
                     {% endif %}
                 </div>
-                <button class="icon" type="button" onclick="openSidebarFav()">
+                <button class="icon icon-nav" type="button" onclick="openSidebarFav()">
                     <span><i class="fas fa-heart"></i></span>
                 </button>
-                <button class="icon" type="button" onclick="openSidebarBasket()">
+                <button class="icon icon-nav" type="button" onclick="openSidebarBasket()">
                     <span><i class="fas fa-shopping-basket"></i></span>
                 </button>
-                <button class="icon d-sm-none" type="button" onclick="openSidebarNav()">
+                <button class="icon icon-nav d-sm-none" type="button" onclick="openSidebarNav()">
                     <span><i class="fas fa-bars"></i></span>
                 </button>
             </div>
@@ -166,19 +166,19 @@
         <div class="row">
             <div class="col footer-icons">
                 <a target="_blank" href="https://www.facebook.com/openbionicsltd/">
-                    <i class="fab fa-facebook-f icon" aria-hidden="true"></i>
+                    <i class="fab fa-facebook-f icon icon-nav" aria-hidden="true"></i>
                     <span class="sr-only">Facebook</span>
                 </a>
                 <a target="_blank" href="https://www.instagram.com/openbionics/?hl=en">
-                    <i class="fab fa-instagram icon" aria-hidden="true"></i>
+                    <i class="fab fa-instagram icon icon-nav" aria-hidden="true"></i>
                     <span class="sr-only">Instagram</span>
                 </a>
                 <a target="_blank" href="https://twitter.com/openbionics?lang=en">
-                    <i class="fab fa-twitter icon" aria-hidden="true"></i>
+                    <i class="fab fa-twitter icon icon-nav" aria-hidden="true"></i>
                     <span class="sr-only">Twitter</span>
                 </a>
                 <a target="_blank" href="https://www.tiktok.com/@openbionics?">
-                    <i class="fab fa-tiktok icon" aria-hidden="true"></i>
+                    <i class="fab fa-tiktok icon icon-nav" aria-hidden="true"></i>
                     <span class="sr-only">Tiktok</span>
                 </a>
             </div>

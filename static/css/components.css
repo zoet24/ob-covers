@@ -30,6 +30,30 @@ h4 {
 }
 
 /* COMPONENTS */
+/* Links */
+a {
+	color: #1c86c8;
+}
+
+a:hover {
+	color: #1c86c8;
+	text-decoration: underline;
+}
+
+.footer-icons a:hover {
+    text-decoration: none;
+}
+
+a.text-success:hover, a.text-success:focus {
+    color: #28a745!important;
+    text-decoration: underline;
+}
+
+a.text-danger:hover, a.text-danger:focus {
+    color: #dc3545!important;
+    text-decoration: underline;
+}
+
 /* Icons */
 .icon {
 	color: white;
@@ -65,33 +89,31 @@ h4 {
     border-width: 1px;
 }
 
-.icon-black {
-    color: #151635;
-    border-color: #151635;
-    background-color: #fff;
-    /* background-color: rgba(0,0,0,0); */
-}
-
 .icon:hover {
 	color: #1c86c8;
 	background-color: white;
-
-	text-decoration: none;
-}
-
-a {
-	color: #1c86c8;
-}
-
-a:hover {
-	color: #1c86c8;
-	text-decoration: underline;
-}
-
-.footer-icons a:hover {
     text-decoration: none;
+    
+    transform: scale(1.1);
 }
 
+.icon-black {
+    color: #151635;
+    border-color: #151635;
+    background-color: transparent;
+}
+
+.icon-black:hover {
+    color: #151635;
+    border-color: #151635;
+    background-color: #fff;
+}
+
+.icon-nav:hover {
+    transform: none;
+}
+
+/* Buttons */
 .btn {
     display: inline-block;
     text-align: center;
@@ -148,6 +170,7 @@ a:hover {
     bottom: 10px;
     right: 10px;
     cursor: pointer;
+    background-color: #fff;
 }
 
 /* SORT AND QUANTITY INPUTS */
@@ -236,11 +259,6 @@ input[type=number] {
 .cover-tile-image-sm {
     height: 200px;
 }
-
-/* .cover-tile-name {
-    height: 100px;
-    display: flex;
-} */
 
 .cover-tile-info {
     position: absolute;

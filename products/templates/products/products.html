@@ -2,9 +2,9 @@
 {% load static %}
 
 {% block content %}
-<section class="container-fluid bg-lightblue">
+<section class="container-fluid bg-white" id="products-nav-links">
     <div class="row mb-0 pt-0">
-        <div class="bg-white product-detail-links col-12">
+        <div class="product-detail-links col-12">
             <h3>
                 <a href="{% url 'home' %}">Home</a>
                 /
@@ -16,6 +16,8 @@
             </h3>
         </div>
     </div>
+</section>
+<section class="container-fluid bg-lightblue">
     <div class="row pb-0">
         <div class="col-12 col-sm-8 col-lg-4 mx-auto">
             <div class="sort-select-wrapper">
@@ -49,9 +51,9 @@
                 <img class="cover-tile-image" src="{{ MEDIA_URL }}{{ product.image }}" alt="{{ product.name }}">
             </a>
             <div class="cover-tile-name">
-                <h3 class="text-thick align-self-center">{{ product.name }}</h3>
+                <h3 class="text-skinny text-lg align-self-center">{{ product.name }}</h3>
             </div>
-            <h3>£{{ product.price }}</h3>
+            <h3 class="text-thick mt-1 mt-sm-0">£{{ product.price }}</h3>
             {% if request.user.is_superuser %}
             <h3 class="my-2">
                 <a class="text-success" href="{% url 'edit_product' product.id %}">Edit</a> |
@@ -61,7 +63,7 @@
         </div>
         {% endfor %}
     </div>
-    <div class="icon icon-black btn-up">
+    <div class="icon icon-black btn-up hide">
         <a class="btn-up-link">
             <i class="fas fa-arrow-up"></i>
         </a>
@@ -72,9 +74,22 @@
 {% block postloadjs %}
 {{ block.super }}
 <script type="text/javascript">
+    let afterTop = $('#products-nav-links').offset().top;
+    let beforeBottom = ($('footer').offset().top)-($(window).height());
+
+    $(window).scroll(function() {
+        var currentHeight = $(this).scrollTop();
+        if (((currentHeight) < (beforeBottom)) && ((currentHeight) > (afterTop))) {
+            $(".btn-up").removeClass("hide");
+        }
+        else {
+            $(".btn-up").addClass("hide");
+        }
+    });
+    
     $('.btn-up-link').click(function (e) {
         window.scrollTo(0, 0)
-    })
+    });    
 </script>
 
 <script type="text/javascript">
