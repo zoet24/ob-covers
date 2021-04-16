@@ -4,9 +4,9 @@
 </div>
 
 <script>
-    var coverRange = $("#productdetail-range").html();
-    var coverBgColour = $("#productdetail-bgcolour").html();
-    $(`.cover-tile-image-${coverRange}`).on("load", function() {
+    onload = function () {
+        var coverRange = $("#productdetail-range").html();
+        var coverBgColour = $("#productdetail-bgcolour").html();
         $(`.cover-tile-bg-${coverRange}`).css("backgroundColor", coverBgColour);
-    });
+    }
 </script>

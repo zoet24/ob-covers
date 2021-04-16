@@ -49,6 +49,11 @@ a.text-link:hover {
     text-decoration: underline;
 }
 
+a.text-link-dark:hover {
+    color: #151635;
+    text-decoration: underline;
+}
+
 a.text-success:hover, a.text-success:focus {
     color: #28a745!important;
     text-decoration: underline;
@@ -274,8 +279,12 @@ input[type=number] {
     text-transform: none;
 }
 
-.cover-tile-image {
+.cover-tile-image, .cover-tile-image-container {
     height: 325px;
+}
+
+.cover-tile-image-container {
+    width: 100%;
 }
 
 .cover-tile-image-detail {
@@ -378,7 +387,7 @@ input[type=number] {
         min-width: 250px;
     }
 
-    .cover-tile-image {
+    .cover-tile-image, .cover-tile-image-container {
         height: 450px;
     }
 

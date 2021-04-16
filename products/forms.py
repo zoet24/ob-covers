@@ -10,9 +10,17 @@ class ProductForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        categories = Category.objects.all()
-        friendly_names = [(c.id, c.get_friendly_name()) for c in categories]
+        ranges = Range.objects.all()
+        styles = Style.objects.all()
+        colours = Colour.objects.all()
 
-        self.fields['category'].choices = friendly_names
+        friendly_names_ranges = [(r.id, r.get_friendly_name()) for r in ranges]
+        friendly_names_styles = [(s.id, s.get_friendly_name()) for s in styles]
+        friendly_names_colours = [(c.id, c.get_friendly_name()) for c in colours]
+
+        self.fields['range'].choices = friendly_names_ranges
+        self.fields['style'].choices = friendly_names_styles
+        self.fields['colour'].choices = friendly_names_colours
+
         for field_name, field in self.fields.items():
-            field.widget.attrs['class'] = 'border-black rounded-0'
+            field.widget.attrs['class'] = 'border-red rounded-0'

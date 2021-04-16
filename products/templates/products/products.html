@@ -6,12 +6,12 @@
     <div class="row mb-0 p-0">
         <div class="product-detail-links col-12">
             <h3>
-                <a href="{% url 'home' %}">Home</a>
+                <a class="text-link-dark" href="{% url 'home' %}">Home</a>
                 /
-                <a href="{% url 'products' %}">All covers</a>
+                <a class="text-link-dark" href="{% url 'products' %}">All covers</a>
                 {% if current_range != None %}
                 /
-                <a href="#">{{ current_range }}</a>
+                <a class="text-link-dark" href="#">{{ current_range }}</a>
                 {% endif %}
             </h3>
         </div>
@@ -27,8 +27,6 @@
                     <option value="price_desc">Price (high to low)</option>
                     <option value="name_asc">Name (A-Z)</option>
                     <option value="name_desc">Name (Z-A)</option>
-                    <option value="category_asc">Category (A-Z)</option>
-                    <option value="category_desc">Category (Z-A)</option>
                 </select>
             </div>
         </div>
@@ -43,13 +41,15 @@
 <section class="container-fluid bg-lightblue">
     <div class="row pt-0 mb-0 justify-content-center">
         {% for product in products %}
-            <a href="{% url 'product_detail' product.id %}" class="col-10 col-sm-5 col-md-3 col-xl-2 cover-tile cover-tile-products my-3 mx-sm-3">
+            <div class="col-10 col-sm-5 col-md-3 col-xl-2 cover-tile cover-tile-products my-3 mx-sm-3">
                 {% if product.available == False %}
                 <h3 class="product-tag product-unavailable text-thick">Unavailable</h3>
                 {% endif %}
-                <div>
-                    <img class="cover-tile-image" src="{{ MEDIA_URL }}{{ product.image }}" alt="{{ product.name }}">
-                </div>
+                <a href="{% url 'product_detail' product.id %}">
+                    <div class="cover-tile-image-container">
+                        <img class="cover-tile-image" src="{{ MEDIA_URL }}{{ product.image }}" alt="{{ product.name }}">
+                    </div>
+                </a>
                 <div class="cover-tile-name text-dark">
                     <h3 class="text-skinny text-lg align-self-center">{{ product.name }}</h3>
                 </div>
@@ -60,7 +60,7 @@
                     <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
                 </h3>
                 {% endif %}
-        </a>
+            </div>
         {% endfor %}
     </div>
     <div class="icon icon-black btn-up hide">
