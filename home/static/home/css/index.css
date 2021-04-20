@@ -2,7 +2,6 @@
 
 #home-hero-image-1 {
     height: 100%;
-	/* width: 100%; */
     background: url("/media/home-hero-image-zak.jpg");
     background-repeat: no-repeat;
     background-size: cover;
@@ -15,7 +14,6 @@
 
 #home-hero-image-2 {
     height: 100%;
-	/* width: 100%; */
     background: url("/media/home-hero-image-tilly.jpg");
     background-repeat: no-repeat;
     background-size: cover;
@@ -24,7 +22,6 @@
 
 #home-hero-image-3 {
     height: 100%;
-	/* width: 100%; */
     background: url("/media/home-hero-image-luke.jpg");
     background-repeat: no-repeat;
     background-size: cover;
