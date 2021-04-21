@@ -8,10 +8,10 @@
 <section class="container-fluid bg-lightblue">
     <div class="row pt-3 pb-0">
         <div class="col-6">
-            <div class="btn btn-light btn-sm">Filter <i class="fas fa-sliders-h"></i></div>
+            <div class="btn btn-light btn-sm" onclick="openFilters()">Filter <i class="fas fa-sliders-h"></i></div>
         </div>
         <div class="col-6">
-            <div class="btn btn-light btn-sm">Sort <i class="fas fa-sort"></i></div>
+            <div class="btn btn-light btn-sm" onclick="openSort()">Sort <i class="fas fa-sort"></i></div>
         </div>
         <!-- <div class="col-12 col-sm-8 col-lg-4 mx-auto">
             <div class="sort-select-wrapper">
@@ -24,9 +24,19 @@
                 </select>
             </div>
         </div> -->
-        <div class="row">
-            <div class="col">
-                {% include 'products/includes/product_filter_categories.html' %}
+    </div>
+    <!-- Filters modal -->
+    <div class="modal-filters hide" id="modal-filters">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button class="icon icon-light modal-close" onclick="closeFilters()">
+                        <span><i class="fas fa-times"></i></span>
+                    </button>
+                    <br>
+                    <br>
+                    {% include 'products/includes/product_filter_categories.html' %}
+                </div>
             </div>
         </div>
     </div>
@@ -66,6 +76,16 @@
 
 {% block postloadjs %}
 {{ block.super }}
+<script type="text/javascript">
+    function openFilters() {
+        $("#modal-filters").removeClass("hide");
+    }
+
+    function closeFilters() {
+        $("#modal-filters").addClass("hide");
+    }
+</script>
+
 <script type="text/javascript">
     let afterTop = $('#products-nav-links').offset().top;
     let beforeBottom = ($('footer').offset().top)-($(window).height());
