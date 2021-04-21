@@ -1,0 +1,71 @@
+<!-- Product filters dropdown -->
+<div id="accordion">
+    <div class="card">
+        <!-- Range dropdown -->
+        <div class="card-header" id="accordion-productfilters-range">
+            <button type="button" class="btn collapsed" data-toggle="collapse"
+                data-target="#collapse-productfilters-range" aria-expanded="false"
+                aria-controls="collapse-productfilters-range">
+                Range <i class="fas fa-angle-down"></i>
+            </button>
+        </div>
+        <div id="collapse-productfilters-range" class="accordion collapse"
+            aria-labelledby="accordion-productfilters-range" data-parent="#accordion">
+            <div class="card-body" id="productfilters-range">
+                <!-- Ingredients checkboxes - component taken from https://codepen.io/quinlo/pen/ReMRXz -->
+                <ul class="ks-cboxtags mb-0 pt-2 pb-2">
+                {% for range in ranges %}
+                <li>
+                    <input type="checkbox" id="range{{forloop.counter}}" value="{{range}}">
+                    <label for="range{{forloop.counter}}">{{range.friendly_name}}</label>
+                </li>
+                {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <!-- Style dropdown -->
+        <div class="card-header" id="accordion-productfilters-style">
+            <button type="button" class="btn collapsed" data-toggle="collapse"
+                data-target="#collapse-productfilters-style" aria-expanded="false"
+                aria-controls="collapse-productfilters-style">
+                style <i class="fas fa-angle-down"></i>
+            </button>
+        </div>
+        <div id="collapse-productfilters-style" class="accordion collapse"
+            aria-labelledby="accordion-productfilters-style" data-parent="#accordion">
+            <div class="card-body" id="productfilters-style">
+                <!-- Ingredients checkboxes - component taken from https://codepen.io/quinlo/pen/ReMRXz -->
+                <ul class="ks-cboxtags mb-0 pt-2 pb-2">
+                {% for style in styles %}
+                <li>
+                    <input type="checkbox" id="style{{forloop.counter}}" value="{{style}}">
+                    <label for="style{{forloop.counter}}">{{style.friendly_name}}</label>
+                </li>
+                {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <!-- Colour dropdown -->
+        <div class="card-header" id="accordion-productfilters-colour">
+            <button type="button" class="btn collapsed" data-toggle="collapse"
+                data-target="#collapse-productfilters-colour" aria-expanded="false"
+                aria-controls="collapse-productfilters-colour">
+                colour <i class="fas fa-angle-down"></i>
+            </button>
+        </div>
+        <div id="collapse-productfilters-colour" class="accordion collapse"
+            aria-labelledby="accordion-productfilters-colour" data-parent="#accordion">
+            <div class="card-body" id="productfilters-colour">
+                <!-- Ingredients checkboxes - component taken from https://codepen.io/quinlo/pen/ReMRXz -->
+                <ul class="ks-cboxtags mb-0 pt-2 pb-2">
+                {% for colour in colours %}
+                <li>
+                    <input type="checkbox" id="colour{{forloop.counter}}" value="{{colour}}">
+                    <label for="colour{{forloop.counter}}">{{colour.friendly_name}}</label>
+                </li>
+                {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

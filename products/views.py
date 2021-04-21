@@ -14,7 +14,11 @@ def all_products(request):
     # A view to show all products, including sorting and search queries
     product = None
     products = Product.objects.all()
+
     colour_choices = Colour.objects.all()
+    style_choices = Style.objects.all()
+    range_choices = Range.objects.all()
+
     query = None
     range = None
     ranges = None
@@ -76,6 +80,8 @@ def all_products(request):
         'product': product,
         'products': products,
         'colours': colour_choices,
+        'styles': style_choices,
+        'ranges': range_choices,
         'search_term': query,
         'current_range': range,
         'current_ranges': ranges,
