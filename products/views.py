@@ -12,6 +12,7 @@ from .forms import ProductForm
 
 def all_products(request):
     # A view to show all products, including sorting and search queries
+    product = None
     products = Product.objects.all()
     colours = Colour.objects.all()
     query = None
@@ -54,6 +55,7 @@ def all_products(request):
     current_sorting = f'{sort}_{direction}'
 
     context = {
+        'product': product,
         'products': products,
         'colours': colours,
         'search_term': query,

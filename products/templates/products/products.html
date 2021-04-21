@@ -2,21 +2,9 @@
 {% load static %}
 
 {% block content %}
-<section class="container-fluid bg-white" id="products-nav-links">
-    <div class="row mb-0 p-0">
-        <div class="product-detail-links col-12">
-            <h3>
-                <a class="text-link-dark" href="{% url 'home' %}">Home</a>
-                /
-                <a class="text-link-dark" href="{% url 'products' %}">All covers</a>
-                {% if current_range != None %}
-                /
-                <a class="text-link-dark" href="#">{{ current_range }}</a>
-                {% endif %}
-            </h3>
-        </div>
-    </div>
-</section>
+
+{% include 'products/includes/product_nav_header.html' %}
+
 <section class="container-fluid bg-lightblue">
     <div class="row pb-0">
         <div class="col-12 col-sm-8 col-lg-4 mx-auto">
@@ -29,12 +17,6 @@
                     <option value="name_desc">Name (Z-A)</option>
                 </select>
             </div>
-        </div>
-        <div class="col-12">
-            <h3 class="pt-2">
-                {{ products|length }} Products{% if search_term %} found for
-                <strong>"{{ search_term }}"</strong>{% endif %}
-            </h3>
         </div>
     </div>
 </section>

@@ -1,0 +1,26 @@
+<section class="container-fluid bg-white">
+    <div class="row mb-0">
+        <div class="col">
+            <h4 class="text-skinny text-uppercase">
+                <a class="text-link-dark" href="{% url 'home' %}">Home</a>
+                /
+                {% if search_term == None and current_range == None and product == None %}
+                <a class="text-link-dark text-thick" href="{% url 'products' %}">All covers ({{ products|length }})</a>
+                {% elif search_term == None and current_range != None and product == None %}
+                <a class="text-link-dark" href="{% url 'products' %}">All covers</a>
+                /
+                <a class="text-link-dark text-thick" href="{% url 'products' %}?range={{ product.range.name }}">{{ current_range }} ({{ products|length }})</a>
+                {% elif search_term == None and current_range == None and product != None %}
+                <a class="text-link-dark" href="{% url 'products' %}">All covers</a>
+                /
+                <a class="text-link-dark" href="{% url 'products' %}?range={{ product.range.name }}">{{ product.range.friendly_name }}</a>
+                /
+                {% elif search_term != None and current_range == None and product == None %}
+                <a class="text-link-dark" href="{% url 'products' %}">All covers</a>
+                /
+                <span class="text-link-dark text-thick">{{ search_term }} ({{ products|length }})</span>
+                {% endif %}
+            </h4>
+        </div>
+    </div>
+</section>

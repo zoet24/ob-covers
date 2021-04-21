@@ -6,20 +6,9 @@
 {% endblock %}
 
 {% block content %}
-<section class="container-fluid bg-white">
-    <div class="row mb-0 p-0">
-        <div class="product-detail-links col-12">
-            <h3>
-                <a class="text-link-dark" href="{% url 'home' %}">Home</a>
-                /
-                <a class="text-link-dark" href="{% url 'products' %}">All covers</a>
-                /
-                <a class="text-link-dark" href="{% url 'products' %}?range={{ product.range.name }}">{{ product.range.friendly_name }}</a>
-                /
-            </h3>
-        </div>
-    </div>
-</section>
+
+{% include 'products/includes/product_nav_header.html' %}
+
 <section class="container-compress">
     <div class="row pt-md-3">
         <div class="d-none d-md-block col-md-5 align-self-center cover-tile cover-tile-bg-{{ product.range }} cover-tile-detail">

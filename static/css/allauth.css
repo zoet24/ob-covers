@@ -12,8 +12,8 @@
     width: 275px;
 }
 
-.allauth-form-inner-content input {
-    background-color: transparent!important;
+.allauth-form-inner-content .form-group, .allauth-form-inner-content .form-group input {
+    background-color: #fff;
     border: 3px solid #fff;
     padding: 0.25rem 0.4rem;
     border-radius: 25px;
@@ -22,10 +22,6 @@
 
 .allauth-form-inner-content label:not([for='id_remember']) {
     display: none;
-}
-
-.allauth-form-inner-content input[type='text'] {
-    color: red;
 }
 
 /* MEDIA QUERIES */

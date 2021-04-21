@@ -49,6 +49,10 @@ a.text-link:hover {
     text-decoration: underline;
 }
 
+a.text-link-dark {
+    color: #151635;
+}
+
 a.text-link-dark:hover {
     color: #151635;
     text-decoration: underline;
