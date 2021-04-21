@@ -6,8 +6,14 @@
 {% include 'products/includes/product_nav_header.html' %}
 
 <section class="container-fluid bg-lightblue">
-    <div class="row pb-0">
-        <div class="col-12 col-sm-8 col-lg-4 mx-auto">
+    <div class="row pt-3 pb-0">
+        <div class="col-6">
+            <div class="btn btn-light btn-sm">Filter <i class="fas fa-sliders-h"></i></div>
+        </div>
+        <div class="col-6">
+            <div class="btn btn-light btn-sm">Sort <i class="fas fa-sort"></i></div>
+        </div>
+        <!-- <div class="col-12 col-sm-8 col-lg-4 mx-auto">
             <div class="sort-select-wrapper">
                 <select id="sort-selector" class="input-sort">
                     <option value="reset">Sort by...</option>
@@ -16,6 +22,11 @@
                     <option value="name_asc">Name (A-Z)</option>
                     <option value="name_desc">Name (Z-A)</option>
                 </select>
+            </div>
+        </div> -->
+        <div class="row">
+            <div class="col">
+                {% include 'products/includes/product_filter_categories.html' %}
             </div>
         </div>
     </div>

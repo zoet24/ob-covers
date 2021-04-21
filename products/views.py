@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.db.models.functions import Lower
 
-from .models import Product, Range, Colour
+from .models import Product, Range, Colour, Style
 from .forms import ProductForm
 
 # Create your views here.
@@ -14,10 +14,14 @@ def all_products(request):
     # A view to show all products, including sorting and search queries
     product = None
     products = Product.objects.all()
-    colours = Colour.objects.all()
+    colour_choices = Colour.objects.all()
     query = None
     range = None
     ranges = None
+    style = None
+    styles = None
+    colour = None
+    colours = None
     sort = None
     direction = None
 
@@ -43,6 +47,20 @@ def all_products(request):
             if ranges:
                 range = ranges[0]
 
+        if 'style' in request.GET:
+            styles = request.GET['style'].split(',')
+            products = products.filter(style__name__in=styles)
+            styles = Style.objects.filter(name__in=styles)
+            if styles:
+                style = styles[0]
+
+        if 'colour' in request.GET:
+            colours = request.GET['colour'].split(',')
+            products = products.filter(colour__name__in=colours)
+            colours = Colour.objects.filter(name__in=colours)
+            if colours:
+                colour = colours[0]
+
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
@@ -57,10 +75,12 @@ def all_products(request):
     context = {
         'product': product,
         'products': products,
-        'colours': colours,
+        'colours': colour_choices,
         'search_term': query,
         'current_range': range,
         'current_ranges': ranges,
+        'current_style': style,
+        'current_colour': colour,
         'current_sorting': current_sorting,
     }
 

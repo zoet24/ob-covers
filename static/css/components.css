@@ -70,14 +70,14 @@ a.text-danger:hover, a.text-danger:focus {
 
 /* Icons */
 .icon {
-	color: white;
+	color: #fff;
 	background-color: #1c86c8;
 	font-size: 22px;
 
 	height: 40px;
 	width: 40px;
 	border-radius: 50%;
-	border: white solid 2px;
+	border: #fff solid 2px;
 
     align-items: center;
     display: inline-flex;
@@ -111,17 +111,26 @@ a.text-danger:hover, a.text-danger:focus {
     transform: scale(1.1);
 }
 
+.icon-light {
+    color: #151635;
+    border-color: #151635;
+    border-width: 1px;
+    background-color: #fff;
+}
+
 .icon-black {
     color: #151635;
     border-color: #151635;
     background-color: transparent;
 }
 
-.icon-black:hover {
+.icon-light:hover, .icon-black:hover {
     color: #151635;
     border-color: #151635;
     background-color: #fff;
 }
+
+
 
 .icon-nav:hover {
     transform: none;
@@ -136,7 +145,7 @@ a.text-danger:hover, a.text-danger:focus {
     border: 3px solid transparent;
     padding: 0.25rem 0.4rem;
     border-radius: 25px;
-    height: 50px;
+    max-height: 50px;
     min-width: 130px;
     transition: transform .25s ease-in-out;
 }
@@ -161,6 +170,14 @@ a.text-danger:hover, a.text-danger:focus {
     box-shadow: none;
 }
 
+.btn-light {
+    background-color: #fff;
+    border-color: #f0f3f4;
+    border-width: 1px;
+    color: #151635;
+    box-shadow: 1px 1px #1c86c8;
+}
+
 .btn-dark {
     color: #151635;
     border-color: #151635;
@@ -176,7 +193,6 @@ a.text-danger:hover, a.text-danger:focus {
 .btn-sm {
     font-size: 1.25rem;
     border-width: 1px;
-    height: 40px;
 }
 
 .btn-up {
@@ -211,14 +227,13 @@ hr {
     width: auto;
     height: 35px;
     margin: 0;
-    border: solid 2px #151635;
-    background-color: transparent;
+    border: solid 1px #151635;
+    background-color: #fff;
 }
 
 .input-quantity-sm {
     height: 30px;
     border-radius: 10px;
-    border: solid 1px #151635;
     font-size: 0.75rem;
 }
 
@@ -292,7 +307,7 @@ input[type=number] {
 }
 
 .cover-tile-image-detail {
-    height: 500px;
+    height: 400px;
 }
 
 .cover-tile-image-sm {
