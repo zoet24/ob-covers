@@ -19,6 +19,31 @@ def all_products(request):
     style_choices = Style.objects.all()
     range_choices = Range.objects.all()
 
+    colours_array = []
+    styles_array = []
+    ranges_array = []
+
+    for colour in colour_choices:
+        num = products.filter(colour__name=colour).count()
+        colour_array = ({"name": colour.name,
+                         "friendly_name": colour.friendly_name,
+                         "count": num})
+        colours_array.append(colour_array)
+
+    for style in style_choices:
+        num = products.filter(style__name=style).count()
+        style_array = ({"name": style.name,
+                         "friendly_name": style.friendly_name,
+                         "count": num})
+        styles_array.append(style_array)
+
+    for range in range_choices:
+        num = products.filter(range__name=range).count()
+        range_array = ({"name": range.name,
+                         "friendly_name": range.friendly_name,
+                         "count": num})
+        ranges_array.append(range_array)
+
     query = None
     range = None
     ranges = None
@@ -48,6 +73,7 @@ def all_products(request):
             ranges = request.GET['range'].split(',')
             products = products.filter(range__name__in=ranges)
             ranges = Range.objects.filter(name__in=ranges)
+
             if ranges:
                 range = ranges[0]
 
@@ -79,9 +105,9 @@ def all_products(request):
     context = {
         'product': product,
         'products': products,
-        'colours': colour_choices,
-        'styles': style_choices,
-        'ranges': range_choices,
+        'colours': colours_array,
+        'styles': styles_array,
+        'ranges': ranges_array,
         'search_term': query,
         'current_range': range,
         'current_ranges': ranges,

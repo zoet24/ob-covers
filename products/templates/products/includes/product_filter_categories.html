@@ -25,7 +25,7 @@
                     <label class="form-check-label container-radio text-skinny" for="{{range.name}}">
                         <input class="form-check-input" type="radio" value="?range={{range.name}}" id="{{range.name}}" name="range">
                         <span class="form-check-checkmark"></span>
-                        {{range.friendly_name}} (#)
+                        {{range.friendly_name}} ({{range.count}})
                     </label>
                 </div>
                 {% endfor %}
@@ -49,7 +49,7 @@
                     <label class="form-check-label container-radio text-skinny" for="{{style.name}}">
                         <input class="form-check-input" type="radio" value="?style={{style.name}}" id="{{style.name}}" name="style">
                         <span class="form-check-checkmark"></span>
-                        {{style.friendly_name}} (#)
+                        {{style.friendly_name}} ({{style.count}})
                     </label>
                 </div>
                 {% endfor %}
@@ -73,7 +73,7 @@
                     <label class="form-check-label container-radio text-skinny" for="{{colour.name}}">
                         <input class="form-check-input" type="radio" value="?colour={{colour.name}}" id="{{colour.name}}" name="colour">
                         <span class="form-check-checkmark"></span>
-                        {{colour.friendly_name}} (#)
+                        {{colour.friendly_name}} ({{colour.count}})
                     </label>
                 </div>
                 {% endfor %}
