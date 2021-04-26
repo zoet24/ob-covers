@@ -1,70 +1,82 @@
+<button class="icon icon-black modal-close" onclick="closeFilters()">
+    <span><i class="fas fa-times"></i></span>
+</button>
+<h2 class="p-2">Filters <i class="fas fa-sliders-h"></i></h2>
+<hr>
+<h3 class="mb-0 p-2">current filter</h3>
+<hr>
 <!-- Product filters dropdown -->
 <div id="accordion">
-    <div class="card">
+    <div class="card mt-2">
         <!-- Range dropdown -->
-        <div class="card-header" id="accordion-productfilters-range">
+        <div class="card-header pb-0" id="accordion-productfilters-range">
             <button type="button" class="btn collapsed" data-toggle="collapse"
                 data-target="#collapse-productfilters-range" aria-expanded="false"
                 aria-controls="collapse-productfilters-range">
-                Range <i class="fas fa-angle-down"></i>
+                <span>Range</span>
+                <i class="fas fa-angle-down"></i>
             </button>
         </div>
-        <div id="collapse-productfilters-range" class="accordion collapse"
+        <div id="collapse-productfilters-range" class="accordion collapse show"
             aria-labelledby="accordion-productfilters-range" data-parent="#accordion">
-            <div class="card-body" id="productfilters-range">
-                <!-- Ingredients checkboxes - component taken from https://codepen.io/quinlo/pen/ReMRXz -->
-                <ul class="ks-cboxtags mb-0 pt-2 pb-2">
+            <div class="card-body pt-0 pb-2" id="productfilters-range">
                 {% for range in ranges %}
-                <li>
-                    <input type="checkbox" id="range{{forloop.counter}}" value="{{range}}">
-                    <label for="range{{forloop.counter}}">{{range.friendly_name}}</label>
-                </li>
+                <div class="form-check">
+                    <label class="form-check-label container-radio text-skinny" for="{{range.name}}">
+                        <input class="form-check-input" type="radio" value="?range={{range.name}}" id="{{range.name}}" name="range">
+                        <span class="form-check-checkmark"></span>
+                        {{range.friendly_name}} (#)
+                    </label>
+                </div>
                 {% endfor %}
-                </ul>
             </div>
         </div>
+        <hr>
         <!-- Style dropdown -->
-        <div class="card-header" id="accordion-productfilters-style">
+        <div class="card-header pb-0" id="accordion-productfilters-style">
             <button type="button" class="btn collapsed" data-toggle="collapse"
                 data-target="#collapse-productfilters-style" aria-expanded="false"
                 aria-controls="collapse-productfilters-style">
-                style <i class="fas fa-angle-down"></i>
+                <span>style</span>
+                <i class="fas fa-angle-down"></i>
             </button>
         </div>
         <div id="collapse-productfilters-style" class="accordion collapse"
             aria-labelledby="accordion-productfilters-style" data-parent="#accordion">
-            <div class="card-body" id="productfilters-style">
-                <!-- Ingredients checkboxes - component taken from https://codepen.io/quinlo/pen/ReMRXz -->
-                <ul class="ks-cboxtags mb-0 pt-2 pb-2">
+            <div class="card-body pt-0 pb-2" id="productfilters-style">
                 {% for style in styles %}
-                <li>
-                    <input type="checkbox" id="style{{forloop.counter}}" value="{{style}}">
-                    <label for="style{{forloop.counter}}">{{style.friendly_name}}</label>
-                </li>
+                <div class="form-check">
+                    <label class="form-check-label container-radio text-skinny" for="{{style.name}}">
+                        <input class="form-check-input" type="radio" value="?style={{style.name}}" id="{{style.name}}" name="style">
+                        <span class="form-check-checkmark"></span>
+                        {{style.friendly_name}} (#)
+                    </label>
+                </div>
                 {% endfor %}
-                </ul>
             </div>
         </div>
+        <hr>
         <!-- Colour dropdown -->
-        <div class="card-header" id="accordion-productfilters-colour">
+        <div class="card-header pb-0" id="accordion-productfilters-colour">
             <button type="button" class="btn collapsed" data-toggle="collapse"
                 data-target="#collapse-productfilters-colour" aria-expanded="false"
                 aria-controls="collapse-productfilters-colour">
-                colour <i class="fas fa-angle-down"></i>
+                <span>colour</span>
+                <i class="fas fa-angle-down"></i>
             </button>
         </div>
         <div id="collapse-productfilters-colour" class="accordion collapse"
             aria-labelledby="accordion-productfilters-colour" data-parent="#accordion">
-            <div class="card-body" id="productfilters-colour">
-                <!-- Ingredients checkboxes - component taken from https://codepen.io/quinlo/pen/ReMRXz -->
-                <ul class="ks-cboxtags mb-0 pt-2 pb-2">
+            <div class="card-body pt-0 pb-2" id="productfilters-colour">
                 {% for colour in colours %}
-                <li>
-                    <input type="checkbox" id="colour{{forloop.counter}}" value="{{colour}}">
-                    <label for="colour{{forloop.counter}}">{{colour.friendly_name}}</label>
-                </li>
+                <div class="form-check">
+                    <label class="form-check-label container-radio text-skinny" for="{{colour.name}}">
+                        <input class="form-check-input" type="radio" value="?colour={{colour.name}}" id="{{colour.name}}" name="colour">
+                        <span class="form-check-checkmark"></span>
+                        {{colour.friendly_name}} (#)
+                    </label>
+                </div>
                 {% endfor %}
-                </ul>
             </div>
         </div>
     </div>

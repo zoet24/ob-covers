@@ -29,12 +29,7 @@
     <div class="modal-filters hide" id="modal-filters">
         <div class="modal-dialog">
             <div class="modal-content">
-                <div class="modal-body">
-                    <button class="icon icon-light modal-close" onclick="closeFilters()">
-                        <span><i class="fas fa-times"></i></span>
-                    </button>
-                    <br>
-                    <br>
+                <div class="modal-body pt-0">
                     {% include 'products/includes/product_filter_categories.html' %}
                 </div>
             </div>
@@ -83,6 +78,14 @@
 
     function closeFilters() {
         $("#modal-filters").addClass("hide");
+    }
+
+    function openSort() {
+        $("#modal-sort").removeClass("hide");
+    }
+
+    function closeSort() {
+        $("#modal-sort").addClass("hide");
     }
 </script>
 

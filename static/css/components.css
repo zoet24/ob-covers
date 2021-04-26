@@ -151,6 +151,7 @@ a.text-danger:hover, a.text-danger:focus {
 
 .btn:hover, .btn:focus, .btn-long:hover, .btn-long:focus {
     transform: scale(1.05);
+    box-shadow: none;
 }
 
 .btn-long {
@@ -285,6 +286,7 @@ input[type=number] {
 
 .cover-tile-products, .sidebar-table {
     box-shadow: 1px 1px #1c86c8;
+    border: 1px solid #1c86c8;
     border-radius: 25px;
 }
 
@@ -368,71 +370,27 @@ input[type=number] {
   border-radius: 25px;
 }
 
-/* Checkboxes */
-ul.ks-cboxtags {
-	list-style: none;
-	padding: 0px;
-}
-
-ul.ks-cboxtags li {
-	display: inline;
-}
-
-ul.ks-cboxtags li label {
-	display: inline-block;
-	background-color: #fff;
-	border: 2px solid #ccc;
-	color: #ccc;
-	border-radius: 25px;
-	white-space: nowrap;
-	margin: 3px 0px;
-	-webkit-touch-callout: none;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-	-webkit-tap-highlight-color: transparent;
-	transition: all .2s;
-}
-
-ul.ks-cboxtags li label {
-	padding: 8px 12px;
-	cursor: pointer;
-}
-
-ul.ks-cboxtags li label::before {
-	display: inline-block;
-	font-style: normal;
-	font-variant: normal;
-	text-rendering: auto;
-	-webkit-font-smoothing: antialiased;
-	font-family: "Font Awesome 5 Free";
-	font-weight: 900;
-	font-size: 12px;
-	padding: 2px 6px 2px 2px;
-	content: "\f067";
-	transition: transform .3s ease-in-out;
-}
-
-ul.ks-cboxtags li input[type="checkbox"]:checked+label::before {
-	content: "\f00c";
-	transition: transform .3s ease-in-out;
-}
-
-ul.ks-cboxtags li input[type="checkbox"]:checked+label {
-	border: 1px solid #1c86c8;
-	color: #151635;
-	background-color: #fff;
-    transition: all .2s;
-    box-shadow: 1px 1px #1c86c8;
-}
-
-ul.ks-cboxtags li input[type="checkbox"] {
-	position: absolute;
-	opacity: 0;
-}
-
 /* Modals */
+.card {
+    box-shadow: 1px 1px #1c86c8;
+    border: 1px solid #1c86c8;
+    border-radius: 25px;
+}
+
+.card-header, .card-header:first-child {
+    padding: .15rem 1.25rem;
+    margin-bottom: 0;
+    background-color: #fff;
+    border: none;
+    border-radius: 25px;
+}
+
+.card>hr {
+    margin: 0 auto;
+    width: 100%;
+    border-color: #1c86c8;
+}
+
 .modal-filters {
 	position: fixed;
 	top: 10vh;
@@ -441,15 +399,13 @@ ul.ks-cboxtags li input[type="checkbox"] {
 	width: 100%;
 	height: 100%;
 	overflow: hidden;
-	outline: 0;
+    outline: 0;
 }
 
 .modal-content {
-	background-color: #fff;
-    border-color: #1c86c8;
-    border-width: 1px;
-    color: #151635;
-    box-shadow: 1px 1px #1c86c8;
+	color: #151635;
+    background-color: #f0f3f4;
+    border: 2px #151635 solid;
     height: 80vh;
     overflow: scroll;
     position: relative;
@@ -459,6 +415,62 @@ ul.ks-cboxtags li input[type="checkbox"] {
   position: absolute;
   top: 8px;
   right: 8px;
+}
+
+/* Checkboxes https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_custom_radio */
+/* The container */
+.container-radio {
+  display: block;
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  text-align: left;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.container-radio input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.form-check-checkmark {
+    position: absolute;
+    top: 2px;
+    left: -10px;
+    height: 20px;
+    width: 20px;
+    background-color: #ccc;
+    border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.container-radio:hover input ~ .form-check-checkmark {
+  background-color: #1c86c8;
+  transform: scale(1.1);
+}
+
+/* When the radio button is checked, add a blue background */
+.container-radio input:checked ~ .form-check-checkmark {
+  background-color: #1c86c8;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.form-check-checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.container-radio input:checked ~ .form-check-checkmark:after {
+  display: none;
 }
 
 /* MEDIA QUERIES */
@@ -483,7 +495,7 @@ ul.ks-cboxtags li input[type="checkbox"] {
     .btn {
         padding: 0.4rem 0.5rem;
         border-radius: 30px;
-        height: 60px;
+        max-height: 60px;
         min-width: 160px;
         font-size: 1.75rem;
     }
@@ -491,7 +503,7 @@ ul.ks-cboxtags li input[type="checkbox"] {
     .btn-sm {
         font-size: 1.25rem;
         border-width: 1px;
-        height: 40px;
+        max-height: 40px;
     }
 
     .btn-long {
