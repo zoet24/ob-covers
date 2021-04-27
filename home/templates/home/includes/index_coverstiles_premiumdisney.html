@@ -1,0 +1,44 @@
+<section class="container-fluid">
+    <div class="row p-0 m-0">
+        <!-- Premium covers -->
+        <div class="cover-tile-bg-premium d-none d-sm-block col-sm-1 d-md-none d-xl-block col-xl-1 order-xl-1"></div>
+        <div
+            class="cover-tile cover-tile-bg-premium col-5 text-right col-sm-4 col-md-2 order-md-2 text-md-left order-xl-3">
+            <img class="img-mirror-md cover-tile-image cover-tile-image-premium"
+                src="{{ MEDIA_URL }}premium-deusex-black.png" alt="Premium covers with interactive swatches">
+        </div>
+        <div class="cover-tile cover-tile-bg-premium col-7 col-sm-6 col-md-4 order-md-1 col-xl-3 order-xl-2">
+            <div class="cover-tile-info text-sm-left text-md-right">
+                <h2 class="my-2 text-sm-left text-md-right letter-spacing-md">Premium</h2>
+                <!-- Interactive cover swatch -->
+                {% include 'includes/coverswatches/coverswatch_premium.html' %}
+                <!-- Price and shop links -->
+                <h3 class="text-sm-left text-md-right">From £329</h3>
+                <a class="btn btn-dark my-2 d-sm-none" href="{% url 'products' %}?range=premium" role="button">Shop</a>
+                <a class="btn btn-dark my-2 d-none d-sm-inline-block" href="{% url 'products' %}?range=premium"
+                    role="button">Shop premium</a>
+            </div>
+        </div>
+        <div class="cover-tile-bg-premium d-none d-sm-block col-sm-1 d-md-none"></div>
+        <!-- Disney covers -->
+        <div class="cover-tile-bg-disney d-none d-sm-block col-sm-1 d-md-none"></div>
+        <div class="cover-tile cover-tile-bg-disney col-7 col-sm-6 col-md-4 order-md-4 col-xl-3 order-xl-5">
+            <div class="cover-tile-info text-sm-right text-md-left">
+                <h2 class="my-2 text-sm-right text-md-left">Disney</h2>
+                <!-- Interactive cover swatch -->
+                {% include 'includes/coverswatches/coverswatch_disney.html' %}
+                <!-- Price and shop links -->
+                <h3 class="text-sm-right text-md-left">From £179</h3>
+                <a class="btn btn-dark my-2 d-sm-none" href="{% url 'products' %}?range=disney" role="button">Shop</a>
+                <a class="btn btn-dark my-2 d-none d-sm-inline-block" href="{% url 'products' %}?range=disney"
+                    role="button">Shop Disney</a>
+            </div>
+        </div>
+        <div
+            class="cover-tile cover-tile-bg-disney col-5 text-left col-sm-4 col-md-2 order-md-3 text-md-right order-xl-4">
+            <img class="cover-tile-image cover-tile-image-disney" src="{{ MEDIA_URL }}disney-bb8-white.png"
+                alt="Disney covers with interactive swatches">
+        </div>
+        <div class="cover-tile-bg-disney d-none d-sm-block col-sm-1 d-md-none d-xl-block col-xl-1 order-xl-6"></div>
+    </div>
+</section>

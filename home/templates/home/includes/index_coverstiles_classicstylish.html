@@ -1,0 +1,44 @@
+<section class="container-fluid">
+    <div class="row p-0 m-0">
+        <!-- Classic covers -->
+        <div class="cover-tile-bg-classic d-none d-sm-block col-sm-1 d-md-none d-xl-block col-xl-1 order-xl-1"></div>
+        <div
+            class="cover-tile cover-tile-bg-classic col-5 text-right col-sm-4 col-md-2 order-md-2 text-md-left order-xl-3">
+            <img class="img-mirror-md cover-tile-image cover-tile-image-classic"
+                src="{{ MEDIA_URL }}classic-regenerate-black.png" alt="Classic covers with interactive swatches">
+        </div>
+        <div class="cover-tile cover-tile-bg-classic col-7 col-sm-6 col-md-4 order-md-1 col-xl-3 order-xl-2">
+            <div class="cover-tile-info text-sm-left text-md-right">
+                <h2 class="my-2 text-sm-left text-md-right">Classic</h2>
+                <!-- Interactive cover swatch -->
+                {% include 'includes/coverswatches/coverswatch_classic.html' %}
+                <!-- Price and shop links -->
+                <h3 class="text-sm-left text-md-right">From £129</h3>
+                <a class="btn btn-dark my-2 d-sm-none" href="{% url 'products' %}?range=classic" role="button">Shop</a>
+                <a class="btn btn-dark my-2 d-none d-sm-inline-block" href="{% url 'products' %}?range=classic"
+                    role="button">Shop classic</a>
+            </div>
+        </div>
+        <div class="cover-tile-bg-classic d-none d-sm-block col-sm-1 d-md-none"></div>
+        <!-- Stylish covers -->
+        <div class="cover-tile-bg-stylish d-none d-sm-block col-sm-1 d-md-none"></div>
+        <div class="cover-tile cover-tile-bg-stylish col-7 col-sm-6 col-md-4 order-md-4 col-xl-3 order-xl-5">
+            <div class="cover-tile-info text-sm-right text-md-left">
+                <h2 class="my-2 text-sm-right text-md-left">Stylish</h2>
+                <!-- Interactive cover swatch -->
+                {% include 'includes/coverswatches/coverswatch_stylish.html' %}
+                <!-- Price and shop links -->
+                <h3 class="text-sm-right text-md-left">From £179</h3>
+                <a class="btn btn-dark my-2 d-sm-none" href="{% url 'products' %}?range=stylish" role="button">Shop</a>
+                <a class="btn btn-dark my-2 d-none d-sm-inline-block" href="{% url 'products' %}?range=stylish"
+                    role="button">Shop stylish</a>
+            </div>
+        </div>
+        <div
+            class="cover-tile cover-tile-bg-stylish col-5 text-left col-sm-4 col-md-2 order-md-3 text-md-right order-xl-4">
+            <img class="cover-tile-image cover-tile-image-stylish" src="{{ MEDIA_URL }}stylish-azdeco-black.png"
+                alt="Stylish covers with interactive swatches">
+        </div>
+        <div class="cover-tile-bg-stylish d-none d-sm-block col-sm-1 d-md-none d-xl-block col-xl-1 order-xl-6"></div>
+    </div>
+</section>

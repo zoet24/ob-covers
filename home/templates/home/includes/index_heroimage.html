@@ -1,0 +1,35 @@
+<section class="container-fluid container-hero">
+    <!-- Background hero image -->
+    <div id="home-hero-image-1">
+        <span class="sr-only"></span>
+    </div>
+    <!-- Foreground text -->
+    <div class="hero-image-overlay">
+        <div class="hero-image-overlay-text hero-image-overlay-text-left">
+            <!-- OB logo -->
+            <div class="row" style="display: none" id="home-heading-logo">
+                <div class="col">
+                    <img id="logo-home" src="{{ MEDIA_URL }}logo-white.png" alt="White Open Bionics logo" />
+                </div>
+            </div>
+            <!-- Welcome text -->
+            <div class="row" style="display: none" id="home-heading-1">
+                <div class="col-11 mx-auto">
+                    <h1>Your limb difference is your superpower</h1>
+                </div>
+            </div>
+            <div class="row" style="display: none" id="home-heading-2">
+                <div class="col-10 mx-auto">
+                    <h2>Who will you be?</h2>
+                </div>
+            </div>
+            <!-- Links to sign up and shop -->
+            <div class="row" style="display: none" id="home-heading-buttons">
+                <div class="col p-0">
+                    <a class="btn btn-image mx-2" href="{% url 'account_signup' %}" role="button">Sign Up</a>
+                    <a class="btn btn-image mx-2" href="{% url 'products' %}" role="button">Shop</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

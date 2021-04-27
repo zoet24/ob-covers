@@ -31,11 +31,15 @@
 }
 
 .text-xl {
-    font-size: 3.5rem;
+    font-size: 3.25rem;
 }
 
 .text-dark {
     color: #151635;
+}
+
+.letter-spacing-md {
+    letter-spacing: 0px;
 }
 
 /* BACKGROUNDS */

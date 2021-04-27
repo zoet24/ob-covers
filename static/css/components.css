@@ -17,7 +17,7 @@ h2 {
     font-weight: 300;
 }
 
-h3, .btn {
+h3 {
     font-size: 1.5rem;
     font-family: 'Poppins', sans-serif;
     text-transform: uppercase;
@@ -137,6 +137,12 @@ a.text-danger:hover, a.text-danger:focus {
 
 /* Buttons */
 .btn {
+    font-size: 1.5rem;
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 300;
+    
     display: inline-block;
     text-align: center;
     vertical-align: middle;
@@ -473,7 +479,7 @@ input[type=number] {
   display: none;
 }
 
-#filters-title {
+#filters-title, #filters-title-none {
     text-transform: uppercase;
     font-size: 1.25rem;
 }

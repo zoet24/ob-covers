@@ -57,6 +57,7 @@
                 <img class="d-none d-sm-block" id="logo-nav" src="{{ MEDIA_URL }}logo-white.png" alt="OB logo" />
                 <img class="d-sm-none" id="logo-nav-circle" src="{{ MEDIA_URL }}logo-blue-circle.png" alt="OB logo" />
             </a>
+            <!-- Search bar -->
             <form class="navbar-search d-none d-sm-block" method="GET" action="{% url 'products' %}">
                 <input type="text" name="q" placeholder="Search" aria-label="Search">
                 <button class="navbar-icon-search" type="submit">
@@ -131,7 +132,7 @@
         </h4>
     </div>
 
-    <!-- Notifications -->
+    <!-- Toasts -->
     {% if messages %}
         <div class="toast-container" id="toast-container">
             {% for message in messages %}

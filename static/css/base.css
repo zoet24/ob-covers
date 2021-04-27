@@ -1,13 +1,15 @@
 /* Stylesheet with declarations for body, nav, footer, sidebars and toasts */
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;600;700&display=swap');
-
 /* Dark OB blue #151635 */
 /* Light OB blue #319cd2 */
 /* Website blue #1c86c8 */
 /* Light grey background #f0f3f4 */
 
+/* FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;600;700&display=swap');
+
+/* GENERAL STYLES */
 body {
     font-family: 'Roboto', sans-serif;
     background-color: #f0f3f4;
@@ -30,7 +32,19 @@ body {
     width: 100%;
 }
 
-/* NAV, FOOTER, TOASTS, BANNER MESSAGE */
+.fixed-top {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 10;
+}
+
+.filler-top {
+	height: 60px;
+}
+
+/* NAV AND FOOTER */
 nav, footer {
 	font-family: 'Poppins', sans-serif;
 	color: #fff;
@@ -43,7 +57,7 @@ nav, footer {
 
 .navbar-bottom {
 	background-color: #1c86c8;
-	border-top: 2px solid white;
+	border-top: 2px solid #fff;
 	padding: 5px 10px;
 }
 
@@ -54,8 +68,8 @@ nav, footer {
 #logo-nav-circle {
 	height: 40px;
 	width: 40px;
-	border: solid white 4px;
-	background: white;
+	border: solid #fff 4px;
+	background: #fff;
 	border-radius: 50%;
 }
 
@@ -67,7 +81,7 @@ nav, footer {
 .navbar-search {
 	height: 40px;
 	border-radius: 20px;
-    border: white solid 2px;
+    border: #fff solid 2px;
 }
 
 .navbar-search-sidebar {
@@ -76,7 +90,7 @@ nav, footer {
 }
 
 .navbar-search input {
-	color: white;
+	color: #fff;
 	background-color: #1c86c8;
 	font-size: 18px;
 	border: none;
@@ -87,7 +101,7 @@ nav, footer {
 }
 
 .navbar-icon-search {
-    color: white;
+    color: #fff;
     background-color: #1c86c8;
 	font-size: 18px;
     border: none;
@@ -96,10 +110,10 @@ nav, footer {
 	margin-right: 0px;
 }
 
-::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: white;
+::placeholder {
+  color: #fff;
   text-transform: uppercase;
-  opacity: 1; /* Firefox */
+  opacity: 1;
 }
 
 .navbar-nav {
@@ -123,7 +137,7 @@ nav, footer {
 
 .nav-item .nav-link {
 	font-size: 1.25rem;
-	color: white;
+	color: #fff;
 	text-transform: uppercase;
 }
 
@@ -134,6 +148,14 @@ nav, footer {
 .nav-profile-dropdown-menu.show {
     display: block;
     z-index: 100;
+}
+
+.nav-profile-dropdown-item {
+    display: block;
+    width: 100%;
+    padding: .25rem 1.5rem;
+    text-transform: uppercase;
+    font-size: 1.25rem;
 }
 
 .nav-profile-dropdown-menu, .toast-container {
@@ -155,6 +177,7 @@ nav, footer {
     border: 3px solid #1c86c8;
 }
 
+/* TOASTS */
 .toast-container {
     display: block;
     left: 15px;
@@ -210,26 +233,7 @@ button.close {
     text-decoration: none;
 }
 
-.nav-profile-dropdown-item {
-    display: block;
-    width: 100%;
-    padding: .25rem 1.5rem;
-    text-transform: uppercase;
-    font-size: 1.25rem;
-}
-
-.fixed-top {
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-    z-index: 10;
-}
-
-.filler-top {
-	height: 60px;
-}
-
+/* BANNER MESSAGES */
 .banner-messages {
 	background-color: #f0f3f4;
 	color: #151635;
@@ -314,10 +318,6 @@ button.close {
         width: 85%;
     }
     
-    .icon {
-		margin: 0px 3px;
-    }
-    
     .navbar-search input {
 		width: 250px;
     }
@@ -328,10 +328,6 @@ button.close {
 }
 
 @media (min-width: 992px) {    
-    /* .container-compress {
-        width: 70%;
-    } */
-    
     .navbar-search input {
 		width: 350px;
     }

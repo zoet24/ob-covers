@@ -3,7 +3,11 @@
 </button>
 <h2 class="p-2">Filters</h2>
 <hr class="mb-2">
+{% if current_range != None or current_style != None or current_colour != None %}
 <span class="text-skinny" id="filters-title"></span>
+{% else %}
+<span class="text-skinny" id="filters-title-none">No current filters</span>
+{% endif %}
 <hr class="mt-2">
 <!-- Product filters dropdown -->
 <div id="accordion">
@@ -88,11 +92,15 @@
         var newUrl = currentUrl.split("?")[1].split("=");
         var category = newUrl[0];
         var name = newUrl[1];
-        var labelText = $(`#${name}_label`).text().trim().split("(")[0].trim();
+
+        var filtersTitleNav = $(`#${name}_label`).text().trim()
+        $("#filters-title-nav").html(filtersTitleNav);
+        
+        var filtersTitle = $(`#${name}_label`).text().trim().split("(")[0].trim();
 
         $(`input[name=${category}][value='?${category}=${name}']`).prop("checked",true);
         $(`#collapse-productfilters-${category}`).addClass("show");
-        $("#filters-title").html(`${category} | ${labelText}`);
+        $("#filters-title").html(`${category} | ${filtersTitle}`);
     }
 </script>
 

@@ -73,7 +73,6 @@ def all_products(request):
             ranges = request.GET['range'].split(',')
             products = products.filter(range__name__in=ranges)
             ranges = Range.objects.filter(name__in=ranges)
-
             if ranges:
                 range = ranges[0]
 
@@ -110,7 +109,6 @@ def all_products(request):
         'ranges': ranges_array,
         'search_term': query,
         'current_range': range,
-        'current_ranges': ranges,
         'current_style': style,
         'current_colour': colour,
         'current_sorting': current_sorting,

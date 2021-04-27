@@ -5,34 +5,24 @@
                 <a class="text-link-dark" href="{% url 'home' %}">Home</a>
                 /
                 <!-- If no filters applied, display all covers -->
-                {% if search_term == None and current_range == None and current_style == None and current_colour == None and product == None %}
+                {% if search_term == None and product == None and current_range == None and current_style == None and current_colour == None %}
                 <a class="text-link-dark text-thick" href="{% url 'products' %}">All covers ({{ products|length }})</a>
-                <!-- If range filter applied, display all covers / range name -->
-                {% elif search_term == None and current_range != None and current_style == None and current_colour == None and product == None %}
-                <a class="text-link-dark" href="{% url 'products' %}">All covers</a>
-                /
-                <a class="text-link-dark text-thick" href="{% url 'products' %}?range={{ product.range.name }}">{{ current_range }} ({{ products|length }})</a>
-                <!-- If style filter applied, display all covers / style name -->
-                {% elif search_term == None and current_range == None and current_style != None and current_colour == None and product == None %}
-                <a class="text-link-dark" href="{% url 'products' %}">All covers</a>
-                /
-                <a class="text-link-dark text-thick" href="{% url 'products' %}?style={{ product.style.name }}">{{ current_style }} ({{ products|length }})</a>
-                <!-- If colour filter applied, display all covers / colour name -->
-                {% elif search_term == None and current_range == None and current_style == None and current_colour != None and product == None %}
-                <a class="text-link-dark" href="{% url 'products' %}">All covers</a>
-                /
-                <a class="text-link-dark text-thick" href="{% url 'products' %}?colour={{ product.colour.name }}">{{ current_colour }} ({{ products|length }})</a>
                 <!-- If on specific product, display all covers / range name / product name -->
-                {% elif search_term == None and current_range == None and current_style == None and current_colour == None and product != None %}
+                {% elif search_term == None and product != None and current_range == None and current_style == None and current_colour == None %}
                 <a class="text-link-dark" href="{% url 'products' %}">All covers</a>
                 /
                 <a class="text-link-dark" href="{% url 'products' %}?range={{ product.range.name }}">{{ product.range.friendly_name }}</a>
                 /
                 <!-- If specific search applied, display all covers / search term -->
-                {% elif search_term != None and current_range == None and current_style == None and current_colour == None and product == None %}
+                {% elif search_term != None and product == None and current_range == None and current_style == None and current_colour == None %}
                 <a class="text-link-dark" href="{% url 'products' %}">All covers</a>
                 /
                 <span class="text-link-dark text-thick">{{ search_term }} ({{ products|length }})</span>
+                <!--  -->
+                {% elif current_range != None or current_style != None or current_colour != None %}
+                <a class="text-link-dark" href="{% url 'products' %}">All covers</a>
+                /
+                <span class="text-link-dark text-thick" id="filters-title-nav"></span>
                 {% endif %}
             </h4>
         </div>
