@@ -5,13 +5,13 @@
     <button class="icon icon-black sidebar-close" onclick="closeSidebar()">
         <span><i class="fas fa-times"></i></span>
     </button>
-    <h2 class="p-2">Basket <i class="fas fa-shopping-basket"></i></h2>
+    <h2 class="p-2">Basket</h2>
     <hr>
     <h3 class="mb-0 p-2">{{ product_count }} items | £{{ grand_total|floatformat:2 }}</h3>
     <hr>
     {% if bag_items %}
     {% if free_delivery_delta > 0 %}
-        <h4 class="mt-2 p-2 text-md text-skinny bg-white">
+        <h4 class="mt-2 p-2 text-skinny bg-white">
             Spend <strong>£{{ free_delivery_delta }}</strong> more to get free delivery!
         </h4>
     {% endif %}
@@ -88,20 +88,22 @@
                 </table>
             </div>
             {% endfor %}
-            <h3 class="mb-0 pt-2 bg-white">Bag total | £{{ total|floatformat:2 }}</h3>
-            <h3 class="mb-0 p-2 bg-white">Delivery | £{{ delivery|floatformat:2 }}</h3>
-            <h3 class="mb-0 p-2 text-thick bg-white">Order total | £{{ grand_total|floatformat:2 }}</h3>
-            <a class="btn btn-dark mt-3 mb-2" href="{% url 'products' %}" role="button">Keep shopping <i
-                    class="fas fa-shopping-basket"></i></a>
-            <a class="btn btn-dark my-2" href="{% url 'checkout' %}" role="button">Secure checkout <i
-                    class="fas fa-lock"></i></a>
+            <hr>
+            <h3 class="mb-0 pt-2 letter-spacing-md">Bag total | £{{ total|floatformat:2 }}</h3>
+            <h3 class="mb-0 p-2 letter-spacing-md">Delivery | £{{ delivery|floatformat:2 }}</h3>
+            <h3 class="mb-0 pb-2 text-thick letter-spacing-md">Order total | £{{ grand_total|floatformat:2 }}</h3>
+            <hr>
+            <a class="btn btn-light my-2" href="{% url 'products' %}" role="button"> Keep shopping <i
+                    class="fas fa-shopping-basket"></i> </a>
+            <a class="btn btn-light mt-0 mb-2" href="{% url 'checkout' %}" role="button"> Secure checkout <i
+                    class="fas fa-lock"></i> </a>
         </div>
     </div>
     {% else %}
     <div class="row pt-0">
         <div class="col">
             <h3 class="mt-2 mb-0 p-2 bg-white">Your bag is empty</h3>
-            <a class="btn btn-dark mt-3 mb-2" href="{% url 'products' %}" role="button">Keep shopping <i
+            <a class="btn btn-light my-2" href="{% url 'products' %}" role="button">Keep shopping <i
                     class="fas fa-shopping-basket"></i></a>
         </div>
     </div>

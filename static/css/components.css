@@ -216,8 +216,9 @@ hr {
     border-color: #151635;
 }
 
-/* SORT AND QUANTITY INPUTS */
-.input-sort {
+/* Quantity inputs */
+
+/* .input-sort {
     width: 100%;
     outline: none;
     padding: 5px;
@@ -227,7 +228,7 @@ hr {
     text-transform: uppercase;
     border: solid 1px #151635;
     background-color: #fff;
-}
+} */
 
 .input-quantity {
     width: auto;
@@ -258,7 +259,7 @@ hr {
 
 .increment-qty, .decrement-qty, .increment-qty_sb, .decrement-qty_sb {
     border: none;
-    background-color: rgba(0,0,0,0);
+    background-color: transparent;
     display: block;
 }
 
@@ -276,7 +277,7 @@ input[type=number] {
     cursor: pointer;
 }
 
-/* PRODUCTS */
+/* Products  */
 .cover-tile {
     width: 100%;
     text-align: center;
@@ -359,12 +360,12 @@ input[type=number] {
 
 .product-popular {
     background-color: #1c86c8;
-    color: white;
+    color: #fff;
     border: #1c86c8 solid 2px;
 }
 
 .product-unavailable {
-    background-color: white;
+    background-color: #fff;
     color: #151635;
     border: #151635 solid 2px;
 }

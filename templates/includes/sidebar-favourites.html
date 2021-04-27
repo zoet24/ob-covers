@@ -3,7 +3,7 @@
     <button class="icon icon-black sidebar-close" onclick="closeSidebar()">
         <span><i class="fas fa-times"></i></span>
     </button>
-    <h2 class="p-2">Favourites <i class="fas fa-heart"></i></h2>
+    <h2 class="p-2">Wish list</h2>
     <hr>
     <h3 class="mb-0 p-2">{{ product_count_fav }} items</h3>
     <hr>
@@ -73,15 +73,15 @@
                 </table>
             </div>
             {% endfor %}
-            <a class="btn btn-dark my-2" href="{% url 'products' %}" role="button">Keep shopping <i
+            <a class="btn btn-light mt-0 mb-2" href="{% url 'products' %}" role="button">Keep shopping <i
                     class="fas fa-shopping-basket"></i></a>
         </div>
     </div>
     {% else %}
     <div class="row pt-0">
         <div class="col">
-            <h3 class="mt-2 mb-0 p-2 bg-white">Your favourites are empty</h3>
-            <a class="btn btn-dark my-2" href="{% url 'products' %}" role="button">Keep shopping <i
+            <h3 class="mt-2 mb-0 p-2 bg-white">Your wish list is empty</h3>
+            <a class="btn btn-light my-2" href="{% url 'products' %}" role="button">Keep shopping <i
                     class="fas fa-shopping-basket"></i></a>
         </div>
     </div>
@@ -103,7 +103,7 @@
             });
     })
 
-    // Remove item from favourites, add to bag and reload on click
+    // Remove item from wish list, add to bag and reload on click
     $('.favtobag-item').click(function (e) {
         var csrfToken = "{{ csrf_token }}";
         var itemId = $(this).attr('id').split('favtobag_')[1];

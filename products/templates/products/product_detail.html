@@ -81,7 +81,7 @@
                                     </span>
                                 </button>
                             </div>
-                            <input class="input-quantity qty_input" type="number" name="quantity" value="1" min="1"
+                            <input class="input-quantity qty_input blue-border blue-shadow" type="number" name="quantity" value="1" min="1"
                                 max="99" data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
                             <div class="input-group-prepend">
                                 <button class="decrement-qty" data-item_id="{{ product.id }}"
@@ -103,7 +103,7 @@
                 {% csrf_token %}
                     <div class="row">
                         <div class="col-12 pt-2 pb-0">
-                            <input class="btn btn-long btn-light btn-sm" type="submit" value="Add to Favourites">
+                            <input class="btn btn-long btn-light btn-sm" type="submit" value="Add to wish list">
                         </div>
                         <input type="hidden" name="redirect_url" value="{{ request.path }}">
                     </div>

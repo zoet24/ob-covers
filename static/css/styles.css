@@ -5,6 +5,14 @@
 	border: solid 2px black;
 }
 
+.blue-border {
+    border-color: #1c86c8;
+}
+
+.blue-shadow {
+    box-shadow: 1px 1px #1c86c8;
+}
+
 .show {
     display: block;
 }
