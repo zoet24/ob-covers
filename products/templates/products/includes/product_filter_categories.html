@@ -1,10 +1,10 @@
 <button class="icon icon-black modal-close" onclick="closeFilters()">
     <span><i class="fas fa-times"></i></span>
 </button>
-<h2 class="p-2">Filters <i class="fas fa-sliders-h"></i></h2>
-<hr>
-<h3 class="mb-0 p-2">current filter</h3>
-<hr>
+<h2 class="p-2">Filters</h2>
+<hr class="mb-2">
+<span class="text-skinny" id="filters-title"></span>
+<hr class="mt-2">
 <!-- Product filters dropdown -->
 <div id="accordion">
     <div class="card mt-2">
@@ -17,18 +17,18 @@
                 <i class="fas fa-angle-down"></i>
             </button>
         </div>
-        <div id="collapse-productfilters-range" class="accordion collapse show"
+        <div id="collapse-productfilters-range" class="accordion collapse"
             aria-labelledby="accordion-productfilters-range" data-parent="#accordion">
-            <div class="card-body pt-0 pb-2" id="productfilters-range">
-                {% for range in ranges %}
-                <div class="form-check">
-                    <label class="form-check-label container-radio text-skinny" for="{{range.name}}">
-                        <input class="form-check-input" type="radio" value="?range={{range.name}}" id="{{range.name}}" name="range">
-                        <span class="form-check-checkmark"></span>
-                        {{range.friendly_name}} ({{range.count}})
-                    </label>
+            <div class="card-body pt-0 pb-2">
+                <div class="form-check" id="productfilters-range" oninput="filterCategoriesRange()">
+                    {% for range in ranges %}
+                        <label class="form-check-label container-radio text-skinny" for="{{range.name}}" id="{{range.name}}_label">
+                            <input class="form-check-input" type="radio" value="?range={{range.name}}" id="{{range.name}}" name="range">
+                            <span class="form-check-checkmark"></span>
+                            {{range.friendly_name}} ({{range.count}})
+                        </label>
+                    {% endfor %}
                 </div>
-                {% endfor %}
             </div>
         </div>
         <hr>
@@ -43,16 +43,16 @@
         </div>
         <div id="collapse-productfilters-style" class="accordion collapse"
             aria-labelledby="accordion-productfilters-style" data-parent="#accordion">
-            <div class="card-body pt-0 pb-2" id="productfilters-style">
-                {% for style in styles %}
-                <div class="form-check">
-                    <label class="form-check-label container-radio text-skinny" for="{{style.name}}">
-                        <input class="form-check-input" type="radio" value="?style={{style.name}}" id="{{style.name}}" name="style">
-                        <span class="form-check-checkmark"></span>
-                        {{style.friendly_name}} ({{style.count}})
-                    </label>
+            <div class="card-body pt-0 pb-2">
+                <div class="form-check" oninput="filterCategoriesStyle()" id="productfilters-style">
+                    {% for style in styles %}
+                        <label class="form-check-label container-radio text-skinny" for="{{style.name}}" id="{{style.name}}_label">
+                            <input class="form-check-input" type="radio" value="?style={{style.name}}" id="{{style.name}}" name="style">
+                            <span class="form-check-checkmark"></span>
+                            {{style.friendly_name}} ({{style.count}})
+                        </label>
+                    {% endfor %}
                 </div>
-                {% endfor %}
             </div>
         </div>
         <hr>
@@ -67,17 +67,63 @@
         </div>
         <div id="collapse-productfilters-colour" class="accordion collapse"
             aria-labelledby="accordion-productfilters-colour" data-parent="#accordion">
-            <div class="card-body pt-0 pb-2" id="productfilters-colour">
-                {% for colour in colours %}
-                <div class="form-check">
-                    <label class="form-check-label container-radio text-skinny" for="{{colour.name}}">
-                        <input class="form-check-input" type="radio" value="?colour={{colour.name}}" id="{{colour.name}}" name="colour">
-                        <span class="form-check-checkmark"></span>
-                        {{colour.friendly_name}} ({{colour.count}})
-                    </label>
+            <div class="card-body pt-0 pb-2">
+                <div class="form-check" oninput="filterCategoriesColour()" id="productfilters-colour">
+                    {% for colour in colours %}
+                        <label class="form-check-label container-radio text-skinny" for="{{colour.name}}" id="{{colour.name}}_label">
+                            <input class="form-check-input" type="radio" value="?colour={{colour.name}}" id="{{colour.name}}" name="colour">
+                            <span class="form-check-checkmark"></span>
+                            {{colour.friendly_name}} ({{colour.count}})
+                        </label>
+                    {% endfor %}
                 </div>
-                {% endfor %}
             </div>
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+    onload = function() {
+        var currentUrl = window.location.href;
+        var newUrl = currentUrl.split("?")[1].split("=");
+        var category = newUrl[0];
+        var name = newUrl[1];
+        var labelText = $(`#${name}_label`).text().trim().split("(")[0].trim();
+
+        $(`input[name=${category}][value='?${category}=${name}']`).prop("checked",true);
+        $(`#collapse-productfilters-${category}`).addClass("show");
+        $("#filters-title").html(`${category} | ${labelText}`);
+    }
+</script>
+
+<script type="text/javascript">
+    function filterCategoriesRange() {
+        var rangeVal = $('input[name="range"]:checked').val();
+        var currentUrl = window.location.href;
+        var newUrl = currentUrl.split("?")[0];
+        
+        newUrl += rangeVal;
+        
+        window.location.replace(newUrl);        
+    };
+
+    function filterCategoriesStyle() {
+        var styleVal = $('input[name="style"]:checked').val();
+        var currentUrl = window.location.href;
+        var newUrl = currentUrl.split("?")[0];
+        
+        newUrl += styleVal;
+        
+        window.location.replace(newUrl);        
+    };
+
+    function filterCategoriesColour() {
+        var colourVal = $('input[name="colour"]:checked').val();
+        var currentUrl = window.location.href;
+        var newUrl = currentUrl.split("?")[0];
+        
+        newUrl += colourVal;
+        
+        window.location.replace(newUrl);        
+    };
+</script>
