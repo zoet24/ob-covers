@@ -34,10 +34,6 @@
     padding: 0.5rem;
 }
 
-.product-detail-links a {
-    color: #151635;
-}
-
 /* MEDIA QUERIES */
 @media (min-width: 992px) {
     .hero-image-overlay-text-left {

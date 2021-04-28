@@ -53,6 +53,7 @@ def all_products(request):
     colours = None
     sort = None
     direction = None
+    current_sorting = None
 
     if request.GET:
         if 'sort' in request.GET:
@@ -68,6 +69,7 @@ def all_products(request):
                 if direction == 'desc':
                     sortkey = f'-{sortkey}'
             products = products.order_by(sortkey)
+            current_sorting = f'{sort}_{direction}'
 
         if 'range' in request.GET:
             ranges = request.GET['range'].split(',')
@@ -98,8 +100,6 @@ def all_products(request):
 
             queries = Q(name__icontains=query) | Q(description__icontains=query)
             products = products.filter(queries)
-
-    current_sorting = f'{sort}_{direction}'
 
     context = {
         'product': product,

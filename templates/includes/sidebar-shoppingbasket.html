@@ -1,7 +1,7 @@
 {% load bag_tools %}
 
-<!-- Shopping basket sidebar -->
 <div class="sidebar" id="sidebar-basket">
+    <!-- Basket sidebar header -->
     <button class="icon icon-black sidebar-close" onclick="closeSidebar()">
         <span><i class="fas fa-times"></i></span>
     </button>
@@ -9,11 +9,13 @@
     <hr>
     <h3 class="mb-0 p-2">{{ product_count }} items | £{{ grand_total|floatformat:2 }}</h3>
     <hr>
+    <!-- If there are items in the basket, display them in table -->
     {% if bag_items %}
+    <!-- If user doesn't qualify for free delivery, display free delivery delta -->
     {% if free_delivery_delta > 0 %}
-        <h4 class="mt-2 p-2 text-skinny bg-white">
-            Spend <strong>£{{ free_delivery_delta }}</strong> more to get free delivery!
-        </h4>
+    <h4 class="mt-2 p-2 text-skinny bg-white">
+        Spend <strong>£{{ free_delivery_delta }}</strong> more to get free delivery!
+    </h4>
     {% endif %}
     <div class="row pt-0">
         <div class="col">
@@ -82,12 +84,14 @@
                     </tr>
                     <tr>
                         <td class="sidebar-product-text pb-2">
-                            <a class="bagtofav-item btn btn-dark btn-sm my-2" id="bagtofav_{{ item.item_id }}" role="button">Save for later</a>
+                            <a class="bagtofav-item btn btn-dark btn-sm my-2" id="bagtofav_{{ item.item_id }}"
+                                role="button">Save for later</a>
                         </td>
                     </tr>
                 </table>
             </div>
             {% endfor %}
+            <!-- Display bag total, delivery costs and order total -->
             <hr>
             <h3 class="mb-0 pt-2 letter-spacing-md">Bag total | £{{ total|floatformat:2 }}</h3>
             <h3 class="mb-0 p-2 letter-spacing-md">Delivery | £{{ delivery|floatformat:2 }}</h3>
@@ -99,6 +103,7 @@
                     class="fas fa-lock"></i> </a>
         </div>
     </div>
+    <!-- If there are no items in basket, display empty message -->
     {% else %}
     <div class="row pt-0">
         <div class="col">

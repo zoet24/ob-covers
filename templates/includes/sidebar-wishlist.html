@@ -1,5 +1,5 @@
-<!-- Favourites sidebar -->
 <div class="sidebar" id="sidebar-fav">
+    <!-- Wish list sidebar header -->
     <button class="icon icon-black sidebar-close" onclick="closeSidebar()">
         <span><i class="fas fa-times"></i></span>
     </button>
@@ -7,6 +7,7 @@
     <hr>
     <h3 class="mb-0 p-2">{{ product_count_fav }} items</h3>
     <hr>
+    <!-- If there are items in the wish list, display them in table -->
     {% if fav_items %}
     <div class="row pt-0">
         <div class="col">
@@ -67,7 +68,8 @@
                     </tr>
                     <tr>
                         <td class="sidebar-product-text pb-2">
-                            <a class="favtobag-item btn btn-dark btn-sm my-2" id="favtobag_{{ item.item_id }}" role="button">Add to basket</a>
+                            <a class="favtobag-item btn btn-dark btn-sm my-2" id="favtobag_{{ item.item_id }}"
+                                role="button">Add to basket</a>
                         </td>
                     </tr>
                 </table>
@@ -77,6 +79,7 @@
                     class="fas fa-shopping-basket"></i></a>
         </div>
     </div>
+    <!-- If there are no items in wish list, display empty message -->
     {% else %}
     <div class="row pt-0">
         <div class="col">

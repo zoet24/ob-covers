@@ -1,0 +1,99 @@
+<button class="icon icon-black modal-close" onclick="closeSort()">
+    <span><i class="fas fa-times"></i></span>
+</button>
+<h2 class="p-2">Sorting</h2>
+<hr class="mb-2">
+{% if current_sorting != None %}
+<span class="text-skinny" id="sort-title"></span>
+{% else %}
+<span class="text-skinny" id="sort-title-none">No current sorting</span>
+{% endif %}
+<hr class="mt-2">
+<!-- Product sorting dropdown -->
+<div class="card mt-2">
+    <!-- Sort dropdown -->
+    <div class="card-body px-3 pt-3 pb-1">
+        <div class="form-check" id="product-sort" oninput="sortSelection()">
+            <label class="form-check-label container-radio text-skinny" for="reset" id="reset_label">
+                <input class="form-check-input" type="radio" value="reset" id="reset"
+                    name="sort">
+                <span class="form-check-checkmark"></span>
+                None
+            </label>
+            <!-- Sort by name -->
+            <label class="form-check-label container-radio text-skinny" for="name_asc" id="name_asc_label">
+                <input class="form-check-input" type="radio" value="name_asc" id="name_asc"
+                    name="sort">
+                <span class="form-check-checkmark"></span>
+                Name (A - Z)
+            </label>
+            <label class="form-check-label container-radio text-skinny" for="name_desc" id="name_desc_label">
+                <input class="form-check-input" type="radio" value="name_desc" id="name_desc"
+                    name="sort">
+                <span class="form-check-checkmark"></span>
+                Name (Z - A)
+            </label>
+            <!-- Sort by price -->
+            <label class="form-check-label container-radio text-skinny" for="price_asc" id="price_asc_label">
+                <input class="form-check-input" type="radio" value="price_asc" id="price_asc"
+                    name="sort">
+                <span class="form-check-checkmark"></span>
+                Price (low to high)
+            </label>
+            <label class="form-check-label container-radio text-skinny" for="price_desc" id="price_desc_label">
+                <input class="form-check-input" type="radio" value="price_desc" id="price_desc"
+                    name="sort">
+                <span class="form-check-checkmark"></span>
+                Price (high to low)
+            </label>
+            <!-- Sort by colour -->
+            <label class="form-check-label container-radio text-skinny" for="colour_asc" id="colour_asc_label">
+                <input class="form-check-input" type="radio" value="colour_asc" id="colour_asc"
+                    name="sort">
+                <span class="form-check-checkmark"></span>
+                Colour (low to high)
+            </label>
+            <label class="form-check-label container-radio text-skinny" for="colour_desc" id="colour_desc_label">
+                <input class="form-check-input" type="radio" value="colour_desc" id="colour_desc"
+                    name="sort">
+                <span class="form-check-checkmark"></span>
+                Colour (high to low)
+            </label>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    onload = function() {
+        var currentUrl = new URL(window.location);
+        var sort = currentUrl.searchParams.get("sort");
+        var direction = currentUrl.searchParams.get("direction");
+
+        var sortTitle = $(`#${sort}_${direction}_label`).text().trim();
+        $("#sort-title").html(sortTitle);
+        $(`input[name="sort"][value='${sort}_${direction}']`).prop("checked",true);
+    }
+</script>
+
+<script type="text/javascript">
+    function sortSelection() {
+        var sortVal = $('input[name="sort"]:checked').val();
+        var currentUrl = new URL(window.location);
+
+        if (sortVal != "reset") {
+            var sort = sortVal.split("_")[0];
+            var direction = sortVal.split("_")[1];
+
+            currentUrl.searchParams.set("sort", sort);
+            currentUrl.searchParams.set("direction", direction);
+
+            window.location.replace(currentUrl);
+
+        } else {
+            currentUrl.searchParams.delete("sort");
+            currentUrl.searchParams.delete("direction");
+
+            window.location.replace(currentUrl);
+        }
+    }
+</script>

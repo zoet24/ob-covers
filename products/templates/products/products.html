@@ -35,6 +35,16 @@
             </div>
         </div>
     </div>
+    <!-- Sort modal -->
+    <div class="modal-filters hide" id="modal-sort">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body pt-0">
+                    {% include 'products/includes/product_sort_categories.html' %}
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 <section class="container-fluid bg-lightblue">
     <div class="row pt-0 mb-0 justify-content-center">
@@ -106,30 +116,5 @@
     $('.btn-up-link').click(function (e) {
         window.scrollTo(0, 0)
     });    
-</script>
-
-<script type="text/javascript">
-    $('#sort-selector').change(function () {
-        var selector = $(this);
-        var currentUrl = new URL(window.location);
-
-        var selectedVal = selector.val();
-        if (selectedVal != "reset") {
-            var sort = selectedVal.split("_")[0];
-            var direction = selectedVal.split("_")[1];
-
-            currentUrl.searchParams.set("sort", sort);
-            currentUrl.searchParams.set("direction", direction);
-
-            window.location.replace(currentUrl);
-
-
-        } else {
-            currentUrl.searchParams.delete("sort");
-            currentUrl.searchParams.delete("direction");
-
-            window.location.replace(currentUrl);
-        }
-    })
 </script>
 {% endblock %}

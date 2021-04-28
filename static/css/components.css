@@ -217,19 +217,6 @@ hr {
 }
 
 /* Quantity inputs */
-
-/* .input-sort {
-    width: 100%;
-    outline: none;
-    padding: 5px;
-    font-size: 1.25rem;
-    font-weight: 300;
-    font-family: 'Poppins', sans-serif;
-    text-transform: uppercase;
-    border: solid 1px #151635;
-    background-color: #fff;
-} */
-
 .input-quantity {
     width: auto;
     height: 35px;
@@ -370,7 +357,7 @@ input[type=number] {
     border: #151635 solid 2px;
 }
 
-/* TABLES */
+/* Tables */
 .sidebar-table {
   background-color: #fff;
   color: #151635;
@@ -480,7 +467,7 @@ input[type=number] {
   display: none;
 }
 
-#filters-title, #filters-title-none {
+#filters-title, #filters-title-none, #sort-title, #sort-title-none {
     text-transform: uppercase;
     font-size: 1.25rem;
 }

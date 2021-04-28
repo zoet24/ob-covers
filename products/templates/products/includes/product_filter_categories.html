@@ -27,7 +27,7 @@
                 <div class="form-check" id="productfilters-range" oninput="filterCategoriesRange()">
                     {% for range in ranges %}
                         <label class="form-check-label container-radio text-skinny" for="{{range.name}}" id="{{range.name}}_label">
-                            <input class="form-check-input" type="radio" value="?range={{range.name}}" id="{{range.name}}" name="range">
+                            <input class="form-check-input" type="radio" value="{{range.name}}" id="{{range.name}}" name="range">
                             <span class="form-check-checkmark"></span>
                             {{range.friendly_name}} ({{range.count}})
                         </label>
@@ -51,7 +51,7 @@
                 <div class="form-check" oninput="filterCategoriesStyle()" id="productfilters-style">
                     {% for style in styles %}
                         <label class="form-check-label container-radio text-skinny" for="{{style.name}}" id="{{style.name}}_label">
-                            <input class="form-check-input" type="radio" value="?style={{style.name}}" id="{{style.name}}" name="style">
+                            <input class="form-check-input" type="radio" value="{{style.name}}" id="{{style.name}}" name="style">
                             <span class="form-check-checkmark"></span>
                             {{style.friendly_name}} ({{style.count}})
                         </label>
@@ -75,7 +75,7 @@
                 <div class="form-check" oninput="filterCategoriesColour()" id="productfilters-colour">
                     {% for colour in colours %}
                         <label class="form-check-label container-radio text-skinny" for="{{colour.name}}" id="{{colour.name}}_label">
-                            <input class="form-check-input" type="radio" value="?colour={{colour.name}}" id="{{colour.name}}" name="colour">
+                            <input class="form-check-input" type="radio" value="{{colour.name}}" id="{{colour.name}}" name="colour">
                             <span class="form-check-checkmark"></span>
                             {{colour.friendly_name}} ({{colour.count}})
                         </label>
@@ -88,50 +88,61 @@
 
 <script type="text/javascript">
     onload = function() {
-        var currentUrl = window.location.href;
-        var newUrl = currentUrl.split("?")[1].split("=");
-        var category = newUrl[0];
-        var name = newUrl[1];
+        var currentUrl = new URL(window.location);
+        var range = currentUrl.searchParams.get("range");
+        var style = currentUrl.searchParams.get("style");
+        var colour = currentUrl.searchParams.get("colour");
 
-        var filtersTitleNav = $(`#${name}_label`).text().trim()
-        $("#filters-title-nav").html(filtersTitleNav);
+        console.log(currentUrl);
+        console.log(range);
+        console.log(style);
+        console.log(colour);
+        // var newUrl = currentUrl.split("?")[1].split("=");
+        // var category = newUrl[0];
+        // var name = newUrl[1];
+
+        // var filtersTitleNav = $(`#${name}_label`).text().trim()
+        // $("#filters-title-nav").html(filtersTitleNav);
         
-        var filtersTitle = $(`#${name}_label`).text().trim().split("(")[0].trim();
+        // var filtersTitle = $(`#${name}_label`).text().trim().split("(")[0].trim();
 
-        $(`input[name=${category}][value='?${category}=${name}']`).prop("checked",true);
-        $(`#collapse-productfilters-${category}`).addClass("show");
-        $("#filters-title").html(`${category} | ${filtersTitle}`);
+        // $(`input[name=${category}][value='?${category}=${name}']`).prop("checked",true);
+        // $(`#collapse-productfilters-${category}`).addClass("show");
+        // $("#filters-title").html(`${category} | ${filtersTitle}`);
     }
 </script>
 
 <script type="text/javascript">
     function filterCategoriesRange() {
-        var rangeVal = $('input[name="range"]:checked').val();
-        var currentUrl = window.location.href;
-        var newUrl = currentUrl.split("?")[0];
+        var range = $('input[name="range"]:checked').val();
+        var currentUrl = new URL(window.location);
         
-        newUrl += rangeVal;
+        currentUrl.searchParams.set("range", range);
+        currentUrl.searchParams.delete("style");
+        currentUrl.searchParams.delete("colour");
         
-        window.location.replace(newUrl);        
+        window.location.replace(currentUrl);
     };
 
     function filterCategoriesStyle() {
-        var styleVal = $('input[name="style"]:checked').val();
-        var currentUrl = window.location.href;
-        var newUrl = currentUrl.split("?")[0];
+        var style = $('input[name="style"]:checked').val();
+        var currentUrl = new URL(window.location);
         
-        newUrl += styleVal;
+        currentUrl.searchParams.delete("range");
+        currentUrl.searchParams.set("style", style);
+        currentUrl.searchParams.delete("colour");
         
-        window.location.replace(newUrl);        
+        window.location.replace(currentUrl);
     };
 
     function filterCategoriesColour() {
-        var colourVal = $('input[name="colour"]:checked').val();
-        var currentUrl = window.location.href;
-        var newUrl = currentUrl.split("?")[0];
+        var colour = $('input[name="colour"]:checked').val();
+        var currentUrl = new URL(window.location);
         
-        newUrl += colourVal;
+        currentUrl.searchParams.delete("range");
+        currentUrl.searchParams.delete("style");
+        currentUrl.searchParams.set("colour", colour);
         
-        window.location.replace(newUrl);        
+        window.location.replace(currentUrl);
     };
 </script>
