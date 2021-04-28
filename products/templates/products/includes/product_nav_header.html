@@ -28,3 +28,22 @@
         </div>
     </div>
 </section>
+
+<script type="text/javascript">
+    let afterTop = $('#products-detail-links').offset().top;
+    let beforeBottom = ($('footer').offset().top)-($(window).height());
+
+    $(window).scroll(function() {
+        var currentHeight = $(this).scrollTop();
+        if (((currentHeight) < (beforeBottom)) && ((currentHeight) > (afterTop))) {
+            $(".btn-up").removeClass("hide");
+        }
+        else {
+            $(".btn-up").addClass("hide");
+        }
+    });
+    
+    $('.btn-up-link').click(function (e) {
+        window.scrollTo(0, 0)
+    });    
+</script>
