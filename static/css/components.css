@@ -286,6 +286,8 @@ input[type=number] {
 
 .cover-tile-products {
     transition: transform .25s ease-in-out;
+    margin: 10px;
+    max-width: 225px;
 }
 
 .cover-tile-products:hover {

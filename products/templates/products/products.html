@@ -5,7 +5,8 @@
 
 {% include 'products/includes/product_nav_header.html' %}
 
-<section class="container-fluid bg-lightblue">
+<!-- Filter and sort modals -->
+<section class="container-fluid bg-lightblue d-sm-none">
     <div class="row pt-3 pb-0">
         <div class="col-6">
             <div class="btn btn-light btn-sm" onclick="openFilters()">Filter <i class="fas fa-sliders-h"></i></div>
@@ -13,23 +14,15 @@
         <div class="col-6">
             <div class="btn btn-light btn-sm" onclick="openSort()">Sort <i class="fas fa-sort"></i></div>
         </div>
-        <!-- <div class="col-12 col-sm-8 col-lg-4 mx-auto">
-            <div class="sort-select-wrapper">
-                <select id="sort-selector" class="input-sort">
-                    <option value="reset">Sort by...</option>
-                    <option value="price_asc">Price (low to high)</option>
-                    <option value="price_desc">Price (high to low)</option>
-                    <option value="name_asc">Name (A-Z)</option>
-                    <option value="name_desc">Name (Z-A)</option>
-                </select>
-            </div>
-        </div> -->
     </div>
     <!-- Filters modal -->
     <div class="modal-filters hide" id="modal-filters">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-body pt-0">
+                    <button class="icon icon-black modal-close" onclick="closeFilters()">
+                        <span><i class="fas fa-times"></i></span>
+                    </button>
                     {% include 'products/includes/product_filter_categories.html' %}
                 </div>
             </div>
@@ -40,6 +33,9 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-body pt-0">
+                    <button class="icon icon-black modal-close" onclick="closeSort()">
+                        <span><i class="fas fa-times"></i></span>
+                    </button>
                     {% include 'products/includes/product_sort_categories.html' %}
                 </div>
             </div>
@@ -49,26 +45,7 @@
 <section class="container-fluid bg-lightblue">
     <div class="row pt-0 mb-0 justify-content-center">
         {% for product in products %}
-            <div class="col-10 col-sm-5 col-md-3 col-xl-2 cover-tile cover-tile-products my-3 mx-sm-3">
-                {% if product.available == False %}
-                <h3 class="product-tag product-unavailable text-thick">Unavailable</h3>
-                {% endif %}
-                <a href="{% url 'product_detail' product.id %}">
-                    <div class="cover-tile-image-container">
-                        <img class="cover-tile-image" src="{{ MEDIA_URL }}{{ product.image }}" alt="{{ product.name }}">
-                    </div>
-                </a>
-                <div class="cover-tile-name text-dark">
-                    <h3 class="text-skinny text-lg align-self-center">{{ product.name }}</h3>
-                </div>
-                <h3 class="text-thick mt-1 mt-sm-0 text-dark">£{{ product.price }}</h3>
-                {% if request.user.is_superuser %}
-                <h3 class="my-2">
-                    <a class="text-success" href="{% url 'edit_product' product.id %}">Edit</a> |
-                    <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
-                </h3>
-                {% endif %}
-            </div>
+            {% include 'products/includes/product_covertiles.html' %}
         {% endfor %}
     </div>
     <div class="icon icon-black btn-up hide">

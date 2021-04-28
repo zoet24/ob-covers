@@ -1,5 +1,5 @@
 <section class="container-fluid bg-white">
-    <div class="row mb-0 product-detail-links">
+    <div class="row mb-0" id="product-detail-links">
         <div class="col">
             <h4 class="text-skinny text-uppercase">
                 <a class="text-link-dark" href="{% url 'home' %}">Home</a>
@@ -30,20 +30,22 @@
 </section>
 
 <script type="text/javascript">
-    let afterTop = $('#products-detail-links').offset().top;
-    let beforeBottom = ($('footer').offset().top)-($(window).height());
+    setTimeout(function(){
+        var afterTop = $("#product-detail-links").offset().top;
+        var beforeBottom = ($("footer").offset().top)-($(window).height());
 
-    $(window).scroll(function() {
-        var currentHeight = $(this).scrollTop();
-        if (((currentHeight) < (beforeBottom)) && ((currentHeight) > (afterTop))) {
-            $(".btn-up").removeClass("hide");
-        }
-        else {
-            $(".btn-up").addClass("hide");
-        }
-    });
-    
-    $('.btn-up-link').click(function (e) {
-        window.scrollTo(0, 0)
-    });    
+        $(window).scroll(function() {
+            var currentHeight = $(this).scrollTop();
+            if (((currentHeight) < (beforeBottom)) && ((currentHeight) > (afterTop))) {
+                $(".btn-up").removeClass("hide");
+            }
+            else {
+                $(".btn-up").addClass("hide");
+            }
+        });
+        
+        $('.btn-up-link').click(function (e) {
+            window.scrollTo(0, 0)
+        });
+    }, 50);    
 </script>
