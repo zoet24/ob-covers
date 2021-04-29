@@ -8,15 +8,16 @@
         </div>
     </a>
     <hr class="my-2 hr-long">
-    <div class="cover-tile-name text-dark">
-        <span>{{ product.name }}</span>
+    <div class="cover-tile-name text-dark mx-auto">
+        <span class="align-self-center">{{ product.name }}</span>
     </div>
     <span class="cover-tile-price text-thick">£{{ product.price }}</span>
     {% if request.user.is_superuser %}
-    <h3 class="my-2">
+    <br>
+    <span class="cover-tile-admin my-2">
         <a class="text-success" href="{% url 'edit_product' product.id %}">Edit</a> |
         <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
-    </h3>
+    </span>
     {% endif %}
-    <hr class="mt-2  hr-long">
+    <hr class="mt-2 hr-long">
 </div>

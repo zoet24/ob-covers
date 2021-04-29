@@ -299,7 +299,7 @@ input[type=number] {
     text-transform: none;
 }
 
-.cover-tile-name, .cover-tile-price {
+.cover-tile-name, .cover-tile-price, .cover-tile-admin {
     font-family: 'Roboto';
     font-size: 1.25rem;
     text-transform: uppercase;
@@ -488,12 +488,13 @@ input[type=number] {
 /* MEDIA QUERIES */
 @media (min-width: 440px) {
     .cover-tile-name {
-        height: 100px;
+        height: 90px;
+        width: 120px;
         display: flex;
     }
 
     .cover-tile-products {
-        max-width: 200px;
+        max-width: 175px;
     }
 }
 
@@ -526,9 +527,9 @@ input[type=number] {
         min-width: 250px;
     }
 
-    .cover-tile-image, .cover-tile-image-container {
+    /* .cover-tile-image, .cover-tile-image-container {
         height: 450px;
-    }
+    } */
 
     .cover-swatch {
         height: 30px;
