@@ -1,7 +1,12 @@
 <h2 class="p-2">Sorting</h2>
 <hr class="mb-2">
 {% if current_sorting != None %}
-<span class="text-skinny" id="sort-title"></span>
+<button class="btn btn-light px-3" onclick="resetSort()">
+    <span class="sort-title"></span>
+    <div class="icon icon-black icon-category-reset">
+        <span><i class="fas fa-times"></i></span>
+    </div>
+</button>
 {% else %}
 <span class="text-skinny" id="sort-title-none">No current sorting</span>
 {% endif %}
@@ -11,12 +16,6 @@
     <!-- Sort dropdown -->
     <div class="card-body px-3 pt-3 pb-1">
         <div class="form-check" id="product-sort" oninput="sortSelection()">
-            <label class="form-check-label container-radio text-skinny" for="reset" id="reset_label">
-                <input class="form-check-input" type="radio" value="reset" id="reset"
-                    name="sort">
-                <span class="form-check-checkmark"></span>
-                None
-            </label>
             <!-- Sort by name -->
             <label class="form-check-label container-radio text-skinny" for="name_asc" id="name_asc_label">
                 <input class="form-check-input" type="radio" value="name_asc" id="name_asc"
@@ -65,20 +64,22 @@
         var sortVal = $('input[name="sort"]:checked').val();
         var currentUrl = new URL(window.location);
 
-        if (sortVal != "reset") {
-            var sort = sortVal.split("_")[0];
-            var direction = sortVal.split("_")[1];
+        var sort = sortVal.split("_")[0];
+        var direction = sortVal.split("_")[1];
 
-            currentUrl.searchParams.set("sort", sort);
-            currentUrl.searchParams.set("direction", direction);
+        currentUrl.searchParams.set("sort", sort);
+        currentUrl.searchParams.set("direction", direction);
 
-            window.location.replace(currentUrl);
+        window.location.replace(currentUrl);
+    }
 
-        } else {
-            currentUrl.searchParams.delete("sort");
-            currentUrl.searchParams.delete("direction");
+    function resetSort() {
+        var sortVal = $('input[name="sort"]:checked').val();
+        var currentUrl = new URL(window.location);
 
-            window.location.replace(currentUrl);
-        }
+        currentUrl.searchParams.delete("sort");
+        currentUrl.searchParams.delete("direction");
+
+        window.location.replace(currentUrl);
     }
 </script>

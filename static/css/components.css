@@ -131,6 +131,12 @@ a.text-danger:hover, a.text-danger:focus {
     background-color: #fff;
 }
 
+.icon-category-reset, .icon-category-reset:hover {
+    border-color: transparent;
+    font-size: 15px;
+    width: 15px;
+}
+
 .icon-nav:hover {
     transform: none;
 }
@@ -480,7 +486,7 @@ input[type=number] {
   display: none;
 }
 
-#filters-title, #filters-title-none, #sort-title, #sort-title-none {
+.filters-title, #filters-title-none, .sort-title, #sort-title-none {
     text-transform: uppercase;
     font-size: 1.25rem;
 }

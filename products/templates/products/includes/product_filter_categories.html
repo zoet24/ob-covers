@@ -1,7 +1,12 @@
 <h2 class="p-2">Filters</h2>
 <hr class="mb-2">
 {% if current_range != None or current_style != None or current_colour != None %}
-<span class="text-skinny" id="filters-title"></span>
+<button class="btn btn-light px-3" onclick="resetFilters()">
+    <span class="filters-title"></span>
+    <div class="icon icon-black icon-category-reset">
+        <span><i class="fas fa-times"></i></span>
+    </div>
+</button>
 {% else %}
 <span class="text-skinny" id="filters-title-none">No current filters</span>
 {% endif %}
@@ -84,6 +89,17 @@
 </div>
 
 <script type="text/javascript">
+    function resetFilters() {
+        var range = $('input[name="range"]:checked').val();
+        var currentUrl = new URL(window.location);
+        
+        currentUrl.searchParams.delete("range");
+        currentUrl.searchParams.delete("style");
+        currentUrl.searchParams.delete("colour");
+        
+        window.location.replace(currentUrl);
+    };
+
     function filterCategoriesRange() {
         var range = $('input[name="range"]:checked').val();
         var currentUrl = new URL(window.location);

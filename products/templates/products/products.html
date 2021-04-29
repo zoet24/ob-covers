@@ -96,11 +96,11 @@
             var filtersTitle = $(`#${name}_label`).text().trim().split("(")[0].trim();
             $(`input[name=${category}][value='${name}']`).prop("checked",true);
             $(`#collapse-productfilters-${category}`).addClass("show");
-            $("#filters-title").html(`${category} | ${filtersTitle}`);
+            $(".filters-title").html(`${category} | ${filtersTitle}`);
         }
 
         var sortTitle = $(`#${sort}_${direction}_label`).text().trim();
-        $("#sort-title").html(sortTitle);
+        $(".sort-title").html(sortTitle);
         $(`input[name="sort"][value='${sort}_${direction}']`).prop("checked",true);
     }
 </script>
