@@ -7,14 +7,16 @@
             <img class="cover-tile-image" src="{{ MEDIA_URL }}{{ product.image }}" alt="{{ product.name }}">
         </div>
     </a>
+    <hr class="my-2 hr-long">
     <div class="cover-tile-name text-dark">
-        <h3 class="text-skinny text-lg align-self-center">{{ product.name }}</h3>
+        <span>{{ product.name }}</span>
     </div>
-    <h3 class="text-thick mt-1 mt-sm-0 text-dark">£{{ product.price }}</h3>
+    <span class="cover-tile-price text-thick">£{{ product.price }}</span>
     {% if request.user.is_superuser %}
     <h3 class="my-2">
         <a class="text-success" href="{% url 'edit_product' product.id %}">Edit</a> |
         <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
     </h3>
     {% endif %}
+    <hr class="mt-2  hr-long">
 </div>

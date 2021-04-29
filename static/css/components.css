@@ -216,6 +216,10 @@ hr {
     border-color: #151635;
 }
 
+.hr-long {
+    width: 60%;
+}
+
 /* Quantity inputs */
 .input-quantity {
     width: auto;
@@ -293,6 +297,13 @@ input[type=number] {
 .cover-tile-products:hover {
     transform: scale(1.025);
     text-transform: none;
+}
+
+.cover-tile-name, .cover-tile-price {
+    font-family: 'Roboto';
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    font-weight: 300;
 }
 
 .cover-tile-image, .cover-tile-image-container {
