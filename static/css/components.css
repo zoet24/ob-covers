@@ -168,7 +168,7 @@ a.text-danger:hover, a.text-danger:focus {
 
 .btn-long {
     min-width: 200px;
-    padding: 0.25rem 0.75rem;
+    padding: 0.5rem 0.75rem;
 }
 
 .btn-image {
