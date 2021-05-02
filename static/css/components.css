@@ -312,13 +312,12 @@ input[type=number] {
     font-weight: 300;
 }
 
-.cover-tile-image {
-    height: 425px;
+.cover-tile-image, .cover-tile-image-container {
+    height: 325px;
 }
 
 .cover-tile-image-container {
     width: 100%;
-    height: 325px;
 }
 
 .cover-tile-image-detail {
@@ -431,6 +430,35 @@ input[type=number] {
   right: 8px;
 }
 
+/* Forms */
+.form-control {
+    display: block;
+    width: 100%;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.5;
+    color: #151635;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ccc;
+    border-radius: .5rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.form-control:focus {
+    color: #151635;
+    background-color: #fff;
+    border-color: #1c86c8;
+    outline: 0;
+    box-shadow: 1px 1px #1c86c8;
+}
+
+.form-check-label-available {
+    width: 120px;
+}
+
 /* Checkboxes https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_custom_radio */
 /* The container */
 .container-radio {
@@ -521,7 +549,7 @@ input[type=number] {
         border-radius: 30px;
         max-height: 60px;
         min-width: 160px;
-        font-size: 1.75rem;
+        font-size: 1.65rem;
     }
 
     .btn-sm {

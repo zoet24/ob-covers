@@ -3,26 +3,40 @@
 {% load bag_tools %}
 
 {% block content %}
-    <div class="container-fluid">
-        <div class="row bg-white">
-            <div class="col">
-                <h2 class="pb-2">Product Management</h2>
-                <hr>
-                <h3 class="p-2">Add a Product</h3>
-                <hr>
-            </div>
-        </div>
-        <div class="row pb-3">
-            <div class="col-11 mx-auto">
-                <form method="POST" action="{% url 'add_product' %}" class="form text-skinny text-md" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    {{ form | crispy }}
-                    <div>
-                        <button class="btn btn-dark btn-long mx-2" type="submit">Add Product</button>
-                        <a class="btn btn-dark btn-long mx-2" href="{% url 'products' %}" role="button">Cancel</a>
-                    </div>
-                </form>
-            </div>            
+<div class="container-fluid">
+    <div class="row bg-white">
+        <div class="col">
+            <h2 class="pb-2">Product Management</h2>
+            <hr>
+            <h3 class="p-2">Add a Product</h3>
+            <hr>
         </div>
     </div>
+    <form method="POST" action="{% url 'add_product' %}" class="text-skinny text-md" enctype="multipart/form-data">
+        <div class="row pb-0">
+            <div class="col-11 col-sm-6 mx-auto">
+                {% csrf_token %}
+                {% for field in form %}
+                {% if field.name != 'available' %}
+                {{ field | as_crispy_field }}
+                {% else %}
+                <label class="form-check-label form-check-label-available container-radio text-skinny mx-auto">
+                    <input class="form-check-input" type="checkbox">
+                    <span class="form-check-checkmark"></span>
+                    {{field.name | capfirst}}
+                </label>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        <div class="row pt-0">
+            <div class="col-12 col-sm-6 pt-0 pb-2">
+                <button class="btn btn-light btn-long" type="submit">Add Product</button>
+            </div>
+            <div class="col-12 col-sm-6 pt-2 pb-2">
+                <a class="btn btn-light btn-long" href="{% url 'products' %}" role="button">Cancel</a>
+            </div>
+        </div>
+    </form>
+</div>
 {% endblock %}

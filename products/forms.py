@@ -14,6 +14,8 @@ class ProductForm(forms.ModelForm):
         styles = Style.objects.all()
         colours = Colour.objects.all()
 
+        self.fields['sku'].widget.attrs['autofocus'] = True
+
         friendly_names_ranges = [(r.id, r.get_friendly_name()) for r in ranges]
         friendly_names_styles = [(s.id, s.get_friendly_name()) for s in styles]
         friendly_names_colours = [(c.id, c.get_friendly_name()) for c in colours]
@@ -22,5 +24,5 @@ class ProductForm(forms.ModelForm):
         self.fields['style'].choices = friendly_names_styles
         self.fields['colour'].choices = friendly_names_colours
 
-        for field_name, field in self.fields.items():
-            field.widget.attrs['class'] = 'border-red rounded-0'
+        # for field_name, field in self.fields.items():
+        #     field.widget.attrs['class'] = 'black-border rounded-0'
