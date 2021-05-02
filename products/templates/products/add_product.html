@@ -14,7 +14,7 @@
     </div>
     <form method="POST" action="{% url 'add_product' %}" class="text-skinny text-md" enctype="multipart/form-data">
         <div class="row pb-0">
-            <div class="col-11 col-sm-6 mx-auto">
+            <div class="col-11 col-sm-6 col-md-4 mx-auto">
                 {% csrf_token %}
                 {% for field in form %}
                 {% if field.name != 'available' %}
@@ -30,10 +30,10 @@
             </div>
         </div>
         <div class="row pt-0">
-            <div class="col-12 col-sm-6 pt-0 pb-2">
+            <div class="col-12 pb-2 mx-auto">
                 <button class="btn btn-light btn-long" type="submit">Add Product</button>
             </div>
-            <div class="col-12 col-sm-6 pt-2 pb-2">
+            <div class="col-12 pt-2 pb-2 mx-auto">
                 <a class="btn btn-light btn-long" href="{% url 'products' %}" role="button">Cancel</a>
             </div>
         </div>

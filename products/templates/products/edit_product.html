@@ -14,14 +14,18 @@
     </div>
     <form method="POST" action="{% url 'add_product' %}" class="text-skinny text-md" enctype="multipart/form-data">
         <div class="row pb-0">
-            <div class="col-11 col-sm-6 mx-auto">
+            <div class="col-11 col-sm-6 col-md-4 mx-auto">
                 {% csrf_token %}
                 {% for field in form %}
                 {% if field.name != 'available' %}
                 {{ field | as_crispy_field }}
                 {% else %}
                 <label class="form-check-label form-check-label-available container-radio text-skinny mx-auto">
+                    {% if product.available == True %}
+                    <input class="form-check-input" type="checkbox" checked>
+                    {% else %}
                     <input class="form-check-input" type="checkbox">
+                    {% endif %}
                     <span class="form-check-checkmark"></span>
                     {{field.name | capfirst}}
                 </label>
@@ -30,10 +34,10 @@
             </div>
         </div>
         <div class="row pt-0">
-            <div class="col-12 col-sm-6 pt-0 pb-2">
+            <div class="col-12 pt-0 pb-2">
                 <button class="btn btn-light btn-long" type="submit">Update Product</button>
             </div>
-            <div class="col-12 col-sm-6 pt-2 pb-2">
+            <div class="col-12 pt-2 pb-2">
                 <a class="btn btn-light btn-long" href="{% url 'products' %}" role="button">Cancel</a>
             </div>
         </div>

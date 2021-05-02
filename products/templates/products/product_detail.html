@@ -15,9 +15,9 @@
             {% if product.available == False %}
             <h3 class="product-tag product-unavailable text-thick">Unavailable</h3>
             {% endif %}
-            <a href="{{ MEDIA_URL }}products/{{ product.image }}" target="_blank">
+            <a href="{{ MEDIA_URL }}{{ product.image }}" target="_blank">
                 <img class="cover-tile-image-detail cover-tile-image-{{ product.range }}"
-                    src="{{ MEDIA_URL }}products/{{ product.image }}" alt="{{ product.name }}">
+                    src="{{ MEDIA_URL }}{{ product.image }}" alt="{{ product.name }}">
             </a>
         </div>
         <div class="col-12 col-md-7 p-0 align-self-center">
@@ -37,9 +37,9 @@
                     {% if product.available == False %}
                     <h3 class="product-tag product-unavailable text-thick">Unavailable</h3>
                     {% endif %}
-                    <a href="{{ MEDIA_URL }}products/{{ product.image }}" target="_blank">
+                    <a href="{{ MEDIA_URL }}{{ product.image }}" target="_blank">
                         <img class="cover-tile-image-detail cover-tile-image-{{ product.range }}"
-                            src="{{ MEDIA_URL }}products/{{ product.image }}" alt="{{ product.name }}">
+                            src="{{ MEDIA_URL }}{{ product.image }}" alt="{{ product.name }}">
                     </a>
                 </div>
                 <div class="col-12 pt-2">
