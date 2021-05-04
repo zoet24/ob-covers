@@ -4,7 +4,13 @@
     {% endif %}
     <a href="{% url 'product_detail' product.id %}">
         <div class="cover-tile-image-container">
-            <img class="cover-tile-image" src="{{ MEDIA_URL }}{{ product.image }}" alt="{{ product.name }}">
+            {% if product.image %}
+            <img class="cover-tile-image"
+                src="{{ MEDIA_URL }}{{ product.image }}" alt="{{ product.name }}">
+            {% else %}
+            <img class="cover-tile-image"
+                src="{{ MEDIA_URL }}no-image.png" alt="{{ product.name }} - missing image">
+            {% endif %}
         </div>
     </a>
     <hr class="my-2 hr-long">

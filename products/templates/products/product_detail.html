@@ -16,8 +16,13 @@
             <h3 class="product-tag product-unavailable text-thick">Unavailable</h3>
             {% endif %}
             <a href="{{ MEDIA_URL }}{{ product.image }}" target="_blank">
+                {% if product.image %}
                 <img class="cover-tile-image-detail cover-tile-image-{{ product.range }}"
                     src="{{ MEDIA_URL }}{{ product.image }}" alt="{{ product.name }}">
+                {% else %}
+                <img class="cover-tile-image-detail cover-tile-image-{{ product.range }}"
+                    src="{{ MEDIA_URL }}no-image.png" alt="{{ product.name }} - missing image">
+                {% endif %}
             </a>
         </div>
         <div class="col-12 col-md-7 p-0 align-self-center">
@@ -38,8 +43,13 @@
                     <h3 class="product-tag product-unavailable text-thick">Unavailable</h3>
                     {% endif %}
                     <a href="{{ MEDIA_URL }}{{ product.image }}" target="_blank">
+                        {% if product.image %}
                         <img class="cover-tile-image-detail cover-tile-image-{{ product.range }}"
                             src="{{ MEDIA_URL }}{{ product.image }}" alt="{{ product.name }}">
+                        {% else %}
+                        <img class="cover-tile-image-detail cover-tile-image-{{ product.range }}"
+                            src="{{ MEDIA_URL }}no-image.png" alt="{{ product.name }} - missing image">
+                        {% endif %}
                     </a>
                 </div>
                 <div class="col-12 pt-2">

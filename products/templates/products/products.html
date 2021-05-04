@@ -42,13 +42,13 @@
 </section>
 <section class="container-fluid bg-lightblue">
     <div class="row pt-0 mb-0">
-        <div class="d-none d-md-block px-0 col-md-4 ml-md-auto col-lg-3">
+        <div class="d-none d-md-block px-0 col-md-4 ml-md-auto col-lg-3 col-xl-2">
             <div class="sticky-top">
             {% include 'products/includes/product_filter_categories.html' %}
             {% include 'products/includes/product_sort_categories.html' %}
             </div>
         </div>
-        <div class="col-12 col-md-7 px-md-0 col-lg-8">
+        <div class="col-12 col-md-7 px-md-0 col-lg-8 col-xl-9">
             <div class="row justify-content-center">
                 {% for product in products %}
                     {% include 'products/includes/product_covertiles.html' %}
@@ -96,7 +96,7 @@
             var filtersTitle = $(`#${name}_label`).text().trim().split("(")[0].trim();
             $(`input[name=${category}][value='${name}']`).prop("checked",true);
             $(`#collapse-productfilters-${category}`).addClass("show");
-            $(".filters-title").html(`${category} | ${filtersTitle}`);
+            $(".filters-title").html(`${filtersTitle}`);
         }
 
         var sortTitle = $(`#${sort}_${direction}_label`).text().trim();
