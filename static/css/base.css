@@ -184,6 +184,7 @@ nav, footer {
     padding: 0;
     max-width: 350px;
     z-index: 10;
+    border: none;
 }
 
 .toast {
@@ -199,10 +200,11 @@ nav, footer {
 .custom-toast {
     overflow: visible;
     margin: 0;
+    border: #151635 solid 2px;
 }
 
 .toast-header {
-    color: #1c86c8;
+    color: #151635;
     border: none;
     width: 100%;
     text-transform: uppercase;
@@ -214,23 +216,51 @@ nav, footer {
 .toast-body {
     font-size: 1rem;
     text-align: left;
-    color: #1c86c8;
+    color: #151635;
     padding: 0.25rem 0.75rem 0 0.75rem;
-    border-top: solid 1px #1c86c8;
+    border-top: solid 1px #151635;
 }
 
 button.close {
-    color: #1c86c8;
+    color: #151635;
     border-radius: 50%;
-    border: 2px solid #1c86c8;
+    border: 2px solid #151635;
     height: 28px;
     width: 28px;
     opacity: 1;
 }
 
 .close:hover {
-    color: #1c86c8;
+    color: #151635;
     text-decoration: none;
+}
+
+.custom-toast-success, .custom-toast-success .toast-body, .custom-toast-success button.close {
+    border-color: #28a745;
+}
+
+.custom-toast-success .toast-header, .custom-toast-success .toast-body, .custom-toast-success button.close, .custom-toast-success button.close:hover {
+    color: #28a745;
+}
+
+.custom-toast-information, .custom-toast-information .toast-body, .custom-toast-information button.close {
+    border-color: #1c86c8;
+}
+
+.custom-toast-information .toast-header, .custom-toast-information .toast-body, .custom-toast-information button.close, .custom-toast-information button.close:hover {
+    color: #1c86c8;
+}
+
+.custom-toast-error, .custom-toast-error .toast-body, .custom-toast-error button.close {
+    border-color: #dc3545;
+}
+
+.custom-toast-error .toast-header, .custom-toast-error .toast-body, .custom-toast-error button.close, .custom-toast-error button.close:hover {
+    color: #dc3545;
+}
+
+.custom-toast-alert {
+    border-color: #f3f035;
 }
 
 /* BANNER MESSAGES */
@@ -304,13 +334,13 @@ button.close {
         box-shadow: 2px -2px #319cd2;
     }
 
-    .toast-container {
-        box-shadow: -2px -2px #319cd2;
-    }
-
     #logo-footer {
         width: 300px;
-    }    
+    }
+
+    .toast-container {
+        top: 125px;
+    }
 }
 
 @media (min-width: 768px) {
