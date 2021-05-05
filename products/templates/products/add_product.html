@@ -7,9 +7,9 @@
     <div class="row bg-white">
         <div class="col">
             <h2 class="pb-2">Product Management</h2>
-            <hr>
+            <hr class="hr-short">
             <h3 class="p-2">Add a Product</h3>
-            <hr>
+            <hr class="hr-short">
         </div>
     </div>
     <form method="POST" action="{% url 'add_product' %}" class="text-skinny text-md" enctype="multipart/form-data">
@@ -21,7 +21,11 @@
                 {{ field | as_crispy_field }}
                 {% else %}
                 <label class="form-check-label form-check-label-available container-radio text-skinny mx-auto">
+                    {% if product.available == True %}
+                    <input class="form-check-input" type="checkbox" checked>
+                    {% else %}
                     <input class="form-check-input" type="checkbox">
+                    {% endif %}
                     <span class="form-check-checkmark"></span>
                     {{field.name | capfirst}}
                 </label>
@@ -30,10 +34,10 @@
             </div>
         </div>
         <div class="row pt-0">
-            <div class="col-12 pb-2 mx-auto">
+            <div class="col-12 pt-0 pb-2">
                 <button class="btn btn-light btn-long" type="submit">Add Product</button>
             </div>
-            <div class="col-12 pt-2 pb-2 mx-auto">
+            <div class="col-12 pt-2 pb-2">
                 <a class="btn btn-light btn-long" href="{% url 'products' %}" role="button">Cancel</a>
             </div>
         </div>

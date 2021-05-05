@@ -9,6 +9,7 @@ class ProductForm(forms.ModelForm):
         model = Product
         fields = '__all__'
 
+    sku = forms.CharField(label='SKU')
     image = forms.ImageField(label='', required=False, widget=CustomClearableFileInput)
     image_url = forms.URLField(label='Image URL')
 
@@ -27,6 +28,3 @@ class ProductForm(forms.ModelForm):
         self.fields['range'].choices = friendly_names_ranges
         self.fields['style'].choices = friendly_names_styles
         self.fields['colour'].choices = friendly_names_colours
-
-        # for field_name, field in self.fields.items():
-        #     field.widget.attrs['class'] = 'black-border rounded-0'

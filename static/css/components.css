@@ -559,6 +559,10 @@ input[type=number] {
     .icon {
 		margin: 0px 3px;
     }
+
+    .hr-short {
+        width: 15%;
+    }
 }
 
 @media (min-width: 992px) {    
