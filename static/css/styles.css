@@ -53,6 +53,10 @@
     color: #151635;
 }
 
+.text-underline {
+    text-decoration: underline;
+}
+
 .letter-spacing-md {
     letter-spacing: 0px;
 }

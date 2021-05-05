@@ -1,0 +1,50 @@
+{% if widget.is_initial %}
+    <div class="row m-0 p-0">
+        <div class="col-12">
+            <div class="cover-tile cover-tile-products mx-auto">
+                <a href="{{ widget.value.url }}" class="cover-tile-image-container">
+                    <img class="cover-tile-image" src="{{ widget.value.url }}">
+                </a>
+            </div>
+        </div>
+        <div class="col-12">
+            <span class="text-thick">{{ widget.initial_text }}</span>
+            <br>
+            <span>{{ widget.value.url }}</span>
+            <span class="d-none" id="filename"></span>
+            <h3 class="pt-2">
+                <label class="text-success btn-file m-0" for="new-image">
+                    Update
+                    <input id="new-image" type="{{ widget.type }}" name="{{ widget.name }}"{% include "django/forms/widgets/attrs.html" %}>
+                </label>
+                <span>|</span>
+                <label class="text-danger btn-file-remove m-0" for="remove-image">
+                    Remove
+                    <input id="remove-image" class="form-check-input" type="checkbox" name="{{ widget.checkbox_name }}" id="{{ widget.checkbox_id }}">
+                </label>
+            </h3>
+        </div>
+    </div>
+{% endif %}
+
+
+    
+        <!-- <label class="form-check-label form-check-label-available container-radio text-skinny mx-auto" for="{{ widget.checkbox_id }}">
+            <input class="form-check-input" type="checkbox" name="{{ widget.checkbox_name }}" id="{{ widget.checkbox_id }}">
+            <span class="form-check-checkmark"></span>
+            {{ widget.clear_checkbox_label }}
+        </label>
+    <br>
+    <p></p>
+    {{ widget.input_text }}
+    <p>No image selected:</p>
+    <a href="/media/no-image.png">
+        <img width="108" height="348" class="cover-tile cover-tile-products" src="/media/no-image.png">
+    </a>
+    <br>
+    {{ widget.input_text }}
+
+<span class="btn btn-black rounded-0 btn-file">
+    Select Image <input id="new-image" type="{{ widget.type }}" name="{{ widget.name }}"{% include "django/forms/widgets/attrs.html" %}>
+</span>
+<strong><p class="text-danger" id="filename"></p></strong> -->

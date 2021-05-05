@@ -460,6 +460,26 @@ input[type=number] {
     width: 120px;
 }
 
+/* Add/edit product forms */
+.btn-file, .btn-file-remove {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-file input[type="file"], .btn-file-remove input[type="checkbox"] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.btn-file:hover, .btn-file-remove:hover {
+    text-decoration: underline;
+}
+
 /* Checkboxes https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_custom_radio */
 /* The container */
 .container-radio {

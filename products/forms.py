@@ -1,4 +1,5 @@
 from django import forms
+from .widgets import CustomClearableFileInput
 from .models import Product, Range, Style, Colour
 
 
@@ -7,6 +8,9 @@ class ProductForm(forms.ModelForm):
     class Meta:
         model = Product
         fields = '__all__'
+
+    image = forms.ImageField(label='', required=False, widget=CustomClearableFileInput)
+    image_url = forms.URLField(label='Image URL')
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
