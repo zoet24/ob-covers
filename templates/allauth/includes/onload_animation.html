@@ -1,6 +1,15 @@
 <script type="text/javascript">
-// On load fade logo and log in input on to hero image
-    onload = function () {
+// On load fade logo and log in input on to hero image if user hasn't visited page
+    onload = function session() {
+        if (document.cookie.indexOf("visited") >= 0) {
+            animationSecond();
+        } else {
+            document.cookie = "visited";
+            animationFirst();
+        }
+    }
+
+    function animationFirst() {
         // Load at top of page
         $(window).on('beforeunload', function() {
             $('body').hide();
@@ -32,6 +41,17 @@
                 $(".allauth-heading-logo").fadeTo(1000, 1);
                 $(".allauth-content").fadeTo(1000, 1);
             }, 500);
+        }
+    };
+
+    function animationSecond() {
+        if (window.innerWidth < 992) {
+            $(".allauth-content").css({"display": "inline-block"});
+        }
+
+        else {
+            $(".allauth-heading-logo").css({"display": "inline-block"});
+            $(".allauth-content").css({"display": "inline-block"});
         }
     };
 </script>

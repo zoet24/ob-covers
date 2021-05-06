@@ -1,12 +1,15 @@
 <script type="text/javascript">
-// On load fade text, logo and buttons on to hero image
-    onload = function () {
-        // Load at top of page
-        $(window).on('beforeunload', function() {
-            $('body').hide();
-            $(window).scrollTop(0);
-        });
+// On load fade text, logo and buttons on to hero image if user hasn't visited page
+    onload = function session() {
+        if (document.cookie.indexOf("visited") >= 0) {
+            animationSecond();
+        } else {
+            document.cookie = "visited";
+            animationFirst();
+        }
+    }
 
+    function swatchClick() {
         // 'Click' different cover swatches to trigger background
         setTimeout(function() {
             $("#cover-swatch-classic-regenerate-red").trigger('click');
@@ -20,6 +23,14 @@
         setTimeout(function() {
             $("#cover-swatch-disney-frozen-blue").trigger('click');
         }, 200);
+    }
+
+    function animationFirst() {
+        // Load at top of page
+        $(window).on('beforeunload', function() {
+            $('body').hide();
+            $(window).scrollTop(0);
+        });
 
         // Scroll past banner mesages
         let bannerD = $('.banner-messages').outerHeight();
@@ -27,6 +38,8 @@
             top: bannerD,
             behavior: 'smooth'
         });
+
+        swatchClick();
 
         // Trigger animation
         if (window.innerWidth < 992) {
@@ -62,5 +75,12 @@
                 $("#home-heading-buttons").fadeTo(1000, 1);
             }, 5500);
         }
+    };
+
+    function animationSecond() {
+        swatchClick();
+        
+        $("#home-heading-logo").css({"display": "inline-block"});
+        $("#home-heading-buttons").css({"display": "inline-block"});
     };
 </script>
