@@ -4,29 +4,53 @@
 
 {% block inner_content %}
     <div class="hero-image-overlay-text hero-image-overlay-text-left">
-        <div class="row">
+        <!-- <div class="row">
             <div class="col">
                 <img id="logo-allauth" src="{{ MEDIA_URL }}logo-white.png"
                 alt="White Open Bionics logo" />
             </div>
-        </div>
-        <div class="row">
-            <div class="col-8 mx-auto">
-                <form class="login" method="POST" action="{% url 'account_login' %}">
+        </div> -->
+        <form class="login" method="POST" action="{% url 'account_login' %}">
+            <div class="row">
+                <div class="col-8 mx-auto">
                     {% csrf_token %}
-                    {{ form|crispy }}
-                    {% if redirect_field_value %}
-                    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                    {% for field in form %}
+                        {% if field.name != 'remember' %}
+                            {{ field | as_crispy_field }}
+                            {% if redirect_field_value %}
+                                <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                <div class="col-11 mx-auto">
+                    <!-- Error messages -->
+                    {% if form.errors %}
+                        {% for field in form %}
+                            {% for error in field.errors %}
+                                <hr class="alluth-hr mt-2">
+                                <div class="alluth-error">
+                                    <span>{{ error|escape }}</span>
+                                </div>
+                                <hr class="alluth-hr mb-2">
+                            {% endfor %}
+                        {% endfor %}
+                        {% for error in form.non_field_errors %}
+                            <hr class="alluth-hr mt-2">
+                            <div class="alluth-error">
+                                <span>{{ error|escape }}</span>
+                            </div>
+                            <hr class="alluth-hr mb-2">
+                        {% endfor %}
                     {% endif %}
+                </div>
+                <div class="col-8 mx-auto">
+                    <!-- Other links -->
                     <a href="{% url 'account_reset_password' %}">Forgot password?</a>
-                    <button class="btn btn-image mx-2" type="submit">Sign In</button>
-                </form>
+                    <a href="{{ signup_url }}">Need an account?</a>
+                    <button class="btn btn-image m-2" type="submit">Sign In</button>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-6 mx-auto">
-                <a href="{{ signup_url }}">sign up</a> first.
-            </div>
-        </div>
+        </form>     
     </div>
 {% endblock %}

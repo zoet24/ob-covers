@@ -12,16 +12,65 @@
     width: 275px;
 }
 
-.allauth-form-inner-content .form-group, .allauth-form-inner-content .form-group input {
+/* Allauth form formatting */
+
+.allauth-form-inner-content {
+    font-size: 1.25rem;
+    font-weight: 300;
+    letter-spacing: 0.3px;
+    color: #fff;
+}
+
+.allauth-form-inner-content input {
     background-color: #fff;
-    border: 3px solid #fff;
-    padding: 0.25rem 0.4rem;
-    border-radius: 25px;
-    height: 50px;
+    border: none;
+    padding: 0.25rem 1rem;
+    border-radius: 30px;
+    height: 60px;
+}
+
+.allauth-form-inner-content input:-webkit-autofill {
+    -webkit-box-shadow:0 0 0 50px white inset; /* Change the color to your own background color */
+    -webkit-text-fill-color: #151635;
+}
+
+.allauth-form-inner-content input:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0 50px white inset;/*your box-shadow*/
+    -webkit-text-fill-color: #151635;
 }
 
 .allauth-form-inner-content label:not([for='id_remember']) {
     display: none;
+}
+
+.allauth-form-inner-content input::placeholder {
+    color: #ccc;
+    text-transform: lowercase;
+}
+
+#div_id_password {
+    margin-bottom: 0.5rem;
+}
+
+.alluth-hr {
+    border-color: rgba(255, 255, 255, 1);
+    border-width: 3px;
+    width: 75%;
+}
+
+.alluth-error {
+    font-size: 1.25rem;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    line-height: 1.35;
+}
+
+.allauth-form-inner-content a {
+	color: #fff;
+}
+
+.allauth-form-inner-content a:hover {
+	text-decoration: underline;
 }
 
 /* MEDIA QUERIES */
