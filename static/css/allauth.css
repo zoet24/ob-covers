@@ -1,6 +1,6 @@
 /* Stylesheet for elements specific to the allauth pages */
 
-#allauth-hero-image-1 {
+.allauth-hero-image {
     height: 100%;
     background: url("/media/allauth-hero-image-tilly.png");
     background-repeat: no-repeat;
@@ -8,7 +8,7 @@
     background-position: 92.5% 0%;
 }
 
-#logo-allauth {
+.logo-allauth {
     width: 275px;
 }
 
@@ -27,6 +27,8 @@
     padding: 0.25rem 1rem;
     border-radius: 30px;
     height: 60px;
+    width: 225px;
+    margin: auto;
 }
 
 .allauth-form-inner-content input:-webkit-autofill {
@@ -48,8 +50,8 @@
     text-transform: lowercase;
 }
 
-#div_id_password {
-    margin-bottom: 0.5rem;
+#div_id_password, #div_id_password2 {
+    margin-bottom: 4px;
 }
 
 .alluth-hr {
@@ -58,11 +60,17 @@
     width: 75%;
 }
 
-.alluth-error {
+.alluth-error, .invalid-feedback {
     font-size: 1.25rem;
-    font-weight: 500;
+    font-weight: 300;
     letter-spacing: 0.3px;
-    line-height: 1.35;
+    line-height: 1.25;
+    color: #fff;
+}
+
+.invalid-feedback {
+    font-size: 1rem;
+    margin: 0.25rem auto 0;
 }
 
 .allauth-form-inner-content a {
@@ -74,12 +82,22 @@
 }
 
 /* MEDIA QUERIES */
+@media (min-width: 500px) {
+    /* .alluth-error {
+        line-height: 1.75;
+    } */
+}
+
 @media (min-width: 992px) {
-    #logo-allauth {
+    .logo-allauth {
         width: 350px;
     }
 
-    #allauth-hero-image-1 {
+    .allauth-hero-image {
         background-position: 50% 40%;
+    }
+
+    #div_id_password, #div_id_password2 {
+        margin-bottom: 8px;
     }
 }

@@ -23,10 +23,16 @@
                 <a href="{% url 'add_product' %}" class="nav-profile-dropdown-item">Product Management</a>
                 {% endif %}
                 <a href="{% url 'profile' %}" class="nav-profile-dropdown-item">My Profile</a>
-                <a href="{% url 'account_logout' %}" class="nav-profile-dropdown-item">Logout</a>
+                <form method="POST" action="{% url 'account_logout' %}" id="navbar-account-logout">
+                    {% csrf_token %}
+                    {% if redirect_field_value %}
+                        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                    {% endif %}
+                    <a href="#" class="nav-profile-dropdown-item" onclick="document.getElementById('navbar-account-logout').submit();">Log out</a>
+                </form>
                 {% else %}
-                <a href="{% url 'account_signup' %}" class="nav-profile-dropdown-item">Register</a>
-                <a href="{% url 'account_login' %}" class="nav-profile-dropdown-item">Login</a>
+                <a href="{% url 'account_signup' %}" class="nav-profile-dropdown-item">Sign up</a>
+                <a href="{% url 'account_login' %}" class="nav-profile-dropdown-item">Log in</a>
                 {% endif %}
             </div>
             <button class="icon icon-nav" type="button" onclick="openSidebarFav()">

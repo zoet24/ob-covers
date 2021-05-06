@@ -9,12 +9,7 @@
 
 {% block content %}
     <section class="container-fluid container-hero">
-        <div id="allauth-hero-image-1">
-            <span class="sr-only"></span>
-        </div>
-        <div class="hero-image-overlay allauth-form-inner-content">
-            {% block inner_content %}
-            {% endblock %}
-        </div>
+        {% block inner_content %}
+        {% endblock %}
     </section>
 {% endblock %}

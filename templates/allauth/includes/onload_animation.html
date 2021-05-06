@@ -1,0 +1,37 @@
+<script type="text/javascript">
+// On load fade logo and log in input on to hero image
+    onload = function () {
+        // Load at top of page
+        $(window).on('beforeunload', function() {
+            $('body').hide();
+            $(window).scrollTop(0);
+        });
+
+        // Scroll past banner mesages
+        let bannerD = $('.banner-messages').outerHeight();
+        window.scroll({
+            top: bannerD,
+            behavior: 'smooth'
+        });
+
+        // Trigger animation
+        if (window.innerWidth < 992) {
+            $(".allauth-heading-logo").fadeIn(1000).css("display","inline-block");
+            setTimeout(function () {
+                $(".allauth-heading-logo").fadeOut(1000);
+            }, 2500);
+            setTimeout(function () {
+                $(".allauth-content").fadeIn(1000).css("display","inline-block");
+            }, 3500);
+        }
+
+        else {
+            $(".allauth-heading-logo").css({"opacity": "0", "display": "inline-block"});
+            $(".allauth-content").css({"opacity": "0", "display": "inline-block"});
+            setTimeout(function () {
+                $(".allauth-heading-logo").fadeTo(1000, 1);
+                $(".allauth-content").fadeTo(1000, 1);
+            }, 500);
+        }
+    };
+</script>
