@@ -227,6 +227,10 @@ hr {
     width: 60%;
 }
 
+.hr-xlong {
+    width: 100%;
+}
+
 /* Quantity inputs */
 .input-quantity {
     width: auto;
@@ -289,7 +293,7 @@ input[type=number] {
     border-radius: 25px;
 }
 
-.cover-tile-products, .sidebar-table {
+.cover-tile-products, .sidebar-table, .orderhistory-table {
     box-shadow: 1px 1px #1c86c8;
     border: 1px solid #1c86c8;
     border-radius: 25px;
@@ -330,7 +334,7 @@ input[type=number] {
 }
 
 .cover-tile-image-xs {
-    height: 100px;
+    height: 80px;
 }
 
 .cover-tile-info {

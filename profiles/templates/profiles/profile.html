@@ -10,13 +10,13 @@
 <header class="container-fluid">
     <div class="row bg-white">
         <div class="col">
-            <h2 class="p-0">Product Management</h2>
+            <h2 class="p-0">Profile</h2>
         </div>
     </div>
 </header>
 <section class="container-compress">
     <div class="row">
-        <div class="col-11 col-sm-6 col-md-4 mx-auto">
+        <div class="col-10 col-sm-6 mx-auto">
             <hr class="hr-long">
             <h3 class="my-2">Default delivery</h3>
             <hr class="hr-long">
@@ -25,84 +25,78 @@
                 {% for field in form %}
                 {{ field | as_crispy_field }}
                 {% endfor %}
-                <button class="btn btn-light btn-long mb-2">Update Details</button>
+                <button class="btn btn-light btn-long mb-3">Update Details</button>
             </form>
         </div>
         {% if orders %}
-        <div class="col-11 col-sm-6 col-md-8 mx-auto">
+        <div class="col-12 col-sm-6 mx-auto">
             <hr class="hr-long">
             <h3 class="my-2">Order history</h3>
             <hr class="hr-long">
-
             {% for order in orders %}
-            <div class="sidebar-table m-2">
-                <table>
-                    {% for item in order.lineitems.all %}
-                    <tr>
-                        <th rowspan="8">
-                            {% if item.product.image %}
-                            <img class="cover-tile-image-xs pr-2" src="{{ item.product.image_url }}"
-                                alt="{{ item.product.name }}">
-                            {% else %}
-                            <img class="cover-tile-image-xs pr-2" src="{{ MEDIA_URL }}noimage.png"
-                                alt="{{ item.product.name }}">
-                            {% endif %}
-                        </th>
-                    </tr>
-                    <tr>
-                        <td class="sidebar-product-text sidebar-product-title pt-2">
-                            <span>{{ item.product.name }}</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="sidebar-product-text">
-                            <span>£{{ item.product.price }}</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="sidebar-product-text">
-                            <span>Quantity: {{ item.quantity }}</span>
-                        </td>
-                    </tr>
-                    {% endfor %}
-                </table>
-            </div>
-            {% endfor %}
-
-            <div class="order-history table-responsive">
-                <table class="table table-sm table-borderless">
-                    <thead>
+            <div class="orderhistory-table m-2">
+                <a href="{% url 'order_history' order.order_number %}" title="{{ order.order_number }}">
+                    <div class="text-dark orderhistory-product-text px-3 pt-3 text-center d-lg-none">
+                        <span>
+                            <span class="orderhistory-product-title">Order number:<br></span>{{ order.order_number|truncatechars:16 }}
+                        </span>
+                        <br>
+                        <span>
+                            <span class="orderhistory-product-title">Order date:<br></span>{{ order.date }}
+                        </span>
+                        <br>
+                        <span>
+                            <span class="orderhistory-product-title">Grand total:<br></span>£{{ order.grand_total }}
+                        </span>
+                        <hr class="mt-2 hr-xlong">
+                    </div>
+                    <div class="text-dark orderhistory-product-text px-3 pt-3 d-none d-lg-block">
+                        <span>
+                            <span class="orderhistory-product-title">Order number: </span>{{ order.order_number|truncatechars:16 }}
+                        </span>
+                        <br>
+                        <span>
+                            <span class="orderhistory-product-title">Order date: </span>{{ order.date }}
+                        </span>
+                        <br>
+                        <span>
+                            <span class="orderhistory-product-title">Grand total: </span>£{{ order.grand_total }}
+                        </span>
+                        <hr class="mt-2 hr-xlong">
+                    </div>
+                    <table class="text-dark mb-2">
+                        {% for item in order.lineitems.all %}
                         <tr>
-                            <th>Order Number</th>
-                            <th>Date</th>
-                            <th>Items</th>
-                            <th>Order Total</th>
+                            <th rowspan="4">
+                                {% if item.product.image %}
+                                <img class="cover-tile-image-xs mt-1 mx-3 " src="{{ item.product.image_url }}"
+                                    alt="{{ item.product.name }}">
+                                {% else %}
+                                <img class="cover-tile-image-xs mt-1 mx-3" src="{{ MEDIA_URL }}noimage.png"
+                                    alt="{{ item.product.name }}">
+                                {% endif %}
+                            </th>
                         </tr>
-                    </thead>
-                    <tbody>
-                        {% for order in orders %}
                         <tr>
-                            <td>
-                                <a href="{% url 'order_history' order.order_number %}" title="{{ order.order_number }}">
-                                    {{ order.order_number|truncatechars:6 }}
-                                </a>
+                            <td class="orderhistory-product-text orderhistory-product-title pt-2">
+                                <span>{{ item.product.name }}</span>
                             </td>
-                            <td>{{ order.date }}</td>
-                            <td>
-                                <ul class="list-unstyled">
-                                    {% for item in order.lineitems.all %}
-                                    <li class="small">
-                                        {{ item.product.name }} x{{ item.quantity }}
-                                    </li>
-                                    {% endfor %}
-                                </ul>
+                        </tr>
+                        <tr>
+                            <td class="orderhistory-product-text">
+                                <span>£{{ item.product.price }} each</span>
                             </td>
-                            <td>${{ order.grand_total }}</td>
+                        </tr>
+                        <tr>
+                            <td class="orderhistory-product-text pb-1">
+                                <span>Quantity: {{ item.quantity }}</span>
+                            </td>
                         </tr>
                         {% endfor %}
-                    </tbody>
-                </table>
+                    </table>
+                </a>
             </div>
+            {% endfor %}
         </div>
         {% endif %}
     </div>

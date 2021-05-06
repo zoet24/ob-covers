@@ -27,7 +27,7 @@ def profile(request):
     template = 'profiles/profile.html'
     context = {
         'form': form,
-        'orders': orders
+        'orders': orders.order_by('-date')
     }
 
     return render(request, template, context)
