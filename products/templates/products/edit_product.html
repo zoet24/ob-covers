@@ -3,7 +3,7 @@
 {% load bag_tools %}
 
 {% block content %}
-<div class="container-fluid">
+<header class="container-fluid">
     <div class="row bg-white">
         <div class="col">
             <h2 class="pb-2">Product Management</h2>
@@ -12,6 +12,8 @@
             <hr class="hr-short">
         </div>
     </div>
+</header>
+<section class="container-compress">
     <form method="POST" action="{% url 'edit_product' product.id %}" class="text-skinny text-md" enctype="multipart/form-data">
         <div class="row pb-0">
             <div class="col-11 col-sm-6 col-md-4 mx-auto">
@@ -42,7 +44,7 @@
             </div>
         </div>
     </form>
-</div>
+</section>
 {% endblock %}
 
 {% block postloadjs %}

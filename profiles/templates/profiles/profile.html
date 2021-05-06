@@ -7,60 +7,106 @@
 {% endblock %}
 
 {% block content %}
-    <div class="container-fluid">
-        <div class="row bg-white">
-            <div class="col">
-                <h2 class="pb-2">Profile</h2>
+<header class="container-fluid">
+    <div class="row bg-white">
+        <div class="col">
+            <h2 class="p-0">Product Management</h2>
+        </div>
+    </div>
+</header>
+<section class="container-compress">
+    <div class="row">
+        <div class="col-11 col-sm-6 col-md-4 mx-auto">
+            <hr class="hr-long">
+            <h3 class="my-2">Default delivery</h3>
+            <hr class="hr-long">
+            <form class="mt-2" action="{% url 'profile' %}" method="POST" id="profile-update-form">
+                {% csrf_token %}
+                {% for field in form %}
+                {{ field | as_crispy_field }}
+                {% endfor %}
+                <button class="btn btn-light btn-long mb-2">Update Details</button>
+            </form>
+        </div>
+        {% if orders %}
+        <div class="col-11 col-sm-6 col-md-8 mx-auto">
+            <hr class="hr-long">
+            <h3 class="my-2">Order history</h3>
+            <hr class="hr-long">
+
+            {% for order in orders %}
+            <div class="sidebar-table m-2">
+                <table>
+                    {% for item in order.lineitems.all %}
+                    <tr>
+                        <th rowspan="8">
+                            {% if item.product.image %}
+                            <img class="cover-tile-image-xs pr-2" src="{{ item.product.image_url }}"
+                                alt="{{ item.product.name }}">
+                            {% else %}
+                            <img class="cover-tile-image-xs pr-2" src="{{ MEDIA_URL }}noimage.png"
+                                alt="{{ item.product.name }}">
+                            {% endif %}
+                        </th>
+                    </tr>
+                    <tr>
+                        <td class="sidebar-product-text sidebar-product-title pt-2">
+                            <span>{{ item.product.name }}</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="sidebar-product-text">
+                            <span>£{{ item.product.price }}</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="sidebar-product-text">
+                            <span>Quantity: {{ item.quantity }}</span>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+            {% endfor %}
+
+            <div class="order-history table-responsive">
+                <table class="table table-sm table-borderless">
+                    <thead>
+                        <tr>
+                            <th>Order Number</th>
+                            <th>Date</th>
+                            <th>Items</th>
+                            <th>Order Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for order in orders %}
+                        <tr>
+                            <td>
+                                <a href="{% url 'order_history' order.order_number %}" title="{{ order.order_number }}">
+                                    {{ order.order_number|truncatechars:6 }}
+                                </a>
+                            </td>
+                            <td>{{ order.date }}</td>
+                            <td>
+                                <ul class="list-unstyled">
+                                    {% for item in order.lineitems.all %}
+                                    <li class="small">
+                                        {{ item.product.name }} x{{ item.quantity }}
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                            </td>
+                            <td>${{ order.grand_total }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
             </div>
         </div>
-        <div class="row">
-            <div class="col-12 col-lg-6">
-                <p>Default delivery address</p>
-                <form class="mt-3" action="{% url 'profile' %}" method="POST" id="profile-update-form">
-                    {% csrf_token %}
-                    {{ form|crispy }}
-                    <button class="btn btn-light btn-long">Update Information</button>
-                </form>
-            </div>
-            <div class="col-12 col-lg-6">
-                <p>Order History</p>
-                <div class="order-history table-responsive">
-                    <table class="table table-sm table-borderless">
-                        <thead>
-                            <tr>
-                                <th>Order Number</th>
-                                <th>Date</th>
-                                <th>Items</th>
-                                <th>Order Total</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {% for order in orders %}
-                                <tr>
-                                    <td>
-                                        <a href="{% url 'order_history' order.order_number %}"
-                                        title="{{ order.order_number }}">
-                                            {{ order.order_number|truncatechars:6 }}
-                                        </a>
-                                    </td>
-                                    <td>{{ order.date }}</td>
-                                    <td>
-                                        <ul class="list-unstyled">
-                                            {% for item in order.lineitems.all %}
-                                                <li class="small">
-                                                    {{ item.product.name }} x{{ item.quantity }}
-                                                </li>
-                                            {% endfor %}
-                                        </ul>
-                                    </td>
-                                    <td>${{ order.grand_total }}</td>
-                                </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
+        {% endif %}
+    </div>
+</section>
 {% endblock %}
 
 {% block postloadjs %}

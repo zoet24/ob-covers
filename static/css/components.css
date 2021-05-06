@@ -329,6 +329,10 @@ input[type=number] {
     height: 200px;
 }
 
+.cover-tile-image-xs {
+    height: 100px;
+}
+
 .cover-tile-info {
     position: absolute;
     top: 50%;

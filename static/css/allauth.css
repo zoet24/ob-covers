@@ -47,7 +47,7 @@
 
 .allauth-form-inner-content input::placeholder {
     color: #ccc;
-    text-transform: lowercase;
+    text-transform: capitalize;
 }
 
 #div_id_password, #div_id_password2 {
