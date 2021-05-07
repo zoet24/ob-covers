@@ -16,3 +16,8 @@ select option[value=""] {
     transform: none;
     text-transform: uppercase;
 }
+
+input.stripe-style-input::placeholder {
+    color: #ccc;
+    text-transform: capitalize;
+}
