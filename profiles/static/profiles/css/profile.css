@@ -29,7 +29,7 @@
     text-transform: none;
 }
 
-.orderhistory-product-text {
+.orderhistory-product-text, .fieldset-legend {
     text-align: left;
     font-size: 1.1rem;
     font-family: 'Poppins', sans-serif;
@@ -38,7 +38,7 @@
     align-items: center;
 }
 
-.orderhistory-product-title {
+.orderhistory-product-title, .fieldset-legend {
     font-weight: 400;
     font-size: 1.2rem;
 }

@@ -385,6 +385,14 @@ input[type=number] {
     border: #151635 solid 2px;
 }
 
+.product-totals {
+    font-size: 1.25rem;
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
+    font-weight: 300;
+    align-items: center;
+}
+
 /* Tables */
 .sidebar-table {
   background-color: #fff;
