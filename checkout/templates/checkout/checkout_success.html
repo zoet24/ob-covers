@@ -17,7 +17,7 @@
 </header>
 <section class="container-compress">
     <div class="row">
-        <div class="col-12">
+        <div class="col-12 col-sm-10 col-md-9 col-lg-8 col-xl-7 mx-auto">
             <span>Your order information is below. A confirmation email will be sent to
                 <span class="text-thick">{{ order.email }}</span>.</span>
             <div class="orderhistory-table orderhistory-confirm-table orderhistory-product-text m-2">
@@ -29,24 +29,24 @@
                     </div>
                 </div>
                 <div class="row pb-0">
-                    <div class="col-12">
+                    <div class="col-12 col-sm-5 text-sm-right">
                         <span class="orderhistory-product-title">Order number</span>
                     </div>
-                    <div class="col-12">
+                    <div class="col-12 col-sm-7 text-sm-left">
                         <span>{{ order.order_number }}</span>
                     </div>
                 </div>
-                <div class="row pb-0">
-                    <div class="col-12">
+                <div class="row pb-0 pt-sm-0">
+                    <div class="col-12 col-sm-5 text-sm-right">
                         <span class="orderhistory-product-title">Order date</span>
                     </div>
-                    <div class="col-12">
+                    <div class="col-12 col-sm-7 text-sm-left">
                         <span>{{ order.date }}</span>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-12">
-                        <table class="text-dark mb-2">
+                <div class="row pt-sm-0">
+                    <div class="col-12 mx-auto">
+                        <table class="text-dark mx-auto mb-2">
                             {% for item in order.lineitems.all %}
                             <tr>
                                 <th rowspan="4">
@@ -86,72 +86,72 @@
                     </div>
                 </div>
                 <div class="row pb-0">
-                    <div class="col-12">
+                    <div class="col-12 col-sm-5 text-sm-right">
                         <span class="orderhistory-product-title">Full name</span>
                     </div>
-                    <div class="col-12">
+                    <div class="col-12 col-sm-7 text-sm-left">
                         <span>{{ order.full_name }}</span>
                     </div>
                 </div>
                 <div class="row pb-0">
-                    <div class="col-12">
+                    <div class="col-12 col-sm-5 text-sm-right">
                         <span class="orderhistory-product-title">Address 1</span>
                     </div>
-                    <div class="col-12">
+                    <div class="col-12 col-sm-7 text-sm-left">
                         <span>{{ order.street_address1 }}</span>
                     </div>
                 </div>
                 {% if order.street_address2 %}
                 <div class="row pb-0">
-                    <div class="col-12">
+                    <div class="col-12 col-sm-5 text-sm-right">
                         <span class="orderhistory-product-title">Address 2</span>
                     </div>
-                    <div class="col-12">
+                    <div class="col-12 col-sm-7 text-sm-left">
                         <span>{{ order.street_address2 }}</span>
                     </div>
                 </div>
                 {% endif %}
                 {% if order.county %}
                 <div class="row pb-0">
-                    <div class="col-12">
+                    <div class="col-12 col-sm-5 text-sm-right">
                         <span class="orderhistory-product-title">County</span>
                     </div>
-                    <div class="col-12">
+                    <div class="col-12 col-sm-7 text-sm-left">
                         <span>{{ order.county }}</span>
                     </div>
                 </div>
                 {% endif %}
                 <div class="row pb-0">
-                    <div class="col-12">
+                    <div class="col-12 col-sm-5 text-sm-right">
                         <span class="orderhistory-product-title">Town or city</span>
                     </div>
-                    <div class="col-12">
+                    <div class="col-12 col-sm-7 text-sm-left">
                         <span>{{ order.town_or_city }}</span>
                     </div>
                 </div>
                 {% if order.postcode %}
                 <div class="row pb-0">
-                    <div class="col-12">
+                    <div class="col-12 col-sm-5 text-sm-right">
                         <span class="orderhistory-product-title">Postcode</span>
                     </div>
-                    <div class="col-12">
+                    <div class="col-12 col-sm-7 text-sm-left">
                         <span>{{ order.postcode }}</span>
                     </div>
                 </div>
                 {% endif %}
                 <div class="row pb-0">
-                    <div class="col-12">
+                    <div class="col-12 col-sm-5 text-sm-right">
                         <span class="orderhistory-product-title">Country</span>
                     </div>
-                    <div class="col-12">
+                    <div class="col-12 col-sm-7 text-sm-left">
                         <span>{{ order.country }}</span>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-12">
+                    <div class="col-12 col-sm-5 text-sm-right">
                         <span class="orderhistory-product-title">Phone number</span>
                     </div>
-                    <div class="col-12">
+                    <div class="col-12 col-sm-7 text-sm-left">
                         <span>{{ order.phone_number }}</span>
                     </div>
                 </div>
@@ -163,26 +163,26 @@
                     </div>
                 </div>
                 <div class="row pb-0">
-                    <div class="col-12">
+                    <div class="col-12 col-sm-5 text-sm-right">
                         <span class="orderhistory-product-title">Order total</span>
                     </div>
-                    <div class="col-12">
+                    <div class="col-12 col-sm-7 text-sm-left">
                         <span>£{{ order.order_total }}</span>
                     </div>
                 </div>
                 <div class="row pb-0">
-                    <div class="col-12">
+                    <div class="col-12 col-sm-5 text-sm-right">
                         <span class="orderhistory-product-title">Delivery cost</span>
                     </div>
-                    <div class="col-12">
+                    <div class="col-12 col-sm-7 text-sm-left">
                         <span>£{{ order.delivery_cost }}</span>
                     </div>
                 </div>
                 <div class="row mb-2">
-                    <div class="col-12">
+                    <div class="col-12 col-sm-5 text-sm-right">
                         <span class="orderhistory-product-title">Grand total</span>
                     </div>
-                    <div class="col-12">
+                    <div class="col-12 col-sm-7 text-sm-left">
                         <span>£{{ order.grand_total }}</span>
                     </div>
                 </div>

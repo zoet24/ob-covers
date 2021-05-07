@@ -21,6 +21,7 @@
     color: #151635;
     border-radius: 25px;
     transition: transform .25s ease-in-out;
+    word-wrap: break-word;
 }
 
 .orderhistory-table:hover {
