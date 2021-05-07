@@ -4,10 +4,15 @@
 
 select,
 select option {
-    color: #000000;
+    color: #151635;
 }
 
 select:invalid,
 select option[value=""] {
-    color: #aab7c4 !important;
+    color: #ccc !important;
+}
+
+.orderhistory-confirm-table:hover {
+    transform: none;
+    text-transform: uppercase;
 }
