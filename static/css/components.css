@@ -366,11 +366,15 @@ input[type=number] {
     padding: 0.75rem;
 }
 
-.product-tag {
-    width: 125%;
-    transform: rotate(-45deg) translate(-30%, -75%);
+.product-tag, .product-tag-detail {
+    width: 500px;
+    transform: rotate(-45deg) translate(-155px, -110px);
     line-height: 50px;
     position: absolute;
+}
+
+.product-tag-detail {
+    transform: rotate(-45deg) translate(-160px, -100px);
 }
 
 .product-popular {
@@ -383,6 +387,7 @@ input[type=number] {
     background-color: #fff;
     color: #151635;
     border: #151635 solid 2px;
+    z-index: 1;
 }
 
 .product-totals {
