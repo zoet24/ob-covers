@@ -208,6 +208,19 @@ a.text-danger:hover, a.text-danger:focus {
     border-width: 1px;
 }
 
+.btn:disabled {
+    background-color: #fff;
+    border-color: #ccc;
+    border-width: 1px;
+    color: #151635;
+    box-shadow: 1px 1px #ccc;
+}
+
+.btn:disabled:hover {
+    transform: none;
+    cursor: default;
+}
+
 .btn-up {
     position: fixed;
     bottom: 10px;

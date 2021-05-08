@@ -61,20 +61,16 @@ def checkout(request):
             for item_id, item_data in bag.items():
                 try:
                     product = Product.objects.get(id=item_id)
-                    if isinstance(item_data, int):
-                        order_line_item = OrderLineItem(
-                            order=order,
-                            product=product,
-                            quantity=item_data,
-                        )
-                        order_line_item.save()
+                    if product.unavailable is True:
+                        messages.error(request, f'{product.name} is currently unavailable for purchase')
+                        order.delete()
+                        return redirect(reverse('products'))
                     else:
-                        for size, quantity in item_data['items_by_size'].items():
+                        if isinstance(item_data, int):
                             order_line_item = OrderLineItem(
                                 order=order,
                                 product=product,
-                                quantity=quantity,
-                                product_size=size,
+                                quantity=item_data,
                             )
                             order_line_item.save()
                 except Product.DoesNotExist:
@@ -83,7 +79,7 @@ def checkout(request):
                         "Please call us for assistance!")
                     )
                     order.delete()
-                    return redirect(reverse('view_bag'))
+                    return redirect(reverse('products'))
 
             # Save the info to the user's profile if all is well
             request.session['save_info'] = 'save-info' in request.POST

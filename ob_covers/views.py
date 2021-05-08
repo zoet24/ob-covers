@@ -13,12 +13,17 @@ def add_to_bag(request, item_id):
     redirect_url = request.POST.get('redirect_url')
     bag = request.session.get('bag', {})
 
-    if item_id in list(bag.keys()):
-        bag[item_id] += quantity
-        messages.success(request, f'Updated {product.name} quantity to your bag')
+    print(product.unavailable)
+    if product.unavailable is True:
+        messages.error(request, f'{product.name} is currently unavailable for purchase')
+        return redirect(redirect_url)
     else:
-        bag[item_id] = quantity
-        messages.success(request, f'Added {product.name} to your bag')
+        if item_id in list(bag.keys()):
+            bag[item_id] += quantity
+            messages.success(request, f'Updated {product.name} quantity to your bag')
+        else:
+            bag[item_id] = quantity
+            messages.success(request, f'Added {product.name} to your bag')
 
     request.session['bag'] = bag
 
@@ -121,9 +126,14 @@ def fav_to_bag(request, item_id):
         product = get_object_or_404(Product, pk=item_id)
         bag = request.session.get('bag', {})
         fav = request.session.get('fav', {})
-        fav.pop(item_id)
-        bag[item_id] = 1
-        messages.success(request, f'Added {product.name} to your basket')
+
+        if product.unavailable is True:
+            messages.error(request, f'{product.name} is currently unavailable for purchase')
+            return HttpResponse(status=200)
+        else:
+            fav.pop(item_id)
+            bag[item_id] = 1
+            messages.success(request, f'Added {product.name} to your basket')
 
         request.session['bag'] = bag
         request.session['fav'] = fav

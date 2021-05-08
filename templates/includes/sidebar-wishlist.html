@@ -69,7 +69,7 @@
                     <tr>
                         <td class="sidebar-product-text pb-2">
                             <a class="favtobag-item btn btn-dark btn-sm my-2" id="favtobag_{{ item.item_id }}"
-                                role="button">Add to basket</a>
+                                role="button" {% if product.unavailable == True %} disabled {% endif %}>Add to basket</a>
                         </td>
                     </tr>
                 </table>
