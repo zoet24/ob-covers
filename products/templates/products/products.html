@@ -72,6 +72,7 @@
         var range = currentUrl.searchParams.get("range");
         var style = currentUrl.searchParams.get("style");
         var colour = currentUrl.searchParams.get("colour");
+        var other = currentUrl.searchParams.get("other");
         var sort = currentUrl.searchParams.get("sort");
         var direction = currentUrl.searchParams.get("direction");
 
@@ -84,6 +85,10 @@
         } else if (colour !== null) {
             var category = "colour";
             var name = colour;
+        } else if (other !== null) {
+            $(`input[name=other][value='${other}']`).prop("checked",true);
+            $(`#collapse-productfilters-other`).addClass("show");
+            var category = null;
         } else {
             var category = null;
             var name = null;

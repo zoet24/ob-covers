@@ -7,6 +7,13 @@
         <span><i class="fas fa-times"></i></span>
     </div>
 </button>
+{% elif current_other != None %}
+<button class="btn btn-light px-3" onclick="resetFilters()">
+    <span class="filters-title">{{ current_other }}</span>
+    <div class="icon icon-black icon-category-reset">
+        <span><i class="fas fa-times"></i></span>
+    </div>
+</button>
 {% else %}
 <span class="text-skinny" id="filters-title-none">No current filters</span>
 {% endif %}
@@ -102,12 +109,12 @@
                     <label class="form-check-label container-radio text-skinny" for="other-available" id="other-available_label">
                         <input class="form-check-input" type="radio" value="unavailableisfalse" id="other-available" name="other">
                         <span class="form-check-checkmark"></span>
-                        Available ({{other.count}})
+                        Available ({{available_num}})
                     </label>
                     <label class="form-check-label container-radio text-skinny" for="other-unavailable" id="other-unavailable_label">
                         <input class="form-check-input" type="radio" value="unavailableistrue" id="other-unavailable" name="other">
                         <span class="form-check-checkmark"></span>
-                        Un-available ({{other.count}})
+                        Unavailable ({{unavailable_num}})
                     </label>
                 </div>
             </div>

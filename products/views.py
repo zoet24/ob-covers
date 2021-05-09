@@ -23,6 +23,10 @@ def all_products(request):
     styles_array = []
     ranges_array = []
 
+    available_num = products.filter(unavailable=False).count()
+    unavailable_num = products.filter(unavailable=True).count()
+    other_num = 0
+
     for colour in colour_choices:
         num = products.filter(colour__name=colour).count()
         colour_array = ({"name": colour.name,
@@ -51,6 +55,7 @@ def all_products(request):
     styles = None
     colour = None
     colours = None
+    current_other = None
     sort = None
     direction = None
     current_sorting = None
@@ -97,16 +102,19 @@ def all_products(request):
                 colour = colours[0]
 
         if 'other' in request.GET:
-            filter_name = request.GET['other'].split('is')[0]
-
-            value_name = request.GET['other'].split('is')[1]
-            if value_name == "true":
-                value_name = True
+            other = request.GET['other'].split('is')[0]
+            other_value = request.GET['other'].split('is')[1]
+            if other_value == "true":
+                other_value = True
             else:
-                value_name = False
-
-            if filter_name == "unavailable":
-                products = products.filter(unavailable=value_name)
+                other_value = False
+            if other == "unavailable":
+                products = products.filter(unavailable=other_value)
+                other_num = products.filter(unavailable=other_value).count()
+                if other_value is True:
+                    current_other = "Unavailable"
+                else:
+                    current_other = "Available"
 
         if 'q' in request.GET:
             query = request.GET['q']
@@ -120,6 +128,9 @@ def all_products(request):
     context = {
         'product': product,
         'products': products,
+        'available_num': available_num,
+        'unavailable_num': unavailable_num,
+        'other_num': other_num,
         'colours': colours_array,
         'styles': styles_array,
         'ranges': ranges_array,
@@ -127,6 +138,7 @@ def all_products(request):
         'current_range': range,
         'current_style': style,
         'current_colour': colour,
+        'current_other': current_other,
         'current_sorting': current_sorting,
     }
 
