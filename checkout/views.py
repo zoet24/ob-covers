@@ -61,18 +61,18 @@ def checkout(request):
             for item_id, item_data in bag.items():
                 try:
                     product = Product.objects.get(id=item_id)
-                    if product.unavailable is True:
-                        messages.error(request, f'{product.name} is currently unavailable for purchase')
-                        order.delete()
-                        return redirect(reverse('products'))
-                    else:
-                        if isinstance(item_data, int):
-                            order_line_item = OrderLineItem(
-                                order=order,
-                                product=product,
-                                quantity=item_data,
-                            )
+                    if isinstance(item_data, int):
+                        order_line_item = OrderLineItem(
+                            order=order,
+                            product=product,
+                            quantity=item_data,
+                        )
+                        if product.unavailable is False:
                             order_line_item.save()
+                        else:
+                            messages.error(request, (
+                                f"{product.name} isn't available for purchase right now and has been removed from your order.")
+                            )
                 except Product.DoesNotExist:
                     messages.error(request, (
                         "One of the products in your bag wasn't found in our database. "
