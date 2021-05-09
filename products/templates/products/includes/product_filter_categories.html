@@ -85,6 +85,33 @@
                 </div>
             </div>
         </div>
+        <hr>
+        <!-- Other dropdown -->
+        <div class="card-header pb-0" id="accordion-productfilters-other">
+            <button type="button" class="btn collapsed" data-toggle="collapse"
+                data-target="#collapse-productfilters-other" aria-expanded="false"
+                aria-controls="collapse-productfilters-other">
+                <span>Other</span>
+                <i class="fas fa-angle-down"></i>
+            </button>
+        </div>
+        <div id="collapse-productfilters-other" class="accordion collapse"
+            aria-labelledby="accordion-productfilters-other" data-parent="#accordion">
+            <div class="card-body pt-0 pb-2">
+                <div class="form-check" oninput="filterCategoriesOther()" id="productfilters-other">
+                    <label class="form-check-label container-radio text-skinny" for="other-available" id="other-available_label">
+                        <input class="form-check-input" type="radio" value="unavailableisfalse" id="other-available" name="other">
+                        <span class="form-check-checkmark"></span>
+                        Available ({{other.count}})
+                    </label>
+                    <label class="form-check-label container-radio text-skinny" for="other-unavailable" id="other-unavailable_label">
+                        <input class="form-check-input" type="radio" value="unavailableistrue" id="other-unavailable" name="other">
+                        <span class="form-check-checkmark"></span>
+                        Un-available ({{other.count}})
+                    </label>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -96,6 +123,7 @@
         currentUrl.searchParams.delete("range");
         currentUrl.searchParams.delete("style");
         currentUrl.searchParams.delete("colour");
+        currentUrl.searchParams.delete("other");
         
         window.location.replace(currentUrl);
     };
@@ -107,6 +135,7 @@
         currentUrl.searchParams.set("range", range);
         currentUrl.searchParams.delete("style");
         currentUrl.searchParams.delete("colour");
+        currentUrl.searchParams.delete("other");
         
         window.location.replace(currentUrl);
     };
@@ -118,6 +147,7 @@
         currentUrl.searchParams.delete("range");
         currentUrl.searchParams.set("style", style);
         currentUrl.searchParams.delete("colour");
+        currentUrl.searchParams.delete("other");
         
         window.location.replace(currentUrl);
     };
@@ -129,6 +159,19 @@
         currentUrl.searchParams.delete("range");
         currentUrl.searchParams.delete("style");
         currentUrl.searchParams.set("colour", colour);
+        currentUrl.searchParams.delete("other");
+        
+        window.location.replace(currentUrl);
+    };
+
+    function filterCategoriesOther() {
+        var other = $('input[name="other"]:checked').val();
+        var currentUrl = new URL(window.location);
+        
+        currentUrl.searchParams.delete("range");
+        currentUrl.searchParams.delete("style");
+        currentUrl.searchParams.delete("colour");
+        currentUrl.searchParams.set("other", other);
         
         window.location.replace(currentUrl);
     };

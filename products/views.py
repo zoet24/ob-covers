@@ -96,6 +96,18 @@ def all_products(request):
             if colours:
                 colour = colours[0]
 
+        if 'other' in request.GET:
+            filter_name = request.GET['other'].split('is')[0]
+
+            value_name = request.GET['other'].split('is')[1]
+            if value_name == "true":
+                value_name = True
+            else:
+                value_name = False
+
+            if filter_name == "unavailable":
+                products = products.filter(unavailable=value_name)
+
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
