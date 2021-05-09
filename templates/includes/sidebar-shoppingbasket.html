@@ -20,10 +20,10 @@
     <div class="row pt-0">
         <div class="col">
             {% for item in bag_items %}
-            <div class="sidebar-table m-2">
+            <div class="sidebar-table m-2" {% if item.product.unavailable == True %} style="box-shadow:1px 1px #ccc;border-color:#ccc;" {% endif %}>
                 <table class="mx-auto">
                     <tr>
-                        <th rowspan="6">
+                        <th rowspan="6" {% if item.product.unavailable == True %} style="opacity: 0.5;" {% endif %}>
                             {% if item.product.image %}
                             <img class="cover-tile-image-sm pr-2" src="{{ item.product.image_url }}"
                                 alt="{{ item.product.name }}">
@@ -120,8 +120,13 @@
             <hr>
             <a class="btn btn-light my-2" href="{% url 'products' %}" role="button"> Keep shopping <i
                     class="fas fa-shopping-basket"></i> </a>
+            {% if products_available == True %}
             <a class="btn btn-light mt-0 mb-2" href="{% url 'checkout' %}" role="button"> Secure checkout <i
                     class="fas fa-lock"></i> </a>
+            {% else %}
+            <a class="btn btn-light mt-0 mb-2" href="{% url 'checkout_unavailable' %}" role="button"> Secure checkout <i
+                    class="fas fa-lock"></i> </a>
+            {% endif %}
         </div>
     </div>
     <!-- If there are no items in basket, display empty message -->

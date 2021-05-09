@@ -13,7 +13,6 @@ def add_to_bag(request, item_id):
     redirect_url = request.POST.get('redirect_url')
     bag = request.session.get('bag', {})
 
-    print(product.unavailable)
     if product.unavailable is True:
         messages.error(request, f'{product.name} is currently unavailable for purchase')
         return redirect(redirect_url)

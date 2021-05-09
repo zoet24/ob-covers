@@ -32,6 +32,17 @@ def cache_checkout_data(request):
         return HttpResponse(content=e, status=400)
 
 
+def checkout_unavailable(request):
+    bag = request.session.get('bag', {})
+    for item_id, item_data in bag.items():
+        product = Product.objects.get(id=item_id)
+        if product.unavailable is True:
+            messages.error(request, (
+                f"{product.name} isn't available for purchase right now. Please remove from your basket and try to place your order again.")
+            )
+    return redirect(reverse('products'))
+
+
 def checkout(request):
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY

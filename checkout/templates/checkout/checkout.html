@@ -22,10 +22,10 @@
             <h3 class="my-2">Order Summary ({{ product_count }})</h3>
             <hr class="hr-long">
             {% for item in bag_items %}
-            <div class="orderhistory-table orderhistory-confirm-table m-2">
+            <div class="orderhistory-table orderhistory-confirm-table m-2" {% if item.product.unavailable == True %} style="box-shadow:1px 1px #ccc;border-color:#ccc;" {% endif %}>
                 <table class="text-dark mb-2 mx-auto">
                     <tr>
-                        <th rowspan="4">
+                        <th rowspan="4" {% if item.product.unavailable == True %} style="opacity: 0.5;" {% endif %}>
                             {% if item.product.image %}
                             <img class="cover-tile-image-xs mt-1 mx-3 " src="{{ item.product.image_url }}"
                                 alt="{{ item.product.name }}">
