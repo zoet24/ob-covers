@@ -411,6 +411,15 @@ input[type=number] {
     align-items: center;
 }
 
+.no-search-results-container {
+    height: 50vh;
+    display: flex;
+}
+
+.no-search-results {
+    align-self: center;
+}
+
 /* Tables */
 .sidebar-table {
   background-color: #fff;
@@ -596,6 +605,10 @@ input[type=number] {
 
     .hr-short {
         width: 15%;
+    }
+
+    .no-search-results-container {
+        height: auto;
     }
 }
 

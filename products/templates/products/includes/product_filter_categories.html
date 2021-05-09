@@ -1,5 +1,4 @@
-<h2 class="p-2">Filters</h2>
-<hr class="mb-2">
+<hr class="mt-3 mb-2">
 {% if current_range != None or current_style != None or current_colour != None %}
 <button class="btn btn-light px-3" onclick="resetFilters()">
     <span class="filters-title"></span>
@@ -131,6 +130,7 @@
         currentUrl.searchParams.delete("style");
         currentUrl.searchParams.delete("colour");
         currentUrl.searchParams.delete("other");
+        currentUrl.searchParams.delete("q");
         
         window.location.replace(currentUrl);
     };
@@ -143,6 +143,7 @@
         currentUrl.searchParams.delete("style");
         currentUrl.searchParams.delete("colour");
         currentUrl.searchParams.delete("other");
+        currentUrl.searchParams.delete("q");
         
         window.location.replace(currentUrl);
     };
@@ -155,6 +156,7 @@
         currentUrl.searchParams.set("style", style);
         currentUrl.searchParams.delete("colour");
         currentUrl.searchParams.delete("other");
+        currentUrl.searchParams.delete("q");
         
         window.location.replace(currentUrl);
     };
@@ -167,6 +169,7 @@
         currentUrl.searchParams.delete("style");
         currentUrl.searchParams.set("colour", colour);
         currentUrl.searchParams.delete("other");
+        currentUrl.searchParams.delete("q");
         
         window.location.replace(currentUrl);
     };
@@ -179,6 +182,7 @@
         currentUrl.searchParams.delete("style");
         currentUrl.searchParams.delete("colour");
         currentUrl.searchParams.set("other", other);
+        currentUrl.searchParams.delete("q");
         
         window.location.replace(currentUrl);
     };
