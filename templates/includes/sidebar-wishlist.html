@@ -17,10 +17,10 @@
                     <tr>
                         <th rowspan="6">
                             {% if item.product.image %}
-                            <img class="cover-tile-image-sm pr-2" src="{{ item.product.image_url }}"
+                            <img class="cover-tile-image-sm pr-2" src="{{ MEDIA_URL }}{{ item.product.image }}"
                                 alt="{{ item.product.name }}">
                             {% else %}
-                            <img class="cover-tile-image-sm pr-2" src="{{ MEDIA_URL }}noimage.png"
+                            <img class="cover-tile-image-sm pr-2" src="{{ MEDIA_URL }}no-image.png"
                                 alt="{{ item.product.name }}">
                             {% endif %}
                         </th>

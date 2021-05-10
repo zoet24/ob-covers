@@ -46,15 +46,15 @@
                 </div>
                 <div class="row pt-sm-0">
                     <div class="col-12 mx-auto">
-                        <table class="text-dark mx-auto mb-2">
+                        <table class="text-dark mx-auto mb-2 w-75">
                             {% for item in order.lineitems.all %}
                             <tr>
                                 <th rowspan="4">
                                     {% if item.product.image %}
-                                    <img class="cover-tile-image-xs mt-1 mx-3 " src="{{ item.product.image_url }}"
+                                    <img class="cover-tile-image-xs mt-1 mx-3 " src="{{ MEDIA_URL }}{{ item.product.image }}"
                                         alt="{{ item.product.name }}">
                                     {% else %}
-                                    <img class="cover-tile-image-xs mt-1 mx-3" src="{{ MEDIA_URL }}noimage.png"
+                                    <img class="cover-tile-image-xs mt-1 mx-3" src="{{ MEDIA_URL }}no-image.png"
                                         alt="{{ item.product.name }}">
                                     {% endif %}
                                 </th>
