@@ -40,6 +40,14 @@
     margin: auto;
 }
 
+.allauth-form-inner-content .btn-dark {
+    border: solid 2px #151635;
+    background-color: transparent;
+    border-radius: 30px;
+    height: 60px;
+    min-width: 130px;
+}
+
 .allauth-form-inner-content input:-webkit-autofill {
     -webkit-box-shadow:0 0 0 50px white inset; /* Change the color to your own background color */
     -webkit-text-fill-color: #151635;
