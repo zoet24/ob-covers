@@ -37,16 +37,12 @@
                     </tr>
                     <tr>
                         <td class="sidebar-product-text">
-                            <span>Also available in:
-                                {% if item.product.range|lower == "classic" %}
-                                {% include 'includes/coverswatches/coverswatch_classic.html' %}
-                                {% elif item.product.range|lower == "stylish" %}
-                                {% include 'includes/coverswatches/coverswatch_stylish.html' %}
-                                {% elif item.product.range|lower == "premium" %}
-                                {% include 'includes/coverswatches/coverswatch_premium.html' %}
-                                {% elif item.product.range|lower == "disney" %}
-                                {% include 'includes/coverswatches/coverswatch_disney.html' %}
-                                {% endif %}
+                            <span>Also available in:<br>
+                                {% for product_swatch in products_swatch %}
+                                    {% if product_swatch.style == item.product.style %}
+                                        <div class="cover-swatch cover-swatch-fav" style="background-color: {{product_swatch.colour.hex_colour}};border: {{product_swatch.colour.hex_border}} 1px solid;"></div>
+                                    {% endif %}
+                                {% endfor %}
                             </span>
                         </td>
                     </tr>

@@ -373,6 +373,15 @@ input[type=number] {
     transform: scale(1.25);
 }
 
+.cover-swatch-fav:hover, .cover-swatch-detail:hover {
+    transform: none;
+    cursor: default;
+}
+
+.cover-swatch-detail {
+    margin: 0 0.1rem;
+}
+
 .product-description {
     background-color: #fff;
     border-radius: 25px;
@@ -602,6 +611,11 @@ input[type=number] {
     .cover-swatch {
         height: 30px;
         width: 30px;
+    }
+
+    .cover-swatch-fav {
+        height: 20px;
+        width: 20px;
     }
 }
 

@@ -1,7 +1,7 @@
 from decimal import Decimal
 from django.conf import settings
 from django.shortcuts import get_object_or_404
-from products.models import Product
+from products.models import Product, Colour
 
 
 def bag_contents(request):
@@ -71,9 +71,10 @@ def fav_contents(request):
 
 
 def cover_swatches(request):
-    products = Product.objects.all()
+    products_swatch = Product.objects.all()
+    colours_swatch = Colour.objects.all()
 
-    classic_products = products.filter(range__name="classic").order_by('?')
+    classic_products = products_swatch.filter(range__name="classic").order_by('?')
     classic_swatch = []
     classic_colours = []
 
@@ -82,7 +83,7 @@ def cover_swatches(request):
             classic_colours.append(product.colour.name)
             classic_swatch.append(product)
 
-    stylish_products = products.filter(range__name="stylish").order_by('?')
+    stylish_products = products_swatch.filter(range__name="stylish").order_by('?')
     stylish_swatch = []
     stylish_colours = []
 
@@ -91,7 +92,7 @@ def cover_swatches(request):
             stylish_colours.append(product.colour.name)
             stylish_swatch.append(product)
 
-    premium_products = products.filter(range__name="premium").order_by('?')
+    premium_products = products_swatch.filter(range__name="premium").order_by('?')
     premium_swatch = []
     premium_colours = []
     premium_styles = []
@@ -102,7 +103,7 @@ def cover_swatches(request):
             premium_styles.append(product.style.name)
             premium_swatch.append(product)
 
-    disney_products = products.filter(range__name="disney").order_by('?')
+    disney_products = products_swatch.filter(range__name="disney").order_by('?')
     disney_swatch = []
     disney_colours = []
     disney_styles = []
@@ -118,6 +119,8 @@ def cover_swatches(request):
         'stylish_swatch': stylish_swatch,
         'premium_swatch': premium_swatch,
         'disney_swatch': disney_swatch,
+        'products_swatch': products_swatch,
+        'colours_swatch': colours_swatch,
     }
 
     return swatch_context
