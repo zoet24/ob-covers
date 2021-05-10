@@ -598,6 +598,13 @@ input[type=number] {
     }
 }
 
+@media (min-width: 576px) {
+    .cover-swatch {
+        height: 30px;
+        width: 30px;
+    }
+}
+
 @media (min-width: 768px) {    
     .icon {
 		margin: 0px 3px;
@@ -639,13 +646,12 @@ input[type=number] {
         min-width: 250px;
     }
 
-    .cover-swatch {
-        height: 30px;
-        width: 30px;
-    }
-
     hr {
         width: 20%;
+    }
+
+    .cover-tile-image {
+        height: 400px;
     }
 }
 

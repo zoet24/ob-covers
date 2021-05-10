@@ -7,26 +7,22 @@
 {% endblock %}
 
 {% block content %}
-
     <!-- Hero image, welcome message, links to sign up and shop -->    
     {% include 'home/includes/index_heroimage.html' %}
-    
     <!-- Interactive swatches for classic and stylish cover sets -->
     {% include 'home/includes/index_coverstiles_classicstylish.html' %}
-
     <!-- Hero Arm and covers description -->
     {% include 'home/includes/index_coversdescription.html' %}
-
     <!-- Interactive swatches for premium and Disney cover sets -->
     {% include 'home/includes/index_coverstiles_premiumdisney.html' %}
-
     <!-- Looking for the Hero Arm? -->
     {% include 'home/includes/index_lookingfor.html' %}
-
 {% endblock %}
 
 {% block postloadjs %}
 {{ block.super }}
-{% include 'home/includes/onload_animation.html' %}
+<!-- Onload animation -->
+{% include 'home/includes/index_onload_animation.html' %}
+<!-- Interactive cover swatches -->
 {% include 'includes/coverswatches/cover_swatches.html' %}
 {% endblock %}
