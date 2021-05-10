@@ -21,6 +21,7 @@
             <hr class="hr-long">
             <h3 class="my-2">Order Summary ({{ product_count }})</h3>
             <hr class="hr-long">
+            <!-- Show all items purchased -->
             {% for item in bag_items %}
             <div class="orderhistory-table orderhistory-confirm-table m-2" {% if item.product.unavailable == True %} style="box-shadow:1px 1px #ccc;border-color:#ccc;" {% endif %}>
                 <table class="text-dark mb-2 mx-auto w-75">
@@ -53,6 +54,7 @@
                 </table>
             </div>
             {% endfor %}
+            <!-- Show total costs -->
             <div class="row product-totals p-0">
                 <div class="col-6 text-right pr-1 ml-auto">
                     <span>Bag total</span>
@@ -78,6 +80,7 @@
                 </div>
             </div>
         </div>
+        <!-- Show default delivery information -->
         <div class="col-11 col-sm-6 mt-2 mt-sm-0 mx-auto">
             <hr class="hr-long">
             <h3 class="my-2">Default delivery</h3>
@@ -135,6 +138,7 @@
         </div>
     </div>
 </section>
+<!-- Overlay for lazy loading -->
 <section>
     <div id="loading-overlay">
         <h1 class="text-xl loading-spinner">

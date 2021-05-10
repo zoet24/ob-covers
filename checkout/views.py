@@ -34,11 +34,15 @@ def cache_checkout_data(request):
 
 def checkout_unavailable(request):
     bag = request.session.get('bag', {})
+    """
+    Prevent users from progressing to checkout
+    if they have unavailable items in their shopping baskets
+    """
     for item_id, item_data in bag.items():
         product = Product.objects.get(id=item_id)
         if product.unavailable is True:
             messages.error(request, (
-                f"{product.name} isn't available for purchase right now. Please remove from your basket and try to place your order again.")
+                f"{product.name} aren't available for purchase right now. Please remove them from your basket and try to place your order again.")
             )
     return redirect(reverse('products'))
 
@@ -78,11 +82,12 @@ def checkout(request):
                             product=product,
                             quantity=item_data,
                         )
+                        # Don't allow users to purchase unavailable items.
                         if product.unavailable is False:
                             order_line_item.save()
                         else:
                             messages.error(request, (
-                                f"{product.name} isn't available for purchase right now and has been removed from your order.")
+                                f"{product.name} aren't available for purchase right now and have been removed from your order.")
                             )
                 except Product.DoesNotExist:
                     messages.error(request, (
@@ -92,7 +97,7 @@ def checkout(request):
                     order.delete()
                     return redirect(reverse('products'))
 
-            # Save the info to the user's profile if all is well
+            # Save the info to the user's profile if all OK
             request.session['save_info'] = 'save-info' in request.POST
             return redirect(reverse('checkout_success', args=[order.order_number]))
         else:
@@ -113,7 +118,7 @@ def checkout(request):
             currency=settings.STRIPE_CURRENCY,
         )
 
-        # Attempt to prefill the form with any info the user maintains in their profile
+        # Try to prefill form with profile details
         if request.user.is_authenticated:
             try:
                 profile = UserProfile.objects.get(user=request.user)
