@@ -21,14 +21,14 @@
         <div class="col">
             {% for item in bag_items %}
             <div class="sidebar-table m-2" {% if item.product.unavailable == True %} style="box-shadow:1px 1px #ccc;border-color:#ccc;" {% endif %}>
-                <table class="mx-auto">
+                <table>
                     <tr>
                         <th rowspan="6" {% if item.product.unavailable == True %} style="opacity: 0.5;" {% endif %}>
                             {% if item.product.image %}
-                            <img class="cover-tile-image-sm pr-2" src="{{ MEDIA_URL }}{{ item.product.image }}"
+                            <img class="cover-tile-image-sm px-3 px-sm-4" src="{{ MEDIA_URL }}{{ item.product.image }}"
                                 alt="{{ item.product.name }}">
                             {% else %}
-                            <img class="cover-tile-image-sm pr-2" src="{{ MEDIA_URL }}no-image.png"
+                            <img class="cover-tile-image-sm px-3 px-sm-4" src="{{ MEDIA_URL }}no-image.png"
                                 alt="{{ item.product.name }}">
                             {% endif %}
                         </th>

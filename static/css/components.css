@@ -343,7 +343,7 @@ input[type=number] {
 }
 
 .cover-tile-image-sm {
-    height: 200px;
+    height: 170px;
 }
 
 .cover-tile-image-xs {
@@ -452,7 +452,7 @@ input[type=number] {
 	position: fixed;
 	top: 10vh;
 	left: 0;
-	z-index: 3;
+	z-index: 10;
 	width: 100%;
 	height: 100%;
 	overflow: hidden;
@@ -650,7 +650,7 @@ input[type=number] {
         width: 20%;
     }
 
-    .cover-tile-image {
+    .cover-tile-image-home {
         height: 400px;
     }
 }
