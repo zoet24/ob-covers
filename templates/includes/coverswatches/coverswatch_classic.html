@@ -1,9 +1,7 @@
 <!-- Classic range cover swatch -->
 <div>
-{% for product in products %}
-    {% if product.range.name == "classic" %}
-        <div class="cover-swatch" id="cover-swatch-{{product.range.name}}-{{product.style.name}}-{{product.colour.name}}" style="background-color: {{product.colour.hex_colour}};border: {{product.colour.hex_border}} 1px solid;"></div>
-        <div class="d-none" id="cover-swatch-{{product.range.name}}-{{product.style.name}}-{{product.colour.name}}-background">{{product.colour.hex_background}}</div>
-    {% endif %}
+{% for product in classic_swatch %}
+    <div class="cover-swatch cover-swatch-{{product.range.name}}" id="cover-swatch-{{product.range.name}}-{{product.style.name}}-{{product.colour.name}}" style="background-color: {{product.colour.hex_colour}};border: {{product.colour.hex_border}} 1px solid;"></div>
+    <div class="d-none" id="cover-swatch-{{product.range.name}}-{{product.style.name}}-{{product.colour.name}}-background">{{product.colour.hex_background}}</div>
 {% endfor %}
 </div>
