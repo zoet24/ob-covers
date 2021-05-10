@@ -1,0 +1,43 @@
+<script type="text/javascript">
+    onload = function() {
+        var currentUrl = new URL(window.location);
+        var range = currentUrl.searchParams.get("range");
+        var style = currentUrl.searchParams.get("style");
+        var colour = currentUrl.searchParams.get("colour");
+        var other = currentUrl.searchParams.get("other");
+        var sort = currentUrl.searchParams.get("sort");
+        var direction = currentUrl.searchParams.get("direction");
+
+        if (range !== null) {
+            var category = "range";
+            var name = range;
+        } else if (style !== null) {
+            var category = "style";
+            var name = style;
+        } else if (colour !== null) {
+            var category = "colour";
+            var name = colour;
+        } else if (other !== null) {
+            $(`input[name=other][value='${other}']`).prop("checked",true);
+            $(`#collapse-productfilters-other`).addClass("show");
+            var category = null;
+        } else {
+            var category = null;
+            var name = null;
+        }
+
+        if (category !== null) {
+            var filtersTitleNav = $(`#${name}_label`).text().trim()
+            $("#filters-title-nav").html(filtersTitleNav);
+
+            var filtersTitle = $(`#${name}_label`).text().trim().split("(")[0].trim();
+            $(`input[name=${category}][value='${name}']`).prop("checked",true);
+            $(`#collapse-productfilters-${category}`).addClass("show");
+            $(".filters-title").html(`${filtersTitle}`);
+        }
+
+        var sortTitle = $(`#${sort}_${direction}_label`).text().trim();
+        $(".sort-title").html(sortTitle);
+        $(`input[name="sort"][value='${sort}_${direction}']`).prop("checked",true);
+    }
+</script>

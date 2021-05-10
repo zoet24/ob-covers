@@ -32,24 +32,3 @@
         </div>
     </div>
 </section>
-
-<script type="text/javascript">
-    setTimeout(function(){
-        var afterTop = $("#product-detail-links").offset().top;
-        var beforeBottom = ($("footer").offset().top)-($(window).height());
-
-        $(window).scroll(function() {
-            var currentHeight = $(this).scrollTop();
-            if (((currentHeight) < (beforeBottom)) && ((currentHeight) > (afterTop))) {
-                $(".btn-up").removeClass("hide");
-            }
-            else {
-                $(".btn-up").addClass("hide");
-            }
-        });
-        
-        $('.btn-up-link').click(function (e) {
-            window.scrollTo(0, 0)
-        });
-    }, 50);    
-</script>
