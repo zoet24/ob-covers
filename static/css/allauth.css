@@ -12,6 +12,15 @@
     width: 275px;
 }
 
+.allauth-results-container {
+    height: 100%;
+    display: flex;
+}
+
+.allauth-results {
+    align-self: center;
+}
+
 /* Allauth form formatting */
 
 .allauth-form-inner-content {
@@ -25,9 +34,9 @@
     background-color: #fff;
     border: none;
     padding: 0.25rem 1rem;
-    border-radius: 30px;
-    height: 60px;
-    width: 225px;
+    border-radius: 20px;
+    height: 40px;
+    width: 250px;
     margin: auto;
 }
 
@@ -82,17 +91,13 @@
 }
 
 /* MEDIA QUERIES */
-@media (min-width: 500px) {
-    /* .alluth-error {
-        line-height: 1.75;
-    } */
-}
-
-@media (min-width: 992px) {
+@media (min-width: 576px) {
     .logo-allauth {
         width: 350px;
     }
+}
 
+@media (min-width: 992px) {
     .allauth-hero-image {
         background-position: 50% 40%;
     }

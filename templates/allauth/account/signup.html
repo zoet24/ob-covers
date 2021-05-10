@@ -19,11 +19,9 @@
                     <div class="col-12 col-sm-6 col-md-5 mx-auto">
                         {% csrf_token %}
                         {% for field in form %}
-                            {% if field.name != 'email2' and field.name != 'username' %}
-                                {{ field | as_crispy_field }}
-                                {% if redirect_field_value %}
-                                    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-                                {% endif %}
+                            {{ field | as_crispy_field }}
+                            {% if redirect_field_value %}
+                                <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
                             {% endif %}
                         {% endfor %}
                     </div>
