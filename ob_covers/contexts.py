@@ -5,7 +5,7 @@ from products.models import Product, Colour
 
 
 def bag_contents(request):
-
+    # Context for shopping basket
     bag_items = []
     total = 0
     product_count = 0
@@ -48,7 +48,7 @@ def bag_contents(request):
 
 
 def fav_contents(request):
-
+    # Context for wish list
     fav_items = []
     product_count_fav = 0
     fav = request.session.get('fav', {})
@@ -71,8 +71,8 @@ def fav_contents(request):
 
 
 def cover_swatches(request):
+    # Context for cover swatches across site
     products_swatch = Product.objects.all()
-    colours_swatch = Colour.objects.all()
 
     classic_products = products_swatch.filter(range__name="classic").order_by('?')
     classic_swatch = []
@@ -120,7 +120,6 @@ def cover_swatches(request):
         'premium_swatch': premium_swatch,
         'disney_swatch': disney_swatch,
         'products_swatch': products_swatch,
-        'colours_swatch': colours_swatch,
     }
 
     return swatch_context

@@ -5,7 +5,7 @@ from products.models import Product
 
 
 def add_to_bag(request, item_id):
-    """ Add a quantity of the specified product to the shopping bag """
+    """ Add quantity of the specified product to the shopping bag """
 
     product = get_object_or_404(Product, pk=item_id)
     quantity = int(request.POST.get('quantity'))
@@ -18,7 +18,7 @@ def add_to_bag(request, item_id):
     else:
         if item_id in list(bag.keys()):
             bag[item_id] += quantity
-            messages.success(request, f'Updated {product.name} quantity to your bag')
+            messages.success(request, f'Updated {product.name} quantity in your bag')
         else:
             bag[item_id] = quantity
             messages.success(request, f'Added {product.name} to your bag')
@@ -29,7 +29,8 @@ def add_to_bag(request, item_id):
 
 
 def adjust_bag(request, item_id):
-    """Remove the item from the shopping bag"""
+    """ Remove the item from the shopping bag """
+
     product = get_object_or_404(Product, pk=item_id)
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
@@ -37,7 +38,7 @@ def adjust_bag(request, item_id):
 
     if quantity > 0:
         bag[item_id] = quantity
-        messages.success(request, f'Updated {product.name} quantity to your bag')
+        messages.success(request, f'Updated {product.name} quantity in your bag')
     else:
         bag.pop(item_id)
         messages.success(request, f'Removed {product.name} from your bag')
@@ -47,7 +48,7 @@ def adjust_bag(request, item_id):
 
 
 def remove_from_bag(request, item_id):
-    """Remove the item from the shopping bag"""
+    """ Remove the item from the shopping bag """
 
     try:
         product = get_object_or_404(Product, pk=item_id)
@@ -72,7 +73,7 @@ def bag_to_fav(request, item_id):
         fav = request.session.get('fav', {})
         bag.pop(item_id)
         fav[item_id] = 1
-        messages.success(request, f'Added {product.name} to your favourites')
+        messages.success(request, f'Added {product.name} to your wish list')
 
         request.session['bag'] = bag
         request.session['fav'] = fav
@@ -118,7 +119,7 @@ def remove_from_fav(request, item_id):
 
 
 def fav_to_bag(request, item_id):
-    """Remove the item from the shopping bag"""
+    """ Remove the item from the favourites and add to the bag """
 
     try:
         product = get_object_or_404(Product, pk=item_id)
