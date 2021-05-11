@@ -62,7 +62,7 @@
                 <div class="col-12 d-inline-flex align-items-center justify-content-center">
                     {% for product_swatch in products_swatch %}
                         {% if product_swatch.style == product.style %}
-                            <div class="cover-swatch cover-swatch-detail" style="background-color: {{product_swatch.colour.hex_colour}};border: {{product_swatch.colour.hex_border}} 1px solid;"></div>
+                            {% include 'includes/coverswatches/coverswatch_exceptions.html' %}
                         {% endif %}
                     {% endfor %}
                 </div>
