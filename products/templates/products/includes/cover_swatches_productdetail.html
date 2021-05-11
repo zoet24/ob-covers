@@ -1,7 +1,7 @@
-{% if product_swatch.style.name != "metalGearSolid" and product_swatch.style.name != "deusEx" and product_swatch.style.name != "ironMan" and product_swatch.style.name != "bb8" and product_swatch.style.name != "frozen" and product_swatch.style.name != "r2d2" %}
-<div class="d-none">
-    <span id="productdetail-range">{{ product.range }}</span>
-    <span id="productdetail-bgcolour">{{ product.colour.hex_background }}</span>
+{% if product.style.name != "metalGearSolid" and product.style.name != "deusEx" and product.style.name != "ironMan" and product.style.name != "bb8" and product.style.name != "frozen" and product.style.name != "r2d2" %}
+<div>
+    <span class="d-none" id="productdetail-range">{{ product.range }}</span>
+    <span class="d-none" id="productdetail-bgcolour">{{ product.colour.hex_background }}</span>
 </div>
 {% endif %}
 
@@ -9,7 +9,7 @@
     onload = function () {
         var coverRange = $("#productdetail-range").html();
         var coverBgColour = $("#productdetail-bgcolour").html();
+
         $(`.cover-tile-bg-${coverRange}`).css("backgroundColor", coverBgColour);
-        $('.cover-swatch').addClass('cover-swatch-detail').removeClass('cover-swatch-fav');
     }
 </script>

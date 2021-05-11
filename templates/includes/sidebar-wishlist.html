@@ -40,7 +40,7 @@
                             <span>Available in:<br>
                                 {% for product_swatch in products_swatch %}
                                     {% if product_swatch.style == item.product.style %}
-                                        {% include 'includes/coverswatches/coverswatch_exceptions.html' %}
+                                        {% include 'includes/coverswatches/coverswatch_exceptions_fav.html' %}
                                     {% endif %}
                                 {% endfor %}
                             </span>
