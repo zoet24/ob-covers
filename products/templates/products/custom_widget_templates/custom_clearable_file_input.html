@@ -7,8 +7,8 @@
                         <img class="cover-tile-image" src="{{ widget.value.url }}">
                     </a>
                 {% else %}
-                    <a href="/media/no-image.png" class="cover-tile-image-container">
-                        <img class="cover-tile-image" src="/media/no-image.png">
+                    <a href="{{ MEDIA_URL }}no-image.png" class="cover-tile-image-container">
+                        <img class="cover-tile-image" src="{{ MEDIA_URL }}no-image.png">
                     </a>
                 {% endif %}
             </div>
