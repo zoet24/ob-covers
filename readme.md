@@ -1,6 +1,3 @@
-python3 manage.py migrate
-python3 manage.py runserver
-
 # OB Covers
 
 ## Code Institute: Milestone Project 4
@@ -167,7 +164,9 @@ Based on the features outlined in my scope and the pages included in the Boutiqu
 At this stage I added a "Customiser" page to my "nice-to-have" list - this would be a page where users can mix and match different colours of Classic covers. It was an unnecessary addition to include in the initial MVP, but I decided to be optimistic and include it in my wireframe mock-ups.
 
 #### Skeleton Plane
-![Open Bionics - Home page wireframe](media/readme/wireframes-home.png)
+I used Balsamiq to develop wireframes (click **[here](readme-wireframes.md)** to view all of them) of what I wanted my website to look like on mobile and desktop. I kept my scope at the forefront of this design process to make sure that there was going to be a place to put all of my key features.
+
+![Wireframes - home page](media/notproducts/readme-home.png)
 
 #### Surface Plane
 
