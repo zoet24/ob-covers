@@ -138,8 +138,29 @@ a.text-danger:hover, a.text-danger:focus {
     margin-right: 0px;
 }
 
+.icon-nav {
+    position: relative;
+    display: inline-flex;
+}
+
 .icon-nav:hover {
     transform: none;
+}
+
+.icon-nav-count {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: .65rem;
+    position: absolute;
+    top: -8px;
+    right: -9px;
+    width: 18px;
+    height: 18px;
+    color: #fff;
+    background-color: #1c86c8;
+    border: 2px solid #fff;
+    border-radius: 50%;
 }
 
 /* Buttons */

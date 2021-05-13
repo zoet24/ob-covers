@@ -37,9 +37,15 @@
             </div>
             <button class="icon icon-nav" type="button" onclick="openSidebarFav()">
                 <span><i class="fas fa-heart"></i></span>
+                <span class="icon-nav-count">
+                    {{ product_count_fav }}
+                </span>
             </button>
             <button class="icon icon-nav" type="button" onclick="openSidebarBasket()">
                 <span><i class="fas fa-shopping-basket"></i></span>
+                <span class="icon-nav-count">
+                    {{ product_count }}
+                </span>
             </button>
             <button class="icon icon-nav d-sm-none" type="button" onclick="openSidebarNav()">
                 <span><i class="fas fa-bars"></i></span>
