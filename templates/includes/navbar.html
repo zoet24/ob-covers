@@ -6,7 +6,7 @@
             <img class="d-sm-none" id="logo-nav-circle" src="{{ MEDIA_URL }}notproducts/logo-blue-circle.png" alt="OB logo" />
         </a>
         <!-- Search bar -->
-        <form class="navbar-search d-none d-sm-block" method="GET" action="{% url 'products' %}">
+        <form class="navbar-search d-none d-sm-flex" method="GET" action="{% url 'products' %}">
             <input type="text" name="q" placeholder="Search" aria-label="Search">
             <button class="navbar-icon-search" type="submit">
                 <span><i class="fas fa-search"></i></span>

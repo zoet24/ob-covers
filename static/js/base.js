@@ -15,9 +15,9 @@ function openSidebarNav() {
 }
 
 function closeSidebar() {
-  document.getElementById("sidebar-fav").style.right = "-100%";
-  document.getElementById("sidebar-basket").style.right = "-100%";
-  document.getElementById("sidebar-nav").style.right = "-100%";
+  document.getElementById("sidebar-fav").style.right = "-105%";
+  document.getElementById("sidebar-basket").style.right = "-105%";
+  document.getElementById("sidebar-nav").style.right = "-105%";
 }
 
 function closeToast() {

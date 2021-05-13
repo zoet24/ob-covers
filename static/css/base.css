@@ -110,7 +110,7 @@ nav, footer {
     height: 35px;
     width: 20%;
 	text-align: right;
-    margin-right: 15px;
+    margin-right: 5px;
 }
 
 ::placeholder {
@@ -289,7 +289,7 @@ button.close {
   position: fixed;
   z-index: 100;
   top: 0;
-  right: -100%;
+  right: -105%;
   overflow-x: hidden;
 
   color: #151635;
@@ -303,6 +303,7 @@ button.close {
     color: #fff;
     background-color: #1c86c8;
     border-left: 4px #fff solid;
+    width: 75%;
 }
 
 .sidebar .sidebar-close {
@@ -329,18 +330,18 @@ button.close {
 /* MEDIA QUERIES */
 @media (min-width: 450px) {
     .sidebar {
-        width: 450px;
+        width: 425px;
+    }
+
+    .sidebar-nav {
+        width: 300px;
     }
 }
 
 @media (min-width: 576px) {
-	.navbar-search input {
-		width: 175px;
-		margin-left: 15px;
-	}
-
-	.navbar-icon-search {
-		margin-right: 5px;
+	.navbar-search {
+        width: 40%;
+        max-width: 325px;
 	}
 
 	.filler-top {
@@ -360,19 +361,9 @@ button.close {
     .container-compress {
         width: 85%;
     }
-    
-    .navbar-search input {
-		width: 250px;
-    }
 
     .banner-messages {
         padding: 10px 25px;
-    }
-}
-
-@media (min-width: 992px) {    
-    .navbar-search input {
-		width: 350px;
     }
 }
 
