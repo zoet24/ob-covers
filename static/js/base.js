@@ -3,39 +3,21 @@ function openProfileDropdown() {
 }
 
 function openSidebarFav() {
-	if (window.innerWidth <= 400) {
-        document.getElementById("sidebar-fav").style.borderLeftWidth = "0px"
-        document.getElementById("sidebar-fav").style.width = "100%";
-    }
-    else {
-        document.getElementById("sidebar-fav").style.borderLeftWidth = "0px"
-        document.getElementById("sidebar-fav").style.width = "450px";
-    }
+    document.getElementById("sidebar-fav").style.right = "0";
 }
 
 function openSidebarBasket() {
-  	if (window.innerWidth <= 400) {
-        document.getElementById("sidebar-basket").style.borderLeftWidth = "0px"
-        document.getElementById("sidebar-basket").style.width = "100%";
-    }
-    else {
-        document.getElementById("sidebar-basket").style.borderLeftWidth = "0px"
-    	document.getElementById("sidebar-basket").style.width = "450px";
-    }
+    document.getElementById("sidebar-basket").style.right = "0";
 }
 
 function openSidebarNav() {
-	document.getElementById("sidebar-nav").style.borderLeftWidth = "2px"
-  	document.getElementById("sidebar-nav").style.width = "75%";
+  	document.getElementById("sidebar-nav").style.right = "0";
 }
 
 function closeSidebar() {
-  document.getElementById("sidebar-fav").style.width = "0";
-  document.getElementById("sidebar-basket").style.width = "0";
-  document.getElementById("sidebar-nav").style.width = "0";
-  document.getElementById("sidebar-fav").style.borderWidth = "0px";
-  document.getElementById("sidebar-basket").style.borderWidth = "0px";
-  document.getElementById("sidebar-nav").style.borderWidth = "0px";
+  document.getElementById("sidebar-fav").style.right = "-100%";
+  document.getElementById("sidebar-basket").style.right = "-100%";
+  document.getElementById("sidebar-nav").style.right = "-100%";
 }
 
 function closeToast() {

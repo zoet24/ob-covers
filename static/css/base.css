@@ -86,7 +86,8 @@ nav, footer {
 
 .navbar-search-sidebar {
 	width: 92.5%;
-	margin: 0.25rem 0.5rem;
+    margin: 0.25rem 0.5rem;
+    display: flex;
 }
 
 .navbar-search input {
@@ -96,7 +97,7 @@ nav, footer {
 	border: none;
 	outline: none;
 	height: 35px;
-	width: 75%;
+	width: 80%;
 	margin-left: 15px;
 }
 
@@ -106,8 +107,10 @@ nav, footer {
 	font-size: 18px;
     border: none;
     border-radius: 50%;
-	height: 35px;
-	margin-right: 0px;
+    height: 35px;
+    width: 20%;
+	text-align: right;
+    margin-right: 15px;
 }
 
 ::placeholder {
@@ -282,24 +285,24 @@ button.close {
 /* SIDEBARS */
 .sidebar {
   height: 100%;
-  width: 0;
+  width: 100%;
   position: fixed;
   z-index: 100;
   top: 0;
-  right: 0;
+  right: -100%;
   overflow-x: hidden;
 
   color: #151635;
   background-color: #f0f3f4;
-  border: 0px #151635 solid;
+  border-left: 2px #151635 solid;
   
-  transition: 0.5s;
+  transition: 1s;
 }
 
 .sidebar-nav {
     color: #fff;
     background-color: #1c86c8;
-    border: 0px #fff solid;
+    border-left: 4px #fff solid;
 }
 
 .sidebar .sidebar-close {
@@ -324,6 +327,12 @@ button.close {
 }
 
 /* MEDIA QUERIES */
+@media (min-width: 450px) {
+    .sidebar {
+        width: 450px;
+    }
+}
+
 @media (min-width: 576px) {
 	.navbar-search input {
 		width: 175px;
