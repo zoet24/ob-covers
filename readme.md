@@ -170,8 +170,45 @@ I used Balsamiq to develop wireframes (click **[here](readme-wireframes.md)** to
 ![Wireframes - home page](media/notproducts/readme-home.png)
 
 #### Surface Plane
+After finishing my wireframes I started gathering Open Bionics media to start work on my surface plane. The Open Bionics colour scheme and logos are shown below - I used these throughout my design to match the aesthetic of the site with the Open Bionics branding. I also used the same 'Roboto' font that we use on the main Open Bionics website.
+
+![Open Bionics colour scheme](media/notproducts/ob-covers-colourscheme.png)
+![Open Bionics long blue logo](media/notproducts/logo-blue.png)
+![Open Bionics circular blue logo](media/notproducts/logo-blue-circle.png)
+
+I also wanted to showcase all of the different cover designs on the Home page but didn't want to overcrowd the design with loads of images - I decided to design an interactive cover swatch that shows all of the different cover colours within a product range that the user can click through.
 
 ### Information Architecture
+The product data is stored in 4 models - 1 main Product model and 3 smaller models for the Range, Style and Colour.
+
+**Product model**
+- SKU : Numerical identifier
+- Name : Name of product
+- Range : Foreign key to the Range model
+- Style : Foreign key to the Style model
+- Colour : Foreign key to the Colour model
+- Description : Description of product
+- Price : Price of product
+- Image : Image of product
+- Image URL : URL link to image of product
+- Unavailable : Boolean to mark product available/unavailable
+
+**Range model**
+- Name : Name of range
+- Friendly Name : Human readable name of range for rendering in templates
+
+**Style model**
+- Name : Name of style
+- Friendly Name : Human readable name of style for rendering in templates
+
+**Colour model**
+- Name : Name of colour
+- Friendly Name : Human readable name of colour for rendering in templates
+- Hex colour : Hex value that controls the colour of the colour swatch displayed throughout the website
+- Hex background : Hex value that controls the background colour of the cover image displayed throughout the website
+- Hex border : Hex value that controls the colour of the border of the colour swatch displayed throughout the website
+
+I initially considered modelling my product data using an inventory method - each product would have a stock level that would automatically decrease when a user placed an order, and could be used to flag products as "low stock" when the stock level dropped below a certain value, and "out of stock" when the stock level reached 0. However, I decided against this as all of our covers are bespoke and are made to order. Instead, I included an "unavailable" Boolean which admins can use to prevent users from buying certain products - this would be used in the event of a supply problem if we had run out of material to make a specific design, which is a more realistic scenario for our business.
 
 ### Features
 #### Existing features
