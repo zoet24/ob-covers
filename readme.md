@@ -20,7 +20,7 @@ Click **[here](https://github.com/zoet24/ob-covers)** to view the Github reposit
         - [Skeleton Plane](#skeleton-plane)
         - [Surface Plane](#surface-plane)
     - [Information Architecture](#information-architecture)
-    - [Features](#features)
+    - [Features and Django Apps](#features-and-django-apps)
         - [Existing features](#existing-features)
         - [Defensive design features](#defensive-design-features)
         - [Features left to implement](#features-left-to-implement)
@@ -48,7 +48,7 @@ _Aesthetic, Branding and UX_
 3. As the developer, I want the website to be aesthetically pleasing and easy to use to demonstrate my ability to code in HTML and CSS and to create a positive UX experience for the site users.
 4. As the site owner, I want the aesthetic of the website to match our existing brand to adhere to our established brand identity.
 5. As the site owner, I want the site users to have a positive UX experience while browsing the product range to increase the likelihood of making a sale.
-6. As the site owner, I want to be able to advertise our product and clearly present what we have in stock to our customer base to increase the likelihood of making a cover sale.
+6. As the site owner, I want to be able to advertise our cover product range and clearly present what we have in stock to our customer base to increase the likelihood of making a cover sale.
 7. As the site owner, I want to promote our main product to increase the likelihood of making a Hero Arm sale.
 8. As a site user, I want feedback when I successfully/unsuccessfully complete an action on the website.
 
@@ -67,7 +67,7 @@ _Viewing and Navigation_
 16. As a site user, I want to be able to view specific product details (price, description) to inform my decision.
 17. As a site user, I want to be able easily identify deals to take advantage of special savings.
 18. As a site user, I want to be able to easily identify any "low stock" items so I can make my purchase before they run out.
-19. As a site user, I want to be able to easily identify any "out of stock" items that I won’t be able to buy, so I don’t waste time trying to buy them.
+19. As a site user, I want to be able to easily identify any "out of stock" or "unavailable" items that I won’t be able to buy, so I don’t waste time trying to buy them.
 20. As a site user, I want to be able to easily identify "newly added" products in case I am interested in purchasing them.
 21. As a site user, I want to be able to view my selection of products and see how much they will cost to avoid spending too much.
 
@@ -162,7 +162,7 @@ Based on the features outlined in my scope and the pages included in the Boutiqu
 - The Checkout page has a form for the user to enter their delivery information and a summary of their order on the right. When the user submits their order they are taken to an order confirmation page which shows them their order details and a link back to the main site.
 - The Product Management page has a form that allows the admin user to add new products to the product range. The admin user can edit and remove products from the Product and Product Details pages.
 - The navbar contains the Open Bionics logo which links to the Home page, a search bar which allows the user to search for products based on name and description, icons for the Profile page, Favourites sidebar and Shopping Basket sidebar and links to all of the Products pages.
-- The site provides the user with feedback on their actions in the form of a message bubble at the top left of the screen - the message bubble will be formatted differently depending on the content of the message.
+- The site provides the user with feedback on their actions in the form of a toast message at the top left of the screen - the toast message will be formatted differently depending on the content of the message.
 
 #### Skeleton Plane
 I used Balsamiq to develop wireframes (click **[here](readme-wireframes.md)** to view all of them) of what I wanted my website to look like on mobile and desktop. I kept my scope at the forefront of this design process to make sure that there was going to be a place to put all of my key features.
@@ -210,12 +210,59 @@ The product data is stored in 4 models - 1 main Product model and 3 smaller mode
 
 I initially considered modelling my product data using an inventory method - each product would have a stock level that would automatically decrease when a user placed an order, and could be used to flag products as "low stock" when the stock level dropped below a certain value, and "out of stock" when the stock level reached 0. However, I decided against this as all of our covers are bespoke and are made to order. Instead, I included an "unavailable" Boolean which admins can use to prevent users from buying certain products - this would be used in the event of a supply problem if we had run out of material to make a specific design, which is a more realistic scenario for our business.
 
-### Features
+### Features and Django Apps
+OB Covers is a Django project made up of 4 Django applications and a number of different features which are detailed in the list below.
 #### Existing features
+*Navigation*
+    - Nav links
+    - Searching
+    - Links back to OB
+    - Hovering - underline/scale consistent across site
+    - Fade in animation
+
+*Toasts*
+    - Different classes
+
+*Shopping Basket and Wish List*
+    - Always accessible, can see how many items - contexts
+    - Fav - shows product and range of colours, links to check out style, add items into basket, links to continue shopping
+    - Basket - shows product with quantity, can update/remove/save for later, shows total costs, links to continue shopping or secure checkout
+    - Free delivery
+
+*Cover swatches*
+    - Always accessible - contexts
+    - Interactive on home page
+    - Changeable on admin
+    - Only display the same colour once
+
+*Django Allauth*
+    - Log in/sign up
+    - Emails
+
+*Home App*
+    - Links to sign up, shops
+    - Images of users
+    - Interactive cover swatches
+
+*Products App*
+    - Filter and sorting 
+    - Breadcrumbs at top 
+    - Add, edit, delete as user
+    - Product detail - quantity, add to basket, wish list
+
+*Profile App*
+    - Default delivery
+    - Order history
+
+*Checkout App*
+    - Stripe payment
+    - Order confirmations
+    - Emails
 
 #### Defensive design features
 
 #### Features left to implement
+- Chaining filters together
 
 ## Technologies used
 ### Languages and frameworks
