@@ -2,13 +2,13 @@
 
 ## Code Institute: Milestone Project 4
 
-![OB Covers on multiple devices](static/images/readme/ob-app-responsive.png)
+![OB Covers on multiple devices](media/notproducts/readme-ob-covers-responsive.png)
 
 I have worked for Open Bionics since 2016 - we are a medical engineering company that uses a combination of digital scanning and 3D printing to manufacture prosthetics. The main product - the Hero Arm - is a fully functional, bespoke prosthetic arm but our users can also customise their devices with a wide range of cover choices that come in different colours and styles. The current website that we use to sell covers hasn't been updated since 2018 and the backend is difficult to edit for anyone without software development knowledge - as a result, the user experience when using the website is poor, the product range is out of date and our cover sales are low. I wanted to develop a website - _OB Covers_ - with an easy-to-use backend that would make it easier for our customer base to purchase additional covers and hopefully boost cover sales.
 
 This was the final of four Milestone Projects required to pass the Full Stack Web Development Program at _Code Institute_. The main requirements were to build a full-stack site based around business logic to control a centrally-owned dataset using HTML, CSS, JavaScript, Python and Django.
 
-Click **[here](https://github.com/zoet24/ob-covers)** to view the Github repository for the project, and click **[here](#)** to view the live website.
+Click **[here](https://github.com/zoet24/ob-covers)** to view the Github repository for the project, and click **[here](https://ob-covers.herokuapp.com/)** to view the live website.
 
 ## Table of Contents
 
@@ -48,7 +48,7 @@ _Aesthetic, Branding and UX_
 3. As the developer, I want the website to be aesthetically pleasing and easy to use to demonstrate my ability to code in HTML and CSS and to create a positive UX experience for the site users.
 4. As the site owner, I want the aesthetic of the website to match our existing brand to adhere to our established brand identity.
 5. As the site owner, I want the site users to have a positive UX experience while browsing the product range to increase the likelihood of making a sale.
-6. As the site owner, I want to be able to advertise new products or deals to our customer base to increase the likelihood of making a cover sale.
+6. As the site owner, I want to be able to advertise our product and clearly present what we have in stock to our customer base to increase the likelihood of making a cover sale.
 7. As the site owner, I want to promote our main product to increase the likelihood of making a Hero Arm sale.
 8. As a site user, I want feedback when I successfully/unsuccessfully complete an action on the website.
 
