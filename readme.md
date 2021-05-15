@@ -32,6 +32,7 @@ Click **[here](https://github.com/zoet24/ob-covers)** to view the Github reposit
 - [Deployment](#deployment)
     - [Deploying to Heroku](#deploying-to-heroku)
     - [Setting up AWS](#setting-up-aws)
+    - [Setting up Automated Emails](#setting-up-automated-emails)
 - [Credits](#credits)
 
 ## UX Design
@@ -278,41 +279,84 @@ Click **[here](readme-testing.md)** to view the complete testing process.
 
 ## Deployment
 ### Deploying to Heroku
-vid#1
-- go to heroku website, name app and choose region closest to you
-- provision a new postgres database, use free plan
-- go back to gitpod to install dj database url and psycopg2 (using pip3)
-- freeze requirements.txt to ensure heroku installs all requirements on deployment
-- import dj database to settings.py
-- comment out default database settings and replace default with a call to dj database
-- give it database url for heroku (command line heroku config/environment variables)
-- connect to heroku database and run migrations
-- import all product data by loading in categories, and then products
-- give yourself a superuser to log in to the admin with
-- before you commit changes, remove database url and un-comment out default to prevent url ending up in version control
-vid#2
-- set up if statement to connect to postgres/sql lite
-- install gunicorn and freeze that into requirements
-- create procfile to tell heroku to run app
-- temporarily disable collect static
-- add host name of heroku app to allowed hosts in settings.py
-- add local host so app still works with gitpod too
-- git push and git push heroku master to deploy to heroku
-- set auto deploy - connect to github through heroku and connect to repository
-- generate django secret key and add to config vars on heroku
-- change settings.py to get new secret key from environment
-- set debug to true only when in development defined in environment
-- naviagte to heroku to check auto deployments are working
-vid#3
+Deploy the site to Heroku using the following steps:
+1. Create a `requirements.txt` file
+    - Enter `pip freeze > requirements.txt` in the terminal
+2. Create a `Procfile`
+    - Enter `pip3 install gunicorn`
+    - Create a `Procfile` in the root directory
+    - Add `web: gunicorn ob_covers.wsgi:application` to the file
+    - Add, commit and push your code to GitHub
+4. Create a new app on Heroku
+    - Sign in to the Heroku dashboard a create a new app by clicking "Create new app" in the "New" dropdown box
+    - Choose a relevant and unique app name and choose the region closest to you
+5. Add Postgres to Heroku
+    - Go to the "Resources" tab and provision a new Heroku Postgres using the free plan
+6. Set Heroku config variables
+    - In the Config Vars add values for:
+        - DATABASE_URL (your Postgres database URL)
+        <!-- - EMAIL_HOST_PASS
+        - EMAIL_HOST_SUER -->
+        - SECRET_KEY (your secret key)
+        - STRIPE_PUBLIC_KEY (your Stripe public key)
+        - STRIPE_SECRET_KEY (your Stripe secret key)
+        - STRIPE_WH_KEY (your Stripe webhook key)
+        - USE_AWS (set to True)
+7. Set up a new database in `settings.py`
+    - Enter `pip3 install dj_database_url` and `pip3 install pyscopg2` in the terminal and then freeze your requirements again
+    - In `settings.py` add `import dj_database_url` at the top
+    - In `settings.py` temporarily comment out `DATABASES`
+    - Add the following code with your Postgres database URL (DO NOT commit/push your code to GitHub while your Postgres URL is visible in your settings)
+ 
+        DATABASES = {
+            'default': dj_database_url.parse("<your Postrgres database URL>")
+        }
+    
+    - Migrate your models to the Postgres database by entering `python3 manage.py makemigrations` and `python3 manage.py migrate` into the terminal
+    - Load the data fixtures by entering `python3 manage.py loaddata ranges`, `python3 manage.py loaddata colours`, `python3 manage.py loaddata styles` and `python3 manage.py loaddata products` into the terminal
+    - Create a superuser with admin rights by entering `python3 manage.py createsuperuser` into the terminal with an email, username and password
+    - Correct the `settings.py` file by uncommenting the `DATABASES` and removing the code with your Postgres URL - your final database code should look like:
+
+        `if 'DATABASE_URL' in os.environ:
+            DATABASES = {
+                'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+            }
+        else:
+            DATABASES = {
+                'default': {
+                    'ENGINE': 'django.db.backends.sqlite3',
+                    'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+                }
+            }`
+
+    - In `settings.py` add the hostname of the Heroku app to ALLOWED_HOSTS = ['<your app name URL>', 'localhost']
+    - Add, commit and push your code to GitHub
+8. Set up automatic deployment to Heroku
+    - In Heroku navigate to "Deploy" > "Deployment Method" > "Connect to Github"
+    - Search for your repo and select it
+    - Navigate to "Automatic Deployment" > "Enable Automatic Deploys"
+    - Test that it is working by pushing your code and checking the Heroku app URL
 
 ### Setting up AWS
-- AWS account
+Host your static files and images with AWS using the following steps:
+1. Set up an [AWS account](https://aws.amazon.com/)
+2. Create an AWS S3 Bucket, a Bucket Policy, a Group, an Access Policy and a User using the instructions outlined [here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/GetStartedWithS3.html)
+3. Connect Django to S3 using the instructions outlined [here](https://django-storages.readthedocs.io/en/latest/backends/amazon-S3.html)
+4. Add the AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY to your Heroku config variables
 
+### Setting up Automated Emails
+Set up automatic emails with Django and Gmail using the following steps:
+1. Navigate to "Account Settings" > "Other Google Account Settings" > "Security"
+2. Turn on 2-step verification
+3. Navigate back to "Security" > "App passwords", select "Mail" in the app dropdown and then "Other" in the device dropdown
+4. Copy the 16-character password and add it as EMAIL_HOST_PASS to your Heroku config variables
+5. Copy the Gmail address and add it as EMAIL_HOST_USER to your Heroku config variables
 
 ## Credits
+__Media:__ All of the images and logos on the website are property of Open Bionics.
 
 __Code:__
 I used the following snippets of code for...
 
 __Acknowledgements:__
-I'd like to thank...
+I'd like to thank my bosses Joel Gibbard and Samantha Payne for allowing me to use the Open Bionics images, logos and branding, and my colleagues for their useful feedback on the finished website. I'd also like to thank my tutor Can Sucullu, the _Code Institute_ community and my friends and family for their guidance and input on this project.
