@@ -2,7 +2,7 @@
 // On load fade text, logo and buttons on to hero image if user hasn't visited page
     onload = function session() {
         if (document.cookie.indexOf("visited") >= 0) {
-            animationSecond();
+            animationFirst();
         } else {
             document.cookie = "visited";
             animationFirst();
@@ -43,13 +43,15 @@
 
         // Trigger animation
         if (window.innerWidth < 992) {
+            setTimeout(function () {
             $("#home-heading-1").fadeIn(1000).css("display","inline-block");
+            }, 1000);
             setTimeout(function () {
                 $("#home-heading-1").fadeOut(1000);
-            }, 2500);
+            }, 3000);
             setTimeout(function () {
                 $("#home-heading-2").fadeIn(1000).css("display","inline-block");
-            }, 3500);
+            }, 4000);
             setTimeout(function () {
                 $("#home-heading-2").fadeOut(1000);
             }, 6000);
@@ -66,14 +68,14 @@
             $("#home-heading-buttons").css({"opacity": "0", "display": "inline-block"});
             setTimeout(function () {
                 $("#home-heading-1").fadeTo(1000, 1);
-            }, 500);
+            }, 1000);
             setTimeout(function () {
                 $("#home-heading-2").fadeTo(1000, 1);
             }, 3000);
             setTimeout(function () {
                 $("#home-heading-logo").fadeTo(1000, 1);
                 $("#home-heading-buttons").fadeTo(1000, 1);
-            }, 5500);
+            }, 5000);
         }
     };
 
