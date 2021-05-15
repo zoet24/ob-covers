@@ -30,6 +30,8 @@ Click **[here](https://github.com/zoet24/ob-covers)** to view the Github reposit
 - [Git Commit Messages](#git-commit-messages)
 - [Testing](#testing)
 - [Deployment](#deployment)
+    - [Deploying to Heroku](#deploying-to-heroku)
+    - [Setting up AWS](#setting-up-aws)
 - [Credits](#credits)
 
 ## UX Design
@@ -275,6 +277,7 @@ OB Covers is a Django project made up of 4 Django applications and a number of d
 Click **[here](readme-testing.md)** to view the complete testing process.
 
 ## Deployment
+### Deploying to Heroku
 vid#1
 - go to heroku website, name app and choose region closest to you
 - provision a new postgres database, use free plan
@@ -301,6 +304,8 @@ vid#2
 - set debug to true only when in development defined in environment
 - naviagte to heroku to check auto deployments are working
 vid#3
+
+### Setting up AWS
 - AWS account
 
 
