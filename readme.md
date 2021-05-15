@@ -269,10 +269,44 @@ OB Covers is a Django project made up of 4 Django applications and a number of d
 
 ## Technologies used
 ### Languages and frameworks
+- HTML: The language used to create the content and structure of my project.
+- CSS: The language used to style the HTML5 elements to create the aesthetic of my site.
+- JavaScript and JQuery: One of the languages used to add extra functionality to my site.
+- Python: The language used to write the logic that controls my site.
+- Bootstrap framework: I used the Bootstrap grid system to make my site responsive on different devices. I also used it for the carousel and modal components throughout the site.
+- Django: A high-level Python web framework used to control my site.
+- Heroku: I used Heroku to deploy my project and make it viewable to others.
+- SQLite: The default database used in Django development.
+- PostgreSQL: The production database used through Heroku.
+- AWS S3: I used AWS for hosting media and static files on the Cloud.
+- GitHub: I used GitHub to store my source code and repository.
+- Gitpod: I used Gitpod's development environment to write the code for my project.
+- Stripe: I used Stripe to manage the test payment transactions.
 
 ### Additional tools used
+- Amiresponsive: I used this to produce the main image for my readme file and to test the responsiveness of my website.
+- Balsamiq: I used this to produce wireframe sketches for the site's skeleton plane.
+- CompressPNG: I used this to compress the static images to improve performance.
+- FontAwesome: I used FontAwesome's database for basic icons throughout my site.
+- FreeFormatter: I used Freeformatter.com to format my code properly.
+- Google Developer Tools: I used this to test the responsiveness of my website by viewing my project on devices with different screen sizes. I also used the Console to test different functions in my JavaScript code throughout development, and the Lighthouse package to test the performance of the site.
+- JSHint: I used this to test to the validity of my JavaScript and JQuery code.
+- PEP8Online: I used this to test the compliance of my Python code.
+- W3C CSS Validation Service: I used this to test to the validity of my CSS code.
+- W3C Markup Validation Service: I used this to test the validity of my HTML5 code.
 
 ## Git Commit Messages
+I continued using the git commit format style that I had developed during my other Milestone projects. I used the imperative tense for all messages; I referred to all pages with their full name (ie. index.html instead of index); I denoted bug fixes by including "Bug" at the start of the message; all messages were under 50 characters. I've included 10 git commit messages below to demonstrate the syntax.
+- **1bc8284** 2021-04-13 - Finish adding basic content to shopping basket
+- **afeaa1e** 2021-04-13 - Bug fix: Add extra JS file for quantity adjustment in shopping basket
+- **b4dc59b** 2021-04-13 - Add contexts and views for add to favourites functionality
+- **2e78fe4** 2021-04-13 - Add remove functionality to favourites menu
+- **9c5906a** 2021-04-13 - Add bag to favourites functionality to shopping basket menu
+- **2bc1084** 2021-04-13 - Add favourites to bag functionality to favourites menu
+- **3c87df4** 2021-04-13 - Make migrations for assigning colours rgb values
+- **e75cb83** 2021-04-14 - Migrate changes to store hex codes for cover swatches in django
+- **5762caa** 2021-04-14 - Streamline cover swatch code and remove css styling
+- **238b53f** 2021-04-14 - Remove visual errors with new cover swatch code
 
 ## Testing
 Click **[here](readme-testing.md)** to view the complete testing process.
@@ -295,8 +329,6 @@ Deploy the site to Heroku using the following steps:
 6. Set Heroku config variables
     - In the Config Vars add values for:
         - DATABASE_URL (your Postgres database URL)
-        <!-- - EMAIL_HOST_PASS
-        - EMAIL_HOST_SUER -->
         - SECRET_KEY (your secret key)
         - STRIPE_PUBLIC_KEY (your Stripe public key)
         - STRIPE_SECRET_KEY (your Stripe secret key)
@@ -307,17 +339,17 @@ Deploy the site to Heroku using the following steps:
     - In `settings.py` add `import dj_database_url` at the top
     - In `settings.py` temporarily comment out `DATABASES`
     - Add the following code with your Postgres database URL (DO NOT commit/push your code to GitHub while your Postgres URL is visible in your settings)
- 
+        ```
         DATABASES = {
             'default': dj_database_url.parse("<your Postrgres database URL>")
         }
-    
+        ```
     - Migrate your models to the Postgres database by entering `python3 manage.py makemigrations` and `python3 manage.py migrate` into the terminal
     - Load the data fixtures by entering `python3 manage.py loaddata ranges`, `python3 manage.py loaddata colours`, `python3 manage.py loaddata styles` and `python3 manage.py loaddata products` into the terminal
     - Create a superuser with admin rights by entering `python3 manage.py createsuperuser` into the terminal with an email, username and password
     - Correct the `settings.py` file by uncommenting the `DATABASES` and removing the code with your Postgres URL - your final database code should look like:
-
-        `if 'DATABASE_URL' in os.environ:
+        ```
+        if 'DATABASE_URL' in os.environ:
             DATABASES = {
                 'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
             }
@@ -327,9 +359,9 @@ Deploy the site to Heroku using the following steps:
                     'ENGINE': 'django.db.backends.sqlite3',
                     'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
                 }
-            }`
-
-    - In `settings.py` add the hostname of the Heroku app to ALLOWED_HOSTS = ['<your app name URL>', 'localhost']
+            }
+        ```
+    - In `settings.py` add the hostname of the Heroku app to `ALLOWED_HOSTS = ['localhost']`
     - Add, commit and push your code to GitHub
 8. Set up automatic deployment to Heroku
     - In Heroku navigate to "Deploy" > "Deployment Method" > "Connect to Github"
