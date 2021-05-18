@@ -13,12 +13,14 @@ def add_to_bag(request, item_id):
     bag = request.session.get('bag', {})
 
     if product.unavailable is True:
-        messages.error(request, f'{product.name} is currently unavailable for purchase')
+        messages.error(request,
+                       f'{product.name} is currently unavailable for purchase')
         return redirect(redirect_url)
     else:
         if item_id in list(bag.keys()):
             bag[item_id] += quantity
-            messages.success(request, f'Updated {product.name} quantity in your bag')
+            messages.success(request,
+                             f'Updated {product.name} quantity in your bag')
         else:
             bag[item_id] = quantity
             messages.success(request, f'Added {product.name} to your bag')
@@ -38,7 +40,8 @@ def adjust_bag(request, item_id):
 
     if quantity > 0:
         bag[item_id] = quantity
-        messages.success(request, f'Updated {product.name} quantity in your bag')
+        messages.success(request,
+                         f'Updated {product.name} quantity in your bag')
     else:
         bag.pop(item_id)
         messages.success(request, f'Removed {product.name} from your bag')
@@ -92,7 +95,8 @@ def add_to_fav(request, item_id):
     fav = request.session.get('fav', {})
 
     if item_id in list(fav.keys()):
-        messages.success(request, f'{product.name} is already in your favourites!')
+        messages.success(request,
+                         f'{product.name} is already in your favourites!')
     else:
         fav[item_id] = 1
         messages.success(request, f'Added {product.name} to your favourties')
@@ -108,7 +112,8 @@ def remove_from_fav(request, item_id):
         product = get_object_or_404(Product, pk=item_id)
         fav = request.session.get('fav', {})
         fav.pop(item_id)
-        messages.success(request, f'Removed {product.name} from your favourites')
+        messages.success(request,
+                         f'Removed {product.name} from your favourites')
 
         request.session['fav'] = fav
         return HttpResponse(status=200)
@@ -127,7 +132,8 @@ def fav_to_bag(request, item_id):
         fav = request.session.get('fav', {})
 
         if product.unavailable is True:
-            messages.error(request, f'{product.name} is currently unavailable for purchase')
+            messages.error(request,
+                           f'{product.name} is currently unavailable.')
             return HttpResponse(status=200)
         else:
             fav.pop(item_id)
