@@ -21,6 +21,7 @@
     align-self: center;
 }
 
+
 /* Allauth form formatting */
 
 .allauth-form-inner-content {
@@ -49,12 +50,14 @@
 }
 
 .allauth-form-inner-content input:-webkit-autofill {
-    -webkit-box-shadow:0 0 0 50px white inset; /* Change the color to your own background color */
+    -webkit-box-shadow: 0 0 0 50px white inset;
+    /* Change the color to your own background color */
     -webkit-text-fill-color: #151635;
 }
 
 .allauth-form-inner-content input:-webkit-autofill:focus {
-    -webkit-box-shadow: 0 0 0 50px white inset;/*your box-shadow*/
+    -webkit-box-shadow: 0 0 0 50px white inset;
+    /*your box-shadow*/
     -webkit-text-fill-color: #151635;
 }
 
@@ -67,7 +70,8 @@
     text-transform: capitalize;
 }
 
-#div_id_password, #div_id_password2 {
+#div_id_password,
+#div_id_password2 {
     margin-bottom: 4px;
 }
 
@@ -77,7 +81,8 @@
     width: 75%;
 }
 
-.alluth-error, .invalid-feedback {
+.alluth-error,
+.invalid-feedback {
     font-size: 1.25rem;
     font-weight: 300;
     letter-spacing: 0.3px;
@@ -91,14 +96,16 @@
 }
 
 .allauth-form-inner-content a {
-	color: #fff;
+    color: #fff;
 }
 
 .allauth-form-inner-content a:hover {
-	text-decoration: underline;
+    text-decoration: underline;
 }
 
+
 /* MEDIA QUERIES */
+
 @media (min-width: 576px) {
     .logo-allauth {
         width: 350px;
@@ -109,8 +116,8 @@
     .allauth-hero-image {
         background-position: 50% 40%;
     }
-
-    #div_id_password, #div_id_password2 {
+    #div_id_password,
+    #div_id_password2 {
         margin-bottom: 8px;
     }
 }

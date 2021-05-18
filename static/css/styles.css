@@ -1,8 +1,10 @@
 /* Stylesheet with declarations for general styles used throughout site */
 
+
 /* STYLES */
+
 .black-border {
-	border: solid 2px black;
+    border: solid 2px black;
 }
 
 .blue-border {
@@ -61,7 +63,9 @@
     letter-spacing: 0px;
 }
 
+
 /* BACKGROUNDS */
+
 .bg-lightgrey {
     background-color: #f8f9fa;
 }
@@ -70,13 +74,11 @@
     background-color: #e3ecf2;
 }
 
+
 /* MEDIA QUERIES */
+
 @media (min-width: 768px) {
     .img-mirror-md {
         transform: scaleX(-1);
     }
-}
-
-@media (min-width: 992px) {
-    
 }
