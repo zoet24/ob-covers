@@ -28,7 +28,9 @@
     background-position: 92.5% 0%;
 }
 
+
 /* MEDIA QUERIES */
+
 @media (min-width: 576px) {
     #logo-home {
         width: 350px;
@@ -39,11 +41,9 @@
     #home-hero-image-1 {
         background-position: 90% 20%;
     }
-
     #home-hero-image-2 {
         background-position: 100% 0%;
     }
-
     #home-hero-image-3 {
         background-position: 90% 70%;
     }

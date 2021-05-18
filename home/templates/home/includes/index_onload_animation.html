@@ -5,35 +5,35 @@
             animationFirst();
         } else {
             document.cookie = "visited";
-            animationFirst();
+            animationSecond();
         }
-    }
+    };
 
     function swatchClick() {
         // 'Click' different cover swatches to trigger background
-        setTimeout(function() {
+        setTimeout(function () {
             $(".cover-swatch-classic").trigger('click');
         }, 50);
-        setTimeout(function() {
+        setTimeout(function () {
             $(".cover-swatch-stylish").trigger('click');
         }, 100);
-        setTimeout(function() {
+        setTimeout(function () {
             $(".cover-swatch-premium").trigger('click');
         }, 150);
-        setTimeout(function() {
+        setTimeout(function () {
             $(".cover-swatch-disney").trigger('click');
         }, 200);
     }
 
     function animationFirst() {
         // Load at top of page
-        $(window).on('beforeunload', function() {
+        $(window).on('beforeunload', function () {
             $('body').hide();
             $(window).scrollTop(0);
         });
 
         // Scroll past banner mesages
-        let bannerD = $('.banner-messages').outerHeight();
+        var bannerD = $('.banner-messages').outerHeight();
         window.scroll({
             top: bannerD,
             behavior: 'smooth'
@@ -44,28 +44,38 @@
         // Trigger animation
         if (window.innerWidth < 992) {
             setTimeout(function () {
-            $("#home-heading-1").fadeIn(1000).css("display","inline-block");
+                $("#home-heading-1").fadeIn(1000).css("display", "inline-block");
             }, 1000);
             setTimeout(function () {
                 $("#home-heading-1").fadeOut(1000);
             }, 3000);
             setTimeout(function () {
-                $("#home-heading-2").fadeIn(1000).css("display","inline-block");
+                $("#home-heading-2").fadeIn(1000).css("display", "inline-block");
             }, 4000);
             setTimeout(function () {
                 $("#home-heading-2").fadeOut(1000);
             }, 6000);
             setTimeout(function () {
-                $("#home-heading-logo").fadeIn(1000).css("display","inline-block");
-                $("#home-heading-buttons").fadeIn(1000).css("display","inline-block");
+                $("#home-heading-logo").fadeIn(1000).css("display", "inline-block");
+                $("#home-heading-buttons").fadeIn(1000).css("display", "inline-block");
             }, 7000);
-        }
-
-        else {
-            $("#home-heading-1").css({"opacity": "0", "display": "inline-block"});
-            $("#home-heading-2").css({"opacity": "0", "display": "inline-block"});
-            $("#home-heading-logo").css({"opacity": "0", "display": "inline-block"});
-            $("#home-heading-buttons").css({"opacity": "0", "display": "inline-block"});
+        } else {
+            $("#home-heading-1").css({
+                "opacity": "0",
+                "display": "inline-block"
+            });
+            $("#home-heading-2").css({
+                "opacity": "0",
+                "display": "inline-block"
+            });
+            $("#home-heading-logo").css({
+                "opacity": "0",
+                "display": "inline-block"
+            });
+            $("#home-heading-buttons").css({
+                "opacity": "0",
+                "display": "inline-block"
+            });
             setTimeout(function () {
                 $("#home-heading-1").fadeTo(1000, 1);
             }, 1000);
@@ -77,12 +87,16 @@
                 $("#home-heading-buttons").fadeTo(1000, 1);
             }, 5000);
         }
-    };
+    }
 
     function animationSecond() {
         swatchClick();
-        
-        $("#home-heading-logo").css({"display": "inline-block"});
-        $("#home-heading-buttons").css({"display": "inline-block"});
-    };
+
+        $("#home-heading-logo").css({
+            "display": "inline-block"
+        });
+        $("#home-heading-buttons").css({
+            "display": "inline-block"
+        });
+    }
 </script>
