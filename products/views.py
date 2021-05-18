@@ -35,15 +35,15 @@ def all_products(request):
     for style in style_choices:
         num = products.filter(style__name=style).count()
         style_array = ({"name": style.name,
-                         "friendly_name": style.friendly_name,
-                         "count": num})
+                        "friendly_name": style.friendly_name,
+                        "count": num})
         styles_array.append(style_array)
 
     for range in range_choices:
         num = products.filter(range__name=range).count()
         range_array = ({"name": range.name,
-                         "friendly_name": range.friendly_name,
-                         "count": num})
+                        "friendly_name": range.friendly_name,
+                        "count": num})
         ranges_array.append(range_array)
 
     query = None
@@ -117,7 +117,8 @@ def all_products(request):
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
-                messages.error(request, "You didn't enter any search criteria!")
+                messages.error(request,
+                               "You didn't enter any search criteria!")
                 return redirect(reverse('products'))
 
             queries = Q(name__icontains=query) | Q(description__icontains=query)
@@ -173,7 +174,9 @@ def add_product(request):
             messages.success(request, 'Successfully added product!')
             return redirect(reverse('product_detail', args=[product.id]))
         else:
-            messages.error(request, 'Failed to add product. Please ensure the form is valid.')
+            messages.error(request,
+                           'Failed to add product. '
+                           'Please ensure the form is valid.')
     else:
         form = ProductForm()
 
@@ -203,7 +206,9 @@ def edit_product(request, product_id):
             messages.success(request, 'Successfully updated product!')
             return redirect(reverse('product_detail', args=[product.id]))
         else:
-            messages.error(request, 'Failed to update product. Please ensure the form is valid.')
+            messages.error(request,
+                           'Failed to update product. '
+                           'Please ensure the form is valid.')
     else:
         form = ProductForm(instance=product)
         messages.info(request, f'You are editing {product.name}')
@@ -223,7 +228,6 @@ def delete_product(request, product_id):
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
-
     product = get_object_or_404(Product, pk=product_id)
     product.delete()
     messages.success(request, 'Product deleted!')

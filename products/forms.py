@@ -10,7 +10,8 @@ class ProductForm(forms.ModelForm):
         fields = '__all__'
 
     sku = forms.CharField(label='SKU')
-    image = forms.ImageField(label='', required=False, widget=CustomClearableFileInput)
+    image = forms.ImageField(label='',
+                             required=False, widget=CustomClearableFileInput)
     image_url = forms.URLField(label='Image URL')
 
     def __init__(self, *args, **kwargs):
