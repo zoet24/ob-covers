@@ -1,17 +1,18 @@
-<script type="text/javascript">
-// On load fade logo and log in input on to hero image if user hasn't visited page
+<script>
+    // On load fade logo and log in input on to hero image if user hasn't visited page
+    // jshint esversion: 6
     onload = function session() {
         if (document.cookie.indexOf("visited") >= 0) {
-            animationSecond();
+            animationFirst();
         } else {
             document.cookie = "visited";
-            animationFirst();
+            animationSecond();
         }
-    }
+    };
 
     function animationFirst() {
         // Load at top of page
-        $(window).on('beforeunload', function() {
+        $(window).on('beforeunload', function () {
             $('body').hide();
             $(window).scrollTop(0);
         });
@@ -25,33 +26,41 @@
 
         // Trigger animation
         if (window.innerWidth < 576) {
-            $(".allauth-heading-logo").fadeIn(1000).css("display","inline-block");
+            $(".allauth-heading-logo").fadeIn(1000).css("display", "inline-block");
             setTimeout(function () {
                 $(".allauth-heading-logo").fadeOut(1000);
             }, 2500);
             setTimeout(function () {
-                $(".allauth-content").fadeIn(1000).css("display","inline-block");
+                $(".allauth-content").fadeIn(1000).css("display", "inline-block");
             }, 3500);
-        }
-
-        else {
-            $(".allauth-heading-logo").css({"opacity": "0", "display": "inline-block"});
-            $(".allauth-content").css({"opacity": "0", "display": "inline-block"});
+        } else {
+            $(".allauth-heading-logo").css({
+                "opacity": "0",
+                "display": "inline-block"
+            });
+            $(".allauth-content").css({
+                "opacity": "0",
+                "display": "inline-block"
+            });
             setTimeout(function () {
                 $(".allauth-heading-logo").fadeTo(1000, 1);
                 $(".allauth-content").fadeTo(1000, 1);
             }, 500);
         }
-    };
+    }
 
     function animationSecond() {
         if (window.innerWidth < 576) {
-            $(".allauth-content").css({"display": "inline-block"});
+            $(".allauth-content").css({
+                "display": "inline-block"
+            });
+        } else {
+            $(".allauth-heading-logo").css({
+                "display": "inline-block"
+            });
+            $(".allauth-content").css({
+                "display": "inline-block"
+            });
         }
-
-        else {
-            $(".allauth-heading-logo").css({"display": "inline-block"});
-            $(".allauth-content").css({"display": "inline-block"});
-        }
-    };
+    }
 </script>

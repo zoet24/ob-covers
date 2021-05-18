@@ -142,40 +142,46 @@
 </div>
 
 {% block postloadjs %}
+{{ block.super }}
 {% include 'products/includes/quantity_input_script_basket.html' %}
 
-<script type="text/javascript">
+<script>
+    // jshint esversion: 6
     // Update quantity on click
     $('.update-link').click(function (e) {
         var itemId = $(this).attr('id').split('adjust_')[1];
         var form = $(`#form_${itemId}`);
         form.submit();
-    })
+    });
 
     // Remove item and reload on click
     $('.remove-item').click(function (e) {
         var csrfToken = "{{ csrf_token }}";
         var itemId = $(this).attr('id').split('remove_')[1];
         var url = `/remove/${itemId}/`;
-        var data = { 'csrfmiddlewaretoken': csrfToken };
+        var data = {
+            'csrfmiddlewaretoken': csrfToken
+        };
 
         $.post(url, data)
             .done(function () {
                 location.reload();
             });
-    })
+    });
 
     // Remove item from bag, add to favourites and reload on click
     $('.bagtofav-item').click(function (e) {
         var csrfToken = "{{ csrf_token }}";
         var itemId = $(this).attr('id').split('bagtofav_')[1];
         var url = `/bagtofav/${itemId}/`;
-        var data = { 'csrfmiddlewaretoken': csrfToken };
+        var data = {
+            'csrfmiddlewaretoken': csrfToken
+        };
 
         $.post(url, data)
             .done(function () {
                 location.reload();
             });
-    })
+    });
 </script>
 {% endblock %}

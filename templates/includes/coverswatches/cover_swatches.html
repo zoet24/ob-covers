@@ -1,6 +1,7 @@
-<script type="text/javascript">
-    $(document).ready(function() {
-        $(".cover-swatch").click(function() {
+<script>
+    // jshint esversion: 6
+    $(document).ready(function () {
+        $(".cover-swatch").click(function () {
             var coverRange = this.id.split('-')[2];
             var coverStyle = this.id.split('-')[3].toLowerCase();
             var coverColour = this.id.split('-')[4];
@@ -14,7 +15,7 @@
             // Set image source to correct colour and style
             $(`.cover-tile-image-${coverRange}`).attr("src", imageSrc);
             // Set background colour to correct colour after image has loaded
-            $(`.cover-tile-image-${coverRange}`).on("load", function() {
+            $(`.cover-tile-image-${coverRange}`).on("load", function () {
                 $(`.cover-tile-bg-${coverRange}`).css("backgroundColor", coverColourBg);
             });
         });

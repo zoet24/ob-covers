@@ -88,31 +88,37 @@
 </div>
 
 {% block postloadjs %}
-<script type="text/javascript">
+{{ block.super }}
+<script>
+    // jshint esversion: 6
     // Remove item and reload on click
     $('.remove-item').click(function (e) {
         var csrfToken = "{{ csrf_token }}";
         var itemId = $(this).attr('id').split('remove_')[1];
         var url = `/removefav/${itemId}/`;
-        var data = { 'csrfmiddlewaretoken': csrfToken };
+        var data = {
+            'csrfmiddlewaretoken': csrfToken
+        };
 
         $.post(url, data)
             .done(function () {
                 location.reload();
             });
-    })
+    });
 
     // Remove item from wish list, add to bag and reload on click
     $('.favtobag-item').click(function (e) {
         var csrfToken = "{{ csrf_token }}";
         var itemId = $(this).attr('id').split('favtobag_')[1];
         var url = `/favtobag/${itemId}/`;
-        var data = { 'csrfmiddlewaretoken': csrfToken };
+        var data = {
+            'csrfmiddlewaretoken': csrfToken
+        };
 
         $.post(url, data)
             .done(function () {
                 location.reload();
             });
-    })
+    });
 </script>
 {% endblock %}
