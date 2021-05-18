@@ -1,6 +1,7 @@
 <!-- Select correct drop down on category and sorting modals -->
-<script type="text/javascript">
-    onload = function() {
+<script>
+    // jshint esversion: 6
+    onload = function () {
         var currentUrl = new URL(window.location);
         var range = currentUrl.searchParams.get("range");
         var style = currentUrl.searchParams.get("style");
@@ -19,7 +20,7 @@
             var category = "colour";
             var name = colour;
         } else if (other !== null) {
-            $(`input[name=other][value='${other}']`).prop("checked",true);
+            $(`input[name=other][value='${other}']`).prop("checked", true);
             $(`#collapse-productfilters-other`).addClass("show");
             var category = null;
         } else {
@@ -28,17 +29,17 @@
         }
 
         if (category !== null) {
-            var filtersTitleNav = $(`#${name}_label`).text().trim()
+            var filtersTitleNav = $(`#${name}_label`).text().trim();
             $("#filters-title-nav").html(filtersTitleNav);
 
             var filtersTitle = $(`#${name}_label`).text().trim().split("(")[0].trim();
-            $(`input[name=${category}][value='${name}']`).prop("checked",true);
+            $(`input[name=${category}][value='${name}']`).prop("checked", true);
             $(`#collapse-productfilters-${category}`).addClass("show");
             $(".filters-title").html(`${filtersTitle}`);
         }
 
         var sortTitle = $(`#${sort}_${direction}_label`).text().trim();
         $(".sort-title").html(sortTitle);
-        $(`input[name="sort"][value='${sort}_${direction}']`).prop("checked",true);
-    }
+        $(`input[name="sort"][value='${sort}_${direction}']`).prop("checked", true);
+    };
 </script>

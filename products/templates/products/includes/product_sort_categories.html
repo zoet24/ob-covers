@@ -60,7 +60,7 @@
 </div>
 
 <!-- Add/remove search parameters from url -->
-<script type="text/javascript">
+<script>
     function sortSelection() {
         var sortVal = $('input[name="sort"]:checked').val();
         var currentUrl = new URL(window.location);
@@ -75,7 +75,6 @@
     }
 
     function resetSort() {
-        var sortVal = $('input[name="sort"]:checked').val();
         var currentUrl = new URL(window.location);
 
         currentUrl.searchParams.delete("sort");

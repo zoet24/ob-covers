@@ -6,10 +6,11 @@
 {% endif %}
 
 <script>
+    // jshint esversion: 6
     onload = function () {
         var coverRange = $("#productdetail-range").html();
         var coverBgColour = $("#productdetail-bgcolour").html();
 
         $(`.cover-tile-bg-${coverRange}`).css("backgroundColor", coverBgColour);
-    }
+    };
 </script>

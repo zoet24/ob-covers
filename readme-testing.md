@@ -26,6 +26,9 @@ Click **[here](readme.md)** to return to the main document.
 ### CSS
 
 ### JavaScript and JQuery
+remove javascript type from script tags
+// jshint esversion: 6 for template literals
+removing unused variables, adding missing semi colons
 
 ### Python
 

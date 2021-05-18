@@ -50,8 +50,9 @@
 {% block postloadjs %}
     {{ block.super }}
     <!-- Add/remove descriptive text when image file is changed -->
-    <script type="text/javascript">
-        $('#new-image').change(function() {
+    <script>
+        // jshint esversion: 6
+        $('#new-image').change(function () {
             var file = $('#new-image')[0].files[0];
             var label = $("label[for='" + $('#remove-image').attr('id') + "']");
             $('#filename').addClass('text-success').removeClass('text-danger d-none');
@@ -60,7 +61,7 @@
             $('#remove-image').prop('checked', false);
         });
 
-        $('#remove-image').change(function() {
+        $('#remove-image').change(function () {
             var label = $("label[for='" + $(this).attr('id') + "']");
             if ($('#remove-image').is(':checked')) {
                 label.addClass('text-underline');
