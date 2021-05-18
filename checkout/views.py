@@ -42,8 +42,11 @@ def checkout_unavailable(request):
         product = Product.objects.get(id=item_id)
         if product.unavailable is True:
             messages.error(request, (
-                f"{product.name} aren't available for purchase right now. Please remove them from your basket and try to place your order again.")
+                f"{product.name} aren't available for purchase right now. "
+                "Please remove them from your basket and "
+                "try to place your order again.")
             )
+
     return redirect(reverse('products'))
 
 
@@ -87,11 +90,14 @@ def checkout(request):
                             order_line_item.save()
                         else:
                             messages.error(request, (
-                                f"{product.name} aren't available for purchase right now and have been removed from your order.")
+                                f"{product.name} aren't available for purchase"
+                                " right now and have been removed "
+                                " from your order.")
                             )
                 except Product.DoesNotExist:
                     messages.error(request, (
-                        "One of the products in your bag wasn't found in our database. "
+                        "One of the products in your bag "
+                        "wasn't found in our database. "
                         "Please call us for assistance!")
                     )
                     order.delete()
@@ -99,14 +105,15 @@ def checkout(request):
 
             # Save the info to the user's profile if all OK
             request.session['save_info'] = 'save-info' in request.POST
-            return redirect(reverse('checkout_success', args=[order.order_number]))
+            return redirect(reverse('checkout_success',
+                                    args=[order.order_number]))
         else:
             messages.error(request, 'There was an error with your form. \
                 Please double check your information.')
     else:
         bag = request.session.get('bag', {})
         if not bag:
-            messages.error(request, "There's nothing in your bag at the moment")
+            messages.error(request, "There's nothing in your bag right now.")
             return redirect(reverse('products'))
 
         current_bag = bag_contents(request)
