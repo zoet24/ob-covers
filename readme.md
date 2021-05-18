@@ -8,7 +8,7 @@ I have worked for Open Bionics since 2016 - we are a medical engineering company
 
 This was the final of four Milestone Projects required to pass the Full Stack Web Development Program at _Code Institute_. The main requirements were to build a full-stack site based around business logic to control a centrally-owned dataset using HTML, CSS, JavaScript, Python and Django.
 
-Click **[here](https://github.com/zoet24/ob-covers)** to view the Github repository for the project, and click **[here](https://ob-covers.herokuapp.com/)** to view the live website.
+Click **[here](https://github.com/zoet24/ob-covers)** to view the GitHub repository for the project, and click **[here](https://ob-covers.herokuapp.com/)** to view the live website.
 
 ## Table of Contents
 
@@ -65,7 +65,7 @@ _Registration and User Accounts_
 
 _Viewing and Navigation_
 
-14. As the site owner, I want it to be easy for a site user to navigate to our main website in case they have come to OB Covers by mistake.
+14. As the site owner, I want it to be easy for a site user to navigate to our main website in case they have come to _OB Covers_ by mistake.
 15. As a site user, I want to be able to view a list of products to select some to purchase.
 16. As a site user, I want to be able to view specific product details (price, description) to inform my decision.
 17. As a site user, I want to be able easily identify deals to take advantage of special savings.
@@ -214,7 +214,7 @@ The product data is stored in 4 models - 1 main Product model and 3 smaller mode
 I initially considered modelling my product data using an inventory method - each product would have a stock level that would automatically decrease when a user placed an order, and could be used to flag products as "low stock" when the stock level dropped below a certain value, and "out of stock" when the stock level reached 0. However, I decided against this as all of our covers are bespoke and are made to order. Instead, I included an "unavailable" Boolean which admins can use to prevent users from buying certain products - this would be used in the event of a supply problem if we had run out of material to make a specific design, which is a more realistic scenario for our business.
 
 ### Features and Django Apps
-OB Covers is a Django project made up of 4 Django applications and a number of different features which are detailed in the list below.
+_OB Covers_ is a Django project made up of 4 Django applications and a number of different features which are detailed in the list below.
 #### Existing features
 *Navigation*
     - Nav links
@@ -364,7 +364,7 @@ Deploy the site to Heroku using the following steps:
     - In `settings.py` add the hostname of the Heroku app to `ALLOWED_HOSTS = ['localhost']`
     - Add, commit and push your code to GitHub
 8. Set up automatic deployment to Heroku
-    - In Heroku navigate to "Deploy" > "Deployment Method" > "Connect to Github"
+    - In Heroku navigate to "Deploy" > "Deployment Method" > "Connect to GitHub"
     - Search for your repo and select it
     - Navigate to "Automatic Deployment" > "Enable Automatic Deploys"
     - Test that it is working by pushing your code and checking the Heroku app URL
