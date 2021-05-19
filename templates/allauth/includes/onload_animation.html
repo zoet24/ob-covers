@@ -2,11 +2,11 @@
     // On load fade logo and log in input on to hero image if user hasn't visited page
     // jshint esversion: 6
     onload = function session() {
-        if (document.cookie.indexOf("visited") >= 0) {
-            animationFirst();
-        } else {
-            document.cookie = "visited";
+        if (document.cookie.indexOf("visited_allauth") >= 0) {
             animationSecond();
+        } else {
+            document.cookie = "visited_allauth";
+            animationFirst();
         }
     };
 

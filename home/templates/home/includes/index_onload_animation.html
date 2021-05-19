@@ -1,11 +1,11 @@
 <script>
 // On load fade text, logo and buttons on to hero image if user hasn't visited page
     onload = function session() {
-        if (document.cookie.indexOf("visited") >= 0) {
-            animationFirst();
-        } else {
-            document.cookie = "visited";
+        if (document.cookie.indexOf("visited_home") >= 0) {
             animationSecond();
+        } else {
+            document.cookie = "visited_home";
+            animationFirst();
         }
     };
 
