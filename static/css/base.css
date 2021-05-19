@@ -374,6 +374,18 @@ button.close {
 }
 
 
+/* ERROR PAGES */
+
+.errorpage-results-container {
+    height: 100%;
+    display: flex;
+}
+
+.errorpage-results {
+    align-self: center;
+}
+
+
 /* MEDIA QUERIES */
 
 @media (min-width: 450px) {

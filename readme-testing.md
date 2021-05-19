@@ -40,6 +40,7 @@ removing unused variables, adding missing semi colons
 ### Performance
 
 ## Automated Testing
+I also took advantage of the Django testing framework to write various 
 - coverage report only 46%
 - would have expanded on this if I had more time
 
