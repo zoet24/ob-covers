@@ -39,6 +39,7 @@
     height: 40px;
     width: 250px;
     margin: auto;
+    border: solid 1px #1c86c8;
 }
 
 .allauth-form-inner-content .btn-dark {
