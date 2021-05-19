@@ -11,6 +11,7 @@
     - [Responsiveness](#responsiveness)
     - [Accessibility](#accessibility)
     - [Performance](#performance)
+- [Automated Testing](#automated-testing)
 - [Testing User Stories](#testing-user-stories)
 
 Click **[here](readme.md)** to return to the main document.
@@ -37,6 +38,10 @@ removing unused variables, adding missing semi colons
 ### Accessibility
 
 ### Performance
+
+## Automated Testing
+- coverage report only 46%
+- would have expanded on this if I had more time
 
 ## Testing User Stories
 To finish my testing process I reassessed my User Stories to check that my site meets the criteria outlined at the beginning of the project. I have listed the stories below and used screenshots of the desktop site (where relevant) to illustrate how my site fulfils my original User Stories. I also shared the site with 20 of my colleagues at Open Bionics and asked them to score the site on "UX experience", "Easy to use" and "OB branding" to get feedback on the more subjective User Stories and have included their feedback too.
