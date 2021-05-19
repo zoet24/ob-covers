@@ -1,3 +1,4 @@
+<!-- Print product range and hex background colour for onload function -->
 {% if product.style.name != "metalGearSolid" and product.style.name != "deusEx" and product.style.name != "ironMan" and product.style.name != "bb8" and product.style.name != "frozen" and product.style.name != "r2d2" %}
 <div>
     <span class="d-none" id="productdetail-range">{{ product.range }}</span>
@@ -5,6 +6,7 @@
 </div>
 {% endif %}
 
+<!-- Set product image background colour -->
 <script>
     // jshint esversion: 6
     onload = function () {

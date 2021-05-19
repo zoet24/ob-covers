@@ -8,14 +8,16 @@
 {% block content %}
 
 {% include 'products/includes/product_nav_header.html' %}
-
+<!-- Product details -->
 <section class="container-compress">
     <div class="row pt-md-3">
         <div class="d-none d-md-block col-md-5 align-self-center cover-tile cover-tile-bg-{{ product.range }} cover-tile-detail">
+            <!-- Add unavailable tag if boolean set to true -->
             {% if product.unavailable == True %}
             <h3 class="product-tag-detail product-unavailable text-thick">Unavailable</h3>
             {% endif %}
             <a href="{{ MEDIA_URL }}{{ product.image }}" target="_blank" {% if product.unavailable == True %} style="opacity:0.5;" {% endif %}>
+                <!-- Show product image/no-image.png -->
                 {% if product.image %}
                 <img class="cover-tile-image-detail cover-tile-image-{{ product.range }}"
                     src="{{ MEDIA_URL }}{{ product.image }}" alt="{{ product.name }}">
@@ -71,6 +73,7 @@
             <div class="col-11 mx-auto product-description d-md-none">
                 <span class="text-skinny">{{ product.description }}</span>
             </div>
+            <!-- Quantity input -->
             <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST">
                 {% csrf_token %}
                 <div class="input-group">
@@ -99,12 +102,14 @@
                             </div>
                         </div>
                     </div>
+                    <!-- Add product to shopping basket -->
                     <div class="col-12 pt-2 pb-0">
                         <input class="btn btn-light btn-long" type="submit" value="Add to Basket" {% if product.unavailable == True %} disabled {% endif %}>
                     </div>
                     <input type="hidden" name="redirect_url" value="{{ request.path }}">
                 </div>
             </form>
+            <!-- Add product to wish list -->
             <form class="form" action="{% url 'add_to_fav' product.id %}" method="POST">
                 {% csrf_token %}
                     <div class="row">
