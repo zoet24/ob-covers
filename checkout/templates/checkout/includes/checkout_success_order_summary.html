@@ -1,0 +1,180 @@
+<!-- Summary of user's order -->
+<section class="container-compress">
+    <div class="row">
+        <div class="col-12 col-sm-10 col-md-9 col-lg-8 col-xl-7 mx-auto">
+            <span>Your order information is below. A confirmation email will be sent to
+                <span class="text-thick">{{ order.email }}</span>.</span>
+            <div class="orderhistory-table orderhistory-confirm-table orderhistory-product-text m-2">
+                <div class="row mt-3 py-0">
+                    <div class="col-12">
+                        <hr class="hr-long">
+                        <h3 class="my-2">Order Info</h3>
+                        <hr class="hr-long">
+                    </div>
+                </div>
+                <!-- Order details -->
+                <div class="row pb-0">
+                    <div class="col-12 col-sm-5 text-sm-right">
+                        <span class="orderhistory-product-title">Order number</span>
+                    </div>
+                    <div class="col-12 col-sm-7 text-sm-left">
+                        <span>{{ order.order_number }}</span>
+                    </div>
+                </div>
+                <div class="row pb-0 pt-sm-0">
+                    <div class="col-12 col-sm-5 text-sm-right">
+                        <span class="orderhistory-product-title">Order date</span>
+                    </div>
+                    <div class="col-12 col-sm-7 text-sm-left">
+                        <span>{{ order.date }}</span>
+                    </div>
+                </div>
+                <div class="row pt-sm-0">
+                    <div class="col-12 mx-auto">
+                        <table class="text-dark mx-auto mb-2 w-75">
+                            <!-- Show all items purchased -->
+                            {% for item in order.lineitems.all %}
+                            <tr>
+                                <th rowspan="4">
+                                    {% if item.product.image %}
+                                    <img class="cover-tile-image-xs mt-1 mx-3 " src="{{ MEDIA_URL }}{{ item.product.image }}"
+                                        alt="{{ item.product.name }}">
+                                    {% else %}
+                                    <img class="cover-tile-image-xs mt-1 mx-3" src="{{ MEDIA_URL }}no-image.png"
+                                        alt="{{ item.product.name }}">
+                                    {% endif %}
+                                </th>
+                            </tr>
+                            <tr>
+                                <td class="orderhistory-product-text orderhistory-product-title pt-2">
+                                    <span>{{ item.product.name }}</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="orderhistory-product-text pb-1">
+                                    <span>Quantity: {{ item.quantity }}</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="orderhistory-product-text">
+                                    <span>£{{ item.product.price }} each</span>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </table>
+                    </div>
+                </div>
+                <!-- Delivery information -->
+                <div class="row pb-0">
+                    <div class="col-12">
+                        <hr class="hr-long">
+                        <h3 class="my-2">Delivery info</h3>
+                        <hr class="hr-long">
+                    </div>
+                </div>
+                <div class="row pb-0">
+                    <div class="col-12 col-sm-5 text-sm-right">
+                        <span class="orderhistory-product-title">Full name</span>
+                    </div>
+                    <div class="col-12 col-sm-7 text-sm-left">
+                        <span>{{ order.full_name }}</span>
+                    </div>
+                </div>
+                <div class="row pb-0">
+                    <div class="col-12 col-sm-5 text-sm-right">
+                        <span class="orderhistory-product-title">Address 1</span>
+                    </div>
+                    <div class="col-12 col-sm-7 text-sm-left">
+                        <span>{{ order.street_address1 }}</span>
+                    </div>
+                </div>
+                {% if order.street_address2 %}
+                <div class="row pb-0">
+                    <div class="col-12 col-sm-5 text-sm-right">
+                        <span class="orderhistory-product-title">Address 2</span>
+                    </div>
+                    <div class="col-12 col-sm-7 text-sm-left">
+                        <span>{{ order.street_address2 }}</span>
+                    </div>
+                </div>
+                {% endif %}
+                {% if order.county %}
+                <div class="row pb-0">
+                    <div class="col-12 col-sm-5 text-sm-right">
+                        <span class="orderhistory-product-title">County</span>
+                    </div>
+                    <div class="col-12 col-sm-7 text-sm-left">
+                        <span>{{ order.county }}</span>
+                    </div>
+                </div>
+                {% endif %}
+                <div class="row pb-0">
+                    <div class="col-12 col-sm-5 text-sm-right">
+                        <span class="orderhistory-product-title">Town or city</span>
+                    </div>
+                    <div class="col-12 col-sm-7 text-sm-left">
+                        <span>{{ order.town_or_city }}</span>
+                    </div>
+                </div>
+                {% if order.postcode %}
+                <div class="row pb-0">
+                    <div class="col-12 col-sm-5 text-sm-right">
+                        <span class="orderhistory-product-title">Postcode</span>
+                    </div>
+                    <div class="col-12 col-sm-7 text-sm-left">
+                        <span>{{ order.postcode }}</span>
+                    </div>
+                </div>
+                {% endif %}
+                <div class="row pb-0">
+                    <div class="col-12 col-sm-5 text-sm-right">
+                        <span class="orderhistory-product-title">Country</span>
+                    </div>
+                    <div class="col-12 col-sm-7 text-sm-left">
+                        <span>{{ order.country }}</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-sm-5 text-sm-right">
+                        <span class="orderhistory-product-title">Phone number</span>
+                    </div>
+                    <div class="col-12 col-sm-7 text-sm-left">
+                        <span>{{ order.phone_number }}</span>
+                    </div>
+                </div>
+                <!-- Billing information -->
+                <div class="row pb-0">
+                    <div class="col-12">
+                        <hr class="hr-long">
+                        <h3 class="my-2">Billing info</h3>
+                        <hr class="hr-long">
+                    </div>
+                </div>
+                <div class="row pb-0">
+                    <div class="col-12 col-sm-5 text-sm-right">
+                        <span class="orderhistory-product-title">Order total</span>
+                    </div>
+                    <div class="col-12 col-sm-7 text-sm-left">
+                        <span>£{{ order.order_total }}</span>
+                    </div>
+                </div>
+                <div class="row pb-0">
+                    <div class="col-12 col-sm-5 text-sm-right">
+                        <span class="orderhistory-product-title">Delivery cost</span>
+                    </div>
+                    <div class="col-12 col-sm-7 text-sm-left">
+                        <span>£{{ order.delivery_cost }}</span>
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-12 col-sm-5 text-sm-right">
+                        <span class="orderhistory-product-title">Grand total</span>
+                    </div>
+                    <div class="col-12 col-sm-7 text-sm-left">
+                        <span>£{{ order.grand_total }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

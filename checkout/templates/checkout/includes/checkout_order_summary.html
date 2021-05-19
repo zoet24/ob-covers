@@ -1,0 +1,124 @@
+<!-- Summary of user's order -->
+<section class="container-compress">
+    <div class="row">
+        <div class="col-12 col-sm-6 order-sm-last mx-auto">
+            <hr class="hr-long">
+            <h3 class="my-2">Order Summary ({{ product_count }})</h3>
+            <hr class="hr-long">
+            <!-- Show all items purchased -->
+            {% for item in bag_items %}
+            <div class="orderhistory-table orderhistory-confirm-table m-2" {% if item.product.unavailable == True %} style="box-shadow:1px 1px #ccc;border-color:#ccc;" {% endif %}>
+                <table class="text-dark mb-2 mx-auto w-75">
+                    <tr>
+                        <th rowspan="4" {% if item.product.unavailable == True %} style="opacity: 0.5;" {% endif %}>
+                            {% if item.product.image %}
+                            <img class="cover-tile-image-xs mt-1 mx-3 " src="{{ MEDIA_URL }}{{ item.product.image }}"
+                                alt="{{ item.product.name }}">
+                            {% else %}
+                            <img class="cover-tile-image-xs mt-1 mx-3" src="{{ MEDIA_URL }}no-image.png"
+                                alt="{{ item.product.name }}">
+                            {% endif %}
+                        </th>
+                    </tr>
+                    <tr>
+                        <td class="orderhistory-product-text orderhistory-product-title pt-2">
+                            <span>{{ item.product.name }}</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="orderhistory-product-text pb-1">
+                            <span>Quantity: {{ item.quantity }}</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="orderhistory-product-text">
+                            <span>£{{ item.product.price | calc_subtotal:item.quantity }}</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            {% endfor %}
+            <!-- Show total costs -->
+            <div class="row product-totals p-0">
+                <div class="col-6 text-right pr-1 ml-auto">
+                    <span>Bag total</span>
+                </div>
+                <div class="col-5 text-left pl-1 mr-auto">
+                    <span>£{{ total|floatformat:2 }}</span>
+                </div>
+            </div>
+            <div class="row product-totals p-0">
+                <div class="col-6 text-right pr-1 ml-auto">
+                    <span>Delivery</span>
+                </div>
+                <div class="col-5 text-left pl-1 mr-auto">
+                    <span>£{{ delivery|floatformat:2 }}</span>
+                </div>
+            </div>
+            <div class="row product-totals text-thick p-0">
+                <div class="col-6 text-right pl-0 pr-1 ml-auto">
+                    <span>Order total</span>
+                </div>
+                <div class="col-5 text-left pl-1 mr-auto">
+                    <span>£{{ grand_total|floatformat:2 }}</span>
+                </div>
+            </div>
+        </div>
+        <!-- Show default delivery information -->
+        <div class="col-11 col-sm-6 mt-2 mt-sm-0 mx-auto">
+            <hr class="hr-long">
+            <h3 class="my-2">Default delivery</h3>
+            <hr class="hr-long">
+            <form class="mt-2" action="{% url 'checkout' %}" method="POST" id="payment-form">
+                {% csrf_token %}
+                <fieldset>
+                    <legend class="fieldset-legend text-center">Details</legend>
+                    {{ order_form.full_name | as_crispy_field }}
+                    {{ order_form.email | as_crispy_field }}
+                </fieldset>
+                <fieldset>
+                    <legend class="fieldset-legend text-center">Delivery</legend>
+                    {{ order_form.phone_number | as_crispy_field }}
+                    {{ order_form.street_address1 | as_crispy_field }}
+                    {{ order_form.street_address2 | as_crispy_field }}
+                    {{ order_form.town_or_city | as_crispy_field }}
+                    {{ order_form.county | as_crispy_field }}
+                    {{ order_form.postcode | as_crispy_field }}
+                    {{ order_form.country | as_crispy_field }}
+                    {% if user.is_authenticated %}
+                    <div class="form-check form-check-inline float-left mb-2 ml-3">
+                        <label class="form-check-label container-radio text-skinny mx-auto" for="id-save-info">Save delivery information
+                            <input class="form-check-input" type="checkbox" id="id-save-info" name="save-info"
+                            checked>
+                            <span class="form-check-checkmark"></span>
+                        </label>
+                    </div>
+                    {% else %}
+                    <div class="form-check form-check-inline float-center mb-2">
+                        <label class="form-check-label text-skinny mx-auto" for="id-save-info">
+                            <a class="text-link" href="{% url 'account_signup' %}">Create an account</a> or
+                            <a class="text-link" href="{% url 'account_login' %}">login</a> to save this information
+                        </label>
+                    </div>
+                    {% endif %}
+                </fieldset>
+                <fieldset>
+                    <legend class="fieldset-legend text-center">Payment</legend>
+                    <!-- A Stripe card element will go here -->
+                    <div class="form-control">
+                        <div id="card-element" class="mt-1"></div>
+                    </div>
+                    <!-- Used to display form errors -->
+                    <div class="text-danger" id="card-errors" role="alert"></div>
+                    <!-- Pass the client secret to the view so we can get the payment intent id -->
+                    <input type="hidden" value="{{ client_secret }}" name="client_secret">
+                </fieldset>
+                <div>
+                    <button id="submit-button" class="btn btn-light mt-3 mb-2 px-2">
+                        <span>Complete Order</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
