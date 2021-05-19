@@ -97,7 +97,7 @@ _Viewing and Navigation_
 20. _As a site user, I want to be able to easily identify "newly added" products in case I am interested in purchasing them._
     - See User Story 17.
 21. _As a site user, I want to be able to view my selection of products and see how much they will cost to avoid spending too much._
-    - The user can see the sum of their selected products in their shopping basket, and in the order summary on the checkout page.
+    - The user can see the sum of their selected products in their shopping basket, and in the order summary on the checkout page. The number of items the user has in their shopping basket is also displayed in a small bubble above the icon on the navbar.
 
 ![Viewing and Navigation User Stories](media/notproducts/readme-userstories-navigation.png)
 
@@ -115,9 +115,9 @@ _Sorting and Searching_
 _Purchasing and Checkout_
 
 25. _As a site user, I want to be able to easily adjust the quantity of products from my shopping basket to reflect what I actually want to buy._
-    - The user can alter the quantity of products to put in their shopping bag on the product details page, or if they change their mind later they can update the quantity or remove the item straight from the shopping basket. Items in the wish list can be "added to the basket" too.
+    - The user can alter the quantity of products to put in their shopping bag on the product details page, or if they change their mind later they can update the quantity or remove the item straight from the shopping basket. Items in the wish list can be "added to the basket" too.  The number of items the user has in their shopping basket is also displayed in a small bubble above the icon on the navbar.
 26. _As a site user, I want to be able to save products that I might buy in the future but don’t want to buy immediately._
-    - If the user doesn't want to buy a product immediately, they can save it to their wish list. From here they can add it in to their bag, or remove it from their wish list. Items in the shopping basket can be "saved for later" into the wish list too.
+    - If the user doesn't want to buy a product immediately, they can save it to their wish list. From here they can add it in to their bag, or remove it from their wish list. Items in the shopping basket can be "saved for later" into the wish list too.  The number of items the user has in their wish list is also displayed in a small bubble above the icon on the navbar.
 27. _As a site user, I want to be able to easily enter my payment and delivery details so I can check out quickly with no hassle._
     - The user can enter their details on their profile and save them, or enter them at the checkout. Using the Stripe add-on will ensure ensures that the payment process is reliable and secure and will give the user confidence that their payment information is safe.
 28. _As a site user, I want to be confident that my payment information is safe and secure._
