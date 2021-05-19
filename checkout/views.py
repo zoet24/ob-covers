@@ -38,7 +38,7 @@ def checkout_unavailable(request):
     Prevent users from progressing to checkout
     if they have unavailable items in their shopping baskets
     """
-    for item_id, item_data in bag.items():
+    for item_id in bag.items():
         product = Product.objects.get(id=item_id)
         if product.unavailable is True:
             messages.error(request, (
