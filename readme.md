@@ -10,6 +10,14 @@ This was the final of four Milestone Projects required to pass the Full Stack We
 
 Click **[here](https://github.com/zoet24/ob-covers)** to view the GitHub repository for the project, and click **[here](https://ob-covers.herokuapp.com/)** to view the live website.
 
+To test the payment transaction process please use:
+- **Credit card number:** 4242 4242 4242 4242
+- **Expiration date:** 04/24
+- **CVC:** 242
+- **ZIP** 42424
+
+Demo/admin credentials available on request.
+
 ## Table of Contents
 
 - [UX Design](#ux-design)
@@ -214,53 +222,69 @@ The product data is stored in 4 models - 1 main Product model and 3 smaller mode
 I initially considered modelling my product data using an inventory method - each product would have a stock level that would automatically decrease when a user placed an order, and could be used to flag products as "low stock" when the stock level dropped below a certain value, and "out of stock" when the stock level reached 0. However, I decided against this as all of our covers are bespoke and are made to order. Instead, I included an "unavailable" Boolean which admins can use to prevent users from buying certain products - this would be used in the event of a supply problem if we had run out of material to make a specific design, which is a more realistic scenario for our business.
 
 ### Features and Django Apps
-_OB Covers_ is a Django project made up of 4 Django applications and a number of different features which are detailed in the list below.
+_OB Covers_ is a Django project made up of 4 Django applications and a number of different additional features - I have listed them against the "must-have" features outlined in my scope to show how my project fulfils all of the project criteria, along with additional features outside of the scope.
 #### Existing features
-*Navigation*
-    - Nav links
-    - Searching
-    - Links back to OB
-    - Hovering - underline/scale consistent across site
-    - Fade in animation
+_Aesthetic, Branding and UX_
 
-*Toasts*
-    - Different classes
+1. The site must be aesthetically pleasing across all platforms and create a positive UX experience for all users.
+    - The site has consistent colour scheme, iconography and branding across all pages. Hover effects are used to scale objects or underline links that can be clicked on. The interactive elements of the site (cover swatches, sidebars, filtering and sorting) perform well and react quickly. All of these factors combine to create a positive UX experience for the user.
+2. The aesthetic of the site must match the current branding of Open Bionics.
+    - The media images, product thumbnails and logos were all taken from Open Bionics archives and therefore represent the company brand accurately. Additionally, I have used a matching colour scheme and font type to our original shop website.
+3. The site must provide the user with positive/negative feedback whenever they complete an action on the site (eg. add a product to their basket, sign up for a new account).
+    - The toasts are the main source of user feedback - a message appears in the top left corner of the screen whenever a user completes a relevant action in a coloured and the colour of the message reinforces the tone of the feedback (green for success, blue for information, red for an error). Additional text reinforces the user's actions - if the user changes the quantity of items in their wish list or shopping basket this is displayed in a bubble above the icon in the navbar and in the sidebar; if the user performs a search or adds a filter to the products this is displayed in the breadcrumbs; if their search is unsuccessful they are notified on the products page.
 
-*Shopping Basket and Wish List*
-    - Always accessible, can see how many items - contexts
-    - Fav - shows product and range of colours, links to check out style, add items into basket, links to continue shopping
-    - Basket - shows product with quantity, can update/remove/save for later, shows total costs, links to continue shopping or secure checkout
-    - Free delivery
+_Registration and User Accounts_
 
-*Cover swatches*
-    - Always accessible - contexts
-    - Interactive on home page
-    - Changeable on admin
-    - Only display the same colour once
+4. The site must allow users to create an account that they can log in and out of.
+    - The Django allauth plug-in provides users with secure registration functionality.
+5. The site must confirm the details of the user's account in an email after they have registered, and allow them to recover their log in details in an email if they have forgotten them.
+    - The Django allauth plug-in provides the functionality to send users emails containing their registration details after they sign up for an account, and their details if they can't remember them.
+6. The user's account must be personalised with their delivery details and order history.
+    - The user's profile page allows them to save their delivery details which autopopulate the checkout page when they place a new order; it also displays tiles of their previous orders which can be clicked on to view the full details.
 
-*Django Allauth*
-    - Log in/sign up
-    - Emails
+_Viewing and Navigation_
 
-*Home App*
-    - Links to sign up, shops
-    - Images of users
-    - Interactive cover swatches
+7. The site must have clear navigation to the main Open Bionics website to redirect users who are looking for the Hero Arm.
+    - There is a permanent banner at the top of every page redirecting the user back to the Open Bionics main website. There is also a link at the bottom of the Home page.
+8. The site must have a variety of clearly displayed products for the user to look through, with product details that are accessible by clicking on the specific product.
+    - The user can view the full range of products or a filtered view using the navigation links in the navbar, or applying them on the main products page. Individual products are displayed as cover tiles with a product image, name and price, and can be clicked on to access the full product details.
+9. The site must have an easily accessible shopping basket that displays what the user has selected for purchase and how much it will cost them.
+    - The shopping basket is available as a sidebar which can be accessed from every page on the navbar. The selected products are displayed in the sidebar with a breakdown of the price and how much extra they need to spend for free delivery. The total number of products in the basket are also shown as a number above the icon on the navbar.
+10. The site must have an easily accessible wish list that users can save products in for future purchase.
+    - The wish list is available as a sidebar which can be accessed from every page on the navbar. The selected products are displayed in the sidebar with a breakdown of the price; a cover swatch of all of the available colours is also displayed next to the product information. The total number of products in the wish list are also shown as a number above the icon on the navbar.
 
-*Products App*
-    - Filter and sorting 
-    - Breadcrumbs at top 
-    - Add, edit, delete as user
-    - Product detail - quantity, add to basket, wish list
+_Sorting and Searching_
 
-*Profile App*
-    - Default delivery
-    - Order history
+11. The site must allow users to filter and sort products based on name, price, type, colour and brand.
+    - Users can filter products based on range, style, colour and availability, or sort products by name, price and colour. These filters are reflected in the breadcrumbs element.
+12. The site must allow users to search for products based on name and description.
+    - Users can enter search criteria in the search bar in the navbar. These search criteria are reflected in the breadcrumbs element. Results are displayed on the products page; if there are no search results a message is displayed asking the user to change their search criteria.
 
-*Checkout App*
-    - Stripe payment
-    - Order confirmations
-    - Emails
+_Purchasing and Checkout_
+
+13. The site must allow users to easily adjust and remove items from their shopping basket.
+    - The user can adjust the quantity of the products in their basket without leaving the sidebar. Users can remove product from the basket, or add it to the wish list for later.
+14. The site must allow users to save items for purchase at a later date in their wish list.
+    - Users can add products from their basket straight to the wish list, or add products to the wish list from the product details page. 
+15. The site must allow users to move items from their shopping basket to their wish list and vice versa.
+    - See points 13 and 14.
+16. The site must not allow users to purchase "unavailable" items.
+    - Products that are "unavailable" are clearly marked with a tag and a fainter product thumbnail. The user can look at the product details but will not be able to add the product to their shopping basket, either from the product details page or their wish list. If the product is already in their shopping basket when it is made unavailable, the user will not be able to proceed to checkout. If the user is on the checkout page and a product is made unavailable, it will be removed from their order when they make their payment.
+17. The site must allow users to input their delivery and payment information easily and not create unnecessary hassle at the checkout.
+    - Users can enter their delivery and payment information with a user friendly form at the checkout page. Users with an account can also save this information for future purchases and update this on their profile page if it changes.
+18. The site must present the user with a confirmation of their order after they pay and send them details of their order in a confirmation email.
+    - The site sends users a confirmation email after the order has successfully gone through with all of their order details. A summary of their order can also be accessed from their profile page.
+
+_Admin_
+
+19. The site must allow admin users to add, edit and delete products and mark them as "unavailable", both on the frontend of the site and on the admin backend.
+    - Admin users can add new products from the product management dropdown menu. Admin users can edit or delete a product from its thumbnail, product detail page or Django backend. 
+
+_Additional features_
+
+- The onload fading animation that happens over the hero image on the home page (and the signup and log in pages) only happens the first time a user visits that page. On the first visit the onload function saves a "visited" variable to the session to prevent the user from having to sit through the animation every time they visit that page.
+- The interactive cover swatches engage the user and allow them to browse the full product range from the home page, before deciding what product range to explore. The colour is adjustable on the Django admin panel, and is customisable for special designs like the Disney range.
+- On the products page the total number of products in a specific filter or search criteria are displayed in brackets after the text.
 
 #### Defensive design features
 
