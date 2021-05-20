@@ -1,3 +1,4 @@
+// Control css for country dropdown select
 // jshint esversion: 6
 let countrySelected = $('#id_default_country').val();
 if (!countrySelected) {

@@ -319,6 +319,18 @@ button.close {
 }
 
 
+/* ERROR PAGES */
+
+.errorpage-results-container {
+    height: 100%;
+    display: flex;
+}
+
+.errorpage-results {
+    align-self: center;
+}
+
+
 /* BANNER MESSAGES */
 
 .banner-messages {
@@ -371,18 +383,6 @@ button.close {
 .sidebar-product-title {
     font-weight: 400;
     font-size: 1.2rem;
-}
-
-
-/* ERROR PAGES */
-
-.errorpage-results-container {
-    height: 100%;
-    display: flex;
-}
-
-.errorpage-results {
-    align-self: center;
 }
 
 

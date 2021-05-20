@@ -291,6 +291,7 @@ _OB Covers_ is a Django project made up of 4 Django applications and a number of
 - FreeFormatter: I used Freeformatter.com to format my code properly.
 - Google Developer Tools: I used this to test the responsiveness of my website by viewing my project on devices with different screen sizes. I also used the Console to test different functions in my JavaScript code throughout development, and the Lighthouse package to test the performance of the site.
 - JSHint: I used this to test to the validity of my JavaScript and JQuery code.
+- Lighthouse:
 - PEP8Online: I used this to test the compliance of my Python code.
 - W3C CSS Validation Service: I used this to test to the validity of my CSS code.
 - W3C Markup Validation Service: I used this to test the validity of my HTML5 code.
