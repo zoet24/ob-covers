@@ -8,9 +8,7 @@ I have worked for Open Bionics since 2016 - we are a medical engineering company
 
 This was the final of four Milestone Projects required to pass the Full Stack Web Development Program at _Code Institute_. The main requirements were to build a full-stack site based around business logic to control a centrally-owned dataset using HTML, CSS, JavaScript, Python and Django.
 
-Click **[here](https://github.com/zoet24/ob-covers)** to view the GitHub repository for the project, and click **[here](https://ob-covers.herokuapp.com/)** to view the live website.
-
-To test the payment transaction process please use:
+Click **[here](https://github.com/zoet24/ob-covers)** to view the GitHub repository for the project, and click **[here](https://ob-covers.herokuapp.com/)** to view the live website. To test the payment transaction process please use:
 - **Credit card number:** 4242 4242 4242 4242
 - **Expiration date:** 04/24
 - **CVC:** 242
@@ -190,7 +188,7 @@ After finishing my wireframes I started gathering Open Bionics media to start wo
 I also wanted to showcase all of the different cover designs on the Home page but didn't want to overcrowd the design with loads of images - I decided to design an interactive cover swatch that shows all of the different cover colours within a product range that the user can click through.
 
 ### Information Architecture
-The product data is stored in 4 models - 1 main Product model and 3 smaller models for the Range, Style and Colour.
+The product data is stored in 4 models - 1 main Product model and 3 smaller models for the Range, Style and Colour. The 3 smaller models are accessed using a foreign key value in the main Product model.
 
 **Product model**
 - SKU : Numerical identifier
@@ -222,7 +220,7 @@ The product data is stored in 4 models - 1 main Product model and 3 smaller mode
 I initially considered modelling my product data using an inventory method - each product would have a stock level that would automatically decrease when a user placed an order, and could be used to flag products as "low stock" when the stock level dropped below a certain value, and "out of stock" when the stock level reached 0. However, I decided against this as all of our covers are bespoke and are made to order. Instead, I included an "unavailable" Boolean which admins can use to prevent users from buying certain products - this would be used in the event of a supply problem if we had run out of material to make a specific design, which is a more realistic scenario for our business.
 
 ### Features and Django Apps
-_OB Covers_ is a Django project made up of 4 Django applications and a number of different additional features - I have listed them against the "must-have" features outlined in my scope to show how my project fulfils all of the project criteria, along with additional features outside of the scope.
+_OB Covers_ is a Django project made up of 4 Django applications and a number of different additional features - I have listed them against the "must-have" features outlined in my scope to show how my project fulfils all of the project criteria, along with additional features outside of the scope, and illustrated these features with screenshots of from the desktop site.
 #### Existing features
 _Aesthetic, Branding and UX_
 
@@ -233,6 +231,8 @@ _Aesthetic, Branding and UX_
 3. The site must provide the user with positive/negative feedback whenever they complete an action on the site (eg. add a product to their basket, sign up for a new account).
     - The toasts are the main source of user feedback - a message appears in the top left corner of the screen whenever a user completes a relevant action in a coloured and the colour of the message reinforces the tone of the feedback (green for success, blue for information, red for an error). Additional text reinforces the user's actions - if the user changes the quantity of items in their wish list or shopping basket this is displayed in a bubble above the icon in the navbar and in the sidebar; if the user performs a search or adds a filter to the products this is displayed in the breadcrumbs; if their search is unsuccessful they are notified on the products page.
 
+![Aesthetic, Branding and UX Features](media/notproducts/readme-features-aesthetic.png)
+
 _Registration and User Accounts_
 
 4. The site must allow users to create an account that they can log in and out of.
@@ -241,6 +241,8 @@ _Registration and User Accounts_
     - The Django allauth plug-in provides the functionality to send users emails containing their registration details after they sign up for an account, and their details if they can't remember them.
 6. The user's account must be personalised with their delivery details and order history.
     - The user's profile page allows them to save their delivery details which autopopulate the checkout page when they place a new order; it also displays tiles of their previous orders which can be clicked on to view the full details.
+
+![Registration and User Accounts Features](media/notproducts/readme-features-registration.png)
 
 _Viewing and Navigation_
 
@@ -253,12 +255,16 @@ _Viewing and Navigation_
 10. The site must have an easily accessible wish list that users can save products in for future purchase.
     - The wish list is available as a sidebar which can be accessed from every page on the navbar. The selected products are displayed in the sidebar with a breakdown of the price; a cover swatch of all of the available colours is also displayed next to the product information. The total number of products in the wish list are also shown as a number above the icon on the navbar.
 
+![Viewing and Navigation Features](media/notproducts/readme-features-navigation.png)
+
 _Sorting and Searching_
 
 11. The site must allow users to filter and sort products based on name, price, type, colour and brand.
-    - Users can filter products based on range, style, colour and availability, or sort products by name, price and colour. These filters are reflected in the breadcrumbs element.
+    - Users can filter products based on range, style, colour and availability, or sort products by name, price and colour. These filters are reflected in the breadcrumbs element and the total number of products in a specific filter or search criteria are displayed in brackets after the text.
 12. The site must allow users to search for products based on name and description.
     - Users can enter search criteria in the search bar in the navbar. These search criteria are reflected in the breadcrumbs element. Results are displayed on the products page; if there are no search results a message is displayed asking the user to change their search criteria.
+
+![Sorting and Searching Features](media/notproducts/readme-features-sorting.png)
 
 _Purchasing and Checkout_
 
@@ -275,21 +281,38 @@ _Purchasing and Checkout_
 18. The site must present the user with a confirmation of their order after they pay and send them details of their order in a confirmation email.
     - The site sends users a confirmation email after the order has successfully gone through with all of their order details. A summary of their order can also be accessed from their profile page.
 
+![Purchasing and Checkout Features](media/notproducts/readme-features-purchasing.png)
+
 _Admin_
 
 19. The site must allow admin users to add, edit and delete products and mark them as "unavailable", both on the frontend of the site and on the admin backend.
     - Admin users can add new products from the product management dropdown menu. Admin users can edit or delete a product from its thumbnail, product detail page or Django backend. 
 
+![Admin Features](media/notproducts/readme-features-admin.png)
+
 _Additional features_
 
 - The onload fading animation that happens over the hero image on the home page (and the signup and log in pages) only happens the first time a user visits that page. On the first visit the onload function saves a "visited" variable to the session to prevent the user from having to sit through the animation every time they visit that page.
-- The interactive cover swatches engage the user and allow them to browse the full product range from the home page, before deciding what product range to explore. The colour is adjustable on the Django admin panel, and is customisable for special designs like the Disney range.
-- On the products page the total number of products in a specific filter or search criteria are displayed in brackets after the text.
+- The interactive cover swatches engage the user and allow them to browse the full product range from the home page, before deciding what product range to explore. The colours for the swatch, swatch border and corresponding background colour are adjustable on the Django admin panel, and are customisable for special designs like the Disney range.
 
 #### Defensive design features
+- 404 pages
+- secure admin views
+- unavailable products
 
 #### Features left to implement
 - Chaining filters together
+- Do you want to delete modal
+- The site could have spaces to advertise new products, deals and promotions for the Hero Arm.
+- The user's account could be personalised with additional details (photos of them wearing the products that could be used to generate social media content, link to the Open Bionics App etc).
+- The site could allow users to report issues about their orders and Hero Arm.
+- The site could allow users to customise the colours of their covers (ie. instead of buying a full set of one colour, they could mix and match multiple colours).
+- The site could have a more advanced search filter for the products instead of the basic template shown on the Boutique Ado mini project.
+- The site could allow admin users to mark products as "newly added" or "discounted" depending on current promotions.
+- The site could have an inventory model that would automatically update items as "low stock" or "out of stock" depending on how many had been purchased.
+- Contact pages
+- Product reviews
+- Recommendation system
 
 ## Technologies used
 ### Languages and frameworks
