@@ -296,23 +296,26 @@ _Additional features_
 - The interactive cover swatches engage the user and allow them to browse the full product range from the home page, before deciding what product range to explore. The colours for the swatch, swatch border and corresponding background colour are adjustable on the Django admin panel, and are customisable for special designs like the Disney range.
 
 #### Defensive design features
-- 404 pages
-- secure admin views
-- unavailable products
+I implemented a number of defensive design features throughout my code to protect the site against malicious use and to further improve the user experience. The main ones are:
+- Designing custom 404 and 500 error pages - this provides the user with an easy route back to a non-problematic page via the navbar in the event of an error.
+- I used the @login_required decorator to restrict adding, editing and deleting products to admin users - if a user tries to navigate to those pages through the URL they are redirected to the homepage and receive an error toast message.
+- The cover swatches function in ob_covers/contexts.py eliminates duplicate colours being added to the same swatch which prevents the swatches rendering with too many values.
+- There are multiple defensive blocks to prevent users placing orders for unavailable items. Products that are "unavailable" are clearly marked with a tag and a fainter product thumbnail. The user can look at the product details but will not be able to add the product to their shopping basket, either from the product details page or their wish list. If the product is already in their shopping basket when it is made unavailable, the user will not be able to proceed to checkout. If the user is on the checkout page and a product is made unavailable, it will be removed from their order when they make their payment.
+- The vital fields on all user forms (eg. name and email for users, name and description for products) are required in the models to ensure that the information submitted can actually be used. All relevant fields also have max lengths to prevent overly long text being submitted.
 
 #### Features left to implement
-- Chaining filters together
-- Do you want to delete modal
-- The site could have spaces to advertise new products, deals and promotions for the Hero Arm.
-- The user's account could be personalised with additional details (photos of them wearing the products that could be used to generate social media content, link to the Open Bionics App etc).
-- The site could allow users to report issues about their orders and Hero Arm.
-- The site could allow users to customise the colours of their covers (ie. instead of buying a full set of one colour, they could mix and match multiple colours).
-- The site could have a more advanced search filter for the products instead of the basic template shown on the Boutique Ado mini project.
-- The site could allow admin users to mark products as "newly added" or "discounted" depending on current promotions.
-- The site could have an inventory model that would automatically update items as "low stock" or "out of stock" depending on how many had been purchased.
-- Contact pages
-- Product reviews
-- Recommendation system
+My final project fulfils all of the "must-have" criteria in the scope but if I had more time/came back to this project in the future there are still some features I would like to implement.
+- The functionality for applying multiple filters to the product range is there (ie. if you add ?range=classic&colour=black to the /products/ URL it will return all black covers in the Classic range) but I didn't have time to create the user interface for applying multiple criteria. Changes would need to be made to the breadcrumbs, the current filter/sorting bubbles and the no results message if the user combined a set of incompatible filters. 
+- Currently when an admin user chooses to delete a product from the site there is no double check on whether they meant to do this - I would like to add a modal that pops up when the delete button is selected that asks "Are you sure you want to delete this?"
+- If this was actually going to be used by my company there are a lot of areas to build in promotions for the Hero Arm or new cover ranges.
+- There are a lot of features that could be added to the user's profile to make it more interactive for them, such as links to social media or contact details to our customer support team in case there is a problem with their order.
+- The site could allow users to report issues about their orders and Hero Arm through a contact form or a link to a live chat feed.
+- The site could allow users to customise the colours of their covers (ie. instead of buying a full set of one colour, they could mix and match multiple colours) - this would require a customiser widget and a full rework of the product structure.
+- The site could allow admin users to mark products as "newly added" or "discounted" depending on current promotions - this would build on the functionality used for the "unavailable" tag.
+- The site could have an inventory model that would automatically update items as "low stock" or "out of stock" depending on how many had been purchased - as mentioned in my Information Architecture section I chose to not use this structure due to the nature of our business, but if we added more products to our range (eg. Open Bionics tshirts, add-ons for the Hero Arm) then it would make sense to implement this.
+- I left out static pages like a blog, FAQs and a contact form as I wanted to focus on the more complex Django functionality, but adding these to a real site would improve the user experience.
+- I would like to add in the functionality for users to leave reviews and ratings for the products they had purchased.
+- I would like to add in a recommendation system that would suggest specific products to users who had made previous purchases.
 
 ## Technologies used
 ### Languages and frameworks
