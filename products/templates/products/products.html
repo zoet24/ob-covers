@@ -6,7 +6,7 @@
 {% include 'products/includes/product_nav_header.html' %}
 
 <!-- Filter and sort modals -->
-<section class="container-fluid bg-lightblue d-md-none">
+<section class="container-fluid bg-lightblue d-md-none" id="productsfilters-mobile">
     <div class="row pt-3 pb-0">
         <div class="col-12">
             <div class="btn btn-light btn-sm mr-2 mr-sm-4" onclick="openFilters()">Filter <i class="fas fa-sliders-h"></i></div>
@@ -43,7 +43,7 @@
 <section class="container-fluid bg-lightblue">
     <div class="row py-0 mb-0">
         <!-- Display category and sorting modals on left on larger devices -->
-        <div class="d-none d-md-block px-0 col-md-4 ml-md-auto col-lg-3 col-xl-2">
+        <div class="d-none d-md-block px-0 col-md-4 ml-md-auto col-lg-3 col-xl-2" id="productsfilters-desktop">
             <div class="sticky-top">
             {% include 'products/includes/product_filter_categories.html' %}
             {% include 'products/includes/product_sort_categories.html' %}

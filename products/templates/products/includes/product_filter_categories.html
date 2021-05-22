@@ -2,21 +2,21 @@
 <h2 class="p-2 d-md-none">Filters</h2>
 <hr class="mt-md-3 mb-2">
 {% if current_range != None or current_style != None or current_colour != None %}
-<button class="btn btn-light px-3" onclick="resetFilters()">
+<div class="btn btn-light px-3" onclick="resetFilters()" role="button">
     <span class="filters-title"></span>
     <div class="icon icon-black icon-category-reset">
         <span><i class="fas fa-times"></i></span>
     </div>
-</button>
+</div>
 {% elif current_other != None %}
-<button class="btn btn-light px-3" onclick="resetFilters()">
+<div class="btn btn-light px-3" onclick="resetFilters()" role="button">
     <span class="filters-title">{{ current_other }}</span>
     <div class="icon icon-black icon-category-reset">
         <span><i class="fas fa-times"></i></span>
     </div>
-</button>
+</div>
 {% else %}
-<span class="text-skinny" id="filters-title-none">No current filters</span>
+<span class="text-skinny filters-title-none">No current filters</span>
 {% endif %}
 <hr class="mt-2">
 <!-- Product filters dropdown -->

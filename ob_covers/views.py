@@ -96,10 +96,10 @@ def add_to_fav(request, item_id):
 
     if item_id in list(fav.keys()):
         messages.success(request,
-                         f'{product.name} is already in your favourites!')
+                         f'{product.name} is already in your wish list!')
     else:
         fav[item_id] = 1
-        messages.success(request, f'Added {product.name} to your favourties')
+        messages.success(request, f'Added {product.name} to your wish list')
 
     request.session['fav'] = fav
     return redirect(redirect_url)
@@ -113,7 +113,7 @@ def remove_from_fav(request, item_id):
         fav = request.session.get('fav', {})
         fav.pop(item_id)
         messages.success(request,
-                         f'Removed {product.name} from your favourites')
+                         f'Removed {product.name} from your wish list')
 
         request.session['fav'] = fav
         return HttpResponse(status=200)

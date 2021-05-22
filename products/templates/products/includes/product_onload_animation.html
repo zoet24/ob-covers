@@ -41,5 +41,15 @@
         var sortTitle = $(`#${sort}_${direction}_label`).text().trim();
         $(".sort-title").html(sortTitle);
         $(`input[name="sort"][value='${sort}_${direction}']`).prop("checked", true);
+
+        setTimeout(function () {
+            if (window.innerWidth < 768) {
+                $("#productsfilters-desktop").remove();
+                console.log("Mobile!");
+            } else {
+                $("#productsfilters-mobile").remove();
+                console.log("Desktop!");
+            }
+        }, 250);
     };
 </script>

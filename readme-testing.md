@@ -17,32 +17,35 @@
 Click **[here](readme.md)** to return to the main document.
 
 ## Testing During Development
-- Bug - update link in shopping basket redirects to blank page (adjust/x), needed to add hidden redirect url into bottom of form
-- Bug - +/- buttons when product detail page and shopping basket open at same time
+Throughout the development process I used the console.log() function to test my JavaScript and the print() function to test my Python and identify any unpredictable behaviour. Almost all of the bugs I found were down to typos in the code, but two errors took longer to fix:
+- **dd7ee61** - After deploying to Heroku I noticed that the images on my development site didn't match those on my live site. After combing through the code for a full 2 days, I realised that I had changed the data on the MySQL database but hadn't updated it in Postgres which was an easy fix.
+- **afeaa1e** - Users can adjust the quantity of items from the product detail page and from the sidebar shopping basket - because the shopping sidebar is always available from every page this meant that when the product detail page was open there were two identical IDs controlling the quantity value, resulting in one of the quantity inputs not working properly. I resolved this by adding a second JavaScript function to control the quantities in the shopping basket.
 
 ## Code Validation
 
 ### HTML
+I used the W3C Markup Validation Service to validate my HTML
 
 ### CSS
+I used the W3C CSS Validation Service to validate my CSS and it didn't find any errors.
 
 ### JavaScript and JQuery
-remove javascript type from script tags
-// jshint esversion: 6 for template literals
-removing unused variables, adding missing semi colons
+I used JSHint to test my JavaScript functions - the main errors that it flagged were removing the "type" from the script tags and adding "// jshint esversion: 6" at the top of any code that used template literals. Apart from that there were a few missing semicolons and some un-used variables.
 
 ### Python
+I used PEP8Online and the Gitpod "Problems" terminal to test my Python code - 
 
 ### Responsiveness
+I used Google Developer Tools to test the responsiveness of my site
 
 ### Accessibility
+I used Google Developer Tools to test the accessibility of my site
 
 ### Performance
+I used Google Developer Tools to test the performance of my site
 
 ## Automated Testing
-I also took advantage of the Django testing framework to write various 
-- coverage report only 46%
-- would have expanded on this if I had more time
+I also took advantage of the Django testing framework to write various automated tests to check that my views were working correctly. The Coverage report produced towards the tail-end of development shows that 46% of my code is covered by my current tests - there is obviously a lot of room for improvement and this is something I would like to do in future iterations of the project.
 
 ## Testing User Stories
 To finish my testing process I reassessed my User Stories to check that my site meets the criteria outlined at the beginning of the project. I have listed the stories below and used screenshots of the desktop site (where relevant) to illustrate how my site fulfils my original User Stories. I also shared the site with 20 of my colleagues at Open Bionics and asked them to score the site on "UX experience", "Easy to use" and "OB branding" to get feedback on the more subjective User Stories and have included their feedback too.

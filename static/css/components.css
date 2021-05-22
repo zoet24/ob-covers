@@ -683,9 +683,9 @@ input[type=number] {
 }
 
 .filters-title,
-#filters-title-none,
+.filters-title-none,
 .sort-title,
-#sort-title-none {
+.sort-title-none {
     text-transform: uppercase;
     font-size: 1rem;
     letter-spacing: -0.6px;

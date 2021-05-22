@@ -2,14 +2,14 @@
 <h2 class="p-2 d-md-none">Sorting</h2>
 <hr class="mt-md-3 mb-2">
 {% if current_sorting != None %}
-<button class="btn btn-light px-3" onclick="resetSort()">
+<div class="btn btn-light px-3" onclick="resetSort()" role="button">
     <span class="sort-title"></span>
     <div class="icon icon-black icon-category-reset">
         <span><i class="fas fa-times"></i></span>
     </div>
-</button>
+</div>
 {% else %}
-<span class="text-skinny" id="sort-title-none">No current sorting</span>
+<span class="text-skinny sort-title-none">No current sorting</span>
 {% endif %}
 <hr class="mt-2">
 <!-- Product sorting dropdown -->

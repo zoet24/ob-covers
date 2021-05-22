@@ -301,6 +301,7 @@ I implemented a number of defensive design features throughout my code to protec
 - I used the @login_required decorator to restrict adding, editing and deleting products to admin users - if a user tries to navigate to those pages through the URL they are redirected to the homepage and receive an error toast message.
 - The cover swatches function in ob_covers/contexts.py eliminates duplicate colours being added to the same swatch which prevents the swatches rendering with too many values.
 - There are multiple defensive blocks to prevent users placing orders for unavailable items. Products that are "unavailable" are clearly marked with a tag and a fainter product thumbnail. The user can look at the product details but will not be able to add the product to their shopping basket, either from the product details page or their wish list. If the product is already in their shopping basket when it is made unavailable, the user will not be able to proceed to checkout. If the user is on the checkout page and a product is made unavailable, it will be removed from their order when they make their payment.
+- If a user tries to add a product to their shopping basket that they already have a quantity of, it will add one more product to the total instead of creating another tile which wouldn't be aesthetically pleasing; if a user tries to add a product to their wish list and they already have it in there, a toast error message will inform them that this is the case.
 - The vital fields on all user forms (eg. name and email for users, name and description for products) are required in the models to ensure that the information submitted can actually be used. All relevant fields also have max lengths to prevent overly long text being submitted.
 
 #### Features left to implement
@@ -439,7 +440,7 @@ Set up automatic emails with Django and Gmail using the following steps:
 __Media:__ All of the images and logos on the website are property of Open Bionics.
 
 __Code:__
-I used the following snippets of code for...
+This project was based off of the _Code Institute_ Boutique Ado mini project - portions of the code might remain similar to the tutorial but the majority of the project has been updated with my own work. I used Stripe's development tools to get the checkout process up and running, and relied heavily on Stack Overflow and the additional Django documentation throughout development. Any code that has been copied directly from an external source will have a commented beside it crediting the author.
 
 __Acknowledgements:__
 I'd like to thank my bosses Joel Gibbard and Samantha Payne for allowing me to use the Open Bionics images, logos and branding, and my colleagues for their useful feedback on the finished website. I'd also like to thank my tutor Can Sucullu, the _Code Institute_ community and my friends and family for their guidance and input on this project.
