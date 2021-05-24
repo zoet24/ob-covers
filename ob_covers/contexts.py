@@ -101,8 +101,8 @@ def cover_swatches(request):
     premium_styles = []
 
     for product in premium_products:
-        if (product.colour.name not in premium_colours
-           or product.style.name not in premium_styles):
+        if (product.colour.name not in premium_colours or
+           product.style.name not in premium_styles):
             premium_colours.append(product.colour.name)
             premium_styles.append(product.style.name)
             premium_swatch.append(product)
@@ -114,8 +114,8 @@ def cover_swatches(request):
     disney_styles = []
 
     for product in disney_products:
-        if (product.colour.name not in disney_colours
-           or product.style.name not in disney_styles):
+        if (product.colour.name not in disney_colours or
+           product.style.name not in disney_styles):
             disney_colours.append(product.colour.name)
             disney_styles.append(product.style.name)
             disney_swatch.append(product)
