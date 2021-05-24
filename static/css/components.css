@@ -554,6 +554,25 @@ input[type=number] {
     right: 8px;
 }
 
+.sticky-top {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 120px;
+    z-index: 8;
+    width: 270px;
+    height: calc(100vh - 118px);
+    overflow: hidden;
+}
+
+/* Hiding scrollbars cross compatibility https://stackoverflow.com/questions/16670931/hide-scroll-bar-but-while-still-being-able-to-scroll */
+.sticky-top-filters {
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    padding-right: 17px; /* Increase/decrease this value for cross-browser compatibility */
+    box-sizing: content-box;
+}
+
 
 /* Forms */
 
