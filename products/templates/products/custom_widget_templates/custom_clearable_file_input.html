@@ -5,12 +5,12 @@
             <!-- If widget has image loaded, show image -->
             {% if widget.is_initial %}
                 <a href="{{ widget.value.url }}" class="cover-tile-image-container">
-                    <img class="cover-tile-image" src="{{ widget.value.url }}">
+                    <img class="cover-tile-image" src="{{ widget.value.url }}" alt="Hero Arm covers">
                 </a>
             <!-- If widget has no image loaded, show no-image.png -->
             {% else %}
                 <a href="https://ob-covers-bucket.s3.eu-west-2.amazonaws.com/media/no-image.png" class="cover-tile-image-container">
-                    <img class="cover-tile-image" src="https://ob-covers-bucket.s3.eu-west-2.amazonaws.com/media/no-image.png">
+                    <img class="cover-tile-image" src="https://ob-covers-bucket.s3.eu-west-2.amazonaws.com/media/no-image.png" alt="Blue outline of covers indicating no image">
                 </a>
             {% endif %}
         </div>
@@ -25,14 +25,14 @@
         {% endif %}
         <span class="d-none" id="filename"></span>
         <h3 class="pt-2">
-            <label class="text-success btn-file m-0" for="new-image">
+            <label class="text-success btn-file m-0" for="id_image">
                 Update
-                <input id="new-image" type="{{ widget.type }}" name="{{ widget.name }}"{% include "django/forms/widgets/attrs.html" %}>
+                <input type="{{ widget.type }}" name="{{ widget.name }}"{% include "django/forms/widgets/attrs.html" %}>
             </label>
             {% if widget.is_initial %}
-            <label class="text-danger btn-file-remove m-0" for="remove-image">
+            <label class="text-danger btn-file-remove m-0" for="image-clear_id">
                 <span class="text-dark">|</span> Remove
-                <input id="remove-image" class="form-check-input" type="checkbox" name="{{ widget.checkbox_name }}" id="{{ widget.checkbox_id }}">
+                <input class="form-check-input" type="checkbox" name="{{ widget.checkbox_name }}" id="{{ widget.checkbox_id }}">
             </label>
             {% endif %}
         </h3>
