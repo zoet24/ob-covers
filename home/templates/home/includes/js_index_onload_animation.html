@@ -1,6 +1,6 @@
-<!-- Onload animation -->
+<!-- Onload animation: fade in text on hero image and trigger backgrounds on cover swatches -->
 <script>
-// On load fade text, logo and buttons on to hero image if user hasn't visited page
+    // On load fade text, logo and buttons on to hero image if user hasn't visited page
     onload = function session() {
         if (document.cookie.indexOf("visited_home") >= 0) {
             animationSecond();
@@ -86,7 +86,7 @@
             }, 5000);
         }
     }
-    
+
     function animationSecond() {
         swatchClick();
         $("#home-heading-logo").css({

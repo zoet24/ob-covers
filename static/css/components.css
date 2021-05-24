@@ -4,31 +4,31 @@
 /* HEADINGS */
 
 h1 {
-    font-size: 2.5rem;
-    font-family: 'Poppins', sans-serif;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-weight: 300;
+	font-size: 2.5rem;
+	font-family: 'Poppins', sans-serif;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	font-weight: 300;
 }
 
 h2 {
-    font-size: 2.25rem;
-    font-family: 'Poppins', sans-serif;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-weight: 300;
+	font-size: 2.25rem;
+	font-family: 'Poppins', sans-serif;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	font-weight: 300;
 }
 
 h3 {
-    font-size: 1.5rem;
-    font-family: 'Poppins', sans-serif;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-weight: 300;
+	font-size: 1.5rem;
+	font-family: 'Poppins', sans-serif;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-weight: 300;
 }
 
 h4 {
-    font-size: 1rem;
+	font-size: 1rem;
 }
 
 
@@ -38,181 +38,181 @@ h4 {
 /* Links */
 
 a {
-    color: #1c86c8;
+	color: #1c86c8;
 }
 
 a:hover {
-    color: #1c86c8;
-    text-decoration: none;
+	color: #1c86c8;
+	text-decoration: none;
 }
 
 .footer-icons a:hover {
-    text-decoration: none;
+	text-decoration: none;
 }
 
 a.text-link:hover {
-    color: #1c86c8;
-    text-decoration: underline;
+	color: #1c86c8;
+	text-decoration: underline;
 }
 
 a.text-link-dark {
-    color: #151635;
+	color: #151635;
 }
 
 a.text-link-dark:hover {
-    color: #151635;
-    text-decoration: underline;
+	color: #151635;
+	text-decoration: underline;
 }
 
 a.text-success:hover,
 a.text-success:focus {
-    color: #28a745!important;
-    text-decoration: underline;
+	color: #28a745!important;
+	text-decoration: underline;
 }
 
 a.text-danger:hover,
 a.text-danger:focus {
-    color: #dc3545!important;
-    text-decoration: underline;
+	color: #dc3545!important;
+	text-decoration: underline;
 }
 
 
 /* Icons */
 
 .icon {
-    color: #fff;
-    background-color: #1c86c8;
-    font-size: 22px;
-    height: 40px;
-    width: 40px;
-    border-radius: 50%;
-    border: #fff solid 2px;
-    align-items: center;
-    display: inline-flex;
-    justify-content: center;
-    text-decoration: none;
-    transition: all 0.25s ease-in-out;
+	color: #fff;
+	background-color: #1c86c8;
+	font-size: 22px;
+	height: 40px;
+	width: 40px;
+	border-radius: 50%;
+	border: #fff solid 2px;
+	align-items: center;
+	display: inline-flex;
+	justify-content: center;
+	text-decoration: none;
+	transition: all 0.25s ease-in-out;
 }
 
 .icon-sm {
-    font-size: 10px;
-    height: 30px;
-    width: 30px;
+	font-size: 10px;
+	height: 30px;
+	width: 30px;
 }
 
 .icon-xsm {
-    font-size: 7px;
-    height: 25px;
-    width: 25px;
-    border-width: 1px;
+	font-size: 7px;
+	height: 25px;
+	width: 25px;
+	border-width: 1px;
 }
 
 .icon:hover {
-    color: #1c86c8;
-    background-color: white;
-    text-decoration: none;
-    transform: scale(1.1);
+	color: #1c86c8;
+	background-color: white;
+	text-decoration: none;
+	transform: scale(1.1);
 }
 
 .icon-light {
-    background-color: #fff;
-    border-color: #1c86c8;
-    border-width: 1px;
-    color: #151635;
-    box-shadow: 1px 1px #1c86c8;
+	background-color: #fff;
+	border-color: #1c86c8;
+	border-width: 1px;
+	color: #151635;
+	box-shadow: 1px 1px #1c86c8;
 }
 
 .icon-black {
-    color: #151635;
-    border-color: #151635;
-    background-color: transparent;
+	color: #151635;
+	border-color: #151635;
+	background-color: transparent;
 }
 
 .icon-light:hover,
 .icon-black:hover {
-    color: #151635;
-    border-color: #151635;
-    background-color: #fff;
+	color: #151635;
+	border-color: #151635;
+	background-color: #fff;
 }
 
 .icon-category-reset,
 .icon-category-reset:hover {
-    border-color: transparent;
-    font-size: 15px;
-    width: 15px;
-    margin-right: 0px;
+	border-color: transparent;
+	font-size: 15px;
+	width: 15px;
+	margin-right: 0px;
 }
 
 .icon-nav {
-    position: relative;
-    display: inline-flex;
+	position: relative;
+	display: inline-flex;
 }
 
 .icon-nav:hover {
-    transform: none;
+	transform: none;
 }
 
 .icon-nav-count {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: .65rem;
-    position: absolute;
-    top: -8px;
-    right: -9px;
-    width: 18px;
-    height: 18px;
-    color: #fff;
-    background-color: #1c86c8;
-    border: 2px solid #fff;
-    border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: .65rem;
+	position: absolute;
+	top: -8px;
+	right: -9px;
+	width: 18px;
+	height: 18px;
+	color: #fff;
+	background-color: #1c86c8;
+	border: 2px solid #fff;
+	border-radius: 50%;
 }
 
 
 /* Buttons */
 
 .btn {
-    font-size: 1.5rem;
-    font-family: 'Poppins', sans-serif;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-weight: 300;
-    display: inline-block;
-    text-align: center;
-    vertical-align: middle;
-    background-color: transparent;
-    border: 3px solid transparent;
-    padding: 0.25rem 0.4rem;
-    border-radius: 30px;
-    max-height: 60px;
-    min-width: 130px;
-    transition: transform .25s ease-in-out;
+	font-size: 1.5rem;
+	font-family: 'Poppins', sans-serif;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-weight: 300;
+	display: inline-block;
+	text-align: center;
+	vertical-align: middle;
+	background-color: transparent;
+	border: 3px solid transparent;
+	padding: 0.25rem 0.4rem;
+	border-radius: 30px;
+	max-height: 60px;
+	min-width: 130px;
+	transition: transform .25s ease-in-out;
 }
 
 .btn:hover,
 .btn:focus,
 .btn-long:hover,
 .btn-long:focus {
-    transform: scale(1.05);
-    box-shadow: none;
+	transform: scale(1.05);
+	box-shadow: none;
 }
 
 .btn-long {
-    min-width: 200px;
-    padding: 0.5rem 0.75rem;
+	min-width: 200px;
+	padding: 0.5rem 0.75rem;
 }
 
 .btn-image {
-    color: #fff;
-    border-color: #fff;
+	color: #fff;
+	border-color: #fff;
 }
 
 .btn-image:hover,
 .btn-image:focus,
 .btn-image:active {
-    color: #fff;
-    background-color: transparent;
-    box-shadow: none;
+	color: #fff;
+	background-color: transparent;
+	box-shadow: none;
 }
 
 .btn-light,
@@ -221,17 +221,17 @@ a.text-danger:focus {
 .btn-light:active,
 .btn-light:not(:disabled):not(.disabled):active,
 .btn-light:not(:disabled):not(.disabled):active:focus {
-    background-color: #fff;
-    border-color: #1c86c8;
-    border-width: 1px;
-    color: #151635;
-    box-shadow: 1px 1px #1c86c8;
+	background-color: #fff;
+	border-color: #1c86c8;
+	border-width: 1px;
+	color: #151635;
+	box-shadow: 1px 1px #1c86c8;
 }
 
 .btn-dark {
-    color: #151635;
-    border-color: #151635;
-    border-width: 2px;
+	color: #151635;
+	border-color: #151635;
+	border-width: 2px;
 }
 
 .btn-dark:hover,
@@ -239,194 +239,194 @@ a.text-danger:focus {
 .btn-dark:active,
 .btn-dark:not(:disabled):not(.disabled):active,
 .btn-dark:not(:disabled):not(.disabled):active:focus {
-    color: #151635;
-    background-color: transparent;
-    box-shadow: none;
+	color: #151635;
+	background-color: transparent;
+	box-shadow: none;
 }
 
 .btn-sm {
-    font-size: 1.25rem;
-    border-width: 1px;
+	font-size: 1.25rem;
+	border-width: 1px;
 }
 
 .btn:disabled {
-    background-color: #fff;
-    border-color: #ccc;
-    border-width: 1px;
-    color: #151635;
-    box-shadow: 1px 1px #ccc;
+	background-color: #fff;
+	border-color: #ccc;
+	border-width: 1px;
+	color: #151635;
+	box-shadow: 1px 1px #ccc;
 }
 
 .btn:disabled:hover {
-    transform: none;
-    cursor: default;
+	transform: none;
+	cursor: default;
 }
 
 .btn-up {
-    position: fixed;
-    bottom: 10px;
-    right: 10px;
-    cursor: pointer;
-    background-color: #fff;
+	position: fixed;
+	bottom: 10px;
+	right: 10px;
+	cursor: pointer;
+	background-color: #fff;
 }
 
 
 /* Lines */
 
 hr {
-    width: 33%;
-    margin: 0 auto;
-    border-color: #151635;
+	width: 33%;
+	margin: 0 auto;
+	border-color: #151635;
 }
 
 .hr-long {
-    width: 60%;
+	width: 60%;
 }
 
 .hr-xlong {
-    width: 100%;
+	width: 100%;
 }
 
 
 /* Quantity inputs */
 
 .input-quantity {
-    width: auto;
-    height: 35px;
-    margin: 0;
-    border: solid 1px #151635;
-    background-color: #fff;
+	width: auto;
+	height: 35px;
+	margin: 0;
+	border: solid 1px #151635;
+	background-color: #fff;
 }
 
 .input-quantity-sm {
-    height: 30px;
-    border-radius: 10px;
-    font-size: 0.75rem;
+	height: 30px;
+	border-radius: 10px;
+	font-size: 0.75rem;
 }
 
 .input-sort,
 .input-quantity {
-    border-radius: 35px;
-    text-align: center;
+	border-radius: 35px;
+	text-align: center;
 }
 
 .input-sort:focus,
 .input-quantity:focus {
-    outline: none;
+	outline: none;
 }
 
 .input-group-prepend,
 .input-group-append,
 .input-quantity {
-    display: inline-flex;
+	display: inline-flex;
 }
 
 .increment-qty,
 .decrement-qty,
 .increment-qty_sb,
 .decrement-qty_sb {
-    border: none;
-    background-color: transparent;
-    display: block;
+	border: none;
+	background-color: transparent;
+	display: block;
 }
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+	-webkit-appearance: none;
+	margin: 0;
 }
 
 input[type=number] {
-    -moz-appearance: textfield;
+	-moz-appearance: textfield;
 }
 
 .update-link,
 .remove-item {
-    cursor: pointer;
+	cursor: pointer;
 }
 
 
 /* Products  */
 
 .cover-tile {
-    width: 100%;
-    text-align: center;
-    padding: 10px;
-    position: relative;
-    background-color: #fff;
-    overflow: hidden;
+	width: 100%;
+	text-align: center;
+	padding: 10px;
+	position: relative;
+	background-color: #fff;
+	overflow: hidden;
 }
 
 .cover-tile-detail {
-    border-radius: 25px;
+	border-radius: 25px;
 }
 
 .cover-tile-products,
 .sidebar-table,
 .orderhistory-table {
-    box-shadow: 1px 1px #1c86c8;
-    border: 1px solid #1c86c8;
-    border-radius: 25px;
+	box-shadow: 1px 1px #1c86c8;
+	border: 1px solid #1c86c8;
+	border-radius: 25px;
 }
 
 .cover-tile-products {
-    transition: transform .25s ease-in-out;
-    margin: 10px;
-    max-width: 250px;
+	transition: transform .25s ease-in-out;
+	margin: 10px;
+	max-width: 250px;
 }
 
 .cover-tile-products:hover {
-    transform: scale(1.025);
-    text-transform: none;
+	transform: scale(1.025);
+	text-transform: none;
 }
 
 .cover-tile-name,
 .cover-tile-price,
 .cover-tile-admin {
-    font-family: 'Roboto';
-    font-size: 1.25rem;
-    text-transform: uppercase;
-    font-weight: 300;
+	font-family: 'Roboto';
+	font-size: 1.25rem;
+	text-transform: uppercase;
+	font-weight: 300;
 }
 
 .cover-tile-image,
 .cover-tile-image-container {
-    height: 325px;
+	height: 325px;
 }
 
 .cover-tile-image-container {
-    width: 100%;
+	width: 100%;
 }
 
 .cover-tile-image-detail {
-    height: 400px;
+	height: 400px;
 }
 
 .cover-tile-image-sm {
-    height: 170px;
+	height: 170px;
 }
 
 .cover-tile-image-xs {
-    height: 80px;
+	height: 80px;
 }
 
 .cover-tile-info {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 80%;
-    text-align: center;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 80%;
+	text-align: center;
 }
 
 .cover-swatch {
-    height: 20px;
-    width: 20px;
-    border: solid 1px;
-    border-radius: 50%;
-    display: inline-block;
-    cursor: pointer;
-    transition: all .25s ease-in-out;
+	height: 20px;
+	width: 20px;
+	border: solid 1px;
+	border-radius: 50%;
+	display: inline-block;
+	cursor: pointer;
+	transition: all .25s ease-in-out;
 }
 
 .cover-swatch-classic-active,
@@ -434,174 +434,176 @@ input[type=number] {
 .cover-swatch-premium-active,
 .cover-swatch-disney-active,
 .cover-swatch:hover {
-    transform: scale(1.25);
+	transform: scale(1.25);
 }
 
 .cover-swatch-fav:hover,
 .cover-swatch-detail:hover {
-    transform: none;
-    cursor: default;
+	transform: none;
+	cursor: default;
 }
 
 .cover-swatch-detail {
-    margin: 0 0.1rem;
+	margin: 0 0.1rem;
 }
 
 .product-description {
-    background-color: #fff;
-    border-radius: 25px;
-    padding: 0.75rem;
+	background-color: #fff;
+	border-radius: 25px;
+	padding: 0.75rem;
 }
 
 .product-tag,
 .product-tag-detail {
-    width: 500px;
-    transform: rotate(-45deg) translate(-155px, -110px);
-    line-height: 50px;
-    position: absolute;
+	width: 500px;
+	transform: rotate(-45deg) translate(-155px, -110px);
+	line-height: 50px;
+	position: absolute;
 }
 
 .product-tag-detail {
-    transform: rotate(-45deg) translate(-160px, -100px);
+	transform: rotate(-45deg) translate(-160px, -100px);
 }
 
 .product-popular {
-    background-color: #1c86c8;
-    color: #fff;
-    border: #1c86c8 solid 2px;
+	background-color: #1c86c8;
+	color: #fff;
+	border: #1c86c8 solid 2px;
 }
 
 .product-unavailable {
-    background-color: #fff;
-    color: #151635;
-    border: #151635 solid 2px;
-    z-index: 1;
+	background-color: #fff;
+	color: #151635;
+	border: #151635 solid 2px;
+	z-index: 1;
 }
 
 .product-totals {
-    font-size: 1.25rem;
-    font-family: 'Poppins', sans-serif;
-    text-transform: uppercase;
-    font-weight: 300;
-    align-items: center;
+	font-size: 1.25rem;
+	font-family: 'Poppins', sans-serif;
+	text-transform: uppercase;
+	font-weight: 300;
+	align-items: center;
 }
 
 .no-search-results-container {
-    height: 50vh;
-    display: flex;
+	height: 50vh;
+	display: flex;
 }
 
 .no-search-results {
-    align-self: center;
+	align-self: center;
 }
 
 
 /* Tables */
 
 .sidebar-table {
-    background-color: #fff;
-    color: #151635;
-    border-radius: 25px;
+	background-color: #fff;
+	color: #151635;
+	border-radius: 25px;
 }
 
 
 /* Modals */
 
 .card {
-    box-shadow: 1px 1px #1c86c8;
-    border: 1px solid #1c86c8;
-    border-radius: 25px;
+	box-shadow: 1px 1px #1c86c8;
+	border: 1px solid #1c86c8;
+	border-radius: 25px;
 }
 
 .card-header,
 .card-header:first-child {
-    padding: .15rem 1.25rem;
-    margin-bottom: 0;
-    background-color: #fff;
-    border: none;
-    border-radius: 25px;
+	padding: .15rem 1.25rem;
+	margin-bottom: 0;
+	background-color: #fff;
+	border: none;
+	border-radius: 25px;
 }
 
 .card>hr {
-    margin: 0 auto;
-    width: 100%;
-    border-color: #1c86c8;
+	margin: 0 auto;
+	width: 100%;
+	border-color: #1c86c8;
 }
 
 .modal-filters {
-    position: fixed;
-    top: 10vh;
-    left: 0;
-    z-index: 10;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    outline: 0;
+	position: fixed;
+	top: 10vh;
+	left: 0;
+	z-index: 10;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	outline: 0;
 }
 
 .modal-content {
-    color: #151635;
-    background-color: #f0f3f4;
-    border: 2px #151635 solid;
-    height: 80vh;
-    overflow: scroll;
-    position: relative;
+	color: #151635;
+	background-color: #f0f3f4;
+	border: 2px #151635 solid;
+	height: 80vh;
+	overflow: scroll;
+	position: relative;
 }
 
 .modal-body .modal-close {
-    position: absolute;
-    top: 8px;
-    right: 8px;
+	position: absolute;
+	top: 8px;
+	right: 8px;
 }
 
 .sticky-top {
-    position: -webkit-sticky;
-    position: sticky;
-    top: 120px;
-    z-index: 8;
-    width: 270px;
-    height: calc(100vh - 118px);
-    overflow: hidden;
+	position: -webkit-sticky;
+	position: sticky;
+	top: 120px;
+	z-index: 8;
+	width: 270px;
+	height: calc(100vh - 118px);
+	overflow: hidden;
 }
+
 
 /* Hiding scrollbars cross compatibility https://stackoverflow.com/questions/16670931/hide-scroll-bar-but-while-still-being-able-to-scroll */
 .sticky-top-filters {
-    width: 100%;
-    height: 100%;
-    overflow-y: scroll;
-    padding-right: 17px; /* Increase/decrease this value for cross-browser compatibility */
-    box-sizing: content-box;
+	width: 100%;
+	height: 100%;
+	overflow-y: scroll;
+	padding-right: 17px;
+	/* Increase/decrease this value for cross-browser compatibility */
+	box-sizing: content-box;
 }
 
 
 /* Forms */
 
 .form-control {
-    display: block;
-    width: 100%;
-    height: calc(1.5em + .75rem + 2px);
-    padding: .375rem .75rem;
-    font-size: 1rem;
-    font-weight: 300;
-    line-height: 1.5;
-    color: #151635;
-    background-color: #fff;
-    background-clip: padding-box;
-    border: 1px solid #ccc;
-    border-radius: .5rem;
-    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+	display: block;
+	width: 100%;
+	height: calc(1.5em + .75rem + 2px);
+	padding: .375rem .75rem;
+	font-size: 1rem;
+	font-weight: 300;
+	line-height: 1.5;
+	color: #151635;
+	background-color: #fff;
+	background-clip: padding-box;
+	border: 1px solid #ccc;
+	border-radius: .5rem;
+	transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
 
 .form-control:focus {
-    color: #151635;
-    background-color: #fff;
-    border-color: #1c86c8;
-    outline: 0;
-    box-shadow: 1px 1px #1c86c8;
+	color: #151635;
+	background-color: #fff;
+	border-color: #1c86c8;
+	outline: 0;
+	box-shadow: 1px 1px #1c86c8;
 }
 
 .form-check-label-available {
-    width: 120px;
+	width: 120px;
 }
 
 
@@ -609,177 +611,175 @@ input[type=number] {
 
 .btn-file,
 .btn-file-remove {
-    position: relative;
-    overflow: hidden;
+	position: relative;
+	overflow: hidden;
 }
 
 .btn-file input[type="file"],
 .btn-file-remove input[type="checkbox"] {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    cursor: pointer;
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	cursor: pointer;
 }
 
 .btn-file:hover,
 .btn-file-remove:hover {
-    text-decoration: underline;
+	text-decoration: underline;
 }
 
 
 /* Checkboxes https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_custom_radio */
-
-
 /* The container */
 
 .container-radio {
-    display: block;
-    position: relative;
-    padding-left: 30px;
-    margin-bottom: 8px;
-    cursor: pointer;
-    text-align: left;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+	display: block;
+	position: relative;
+	padding-left: 30px;
+	margin-bottom: 8px;
+	cursor: pointer;
+	text-align: left;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 }
 
 
 /* Hide the browser's default radio button */
 
 .container-radio input {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
+	position: absolute;
+	opacity: 0;
+	cursor: pointer;
 }
 
 
 /* Create a custom radio button */
 
 .form-check-checkmark {
-    position: absolute;
-    top: 2px;
-    left: -10px;
-    height: 20px;
-    width: 20px;
-    background-color: #ccc;
-    border-radius: 50%;
+	position: absolute;
+	top: 2px;
+	left: -10px;
+	height: 20px;
+	width: 20px;
+	background-color: #ccc;
+	border-radius: 50%;
 }
 
 
 /* On mouse-over, add a grey background color */
 
 .container-radio:hover input~.form-check-checkmark {
-    background-color: #1c86c8;
-    transform: scale(1.1);
+	background-color: #1c86c8;
+	transform: scale(1.1);
 }
 
 
 /* When the radio button is checked, add a blue background */
 
 .container-radio input:checked~.form-check-checkmark {
-    background-color: #1c86c8;
+	background-color: #1c86c8;
 }
 
 
 /* Create the indicator (the dot/circle - hidden when not checked) */
 
 .form-check-checkmark:after {
-    content: "";
-    position: absolute;
-    display: none;
+	content: "";
+	position: absolute;
+	display: none;
 }
 
 
 /* Show the indicator (dot/circle) when checked */
 
 .container-radio input:checked~.form-check-checkmark:after {
-    display: none;
+	display: none;
 }
 
 .filters-title,
 .filters-title-none,
 .sort-title,
 .sort-title-none {
-    text-transform: uppercase;
-    font-size: 1rem;
-    letter-spacing: -0.6px;
+	text-transform: uppercase;
+	font-size: 1rem;
+	letter-spacing: -0.6px;
 }
 
 
 /* MEDIA QUERIES */
 
 @media (min-width: 440px) {
-    .cover-tile-name {
-        height: 90px;
-        width: 120px;
-        display: flex;
-    }
-    .cover-tile-products {
-        max-width: 175px;
-    }
+	.cover-tile-name {
+		height: 90px;
+		width: 120px;
+		display: flex;
+	}
+	.cover-tile-products {
+		max-width: 175px;
+	}
 }
 
 @media (min-width: 576px) {
-    .cover-swatch {
-        height: 30px;
-        width: 30px;
-    }
-    .cover-swatch-fav {
-        height: 20px;
-        width: 20px;
-    }
+	.cover-swatch {
+		height: 30px;
+		width: 30px;
+	}
+	.cover-swatch-fav {
+		height: 20px;
+		width: 20px;
+	}
 }
 
 @media (min-width: 768px) {
-    .icon {
-        margin: 0px 3px;
-    }
-    .hr-short {
-        width: 15%;
-    }
-    .no-search-results-container {
-        height: auto;
-    }
+	.icon {
+		margin: 0px 3px;
+	}
+	.hr-short {
+		width: 15%;
+	}
+	.no-search-results-container {
+		height: auto;
+	}
 }
 
 @media (min-width: 992px) {
-    .icon {
-        margin: 0px 6px;
-    }
-    .icon-category-reset,
-    .icon-category-reset:hover {
-        margin-right: 0px;
-    }
-    .btn {
-        padding: 0.4rem 0.5rem;
-        border-radius: 30px;
-        max-height: 90px;
-        min-width: 160px;
-        font-size: 1.65rem;
-    }
-    .btn-sm {
-        font-size: 1.25rem;
-        border-width: 1px;
-        max-height: 40px;
-    }
-    .btn-long {
-        min-width: 250px;
-    }
-    hr {
-        width: 20%;
-    }
-    .cover-tile-image-home {
-        height: 400px;
-    }
+	.icon {
+		margin: 0px 6px;
+	}
+	.icon-category-reset,
+	.icon-category-reset:hover {
+		margin-right: 0px;
+	}
+	.btn {
+		padding: 0.4rem 0.5rem;
+		border-radius: 30px;
+		max-height: 90px;
+		min-width: 160px;
+		font-size: 1.65rem;
+	}
+	.btn-sm {
+		font-size: 1.25rem;
+		border-width: 1px;
+		max-height: 40px;
+	}
+	.btn-long {
+		min-width: 250px;
+	}
+	hr {
+		width: 20%;
+	}
+	.cover-tile-image-home {
+		height: 400px;
+	}
 }
 
 @media (min-width: 1200px) {
-    .cover-tile-name {
-        height: 100px;
-    }
+	.cover-tile-name {
+		height: 100px;
+	}
 }

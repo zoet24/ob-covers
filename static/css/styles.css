@@ -3,75 +3,71 @@
 
 /* STYLES */
 
-.black-border {
-    border: solid 2px black;
-}
-
 .blue-border {
-    border-color: #1c86c8;
+	border-color: #1c86c8;
 }
 
 .blue-shadow {
-    box-shadow: 1px 1px #1c86c8;
+	box-shadow: 1px 1px #1c86c8;
 }
 
 .show {
-    display: block;
+	display: block;
 }
 
 .hide {
-    display: none;
+	display: none;
 }
 
 .text-skinny {
-    font-weight: 300;
-    letter-spacing: 0.3px;
+	font-weight: 300;
+	letter-spacing: 0.3px;
 }
 
 .text-thick {
-    font-weight: 500!important;
+	font-weight: 500!important;
 }
 
 .text-md {
-    font-size: 1.25rem;
+	font-size: 1.25rem;
 }
 
 .text-lg {
-    font-size: 1.65rem;
+	font-size: 1.65rem;
 }
 
 .text-xl {
-    font-size: 3.25rem;
+	font-size: 3.25rem;
 }
 
 .text-dark {
-    color: #151635;
+	color: #151635;
 }
 
 .text-underline {
-    text-decoration: underline;
+	text-decoration: underline;
 }
 
 .letter-spacing-md {
-    letter-spacing: 0px;
+	letter-spacing: 0px;
 }
 
 
 /* BACKGROUNDS */
 
 .bg-lightgrey {
-    background-color: #f8f9fa;
+	background-color: #f8f9fa;
 }
 
 .bg-lightblue {
-    background-color: #e3ecf2;
+	background-color: #e3ecf2;
 }
 
 
 /* MEDIA QUERIES */
 
 @media (min-width: 768px) {
-    .img-mirror-md {
-        transform: scaleX(-1);
-    }
+	.img-mirror-md {
+		transform: scaleX(-1);
+	}
 }

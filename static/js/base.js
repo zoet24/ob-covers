@@ -1,3 +1,4 @@
+// Open and close navigation and toast elements
 function openProfileDropdown() {
     document.getElementById("nav-profile-dropdown-menu").classList.toggle("show");
 }
