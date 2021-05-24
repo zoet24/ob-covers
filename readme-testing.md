@@ -33,7 +33,7 @@ I used the W3C CSS Validation Service to validate my CSS and it didn't find any 
 I used JSHint to test my JavaScript functions - the main errors that it flagged were removing the "type" from the script tags and adding "// jshint esversion: 6" at the top of any code that used template literals. Apart from that there were a few missing semicolons and some un-used variables.
 
 ### Python
-I used PEP8Online and the Gitpod "Problems" terminal to test my Python code - 
+I used PEP8Online and the Gitpod "Problems" terminal to test my Python code - the majority of the problems were "line too long" warnings which have almost all been resolved, excluding those present in the migrations files. There are four remaining warnings present in the settings.py file which I couldn't get rid of without breaking up a long variable name.
 
 ### Responsiveness
 I used Google Developer Tools to test the responsiveness of my site
