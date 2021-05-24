@@ -47,7 +47,7 @@
         <!-- Display category and sorting modals on left on larger devices -->
         <div class="d-none d-md-block px-0 col-md-4 ml-md-auto col-lg-3 col-xl-2">
             {% if request.user_agent.is_mobile == False %}
-            <div class="sticky-top" id="sticky-top-filters">
+            <div class="sticky-top">
                 <div class="sticky-top-filters">
                     {% include 'products/includes/product_filter_categories.html' %}
                     {% include 'products/includes/product_sort_categories.html' %}

@@ -24,8 +24,7 @@ Throughout the development process I used the console.log() function to test my 
 ## Code Validation
 
 ### HTML
-I used the W3C Markup Validation Service to validate my HTML
-- user-agents to get rid of ID errors
+I used the W3C Markup Validation Service to validate my HTML. The main error that it flagged up was on my products.html page. I wanted to use the same block of code to control the filter and sorting menus on mobile and desktop devices, but I wanted it to appear in a pop-up modal on mobiles and a side menu on desktops. I included the same block of code to avoid repetition, one in the modal and one in the side menu, and applying display: none styling to the relevant block at the relevant breakpoint. However, even though the block was only displaying once, the IDs for all of the elements inside the menus were rendering twice - this threw up an error in the validator and was also preventing my onload animation on the products page from working properly. I ended up installing django-user-agents which allows you to wrap HTML in conditional breakpoint tags to prevent the HTML from rendering at certain sizes. This elimated all of the errors on the products page. The remaining warnings on the site could be eliminated by improving the semantic markup - this is something I would hope to improve upon in the next iteration of the site.
 
 ### CSS
 I used the W3C CSS Validation Service to validate my CSS and it didn't find any errors.

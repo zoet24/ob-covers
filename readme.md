@@ -317,6 +317,7 @@ My final project fulfils all of the "must-have" criteria in the scope but if I h
 - I left out static pages like a blog, FAQs and a contact form as I wanted to focus on the more complex Django functionality, but adding these to a real site would improve the user experience.
 - I would like to add in the functionality for users to leave reviews and ratings for the products they had purchased.
 - I would like to add in a recommendation system that would suggest specific products to users who had made previous purchases.
+- There is a small visual bug on the products menu on desktops - the user can scroll the filter menu past the footer. I didn't have time to fix this - however, the menu retains its functionality so I didn't think it was critical to fix for project submission.
 
 ## Technologies used
 ### Languages and frameworks
