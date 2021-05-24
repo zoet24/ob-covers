@@ -17,14 +17,15 @@
 Click **[here](readme.md)** to return to the main document.
 
 ## Testing During Development
-Throughout the development process I used the console.log() function to test my JavaScript and the print() function to test my Python and identify any unpredictable behaviour. Almost all of the bugs I found were down to typos in the code, but two errors took longer to fix:
+Throughout the development process I used the console.log() function to test my JavaScript and the print() function to test my Python and identify any unpredictable behaviour. Almost all of the bugs I found were down to typos in the code, but three errors took longer to fix:
+- **628e0fa** - A missing {% load bag_tools %} at the top of my checkout_order_summary.html was causing a 500 error on my deployed site and a template syntax error on my development site. I had added it to the top of my main checkout.html page but didn't realise that you had to apply it in subsequent includes files as well.
 - **dd7ee61** - After deploying to Heroku I noticed that the images on my development site didn't match those on my live site. After combing through the code for a full 2 days, I realised that I had changed the data on the MySQL database but hadn't updated it in Postgres which was an easy fix.
 - **afeaa1e** - Users can adjust the quantity of items from the product detail page and from the sidebar shopping basket - because the shopping sidebar is always available from every page this meant that when the product detail page was open there were two identical IDs controlling the quantity value, resulting in one of the quantity inputs not working properly. I resolved this by adding a second JavaScript function to control the quantities in the shopping basket.
 
 ## Code Validation
 
 ### HTML
-I used the W3C Markup Validation Service to validate my HTML. The main error that it flagged up was on my products.html page. I wanted to use the same block of code to control the filter and sorting menus on mobile and desktop devices, but I wanted it to appear in a pop-up modal on mobiles and a side menu on desktops. I included the same block of code to avoid repetition, one in the modal and one in the side menu, and applying display: none styling to the relevant block at the relevant breakpoint. However, even though the block was only displaying once, the IDs for all of the elements inside the menus were rendering twice - this threw up an error in the validator and was also preventing my onload animation on the products page from working properly. I ended up installing django-user-agents which allows you to wrap HTML in conditional breakpoint tags to prevent the HTML from rendering at certain sizes. This elimated all of the errors on the products page. The remaining warnings on the site could be eliminated by improving the semantic markup - this is something I would hope to improve upon in the next iteration of the site.
+I used the W3C Markup Validation Service to validate my HTML. The main error that it flagged up was on my products.html page. I wanted to use the same block of code to control the filter and sorting menus on mobile and desktop devices, but I wanted it to appear in a pop-up modal on mobiles and a side menu on desktops. I included the same block of code to avoid repetition, one in the modal and one in the side menu, and applied display: none styling to the relevant block at the relevant breakpoint. However, even though the block was only displaying once, the IDs for all of the elements inside the menus were rendering twice - this threw up an error in the validator and was also preventing my onload animation on the products page from working properly. I ended up installing django-user-agents which allows you to wrap HTML in conditional breakpoint tags to prevent the HTML from rendering at certain sizes. This eliminated all of the errors on the products page. The remaining warnings on the site could be eliminated by improving the semantic markup - this is something I would hope to improve upon in the next iteration of the site.
 
 ### CSS
 I used the W3C CSS Validation Service to validate my CSS and it didn't find any errors.
@@ -33,7 +34,7 @@ I used the W3C CSS Validation Service to validate my CSS and it didn't find any 
 I used JSHint to test my JavaScript functions - the main errors that it flagged were removing the "type" from the script tags and adding "// jshint esversion: 6" at the top of any code that used template literals. Apart from that there were a few missing semicolons and some un-used variables.
 
 ### Python
-I used PEP8Online and the Gitpod "Problems" terminal to test my Python code - the majority of the problems were "line too long" warnings which have almost all been resolved, excluding those present in the migrations files. There are four remaining warnings present in the settings.py file which I couldn't get rid of without breaking up a long variable name.
+I used PEP8Online and the Gitpod "Problems" terminal to test my Python code - the majority of the problems were "line too long" warnings which have almost all been resolved, excluding those present in the migrations files. There are four remaining warnings present in the main settings file which I couldn't get rid of without breaking up a long variable name.
 
 ### Responsiveness
 I used Google Developer Tools to test the responsiveness of my site
@@ -126,9 +127,9 @@ _Purchasing and Checkout_
 25. _As a site user, I want to be able to easily adjust the quantity of products from my shopping basket to reflect what I actually want to buy._
     - The user can alter the quantity of products to put in their shopping bag on the product details page, or if they change their mind later they can update the quantity or remove the item straight from the shopping basket. Items in the wish list can be "added to the basket" too.  The number of items the user has in their shopping basket is also displayed in a small bubble above the icon on the navbar.
 26. _As a site user, I want to be able to save products that I might buy in the future but don’t want to buy immediately._
-    - If the user doesn't want to buy a product immediately, they can save it to their wish list. From here they can add it in to their bag, or remove it from their wish list. Items in the shopping basket can be "saved for later" into the wish list too.  The number of items the user has in their wish list is also displayed in a small bubble above the icon on the navbar.
+    - If the user doesn't want to buy a product immediately, they can save it into their wish list. From here they can add it into their bag, or remove it from their wish list. Items in the shopping basket can be "saved for later" into the wish list too.  The number of items the user has in their wish list is also displayed in a small bubble above the icon on the navbar.
 27. _As a site user, I want to be able to easily enter my payment and delivery details so I can check out quickly with no hassle._
-    - The user can enter their details on their profile and save them, or enter them at the checkout. Using the Stripe add-on will ensure ensures that the payment process is reliable and secure and will give the user confidence that their payment information is safe.
+    - The user can enter their details on their profile and save them, or enter them at the checkout. Using the Stripe add-on ensures that the payment process is reliable and secure and will give the user confidence that their payment information is safe.
 28. _As a site user, I want to be confident that my payment information is safe and secure._
     - See User Story 27.
 29. _As a site user, I want to see an order confirmation after I pay to ensure I haven’t made any mistakes._

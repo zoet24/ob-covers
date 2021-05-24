@@ -74,7 +74,7 @@ _Viewing and Navigation_
 14. As the site owner, I want it to be easy for a site user to navigate to our main website in case they have come to _OB Covers_ by mistake.
 15. As a site user, I want to be able to view a list of products to select some to purchase.
 16. As a site user, I want to be able to view specific product details (price, description) to inform my decision.
-17. As a site user, I want to be able easily identify deals to take advantage of special savings.
+17. As a site user, I want to be able to easily identify deals to take advantage of special savings.
 18. As a site user, I want to be able to easily identify any "low stock" items so I can make my purchase before they run out.
 19. As a site user, I want to be able to easily identify any "out of stock" or "unavailable" items that I won’t be able to buy, so I don’t waste time trying to buy them.
 20. As a site user, I want to be able to easily identify "newly added" products in case I am interested in purchasing them.
@@ -225,7 +225,7 @@ _OB Covers_ is a Django project made up of 4 Django applications and a number of
 _Aesthetic, Branding and UX_
 
 1. The site must be aesthetically pleasing across all platforms and create a positive UX experience for all users.
-    - The site has consistent colour scheme, iconography and branding across all pages. Hover effects are used to scale objects or underline links that can be clicked on. The interactive elements of the site (cover swatches, sidebars, filtering and sorting) perform well and react quickly. All of these factors combine to create a positive UX experience for the user.
+    - The site has a consistent colour scheme, iconography and branding across all pages. Hover effects are used to scale objects or underline links that can be clicked on. The interactive elements of the site (cover swatches, sidebars, filtering and sorting) perform well and react quickly. All of these factors combine to create a positive UX experience for the user.
 2. The aesthetic of the site must match the current branding of Open Bionics.
     - The media images, product thumbnails and logos were all taken from Open Bionics archives and therefore represent the company brand accurately. Additionally, I have used a matching colour scheme and font type to our original shop website.
 3. The site must provide the user with positive/negative feedback whenever they complete an action on the site (eg. add a product to their basket, sign up for a new account).
@@ -240,7 +240,7 @@ _Registration and User Accounts_
 5. The site must confirm the details of the user's account in an email after they have registered, and allow them to recover their log in details in an email if they have forgotten them.
     - The Django allauth plug-in provides the functionality to send users emails containing their registration details after they sign up for an account, and their details if they can't remember them.
 6. The user's account must be personalised with their delivery details and order history.
-    - The user's profile page allows them to save their delivery details which autopopulate the checkout page when they place a new order; it also displays tiles of their previous orders which can be clicked on to view the full details.
+    - The user's profile page allows them to save their delivery details which auto populate the checkout page when they place a new order; it also displays tiles of their previous orders which can be clicked on to view the full details.
 
 ![Registration and User Accounts Features](media/notproducts/readme-features-registration.png)
 
@@ -277,7 +277,7 @@ _Purchasing and Checkout_
 16. The site must not allow users to purchase "unavailable" items.
     - Products that are "unavailable" are clearly marked with a tag and a fainter product thumbnail. The user can look at the product details but will not be able to add the product to their shopping basket, either from the product details page or their wish list. If the product is already in their shopping basket when it is made unavailable, the user will not be able to proceed to checkout. If the user is on the checkout page and a product is made unavailable, it will be removed from their order when they make their payment.
 17. The site must allow users to input their delivery and payment information easily and not create unnecessary hassle at the checkout.
-    - Users can enter their delivery and payment information with a user friendly form at the checkout page. Users with an account can also save this information for future purchases and update this on their profile page if it changes.
+    - Users can enter their delivery and payment information with a user-friendly form at the checkout page. Users with an account can also save this information for future purchases and update this on their profile page if it changes.
 18. The site must present the user with a confirmation of their order after they pay and send them details of their order in a confirmation email.
     - The site sends users a confirmation email after the order has successfully gone through with all of their order details. A summary of their order can also be accessed from their profile page.
 
@@ -313,7 +313,7 @@ My final project fulfils all of the "must-have" criteria in the scope but if I h
 - The site could allow users to report issues about their orders and Hero Arm through a contact form or a link to a live chat feed.
 - The site could allow users to customise the colours of their covers (ie. instead of buying a full set of one colour, they could mix and match multiple colours) - this would require a customiser widget and a full rework of the product structure.
 - The site could allow admin users to mark products as "newly added" or "discounted" depending on current promotions - this would build on the functionality used for the "unavailable" tag.
-- The site could have an inventory model that would automatically update items as "low stock" or "out of stock" depending on how many had been purchased - as mentioned in my Information Architecture section I chose to not use this structure due to the nature of our business, but if we added more products to our range (eg. Open Bionics tshirts, add-ons for the Hero Arm) then it would make sense to implement this.
+- The site could have an inventory model that would automatically update items as "low stock" or "out of stock" depending on how many had been purchased - as mentioned in my Information Architecture section I chose to not use this structure due to the nature of our business, but if we added more products to our range (eg. Open Bionics t-shirts, add-ons for the Hero Arm) then it would make sense to implement this.
 - I left out static pages like a blog, FAQs and a contact form as I wanted to focus on the more complex Django functionality, but adding these to a real site would improve the user experience.
 - I would like to add in the functionality for users to leave reviews and ratings for the products they had purchased.
 - I would like to add in a recommendation system that would suggest specific products to users who had made previous purchases.
@@ -342,10 +342,10 @@ My final project fulfils all of the "must-have" criteria in the scope but if I h
 - FontAwesome: I used FontAwesome's database for basic icons throughout my site.
 - FreeFormatter: I used Freeformatter.com to format my code properly.
 - Google Developer Tools: I used this to test the responsiveness of my website by viewing my project on devices with different screen sizes. I also used the Console to test different functions in my JavaScript code throughout development, and the Lighthouse package to test the performance of the site.
-- JSHint: I used this to test to the validity of my JavaScript and JQuery code.
+- JSHint: I used this to test the validity of my JavaScript and JQuery code.
 - Lighthouse:
 - PEP8Online: I used this to test the compliance of my Python code.
-- W3C CSS Validation Service: I used this to test to the validity of my CSS code.
+- W3C CSS Validation Service: I used this to test the validity of my CSS code.
 - W3C Markup Validation Service: I used this to test the validity of my HTML5 code.
 
 ## Git Commit Messages
@@ -441,7 +441,7 @@ Set up automatic emails with Django and Gmail using the following steps:
 __Media:__ All of the images and logos on the website are property of Open Bionics.
 
 __Code:__
-This project was based off of the _Code Institute_ Boutique Ado mini project - portions of the code might remain similar to the tutorial but the majority of the project has been updated with my own work. I used Stripe's development tools to get the checkout process up and running, and relied heavily on Stack Overflow and the additional Django documentation throughout development. Any code that has been copied directly from an external source will have a commented beside it crediting the author.
+This project was based off of the _Code Institute_ Boutique Ado mini project - portions of the code might remain similar to the tutorial but the majority of the project has been updated with my own work. I used Stripe's development tools to get the checkout process up and running, and relied heavily on Stack Overflow and the additional Django documentation throughout development. Any code that has been copied directly from an external source will have a comment beside it crediting the author.
 
 __Acknowledgements:__
 I'd like to thank my bosses Joel Gibbard and Samantha Payne for allowing me to use the Open Bionics images, logos and branding, and my colleagues for their useful feedback on the finished website. I'd also like to thank my tutor Can Sucullu, the _Code Institute_ community and my friends and family for their guidance and input on this project.
