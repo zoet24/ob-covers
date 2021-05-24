@@ -323,11 +323,12 @@ _Functionality_
 
 _Defensive design_
 - Currently when an admin user chooses to delete a product from the site there is no double check on whether they meant to do this - I would like to add a modal that pops up when the delete button is selected that asks "Are you sure you want to delete this?"
+- Currently when a product is deleted from the inventory it will be removed from any order confirmations that had a quantity of that product in it. While this is not user friendly, deleting the product does not cause the site to crash so I decided it was out of the scope of the project to fix this. If this site was ever going to be used by Open Bionics this is a bug that I would want to fix.
 
 _UX_
 - I would like to write a JavaScript function that would close the navigation and toast elements just by clicking outside the menu instead of having to click on the close button.
 - I would like to add in a hover effect over the cover tiles on the products page that would allow users to add the product straight to their wish list or basket instead of going via the product detail page. Similarly I'd like to add a "straight to checkout" button on the product detail page so they wouldn't have to go via their shopping basket.
-- There is a small visual bug on the products menu on desktops - the user can scroll the filter menu past the footer. I didn't have time to fix this - however, the menu retains its functionality so I didn't think it was critical to fix for project submission.
+- There is a small visual bug on the products menu on desktops - the user can scroll the filter menu past the footer. I ran out of time to fix this, but the menu retains its functionality so I didn't think it was critical to fix for project submission.
 
 _Content_
 - There are a lot of features that could be added to the user's profile to make it more interactive for them, such as links to social media or contact details to our customer support team in case there is a problem with their order. I would also like to implement more of the allauth functionality, such as allowing the user to update their username and password from their account.
