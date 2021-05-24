@@ -15,7 +15,7 @@
             <div class="sidebar-table m-2">
                 <table>
                     <tr>
-                        <th rowspan="6">
+                        <th rowspan="7">
                             {% if item.product.image %}
                             <img class="cover-tile-image-sm px-3 px-sm-4" src="{{ MEDIA_URL }}{{ item.product.image }}"
                                 alt="{{ item.product.name }}">
@@ -37,13 +37,16 @@
                     </tr>
                     <tr>
                         <td class="sidebar-product-text">
-                            <span>Available in:<br>
-                                {% for product_swatch in products_swatch %}
-                                    {% if product_swatch.style == item.product.style %}
-                                        {% include 'includes/coverswatches/coverswatch_exceptions_fav.html' %}
-                                    {% endif %}
-                                {% endfor %}
-                            </span>
+                            <span>Available in:</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            {% for product_swatch in products_swatch %}
+                                {% if product_swatch.style == item.product.style %}
+                                    {% include 'includes/coverswatches/coverswatch_exceptions_fav.html' %}
+                                {% endif %}
+                            {% endfor %}
                         </td>
                     </tr>
                     <tr>
