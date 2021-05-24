@@ -8,13 +8,17 @@ I have worked for Open Bionics since 2016 - we are a medical engineering company
 
 This was the final of four Milestone Projects required to pass the Full Stack Web Development Program at _Code Institute_. The main requirements were to build a full-stack site based around business logic to control a centrally-owned dataset using HTML, CSS, JavaScript, Python and Django.
 
-Click **[here](https://github.com/zoet24/ob-covers)** to view the GitHub repository for the project, and click **[here](https://ob-covers.herokuapp.com/)** to view the live website. To test the payment transaction process please use:
+Click **[here](https://github.com/zoet24/ob-covers)** to view the GitHub repository for the project, and click **[here](https://ob-covers.herokuapp.com/)** to view the live website. 
+
+Admin credentials are:
+- **Username:**
+- **Password:**
+
+To test the payment transaction process please use:
 - **Credit card number:** 4242 4242 4242 4242
 - **Expiration date:** 04/24
 - **CVC:** 242
 - **ZIP** 42424
-
-Demo/admin credentials available on request.
 
 ## Table of Contents
 
@@ -309,7 +313,7 @@ My final project fulfils all of the "must-have" criteria in the scope but if I h
 - The functionality for applying multiple filters to the product range is there (ie. if you add ?range=classic&colour=black to the /products/ URL it will return all black covers in the Classic range) but I didn't have time to create the user interface for applying multiple criteria. Changes would need to be made to the breadcrumbs, the current filter/sorting bubbles and the no results message if the user combined a set of incompatible filters. 
 - Currently when an admin user chooses to delete a product from the site there is no double check on whether they meant to do this - I would like to add a modal that pops up when the delete button is selected that asks "Are you sure you want to delete this?"
 - If this was actually going to be used by my company there are a lot of areas to build in promotions for the Hero Arm or new cover ranges.
-- There are a lot of features that could be added to the user's profile to make it more interactive for them, such as links to social media or contact details to our customer support team in case there is a problem with their order.
+- There are a lot of features that could be added to the user's profile to make it more interactive for them, such as links to social media or contact details to our customer support team in case there is a problem with their order. I would also like to implement more of the allauth functionality, such as allowing the user to update their username and password from their account.
 - The site could allow users to report issues about their orders and Hero Arm through a contact form or a link to a live chat feed.
 - The site could allow users to customise the colours of their covers (ie. instead of buying a full set of one colour, they could mix and match multiple colours) - this would require a customiser widget and a full rework of the product structure.
 - The site could allow admin users to mark products as "newly added" or "discounted" depending on current promotions - this would build on the functionality used for the "unavailable" tag.
@@ -317,6 +321,7 @@ My final project fulfils all of the "must-have" criteria in the scope but if I h
 - I left out static pages like a blog, FAQs and a contact form as I wanted to focus on the more complex Django functionality, but adding these to a real site would improve the user experience.
 - I would like to add in the functionality for users to leave reviews and ratings for the products they had purchased.
 - I would like to add in a recommendation system that would suggest specific products to users who had made previous purchases.
+- I would like to add in a hover effect over the cover tiles on the products page that would allow users to add the product straight to their wish list or basket instead of going via the product detail page. Similarly I'd like to add a "straight to checkout" button on the product detail page so they wouldn't have to go via their shopping basket.
 - There is a small visual bug on the products menu on desktops - the user can scroll the filter menu past the footer. I didn't have time to fix this - however, the menu retains its functionality so I didn't think it was critical to fix for project submission.
 
 ## Technologies used

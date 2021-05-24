@@ -1,5 +1,7 @@
 {% extends "account/base.html" %}
 
+{% block extra_title %} | Log In{% endblock %}
+
 {% load i18n %}
 
 {% block inner_content %}
@@ -55,5 +57,5 @@
 
 {% block postloadjs %}
 {{ block.super }}
-{% include 'allauth/includes/onload_animation.html' %}
+{% include 'allauth/includes/js_allauth_onload_animation.html' %}
 {% endblock %}
