@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'profiles',
 
     # Other
+    'django_user_agents',
     'crispy_forms',
     'storages',
     'colorfield',
@@ -62,6 +63,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django_user_agents.middleware.UserAgentMiddleware',
 ]
 
 ROOT_URLCONF = 'ob_covers.urls'

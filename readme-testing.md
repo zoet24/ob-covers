@@ -25,6 +25,7 @@ Throughout the development process I used the console.log() function to test my 
 
 ### HTML
 I used the W3C Markup Validation Service to validate my HTML
+- user-agents to get rid of ID errors
 
 ### CSS
 I used the W3C CSS Validation Service to validate my CSS and it didn't find any errors.
