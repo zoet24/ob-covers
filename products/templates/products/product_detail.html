@@ -19,13 +19,13 @@
             <h3 class="product-tag-detail product-unavailable text-thick">Unavailable</h3>
             {% endif %}
             <a href="{{ MEDIA_URL }}{{ product.image }}" target="_blank" {% if product.unavailable == True %} style="opacity:0.5;" {% endif %}>
-                <!-- Show product image/no-image.png -->
+                <!-- Show product image/no-image.jpg -->
                 {% if product.image %}
                 <img class="cover-tile-image-detail cover-tile-image-{{ product.range }}"
                     src="{{ MEDIA_URL }}{{ product.image }}" alt="{{ product.name }}">
                 {% else %}
                 <img class="cover-tile-image-detail cover-tile-image-{{ product.range }}"
-                    src="{{ MEDIA_URL }}no-image.png" alt="{{ product.name }} - missing image">
+                    src="{{ MEDIA_URL }}no-image.jpg" alt="Blue outline of covers indicating no image">
                 {% endif %}
             </a>
         </div>
@@ -52,7 +52,7 @@
                             src="{{ MEDIA_URL }}{{ product.image }}" alt="{{ product.name }}">
                         {% else %}
                         <img class="cover-tile-image-detail cover-tile-image-{{ product.range }}"
-                            src="{{ MEDIA_URL }}no-image.png" alt="{{ product.name }} - missing image">
+                            src="{{ MEDIA_URL }}no-image.jpg" alt="Blue outline of covers indicating no image">
                         {% endif %}
                     </a>
                 </div>

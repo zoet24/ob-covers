@@ -7,10 +7,10 @@
                 <a href="{{ widget.value.url }}" class="cover-tile-image-container">
                     <img class="cover-tile-image" src="{{ widget.value.url }}" alt="Hero Arm covers">
                 </a>
-            <!-- If widget has no image loaded, show no-image.png -->
+            <!-- If widget has no image loaded, show no-image.jpg -->
             {% else %}
-                <a href="https://ob-covers-bucket.s3.eu-west-2.amazonaws.com/media/no-image.png" class="cover-tile-image-container">
-                    <img class="cover-tile-image" src="https://ob-covers-bucket.s3.eu-west-2.amazonaws.com/media/no-image.png" alt="Blue outline of covers indicating no image">
+                <a href="https://ob-covers-bucket.s3.eu-west-2.amazonaws.com/media/no-image.jpg" class="cover-tile-image-container">
+                    <img class="cover-tile-image" src="https://ob-covers-bucket.s3.eu-west-2.amazonaws.com/media/no-image.jpg" alt="Blue outline of covers indicating no image">
                 </a>
             {% endif %}
         </div>

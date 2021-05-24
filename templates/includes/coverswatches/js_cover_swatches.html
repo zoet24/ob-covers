@@ -7,7 +7,7 @@
             var coverStyle = this.id.split('-')[3].toLowerCase();
             var coverColour = this.id.split('-')[4];
             var coverColourBg = $(`#cover-swatch-${coverRange}-${coverStyle}-${coverColour}-background`).text();
-            var imageSrc = `{{ MEDIA_URL }}${coverRange}-${coverStyle}-${coverColour}.png`;
+            var imageSrc = `{{ MEDIA_URL }}${coverRange}-${coverStyle}-${coverColour}.jpg`;
 
             // Remove 'active' class from swatch
             $(".cover-swatch").removeClass(`cover-swatch-${coverRange}-active`);
