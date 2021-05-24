@@ -40,10 +40,10 @@ I used PEP8Online and the Gitpod "Problems" terminal to test my Python code - th
 I used Google Developer Tools to test the responsiveness of my site
 
 ### Accessibility
-I used Google Developer Tools to test the accessibility of my site
+I used the Lighthouse feature on Google Developer Tools to test the accessibility of my site - it gave a score of around 90 across the site and didn't flag any major issues so I decided that was good enough for submission. If I were to deploy the site for real users in the future I would try and make more HTML more semantic to improve the score further.
 
 ### Performance
-I used Google Developer Tools to test the performance of my site
+I used the Lighthouse feature on Google Developer Tools to test the performance of my site - initially it had a very low score of 25 - 40 across the site which I decided wasn't good enough for submission. All of my product photos were much larger than they needed to be - I resized them and reuploaded them as JPGs instead of PNGs which increased my score to 75 - 85 across the site. I decided this was a good enough score for submission - if I were to deploy the site for real users in the future I would try to increase the score further by reworking the structure of the DOM to improve the speed index and reduce time until first meaningful content paint.
 
 ## Automated Testing
 I also took advantage of the Django testing framework to write various automated tests to check that my views were working correctly. The Coverage report produced towards the tail-end of development shows that 46% of my code is covered by my current tests - there is obviously a lot of room for improvement and this is something I would like to do in future iterations of the project.
