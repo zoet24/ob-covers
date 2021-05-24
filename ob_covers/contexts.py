@@ -74,7 +74,8 @@ def cover_swatches(request):
     # Context for cover swatches across site
     products_swatch = Product.objects.all()
 
-    classic_products = products_swatch.filter(range__name="classic").order_by('?')
+    classic_products = products_swatch.filter(
+        range__name="classic").order_by('?')
     classic_swatch = []
     classic_colours = []
 
@@ -83,7 +84,8 @@ def cover_swatches(request):
             classic_colours.append(product.colour.name)
             classic_swatch.append(product)
 
-    stylish_products = products_swatch.filter(range__name="stylish").order_by('?')
+    stylish_products = products_swatch.filter(
+        range__name="stylish").order_by('?')
     stylish_swatch = []
     stylish_colours = []
 
@@ -92,24 +94,28 @@ def cover_swatches(request):
             stylish_colours.append(product.colour.name)
             stylish_swatch.append(product)
 
-    premium_products = products_swatch.filter(range__name="premium").order_by('?')
+    premium_products = products_swatch.filter(
+        range__name="premium").order_by('?')
     premium_swatch = []
     premium_colours = []
     premium_styles = []
 
     for product in premium_products:
-        if product.colour.name not in premium_colours or product.style.name not in premium_styles:
+        if (product.colour.name not in premium_colours
+           or product.style.name not in premium_styles):
             premium_colours.append(product.colour.name)
             premium_styles.append(product.style.name)
             premium_swatch.append(product)
 
-    disney_products = products_swatch.filter(range__name="disney").order_by('?')
+    disney_products = products_swatch.filter(
+        range__name="disney").order_by('?')
     disney_swatch = []
     disney_colours = []
     disney_styles = []
 
     for product in disney_products:
-        if product.colour.name not in disney_colours or product.style.name not in disney_styles:
+        if (product.colour.name not in disney_colours
+           or product.style.name not in disney_styles):
             disney_colours.append(product.colour.name)
             disney_styles.append(product.style.name)
             disney_swatch.append(product)

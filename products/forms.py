@@ -24,7 +24,8 @@ class ProductForm(forms.ModelForm):
 
         friendly_names_ranges = [(r.id, r.get_friendly_name()) for r in ranges]
         friendly_names_styles = [(s.id, s.get_friendly_name()) for s in styles]
-        friendly_names_colours = [(c.id, c.get_friendly_name()) for c in colours]
+        friendly_names_colours = [
+            (c.id, c.get_friendly_name()) for c in colours]
 
         self.fields['range'].choices = friendly_names_ranges
         self.fields['style'].choices = friendly_names_styles
