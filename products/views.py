@@ -197,8 +197,6 @@ def edit_product(request, product_id):
         return redirect(reverse('home'))
 
     product = get_object_or_404(Product, pk=product_id)
-    print(product)
-    print(product_id)
 
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES, instance=product)
@@ -229,7 +227,17 @@ def delete_product(request, product_id):
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
+
     product = get_object_or_404(Product, pk=product_id)
+    product_id_str = str(product_id)
+
+    bag = request.session.get('bag', {})
+    fav = request.session.get('fav', {})
+    if product_id_str in list(bag.keys()):
+        bag.pop(product_id_str)
+    if product_id_str in list(fav.keys()):
+        fav.pop(product_id_str)
+
     product.delete()
     messages.success(request, 'Product deleted!')
     return redirect(reverse('products'))

@@ -306,23 +306,33 @@ I implemented a number of defensive design features throughout my code to protec
 - The cover swatches function in ob_covers/contexts.py eliminates duplicate colours being added to the same swatch which prevents the swatches rendering with too many values.
 - There are multiple defensive blocks to prevent users placing orders for unavailable items. Products that are "unavailable" are clearly marked with a tag and a fainter product thumbnail. The user can look at the product details but will not be able to add the product to their shopping basket, either from the product details page or their wish list. If the product is already in their shopping basket when it is made unavailable, the user will not be able to proceed to checkout. If the user is on the checkout page and a product is made unavailable, it will be removed from their order when they make their payment.
 - If a user tries to add a product to their shopping basket that they already have a quantity of, it will add one more product to the total instead of creating another tile which wouldn't be aesthetically pleasing; if a user tries to add a product to their wish list and they already have it in there, a toast error message will inform them that this is the case.
+- If an admin user tries to delete a product from the inventory while it is in their wish list or shopping basket, the delete function will pop the item out of the session to avoid throwing an error.
 - The vital fields on all user forms (eg. name and email for users, name and description for products) are required in the models to ensure that the information submitted can actually be used. All relevant fields also have max lengths to prevent overly long text being submitted.
 
 #### Features left to implement
 My final project fulfils all of the "must-have" criteria in the scope but if I had more time/came back to this project in the future there are still some features I would like to implement.
+
+_Functionality_
 - The functionality for applying multiple filters to the product range is there (ie. if you add ?range=classic&colour=black to the /products/ URL it will return all black covers in the Classic range) but I didn't have time to create the user interface for applying multiple criteria. Changes would need to be made to the breadcrumbs, the current filter/sorting bubbles and the no results message if the user combined a set of incompatible filters. 
-- Currently when an admin user chooses to delete a product from the site there is no double check on whether they meant to do this - I would like to add a modal that pops up when the delete button is selected that asks "Are you sure you want to delete this?"
-- If this was actually going to be used by my company there are a lot of areas to build in promotions for the Hero Arm or new cover ranges.
-- There are a lot of features that could be added to the user's profile to make it more interactive for them, such as links to social media or contact details to our customer support team in case there is a problem with their order. I would also like to implement more of the allauth functionality, such as allowing the user to update their username and password from their account.
 - The site could allow users to report issues about their orders and Hero Arm through a contact form or a link to a live chat feed.
 - The site could allow users to customise the colours of their covers (ie. instead of buying a full set of one colour, they could mix and match multiple colours) - this would require a customiser widget and a full rework of the product structure.
 - The site could allow admin users to mark products as "newly added" or "discounted" depending on current promotions - this would build on the functionality used for the "unavailable" tag.
 - The site could have an inventory model that would automatically update items as "low stock" or "out of stock" depending on how many had been purchased - as mentioned in my Information Architecture section I chose to not use this structure due to the nature of our business, but if we added more products to our range (eg. Open Bionics t-shirts, add-ons for the Hero Arm) then it would make sense to implement this.
-- I left out static pages like a blog, FAQs and a contact form as I wanted to focus on the more complex Django functionality, but adding these to a real site would improve the user experience.
 - I would like to add in the functionality for users to leave reviews and ratings for the products they had purchased.
 - I would like to add in a recommendation system that would suggest specific products to users who had made previous purchases.
+
+_Defensive design_
+- Currently when an admin user chooses to delete a product from the site there is no double check on whether they meant to do this - I would like to add a modal that pops up when the delete button is selected that asks "Are you sure you want to delete this?"
+
+_UX_
+- I would like to write a JavaScript function that would close the navigation and toast elements just by clicking outside the menu instead of having to click on the close button.
 - I would like to add in a hover effect over the cover tiles on the products page that would allow users to add the product straight to their wish list or basket instead of going via the product detail page. Similarly I'd like to add a "straight to checkout" button on the product detail page so they wouldn't have to go via their shopping basket.
 - There is a small visual bug on the products menu on desktops - the user can scroll the filter menu past the footer. I didn't have time to fix this - however, the menu retains its functionality so I didn't think it was critical to fix for project submission.
+
+_Content_
+- There are a lot of features that could be added to the user's profile to make it more interactive for them, such as links to social media or contact details to our customer support team in case there is a problem with their order. I would also like to implement more of the allauth functionality, such as allowing the user to update their username and password from their account.
+- If this was actually going to be used by my company there are a lot of areas to build in promotions for the Hero Arm or new cover ranges.
+- I left out static pages like a blog, FAQs and a contact form as I wanted to focus on the more complex Django functionality, but adding these to a real site would improve the user experience.
 
 ## Technologies used
 ### Languages and frameworks
