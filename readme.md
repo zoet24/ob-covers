@@ -49,11 +49,11 @@ To test the payment transaction process please use:
 ### Design Process
 #### Strategy Plane
 
-I started the design process for _OB Covers_ by considering the goals of the developer (me), the site owner (the sales team at Open Bionics) and the site users (our current customer base and prospective future customers) and categorised them into groups of functionality.
+I started the design process for _Open Bionics Covers_ by considering the goals of the developer (me), the site owner (the sales team at Open Bionics) and the site users (our current customer base and prospective future customers) and categorised them into groups of functionality.
 
 _General_
 
-1. As the developer, I want to create a full-stack e-commerce platform where site users can browse and purchase products and where site owners can add, edit and delete products to complete the fourth Code Institute Milestone Project.
+1. As the developer, I want to create a full-stack e-commerce platform where site users can browse and purchase products and where site owners can add, edit and delete products to complete the fourth _Code Institute_ Milestone Project.
 2. As the developer, I want the website to function well to demonstrate my ability to code in JavaScript, Python and Django and to create a positive UX experience for the site users.
 
 _Aesthetic, Branding and UX_
@@ -164,17 +164,17 @@ _**"Nice-to-haves"**_
 
 #### Structure Plane
 
-Based on the features outlined in my scope and the pages included in the Boutique Ado mini project, I decided I wanted to include the following pages on my website:
+Based on the features outlined in my scope and the pages included in the _Code Institute_ Boutique Ado mini project, I decided I wanted to include the following pages on my website:
 
 - The Home page welcomes the user to the site and presents the user with calls to action to explore the product range.
 - There are five Products pages - "All Covers", "Classic", "Stylish", "Premium" and "Disney" - which show tiles of the products with name and price. Clicking on the product image takes you to the individual product page.
-- Individual product detail pages show product image, name, price, colour options and description with buttons to increase/decrease desired quantity of covers, add them to the shopping basket or save them to the wish list.
+- Individual Product Detail pages show product image, name, price, colour options and description with buttons to increase/decrease desired quantity of covers, add them to the shopping basket or save them to the wish list.
 - The Log In and Sign Up pages allow the user to log in to/create their profile so they can access their personalised information or request a new password.
 - The Profile page has the user's saved delivery information and order history.
-- The Wish List and Shopping Basket pages are available across the site as a sidebar that expands when you click on the corresponding icon in the navbar. The Wish List sidebar has the user's saved products with the option to add them to the basket. The Shopping basket sidebar has the user's selected items with the option to increase/decrease the quantity, a total sum of the order cost and a link to the Checkout page.
+- The wish list and shopping basket are available across the site as a sidebar that expands when you click on the corresponding icon in the navbar. The wish list sidebar has the user's saved products with the option to add them to the basket. The shopping basket sidebar has the user's selected items with the option to increase/decrease the quantity, a total sum of the order cost and a link to the Checkout page.
 - The Checkout page has a form for the user to enter their delivery information and a summary of their order on the right. When the user submits their order they are taken to an order confirmation page which shows them their order details and a link back to the main site.
 - The Product Management page has a form that allows the admin user to add new products to the product range. The admin user can edit and remove products from the Product and Product Details pages.
-- The navbar contains the Open Bionics logo which links to the Home page, a search bar which allows the user to search for products based on name and description, icons for the Profile page, Favourites sidebar and Shopping Basket sidebar and links to all of the Products pages.
+- The navbar contains the Open Bionics logo which links to the Home page, a search bar which allows the user to search for products based on name and description, icons for the Profile page, wish list sidebar and shopping basket sidebar and links to all of the Products pages.
 - The site provides the user with feedback on their actions in the form of a toast message at the top left of the screen - the toast message will be formatted differently depending on the content of the message.
 
 #### Skeleton Plane
@@ -224,7 +224,7 @@ The product data is stored in 4 models - 1 main Product model and 3 smaller mode
 I initially considered modelling my product data using an inventory method - each product would have a stock level that would automatically decrease when a user placed an order, and could be used to flag products as "low stock" when the stock level dropped below a certain value, and "out of stock" when the stock level reached 0. However, I decided against this as all of our covers are bespoke and are made to order. Instead, I included an "unavailable" Boolean which admins can use to prevent users from buying certain products - this would be used in the event of a supply problem if we had run out of material to make a specific design, which is a more realistic scenario for our business.
 
 ### Features and Django Apps
-_OB Covers_ is a Django project made up of 4 Django applications and a number of different additional features - I have listed them against the "must-have" features outlined in my scope to show how my project fulfils all of the project criteria, along with additional features outside of the scope, and illustrated these features with screenshots of from the desktop site.
+_Open Bionics Covers_ is a Django project made up of 4 Django applications and a number of different additional features - I have listed them against the "must-have" features outlined in my scope to show how my project fulfils all of the project criteria, along with additional features outside of the scope, and illustrated these features with screenshots of from the desktop site.
 #### Existing features
 _Aesthetic, Branding and UX_
 
@@ -244,7 +244,7 @@ _Registration and User Accounts_
 5. The site must confirm the details of the user's account in an email after they have registered, and allow them to recover their log in details in an email if they have forgotten them.
     - The Django allauth plug-in provides the functionality to send users emails containing their registration details after they sign up for an account, and their details if they can't remember them.
 6. The user's account must be personalised with their delivery details and order history.
-    - The user's profile page allows them to save their delivery details which auto populate the checkout page when they place a new order; it also displays tiles of their previous orders which can be clicked on to view the full details.
+    - The user's Profile page allows them to save their delivery details which auto populate the Checkout page when they place a new order; it also displays tiles of their previous orders which can be clicked on to view the full details.
 
 ![Registration and User Accounts Features](media/notproducts/readme-features-registration.png)
 
@@ -253,7 +253,7 @@ _Viewing and Navigation_
 7. The site must have clear navigation to the main Open Bionics website to redirect users who are looking for the Hero Arm.
     - There is a permanent banner at the top of every page redirecting the user back to the Open Bionics main website. There is also a link at the bottom of the Home page.
 8. The site must have a variety of clearly displayed products for the user to look through, with product details that are accessible by clicking on the specific product.
-    - The user can view the full range of products or a filtered view using the navigation links in the navbar, or applying them on the main products page. Individual products are displayed as cover tiles with a product image, name and price, and can be clicked on to access the full product details.
+    - The user can view the full range of products or a filtered view using the navigation links in the navbar, or applying them on the main Products page. Individual products are displayed as cover tiles with a product image, name and price, and can be clicked on to access the full product details.
 9. The site must have an easily accessible shopping basket that displays what the user has selected for purchase and how much it will cost them.
     - The shopping basket is available as a sidebar which can be accessed from every page on the navbar. The selected products are displayed in the sidebar with a breakdown of the price and how much extra they need to spend for free delivery. The total number of products in the basket are also shown as a number above the icon on the navbar.
 10. The site must have an easily accessible wish list that users can save products in for future purchase.
@@ -275,15 +275,15 @@ _Purchasing and Checkout_
 13. The site must allow users to easily adjust and remove items from their shopping basket.
     - The user can adjust the quantity of the products in their basket without leaving the sidebar. Users can remove product from the basket, or add it to the wish list for later.
 14. The site must allow users to save items for purchase at a later date in their wish list.
-    - Users can add products from their basket straight to the wish list, or add products to the wish list from the product details page. 
+    - Users can add products from their basket straight to the wish list, or add products to the wish list from the Product Details page. 
 15. The site must allow users to move items from their shopping basket to their wish list and vice versa.
     - See points 13 and 14.
 16. The site must not allow users to purchase "unavailable" items.
-    - Products that are "unavailable" are clearly marked with a tag and a fainter product thumbnail. The user can look at the product details but will not be able to add the product to their shopping basket, either from the product details page or their wish list. If the product is already in their shopping basket when it is made unavailable, the user will not be able to proceed to checkout. If the user is on the checkout page and a product is made unavailable, it will be removed from their order when they make their payment.
+    - Products that are "unavailable" are clearly marked with a tag and a fainter product thumbnail. The user can look at the product details but will not be able to add the product to their shopping basket, either from the Product Details page or their wish list. If the product is already in their shopping basket when it is made unavailable, the user will not be able to proceed to checkout. If the user is on the Checkout page and a product is made unavailable, it will be removed from their order when they make their payment.
 17. The site must allow users to input their delivery and payment information easily and not create unnecessary hassle at the checkout.
-    - Users can enter their delivery and payment information with a user-friendly form at the checkout page. Users with an account can also save this information for future purchases and update this on their profile page if it changes.
+    - Users can enter their delivery and payment information with a user-friendly form at the Checkout page. Users with an account can also save this information for future purchases and update this on their Profile page if it changes.
 18. The site must present the user with a confirmation of their order after they pay and send them details of their order in a confirmation email.
-    - The site sends users a confirmation email after the order has successfully gone through with all of their order details. A summary of their order can also be accessed from their profile page.
+    - The site sends users a confirmation email after the order has successfully gone through with all of their order details. A summary of their order can also be accessed from their Profile page.
 
 ![Purchasing and Checkout Features](media/notproducts/readme-features-purchasing.png)
 
