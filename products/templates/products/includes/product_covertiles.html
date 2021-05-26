@@ -1,16 +1,16 @@
 <!-- Product cover tiles -->
-<div class="col-12 col-sm-6 col-md-5 col-lg-4 cover-tile cover-tile-products" {% if product.unavailable == True %} style="box-shadow:1px 1px #ccc;border-color:#ccc;" {% endif %}>
+<div class="col-12 col-sm-6 col-md-5 col-lg-4 cover-tile cover-tile-products" {% if product.unavailable == True %}
+    style="box-shadow:1px 1px #ccc;border-color:#ccc;" {% endif %}>
     {% if product.unavailable == True %}
     <h3 class="product-tag product-unavailable text-thick">Unavailable</h3>
     {% endif %}
     <a href="{% url 'product_detail' product.id %}">
         <div class="cover-tile-image-container" {% if product.unavailable == True %} style="opacity:0.5;" {% endif %}>
             {% if product.image %}
-            <img class="cover-tile-image"
-                src="{{ MEDIA_URL }}{{ product.image }}" alt="{{ product.name }}">
+            <img class="cover-tile-image" src="{{ MEDIA_URL }}{{ product.image }}" alt="{{ product.name }}">
             {% else %}
-            <img class="cover-tile-image"
-                src="{{ MEDIA_URL }}no-image.jpg" alt="Blue outline of covers indicating no image">
+            <img class="cover-tile-image" src="{{ MEDIA_URL }}no-image.jpg"
+                alt="Blue outline of covers indicating no image">
             {% endif %}
         </div>
     </a>

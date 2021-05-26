@@ -12,7 +12,8 @@
                 {% elif search_term == None and product != None and current_range == None and current_style == None and current_colour == None and current_other == None %}
                 <a class="text-link-dark" href="{% url 'products' %}">All covers</a>
                 /
-                <a class="text-link-dark" href="{% url 'products' %}?range={{ product.range.name }}">{{ product.range.friendly_name }}</a>
+                <a class="text-link-dark"
+                    href="{% url 'products' %}?range={{ product.range.name }}">{{ product.range.friendly_name }}</a>
                 /
                 <!-- If specific search applied, display all covers / search term -->
                 {% elif search_term != None and product == None and current_range == None and current_style == None and current_colour == None and current_other == None %}
@@ -27,7 +28,8 @@
                 {% elif current_other != None %}
                 <a class="text-link-dark" href="{% url 'products' %}">All covers</a>
                 /
-                <span class="text-link-dark text-thick" id="filters-title-nav">{{current_other}} ({{ other_num }})</span>
+                <span class="text-link-dark text-thick" id="filters-title-nav">{{current_other}}
+                    ({{ other_num }})</span>
                 {% endif %}
             </h4>
         </div>

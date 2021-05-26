@@ -6,20 +6,16 @@
     <link rel="stylesheet" href="{% static 'home/css/index.css' %}">
 {% endblock %}
 
-{% block content %}    
+{% block content %}
     {% include 'home/includes/index_heroimage.html' %}
-    
     {% include 'home/includes/index_coverstiles_classicstylish.html' %}
-
     {% include 'home/includes/index_coversdescription.html' %}
-    
     {% include 'home/includes/index_coverstiles_premiumdisney.html' %}
-    
     {% include 'home/includes/index_lookingfor.html' %}
 {% endblock %}
 
 {% block postloadjs %}
-{{ block.super }}
-{% include 'home/includes/js_index_onload_animation.html' %}
-{% include 'includes/coverswatches/js_cover_swatches.html' %}
+    {{ block.super }}
+    {% include 'home/includes/js_index_onload_animation.html' %}
+    {% include 'includes/coverswatches/js_cover_swatches.html' %}
 {% endblock %}

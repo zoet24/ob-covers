@@ -3,35 +3,35 @@
 {% load bag_tools %}
 
 {% block extra_css %}
-<link rel="stylesheet" href="{% static 'profiles/css/profile.css' %}">
-<link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
+    <link rel="stylesheet" href="{% static 'profiles/css/profile.css' %}">
+    <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
 {% endblock %}
 
 {% block extra_title %} | Checkout Successful{% endblock %}
 
 {% block content %}
-    <header class="container-fluid">
-        <div class="row bg-white">
-            <div class="col">
-                <h2 class="p-0">Thank you!</h2>
-            </div>
+<header class="container-fluid">
+    <div class="row bg-white">
+        <div class="col">
+            <h2 class="p-0">Thank you!</h2>
         </div>
-    </header>
-    {% include 'checkout/includes/checkout_success_order_summary.html' %}
-    <!-- Links back to the rest of the site -->
-    <section class="container-compress">
-        <div class="row p-0">
-            <div class="col">
-                {% if from_profile %}
-                <a href="{% url 'profile' %}" class="btn btn-light btn-long mb-3">
-                    <span>Back to profile</span>
-                </a>
-                {% else %}
-                <a href="{% url 'products' %}" class="btn btn-light btn-long mb-3">
-                    <span>Back to shop</span>
-                </a>
-                {% endif %}
-            </div>
+    </div>
+</header>
+{% include 'checkout/includes/checkout_success_order_summary.html' %}
+<!-- Links back to the rest of the site -->
+<section class="container-compress">
+    <div class="row p-0">
+        <div class="col">
+            {% if from_profile %}
+            <a href="{% url 'profile' %}" class="btn btn-light btn-long mb-3">
+                <span>Back to profile</span>
+            </a>
+            {% else %}
+            <a href="{% url 'products' %}" class="btn btn-light btn-long mb-3">
+                <span>Back to shop</span>
+            </a>
+            {% endif %}
         </div>
-    </section>
+    </div>
+</section>
 {% endblock %}

@@ -2,8 +2,10 @@
     <div class="navbar navbar-top">
         <!-- OB brand -->
         <a href="{% url 'home' %}">
-            <img class="d-none d-sm-block" id="logo-nav" src="{{ MEDIA_URL }}notproducts/logo-white.png" alt="OB logo" />
-            <img class="d-sm-none" id="logo-nav-circle" src="{{ MEDIA_URL }}notproducts/logo-blue-circle.png" alt="OB logo" />
+            <img class="d-none d-sm-block" id="logo-nav" src="{{ MEDIA_URL }}notproducts/logo-white.png"
+                alt="OB logo" />
+            <img class="d-sm-none" id="logo-nav-circle" src="{{ MEDIA_URL }}notproducts/logo-blue-circle.png"
+                alt="OB logo" />
         </a>
         <!-- Search bar -->
         <form class="navbar-search d-none d-sm-flex" method="GET" action="{% url 'products' %}">
@@ -26,9 +28,10 @@
                 <form method="POST" action="{% url 'account_logout' %}" id="navbar-account-logout">
                     {% csrf_token %}
                     {% if redirect_field_value %}
-                        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
                     {% endif %}
-                    <a href="#" class="nav-profile-dropdown-item" onclick="document.getElementById('navbar-account-logout').submit();">Log out</a>
+                    <a href="#" class="nav-profile-dropdown-item"
+                        onclick="document.getElementById('navbar-account-logout').submit();">Log out</a>
                 </form>
                 {% else %}
                 <a href="{% url 'account_signup' %}" class="nav-profile-dropdown-item">Sign up</a>

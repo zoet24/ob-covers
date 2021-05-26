@@ -1,4 +1,5 @@
 {% load bag_tools %}
+
 <!-- Summary of user's order -->
 <section class="container-compress">
     <div class="row">
@@ -8,7 +9,8 @@
             <hr class="hr-long">
             <!-- Show all items purchased -->
             {% for item in bag_items %}
-            <div class="orderhistory-table orderhistory-confirm-table m-2" {% if item.product.unavailable == True %} style="box-shadow:1px 1px #ccc;border-color:#ccc;" {% endif %}>
+            <div class="orderhistory-table orderhistory-confirm-table m-2" {% if item.product.unavailable == True %}
+                style="box-shadow:1px 1px #ccc;border-color:#ccc;" {% endif %}>
                 <table class="text-dark mb-2 mx-auto w-75">
                     <tr>
                         <th rowspan="4" {% if item.product.unavailable == True %} style="opacity: 0.5;" {% endif %}>
@@ -88,9 +90,9 @@
                     {{ order_form.country | as_crispy_field }}
                     {% if user.is_authenticated %}
                     <div class="form-check form-check-inline float-left mb-2 ml-3">
-                        <label class="form-check-label container-radio text-skinny mx-auto" for="id-save-info">Save delivery information
-                            <input class="form-check-input" type="checkbox" id="id-save-info" name="save-info"
-                            checked>
+                        <label class="form-check-label container-radio text-skinny mx-auto" for="id-save-info">Save
+                            delivery information
+                            <input class="form-check-input" type="checkbox" id="id-save-info" name="save-info" checked>
                             <span class="form-check-checkmark"></span>
                         </label>
                     </div>

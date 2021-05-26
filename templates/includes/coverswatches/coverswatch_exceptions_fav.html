@@ -12,5 +12,7 @@
 {% elif product_swatch.style.name == "r2d2" %}
     <div class="cover-swatch cover-swatch-fav" style="background-color: #ffffff;border: #2222e2 3px solid;"></div>
 {% else %}
-    <div class="cover-swatch cover-swatch-fav" style="background-color: {{product_swatch.colour.hex_colour}};border: {{product_swatch.colour.hex_border}} 1px solid;"></div>
+    <div class="cover-swatch cover-swatch-fav"
+        style="background-color: {{product_swatch.colour.hex_colour}};border: {{product_swatch.colour.hex_border}} 1px solid;">
+    </div>
 {% endif %}

@@ -17,7 +17,8 @@
 </header>
 <!-- Edit product form -->
 <section class="container-compress">
-    <form method="POST" action="{% url 'edit_product' product.id %}" class="text-skinny text-md" enctype="multipart/form-data">
+    <form method="POST" action="{% url 'edit_product' product.id %}" class="text-skinny text-md"
+        enctype="multipart/form-data">
         <div class="row pb-0">
             <div class="col-11 col-sm-6 col-md-5 mx-auto">
                 {% csrf_token %}
@@ -27,11 +28,14 @@
                 {% else %}
                 <div class="form-group">
                     <div id="div_id_unavailable" class="form-check">
-                        <label for="id_unavailable" class="form-check-label form-check-label-available container-radio text-skinny mx-auto pl-4">
+                        <label for="id_unavailable"
+                            class="form-check-label form-check-label-available container-radio text-skinny mx-auto pl-4">
                             {% if product.unavailable == True %}
-                            <input type="checkbox" name="unavailable" class="checkboxinput form-check-input" id="id_unavailable" checked>
+                            <input type="checkbox" name="unavailable" class="checkboxinput form-check-input"
+                                id="id_unavailable" checked>
                             {% else %}
-                            <input type="checkbox" name="unavailable" class="checkboxinput form-check-input" id="id_unavailable">
+                            <input type="checkbox" name="unavailable" class="checkboxinput form-check-input"
+                                id="id_unavailable">
                             {% endif %}
                             <span class="form-check-checkmark"></span>
                             Unavailable
@@ -55,29 +59,29 @@
 {% endblock %}
 
 {% block postloadjs %}
-    {{ block.super }}
-    <!-- Add/remove descriptive text when image file is changed -->
-    <script>
-        // jshint esversion: 6
-        $('#id_image').change(function () {
-            var file = $('#id_image')[0].files[0];
-            var label = $("label[for='" + $('#image-clear_id').attr('id') + "']");
-            $('#filename').addClass('text-success').removeClass('text-danger d-none');
-            $('#filename').html(`<br>Image will be set to: ${file.name}`);
-            label.removeClass('text-underline');
-            $('#image-clear_id').prop('checked', false);
-        });
+{{ block.super }}
+<!-- Add/remove descriptive text when image file is changed -->
+<script>
+    // jshint esversion: 6
+    $('#id_image').change(function () {
+        var file = $('#id_image')[0].files[0];
+        var label = $("label[for='" + $('#image-clear_id').attr('id') + "']");
+        $('#filename').addClass('text-success').removeClass('text-danger d-none');
+        $('#filename').html(`<br>Image will be set to: ${file.name}`);
+        label.removeClass('text-underline');
+        $('#image-clear_id').prop('checked', false);
+    });
 
-        $('#image-clear_id').change(function () {
-            var label = $("label[for='" + $(this).attr('id') + "']");
-            if ($('#image-clear_id').is(':checked')) {
-                label.addClass('text-underline');
-                $('#filename').addClass('text-danger').removeClass('text-success d-none');
-                $('#filename').html(`<br>Image will be set to: no-image.jpg`);
-            } else {
-                label.removeClass('text-underline');
-                $('#filename').addClass('d-none').removeClass('text-danger');
-            }
-        });
-    </script>
+    $('#image-clear_id').change(function () {
+        var label = $("label[for='" + $(this).attr('id') + "']");
+        if ($('#image-clear_id').is(':checked')) {
+            label.addClass('text-underline');
+            $('#filename').addClass('text-danger').removeClass('text-success d-none');
+            $('#filename').html(`<br>Image will be set to: no-image.jpg`);
+        } else {
+            label.removeClass('text-underline');
+            $('#filename').addClass('d-none').removeClass('text-danger');
+        }
+    });
+</script>
 {% endblock %}

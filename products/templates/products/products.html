@@ -12,7 +12,8 @@
 <section class="container-fluid bg-lightblue d-md-none">
     <div class="row pt-3 pb-0">
         <div class="col-12">
-            <div class="btn btn-light btn-sm mr-2 mr-sm-4" onclick="openFilters()">Filter <i class="fas fa-sliders-h"></i></div>
+            <div class="btn btn-light btn-sm mr-2 mr-sm-4" onclick="openFilters()">Filter <i
+                    class="fas fa-sliders-h"></i></div>
             <div class="btn btn-light btn-sm ml-2 ml-sm-4" onclick="openSort()">Sort <i class="fas fa-sort"></i></div>
         </div>
     </div>
@@ -58,22 +59,23 @@
             {% endif %}
         </div>
         {% if products %}
-            <div class="col-12 col-md-7 px-md-0 col-lg-8 col-xl-9">
-                <div class="row justify-content-center">
-                    {% for product in products %}
-                        {% include 'products/includes/product_covertiles.html' %}
-                    {% endfor %}
-                </div>
+        <div class="col-12 col-md-7 px-md-0 col-lg-8 col-xl-9">
+            <div class="row justify-content-center">
+                {% for product in products %}
+                {% include 'products/includes/product_covertiles.html' %}
+                {% endfor %}
             </div>
+        </div>
         {% else %}
-            <div class="col-11 col-sm-7 mx-auto no-search-results-container">
-                <div class="no-search-results">
-                    <hr class="mt-4 mb-2">
-                    <h2>No results!</h2>
-                    <span class="text-md text-skinny">Sorry about that! Try changing your search terms and give it another go!</span>
-                    <hr class="mt-2 mb-4">
-                </div>
+        <div class="col-11 col-sm-7 mx-auto no-search-results-container">
+            <div class="no-search-results">
+                <hr class="mt-4 mb-2">
+                <h2>No results!</h2>
+                <span class="text-md text-skinny">Sorry about that! Try changing your search terms and give it another
+                    go!</span>
+                <hr class="mt-2 mb-4">
             </div>
+        </div>
         {% endif %}
     </div>
     <div class="icon icon-black btn-up hide">
@@ -85,8 +87,8 @@
 {% endblock %}
 
 {% block postloadjs %}
-{{ block.super }}
-{% include 'products/includes/js_product_onload_animation.html' %}
-{% include 'products/includes/js_product_modal_control.html' %}
-{% include 'products/includes/js_product_scroll_button.html' %}
+    {{ block.super }}
+    {% include 'products/includes/js_product_onload_animation.html' %}
+    {% include 'products/includes/js_product_modal_control.html' %}
+    {% include 'products/includes/js_product_scroll_button.html' %}
 {% endblock %}

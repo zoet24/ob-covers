@@ -40,7 +40,8 @@
                 <a href="{% url 'order_history' order.order_number %}" title="{{ order.order_number }}">
                     <div class="text-dark orderhistory-product-text px-3 pt-3 text-center d-lg-none">
                         <span>
-                            <span class="orderhistory-product-title">Order number:<br></span>{{ order.order_number|truncatechars:16 }}
+                            <span class="orderhistory-product-title">Order
+                                number:<br></span>{{ order.order_number|truncatechars:16 }}
                         </span>
                         <br>
                         <span>
@@ -54,7 +55,8 @@
                     </div>
                     <div class="text-dark orderhistory-product-text px-3 pt-3 d-none d-lg-block">
                         <span>
-                            <span class="orderhistory-product-title">Order number: </span>{{ order.order_number|truncatechars:16 }}
+                            <span class="orderhistory-product-title">Order number:
+                            </span>{{ order.order_number|truncatechars:16 }}
                         </span>
                         <br>
                         <span>
@@ -71,8 +73,8 @@
                         <tr>
                             <th rowspan="4">
                                 {% if item.product.image %}
-                                <img class="cover-tile-image-xs mt-1 mx-3 " src="{{ MEDIA_URL }}{{ item.product.image }}"
-                                    alt="{{ item.product.name }}">
+                                <img class="cover-tile-image-xs mt-1 mx-3 "
+                                    src="{{ MEDIA_URL }}{{ item.product.image }}" alt="{{ item.product.name }}">
                                 {% else %}
                                 <img class="cover-tile-image-xs mt-1 mx-3" src="{{ MEDIA_URL }}no-image.jpg"
                                     alt="Blue outline of covers indicating no image">

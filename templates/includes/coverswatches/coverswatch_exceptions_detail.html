@@ -24,5 +24,7 @@
     <div class="d-none" id="productdetail-range">{{ product_swatch.range }}</div>
     <div class="d-none" id="productdetail-bgcolour">#6d9eff</div>
 {% else %}
-    <div class="cover-swatch cover-swatch-detail" style="background-color: {{product_swatch.colour.hex_colour}};border: {{product_swatch.colour.hex_border}} 1px solid;"></div>
+    <div class="cover-swatch cover-swatch-detail"
+        style="background-color: {{product_swatch.colour.hex_colour}};border: {{product_swatch.colour.hex_border}} 1px solid;">
+    </div>
 {% endif %}

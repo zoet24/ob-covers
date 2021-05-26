@@ -36,13 +36,15 @@
             <div class="card-body pt-0 pb-2">
                 <div class="form-check" id="productfilters-range" oninput="filterCategoriesRange()">
                     {% for range in ranges %}
-                        {% if range.name != "none" %}
-                        <label class="form-check-label container-radio text-skinny" for="{{range.name}}" id="{{range.name}}_label">
-                            <input class="form-check-input" type="radio" value="{{range.name}}" id="{{range.name}}" name="range">
-                            <span class="form-check-checkmark"></span>
-                            {{range.friendly_name}} ({{range.count}})
-                        </label>
-                        {% endif %}
+                    {% if range.name != "none" %}
+                    <label class="form-check-label container-radio text-skinny" for="{{range.name}}"
+                        id="{{range.name}}_label">
+                        <input class="form-check-input" type="radio" value="{{range.name}}" id="{{range.name}}"
+                            name="range">
+                        <span class="form-check-checkmark"></span>
+                        {{range.friendly_name}} ({{range.count}})
+                    </label>
+                    {% endif %}
                     {% endfor %}
                 </div>
             </div>
@@ -62,13 +64,15 @@
             <div class="card-body pt-0 pb-2">
                 <div class="form-check" oninput="filterCategoriesStyle()" id="productfilters-style">
                     {% for style in styles %}
-                        {% if style.name != "none" %}
-                        <label class="form-check-label container-radio text-skinny" for="{{style.name}}" id="{{style.name}}_label">
-                            <input class="form-check-input" type="radio" value="{{style.name}}" id="{{style.name}}" name="style">
-                            <span class="form-check-checkmark"></span>
-                            {{style.friendly_name}} ({{style.count}})
-                        </label>
-                        {% endif %}
+                    {% if style.name != "none" %}
+                    <label class="form-check-label container-radio text-skinny" for="{{style.name}}"
+                        id="{{style.name}}_label">
+                        <input class="form-check-input" type="radio" value="{{style.name}}" id="{{style.name}}"
+                            name="style">
+                        <span class="form-check-checkmark"></span>
+                        {{style.friendly_name}} ({{style.count}})
+                    </label>
+                    {% endif %}
                     {% endfor %}
                 </div>
             </div>
@@ -88,13 +92,15 @@
             <div class="card-body pt-0 pb-2">
                 <div class="form-check" oninput="filterCategoriesColour()" id="productfilters-colour">
                     {% for colour in colours %}
-                        {% if colour.name != "none" %}
-                        <label class="form-check-label container-radio text-skinny" for="{{colour.name}}" id="{{colour.name}}_label">
-                            <input class="form-check-input" type="radio" value="{{colour.name}}" id="{{colour.name}}" name="colour">
-                            <span class="form-check-checkmark"></span>
-                            {{colour.friendly_name}} ({{colour.count}})
-                        </label>
-                        {% endif %}
+                    {% if colour.name != "none" %}
+                    <label class="form-check-label container-radio text-skinny" for="{{colour.name}}"
+                        id="{{colour.name}}_label">
+                        <input class="form-check-input" type="radio" value="{{colour.name}}" id="{{colour.name}}"
+                            name="colour">
+                        <span class="form-check-checkmark"></span>
+                        {{colour.friendly_name}} ({{colour.count}})
+                    </label>
+                    {% endif %}
                     {% endfor %}
                 </div>
             </div>
@@ -113,13 +119,17 @@
             aria-labelledby="accordion-productfilters-other" data-parent="#accordion">
             <div class="card-body pt-0 pb-2">
                 <div class="form-check" oninput="filterCategoriesOther()" id="productfilters-other">
-                    <label class="form-check-label container-radio text-skinny" for="other-available" id="other-available_label">
-                        <input class="form-check-input" type="radio" value="unavailableisfalse" id="other-available" name="other">
+                    <label class="form-check-label container-radio text-skinny" for="other-available"
+                        id="other-available_label">
+                        <input class="form-check-input" type="radio" value="unavailableisfalse" id="other-available"
+                            name="other">
                         <span class="form-check-checkmark"></span>
                         Available ({{available_num}})
                     </label>
-                    <label class="form-check-label container-radio text-skinny" for="other-unavailable" id="other-unavailable_label">
-                        <input class="form-check-input" type="radio" value="unavailableistrue" id="other-unavailable" name="other">
+                    <label class="form-check-label container-radio text-skinny" for="other-unavailable"
+                        id="other-unavailable_label">
+                        <input class="form-check-input" type="radio" value="unavailableistrue" id="other-unavailable"
+                            name="other">
                         <span class="form-check-checkmark"></span>
                         Unavailable ({{unavailable_num}})
                     </label>

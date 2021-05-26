@@ -5,57 +5,57 @@
 {% load i18n %}
 
 {% block inner_content %}
-    <div class="allauth-hero-image">
-        <span class="sr-only"></span>
-    </div>
-    <div class="hero-image-overlay allauth-form-inner-content">
-        <div class="hero-image-overlay-text hero-image-overlay-text-left">
-            <div class="row allauth-heading-logo" style="display: none">
-                <div class="col">
-                    <img class="logo-allauth" src="{{ MEDIA_URL }}notproducts/logo-white.png"
+<div class="allauth-hero-image">
+    <span class="sr-only"></span>
+</div>
+<div class="hero-image-overlay allauth-form-inner-content">
+    <div class="hero-image-overlay-text hero-image-overlay-text-left">
+        <div class="row allauth-heading-logo" style="display: none">
+            <div class="col">
+                <img class="logo-allauth" src="{{ MEDIA_URL }}notproducts/logo-white.png"
                     alt="White Open Bionics logo" />
+            </div>
+        </div>
+        <form class="login" method="POST" action="{% url 'account_login' %}">
+            <div class="row allauth-content" style="display: none">
+                <div class="col-12 col-sm-6 col-md-5 mx-auto">
+                    {% csrf_token %}
+                    {% for field in form %}
+                    {% if field.name != 'remember' %}
+                    {{ field | as_crispy_field }}
+                    {% if redirect_field_value %}
+                    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                    {% endif %}
+                    {% endif %}
+                    {% endfor %}
+                </div>
+                <div class="col-12 col-sm-10 col-md-8 mx-auto">
+                    <!-- Error messages -->
+                    {% if form.errors %}
+                    {% for error in form.non_field_errors %}
+                    <hr class="alluth-hr my-2">
+                    <div class="alluth-error">
+                        <span>{{ error|escape }}</span>
+                    </div>
+                    <hr class="alluth-hr my-2">
+                    {% endfor %}
+                    {% endif %}
+                </div>
+                <div class="col-8 mx-auto">
+                    <!-- Other links -->
+                    <a href="{% url 'account_reset_password' %}">Forgot password?</a>
+                    <br>
+                    <a href="{{ signup_url }}">Need an account?</a>
+                    <br>
+                    <button class="btn btn-image m-2" type="submit">Log In</button>
                 </div>
             </div>
-            <form class="login" method="POST" action="{% url 'account_login' %}">
-                <div class="row allauth-content" style="display: none">
-                    <div class="col-12 col-sm-6 col-md-5 mx-auto">
-                        {% csrf_token %}
-                        {% for field in form %}
-                            {% if field.name != 'remember' %}
-                                {{ field | as_crispy_field }}
-                                {% if redirect_field_value %}
-                                    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-                                {% endif %}
-                            {% endif %}
-                        {% endfor %}
-                    </div>
-                    <div class="col-12 col-sm-10 col-md-8 mx-auto">
-                        <!-- Error messages -->
-                        {% if form.errors %}
-                            {% for error in form.non_field_errors %}
-                                <hr class="alluth-hr my-2">
-                                <div class="alluth-error">
-                                    <span>{{ error|escape }}</span>
-                                </div>
-                                <hr class="alluth-hr my-2">
-                            {% endfor %}
-                        {% endif %}
-                    </div>
-                    <div class="col-8 mx-auto">
-                        <!-- Other links -->
-                        <a href="{% url 'account_reset_password' %}">Forgot password?</a>
-                        <br>
-                        <a href="{{ signup_url }}">Need an account?</a>
-                        <br>
-                        <button class="btn btn-image m-2" type="submit">Log In</button>
-                    </div>
-                </div>
-            </form>     
-        </div>
+        </form>
     </div>
+</div>
 {% endblock %}
 
 {% block postloadjs %}
-{{ block.super }}
-{% include 'allauth/includes/js_allauth_onload_animation.html' %}
+    {{ block.super }}
+    {% include 'allauth/includes/js_allauth_onload_animation.html' %}
 {% endblock %}

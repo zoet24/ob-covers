@@ -1,21 +1,41 @@
 <!-- Disney range cover swatch -->
 <div>
-{% for product in disney_swatch %}
+    {% for product in disney_swatch %}
     {% if product.style.name == "ironMan" %}
-        <div class="cover-swatch cover-swatch-{{product.range.name}}" id="cover-swatch-{{product.range.name}}-{{product.style.name|lower}}-{{product.colour.name}}" style="background-color: #a31313;border: #f1c434 3px solid;"></div>
-        <div class="d-none" id="cover-swatch-{{product.range.name}}-{{product.style.name|lower}}-{{product.colour.name}}-background">#ee5e5e</div>
+    <div class="cover-swatch cover-swatch-{{product.range.name}}"
+        id="cover-swatch-{{product.range.name}}-{{product.style.name|lower}}-{{product.colour.name}}"
+        style="background-color: #a31313;border: #f1c434 3px solid;"></div>
+    <div class="d-none"
+        id="cover-swatch-{{product.range.name}}-{{product.style.name|lower}}-{{product.colour.name}}-background">#ee5e5e
+    </div>
     {% elif product.style.name == "bb8" %}
-        <div class="cover-swatch cover-swatch-{{product.range.name}}" id="cover-swatch-{{product.range.name}}-{{product.style.name|lower}}-{{product.colour.name}}" style="background-color: #ffffff;border: #ff841f 3px solid;"></div>
-        <div class="d-none" id="cover-swatch-{{product.range.name}}-{{product.style.name|lower}}-{{product.colour.name}}-background">#ffd06a</div>
+    <div class="cover-swatch cover-swatch-{{product.range.name}}"
+        id="cover-swatch-{{product.range.name}}-{{product.style.name|lower}}-{{product.colour.name}}"
+        style="background-color: #ffffff;border: #ff841f 3px solid;"></div>
+    <div class="d-none"
+        id="cover-swatch-{{product.range.name}}-{{product.style.name|lower}}-{{product.colour.name}}-background">#ffd06a
+    </div>
     {% elif product.style.name == "frozen" %}
-        <div class="cover-swatch cover-swatch-{{product.range.name}}" id="cover-swatch-{{product.range.name}}-{{product.style.name|lower}}-{{product.colour.name}}" style="background-color: #8ed1eb;border: #ffffff 3px solid;"></div>
-        <div class="d-none" id="cover-swatch-{{product.range.name}}-{{product.style.name|lower}}-{{product.colour.name}}-background">#d9ffff</div>
+    <div class="cover-swatch cover-swatch-{{product.range.name}}"
+        id="cover-swatch-{{product.range.name}}-{{product.style.name|lower}}-{{product.colour.name}}"
+        style="background-color: #8ed1eb;border: #ffffff 3px solid;"></div>
+    <div class="d-none"
+        id="cover-swatch-{{product.range.name}}-{{product.style.name|lower}}-{{product.colour.name}}-background">#d9ffff
+    </div>
     {% elif product.style.name == "r2d2" %}
-        <div class="cover-swatch cover-swatch-{{product.range.name}}" id="cover-swatch-{{product.range.name}}-{{product.style.name|lower}}-{{product.colour.name}}" style="background-color: #ffffff;border: #2222e2 3px solid;"></div>
-        <div class="d-none" id="cover-swatch-{{product.range.name}}-{{product.style.name|lower}}-{{product.colour.name}}-background">#6d9eff</div>
+    <div class="cover-swatch cover-swatch-{{product.range.name}}"
+        id="cover-swatch-{{product.range.name}}-{{product.style.name|lower}}-{{product.colour.name}}"
+        style="background-color: #ffffff;border: #2222e2 3px solid;"></div>
+    <div class="d-none"
+        id="cover-swatch-{{product.range.name}}-{{product.style.name|lower}}-{{product.colour.name}}-background">#6d9eff
+    </div>
     {% else %}
-        <div class="cover-swatch cover-swatch-{{product.range.name}}" id="cover-swatch-{{product.range.name}}-{{product.style.name|lower}}-{{product.colour.name}}" style="background-color: {{product.colour.hex_colour}};border: {{product.colour.hex_border}} 1px solid;"></div>
-        <div class="d-none" id="cover-swatch-{{product.range.name}}-{{product.style.name|lower}}-{{product.colour.name}}-background">{{product.colour.hex_background}}</div>
+    <div class="cover-swatch cover-swatch-{{product.range.name}}"
+        id="cover-swatch-{{product.range.name}}-{{product.style.name|lower}}-{{product.colour.name}}"
+        style="background-color: {{product.colour.hex_colour}};border: {{product.colour.hex_border}} 1px solid;"></div>
+    <div class="d-none"
+        id="cover-swatch-{{product.range.name}}-{{product.style.name|lower}}-{{product.colour.name}}-background">
+        {{product.colour.hex_background}}</div>
     {% endif %}
-{% endfor %}
+    {% endfor %}
 </div>
