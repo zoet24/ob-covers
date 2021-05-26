@@ -12,7 +12,8 @@ class ProductForm(forms.ModelForm):
     sku = forms.CharField(label='SKU')
     image = forms.ImageField(label='',
                              required=False, widget=CustomClearableFileInput)
-    image_url = forms.URLField(label='Image URL')
+    image_url = forms.URLField(label='Image URL',
+                               required=False)
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

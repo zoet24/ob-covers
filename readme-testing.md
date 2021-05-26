@@ -1,4 +1,4 @@
-# OB Covers - Testing
+# Open Bionics Covers - Testing
 
 ## Table of Contents
 
