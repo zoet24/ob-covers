@@ -3,6 +3,7 @@
 ## Table of Contents
 
 - [Testing During Development](#testing-during-development)
+- [Known Bugs](#known-bugs)
 - [Code Validation](#code-validation)
     - [HTML](#html)
     - [CSS](#css)
@@ -22,6 +23,11 @@ Throughout the development process I used the console.log() function to test my 
 - **628e0fa** - A missing {% load bag_tools %} at the top of my checkout_order_summary.html was causing a 500 error on my deployed site and a template syntax error on my development site. I had added it to the top of my main checkout.html page, but didn't realise that you had to apply it in subsequent includes files as well.
 - **dd7ee61** - After deploying to Heroku I noticed that the images on my development site didn't match those on my live site. After combing through the code for a full two days, I realised that I had changed the data on the MySQL database but not on the Postgres database which was an easy fix.
 - **afeaa1e** - Users can adjust the quantity of items from the product detail page and from the sidebar shopping basket - because the shopping sidebar is always available from every page this meant that when the product detail page was open there were two identical IDs controlling the quantity value, resulting in one of the quantity inputs not working properly. I resolved this by adding a second JavaScript function to control the quantities in the shopping basket.
+
+## Known Bugs
+- The race condition between the order form and the webhook handler occasionally creates duplicate orders for the user - when the order isn't created quickly enough by the form the webhook handler assumes an error has occurred and creates the order based on the webhook from Stripe, but then soon after the form finishes processing and creates the order again. This could be fixed by increasing the number of attempts in the `handle_payment_intent_succeeded` function or the delay between attempts, but this would potentially slow down the checkout process (and wouldn't guarantee that this bug would be eliminated!) I discovered this bug very close to my submission deadline so didn't have time to fix it but in the event Open Bionics opt to use my site fixing this bug would be a priority.
+- Currently when a product is deleted from the inventory it will be removed from any order confirmations that had a quantity of that product in it. While this is not user friendly, deleting the product does not cause the site to crash so I decided it was out of the scope of the project to fix this. In the event Open Bionics opt to use my site, fixing this bug would be a priority.
+- There is a small visual bug on the products menu on desktops - the user can scroll the filter menu past the footer. I ran out of time to fix this, but the menu retains its functionality so I didn't think it was critical to fix for project submission.
 
 ## Code Validation
 

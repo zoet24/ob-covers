@@ -8,11 +8,7 @@ I have worked for Open Bionics since 2016 - we are a medical engineering company
 
 This was the final of four Milestone Projects required to pass the Full Stack Web Development Program at _Code Institute_. The main requirements were to build a full-stack site based around business logic to control a centrally-owned dataset using HTML, CSS, JavaScript, Python and Django.
 
-Click **[here](https://github.com/zoet24/ob-covers)** to view the GitHub repository for the project, and click **[here](https://ob-covers.herokuapp.com/)** to view the live website. 
-
-Admin credentials are:
-- **Username:** admin
-- **Password:** obcovers
+Click **[here](https://github.com/zoet24/ob-covers)** to view the GitHub repository for the project, and click **[here](https://ob-covers.herokuapp.com/)** to view the live website. Admin credentials and/or demo available upon request.
 
 To test the payment transaction process please use:
 - **Credit card number:** 4242 4242 4242 4242
@@ -320,10 +316,11 @@ _Functionality_
 - The site could have an inventory model that would automatically update items as "low stock" or "out of stock" depending on how many had been purchased - as mentioned in my Information Architecture section I chose to not use this structure due to the nature of our business, but if we added more products to our range (eg. Open Bionics t-shirts, add-ons for the Hero Arm) then it would make sense to implement this.
 - I would like to add in the functionality for users to leave reviews and ratings for the products they had purchased.
 - I would like to add in a recommendation system that would suggest specific products to users who had made previous purchases.
+- The race condition between the order form and the webhook handler occasionally creates duplicate orders for the user - when the order isn't created quickly enough by the form the webhook handler assumes an error has occurred and creates the order based on the webhook from Stripe, but then soon after the form finishes processing and creates the order again. This could be fixed by increasing the number of attempts in the `handle_payment_intent_succeeded` function or the delay between attempts, but this would potentially slow down the checkout process (and wouldn't guarantee that this bug would be eliminated!) I discovered this bug very close to my submission deadline so didn't have time to fix it but in the event Open Bionics opt to use my site fixing this bug would be a priority.
 
 _Defensive design_
 - Currently when an admin user chooses to delete a product from the site there is no double check on whether they meant to do this - I would like to add a modal that pops up when the delete button is selected that asks "Are you sure you want to delete this?"
-- Currently when a product is deleted from the inventory it will be removed from any order confirmations that had a quantity of that product in it. While this is not user friendly, deleting the product does not cause the site to crash so I decided it was out of the scope of the project to fix this. If this site was ever going to be used by Open Bionics this is a bug that I would want to fix.
+- Currently when a product is deleted from the inventory it will be removed from any order confirmations that had a quantity of that product in it. While this is not user friendly, deleting the product does not cause the site to crash so I decided it was out of the scope of the project to fix this. In the event Open Bionics opt to use my site, fixing this bug would be a priority.
 
 _UX_
 - I would like to write a JavaScript function that would close the navigation and toast elements just by clicking outside the menu instead of having to click on the close button.
@@ -332,8 +329,8 @@ _UX_
 
 _Content_
 - There are a lot of features that could be added to the user's profile to make it more interactive for them, such as links to social media or contact details to our customer support team in case there is a problem with their order. I would also like to implement more of the allauth functionality, such as allowing the user to update their username and password from their account.
-- If this was actually going to be used by my company there are a lot of areas to build in promotions for the Hero Arm or new cover ranges.
-- I left out static pages like a blog, FAQs and a contact form as I wanted to focus on the more complex Django functionality, but adding these to a real site would improve the user experience.
+- In the event that Open Bionics opt to use my site there are a lot of areas to build in promotions for the Hero Arm or new cover ranges.
+- I left out static pages like a blog, FAQs and a contact form as I wanted to focus on the more complex Django functionality, but adding these would improve the user experience.
 
 ## Technologies used
 ### Languages and frameworks
@@ -349,7 +346,6 @@ _Content_
 - AWS S3: I used AWS for hosting media and static files on the Cloud.
 - GitHub: I used GitHub to store my source code and repository.
 - Gitpod: I used Gitpod's development environment to write the code for my project.
-- Stripe: I used Stripe to manage the test payment transactions.
 
 ### Additional tools used
 - Amiresponsive: I used this to produce the main image for my readme file and to test the responsiveness of my website.
@@ -361,6 +357,7 @@ _Content_
 - JSHint: I used this to test the validity of my JavaScript and JQuery code.
 - Lighthouse:
 - PEP8Online: I used this to test the compliance of my Python code.
+- Stripe: I used Stripe to manage the test payment transactions.
 - W3C CSS Validation Service: I used this to test the validity of my CSS code.
 - W3C Markup Validation Service: I used this to test the validity of my HTML5 code.
 

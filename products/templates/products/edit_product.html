@@ -25,15 +25,19 @@
                 {% if field.name != 'unavailable' %}
                 {{ field | as_crispy_field }}
                 {% else %}
-                <label class="form-check-label form-check-label-available container-radio text-skinny mx-auto pl-4">
-                    {% if product.available == True %}
-                    <input class="form-check-input" type="checkbox" checked>
-                    {% else %}
-                    <input class="form-check-input" type="checkbox">
-                    {% endif %}
-                    <span class="form-check-checkmark"></span>
-                    {{field.name | capfirst}}
-                </label>
+                <div class="form-group">
+                    <div id="div_id_unavailable" class="form-check">
+                        <label for="id_unavailable" class="form-check-label form-check-label-available container-radio text-skinny mx-auto pl-4">
+                            {% if product.unavailable == True %}
+                            <input type="checkbox" name="unavailable" class="checkboxinput form-check-input" id="id_unavailable" checked>
+                            {% else %}
+                            <input type="checkbox" name="unavailable" class="checkboxinput form-check-input" id="id_unavailable">
+                            {% endif %}
+                            <span class="form-check-checkmark"></span>
+                            Unavailable
+                        </label>
+                    </div>
+                </div>
                 {% endif %}
                 {% endfor %}
             </div>
