@@ -212,7 +212,8 @@ footer {
 .toast-container {
 	display: block;
 	left: 15px;
-	padding: 0;
+    padding: 0;
+    width: calc(100vw - 30px);
 	max-width: 350px;
 	z-index: 10;
 	border: none;
