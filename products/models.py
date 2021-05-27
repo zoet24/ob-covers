@@ -6,8 +6,8 @@ from colorfield.fields import ColorField
 class Range(models.Model):
 
     name = models.CharField(max_length=254)
-    friendly_name = models.CharField(max_length=254,
-                                     blank=True)
+    friendly_name = models.CharField(max_length=254, null=False,
+                                     blank=False, default="Range")
 
     def __str__(self):
         return self.name
@@ -19,8 +19,8 @@ class Range(models.Model):
 class Style(models.Model):
 
     name = models.CharField(max_length=254)
-    friendly_name = models.CharField(max_length=254,
-                                     blank=True)
+    friendly_name = models.CharField(max_length=254, null=False,
+                                     blank=False, default="Style")
 
     def __str__(self):
         return self.name
@@ -32,8 +32,8 @@ class Style(models.Model):
 class Colour(models.Model):
 
     name = models.CharField(max_length=254)
-    friendly_name = models.CharField(max_length=254,
-                                     blank=True)
+    friendly_name = models.CharField(max_length=254, null=False,
+                                     blank=False, default="Colour")
     hex_colour = ColorField(default='#FFFFFF')
     hex_background = ColorField(default='#FFFFFF')
     hex_border = ColorField(default='#FFFFFF')
@@ -46,7 +46,7 @@ class Colour(models.Model):
 
 
 class Product(models.Model):
-    sku = models.CharField(max_length=254,
+    sku = models.CharField(max_length=254, null=True,
                            blank=True)
     name = models.CharField(max_length=254)
     range = models.ForeignKey('Range', null=True,
@@ -57,8 +57,8 @@ class Product(models.Model):
                                blank=True, on_delete=models.SET_NULL)
     description = models.TextField()
     price = models.DecimalField(max_digits=6, decimal_places=2)
-    image = models.ImageField(blank=True)
-    image_url = models.URLField(max_length=1024, blank=True)
+    image = models.ImageField(null=True, blank=True)
+    image_url = models.URLField(max_length=1024, null=True, blank=True)
     unavailable = models.BooleanField(default=False)
 
     def __str__(self):
