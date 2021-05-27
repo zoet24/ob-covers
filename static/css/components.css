@@ -50,6 +50,11 @@ a:hover {
 	text-decoration: none;
 }
 
+a.text-link {
+	color: #1c86c8;
+	text-decoration: none;
+}
+
 a.text-link:hover {
 	color: #1c86c8;
 	text-decoration: underline;
